@@ -1,44 +1,34 @@
 # Midas — gomidas.co
 
-A brand new market for tokenised mining royalties — a perpetual, production-backed claim
-that has never been tradeable on its own. Underwritten one asset at a time, listed, sold in
-fractions. Single-file static site (`index.html`), hash-routed, no build step. Design system
-inherited from the midascfo.com build.
+The market for mining royalties. Single static `index.html`, no build step.
 
-**Positioning rule:** no incumbent names in outward copy. Midas is not "a tokenised
-Franco-Nevada" on the page — it asserts a new asset class and names the void ("Zero mining
-royalties trading on any exchange today"). Incumbent facts appear only deep in the page as
-evidence that the market is locked, never as aspiration. Kalshi's playbook, not a comparison ad.
+## Design direction (v2 — rebuilt from zero)
+"Engineered document, gold restraint," per deep research on Kalshi/Polymarket/Ondo/
+Hyperliquid/Percent/octamem + the royalty incumbents:
+- Light institutional page (near-white, targeting wealthy global investors) with TWO dark
+  terminal objects: the instrument certificate (hero) and the underwriting pipeline board.
+- Type: Switzer (Fontshare) display/body + JetBrains Mono for all data. NOT Space Grotesk/
+  Inter/cream — those are the AI-design cluster.
+- octamem-style § section numbering; Percent-style old-route-vs-Midas table + 5-step walkthrough.
+- One accent (#96762F text gold / #C6A15B button gold). No gradients on text, no stock photos.
 
-Note: the name is shared with the creator-finance Midas on midascfo.com. Different company,
-different site, same brand mark.
+## Copy rules (standing)
+- Category creation: no incumbent names anywhere. Name the void.
+- No UAE/Dubai in the marketing layer — global investors. Jurisdiction lives in #/disclosures only.
+- No return projections / target IRRs. Structures and sizes only.
+- No fake liquidity: the board is an underwriting pipeline, labelled PREVIEW / NOT AN OFFER,
+  rows 3-5 blurred behind Request Access.
+- Voice: blunt, human, Sam Parr rules. No "Until now." / tidy triples / em-dash flourishes.
 
-## Routes
-`#/home` `#/instrument` `#/howitworks` `#/underwriting` `#/market`
-`#/investors` `#/operators` `#/about` `#/faq` `#/access`
-`#/risk` `#/disclosures` `#/privacy` `#/terms`
+## Verified
+375px real-device emulation: zero overflow. Desktop 1440. No console errors. Values render
+without JS. NOTE: headless Chrome clamps layout to 500px min width — never trust a
+--window-size=390 screenshot for mobile QA; use the browser pane's mobile preset.
 
-Unknown hashes fall back to `#/home`.
-
-## Status
-Investor-ready. Verified: 14 routes, light + dark, mobile at 375px (no overflow, nothing
-stuck invisible), no console errors, calculator maths correct at both extremes.
-`og-image.jpg` generated. Hero board shows true values with no JS and in background tabs;
-the count-up is a progressive enhancement only.
+## Before investors
+- [ ] UAE counsel review of #/disclosures (written defensively, not vetted)
+- [ ] Confirm the licensed entity referenced in disclosures
+- [ ] Netlify deploy activates the access form (currently records nothing)
 
 ## Local
-    node .claude/serve_midas_royalty.js      # from the 2nd Brain vault, serves :4455
-
-## Before showing investors
-- [ ] **Legal review of `#/disclosures`** by UAE counsel — written defensively, not vetted
-- [ ] Confirm the licensed entity + permissions referenced on `#/disclosures` and `#/faq`
-- [ ] Decide whether the board stays illustrative or gets real listings (it is clearly
-      labelled "INDICATIVE — NOT AN OFFER" throughout; the Sierra Leone deal is generalised
-      to "West Africa — iron ore" so no live counterparty is identified)
-- [ ] Advisors: nothing published until mandates are signed and wording approved
-- [ ] Netlify form named `access` must exist for submissions to land
-
-## Copy standard
-Written to Sam Parr's rules: punch the first line, one point per sentence, a comma becomes
-a period, then cut a third twice. Home page is ~1,250 words across 10 short bands.
-Keep it that way — every future section should earn its text.
+node "/Users/lavinehemlani/Desktop/2nd Brain/.claude/serve_midas_royalty.js"  # :4455

@@ -3,1354 +3,675 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Midas is building the first market for tokenised mining royalties — a perpetual, production-backed claim that has never been tradeable on its own. Underwritten one asset at a time, listed, and sold in fractions. For qualified investors and mining operators." />
-<meta property="og:title" content="Midas — trade what comes out of the ground" />
-<meta property="og:description" content="Every mine sells something. None of that revenue has ever been tradeable on its own. Midas is building the market where it is." />
+<meta name="description" content="Midas is building the first market for mining royalties — a claim on a mine's revenue, registered against the licence, underwritten one asset at a time and opened to qualified investors from $25,000." />
+<meta property="og:title" content="The best asset in mining has never been for sale." />
+<meta property="og:description" content="Midas underwrites mining royalties one at a time — engineers, geologists, legal — then opens them to qualified investors. First instruments in underwriting now." />
 <meta property="og:image" content="https://gomidas.co/og-image.jpg" />
-<meta property="og:image:secure_url" content="https://gomidas.co/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:alt" content="Midas — the market for mining royalties" />
 <meta property="og:url" content="https://gomidas.co/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Midas" />
-<meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Midas — trade what comes out of the ground" />
-<meta name="twitter:description" content="A new asset class: perpetual, production-backed claims on mine revenue. Underwritten, fractionalised, tradeable." />
+<meta name="twitter:title" content="The best asset in mining has never been for sale." />
+<meta name="twitter:description" content="Mining royalties, underwritten one at a time and opened to qualified investors." />
 <meta name="twitter:image" content="https://gomidas.co/og-image.jpg" />
 <link rel="canonical" href="https://gomidas.co/" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%AA%99</text></svg>" />
 <title>Midas — the market for mining royalties</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400..800;1,400..700&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    color-scheme: light;
-    --ground: #fbfaf8;
-    --ground-alt: #efe9df;
-    --surface: #ffffff;
-    --surface-2: #f4f1ec;
-    --hairline: rgba(20,17,12,.11);
-    --hairline-strong: rgba(20,17,12,.20);
-    --ink: #16130f;
-    --ink-soft: #4e483f;
-    --ink-faint: #7d766b;
-    --gold: #8f6420;
-    --gold-deep: #6e4c15;
-    --gold-lift: #a87e2e;
-    --gold-wash: rgba(143,100,32,.09);
-    --good: #177a56;
-    --warn: #a34d06;
-    --crit: #b02a2a;
-    --shadow: 0 1px 2px rgba(20,17,12,.05), 0 14px 40px -16px rgba(20,17,12,.14);
-    --display: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
-    --maxw: 1120px;
+  :root{
+    --bg:#FDFDFB; --panel:#FFFFFF; --panel-2:#F5F4EF; --line:#E4E2D9; --line-soft:#EEEDE6;
+    --ink:#171410; --mut:#6E675C; --dim:#9B948A;
+    --gold:#96762F; --gold-soft:rgba(150,118,47,.09); --gold-line:rgba(150,118,47,.38);
+    --gold-btn:#C6A15B;
+    --bar:#E6E0D2;
+    --green:#1E8A5E;
+    --disp:"Switzer","Inter",system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --maxw:1100px;
+  }
+  .dk{
+    --panel:#13161B; --panel-2:#171B21; --line:#232830; --line-soft:#1A1E24;
+    --ink:#EDEAE3; --mut:#8A8F98; --dim:#5C6169;
+    --gold:#C6A15B; --gold-soft:rgba(198,161,91,.12); --gold-line:rgba(198,161,91,.35);
+    --bar:#2A2F37;
+    color:var(--ink);
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  html,body{overflow-x:clip}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);
+    font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  ::selection{background:var(--gold-btn);color:#171410}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .mono{font-family:var(--mono)}
+  .num{font-variant-numeric:tabular-nums}
+
+  /* ---------- ambient commodity strip ---------- */
+  .tick{border-bottom:1px solid var(--line-soft);background:var(--bg)}
+  .tick .wrap{display:flex;align-items:center;gap:26px;padding:9px 28px;overflow:hidden;white-space:nowrap}
+  .tick .lab{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dim)}
+  .tick .q{font-family:var(--mono);font-size:11px;color:var(--mut);display:flex;gap:8px;align-items:baseline}
+  .tick .q b{color:var(--ink);font-weight:500}
+  .tick .q i{font-style:normal;color:var(--dim);font-size:10px}
+  @media(max-width:760px){.tick .q:nth-child(n+5){display:none}}
+
+  /* ---------- nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(253,253,251,.88);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-soft)}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:600;font-size:19px;letter-spacing:.01em;text-decoration:none}
+  .coin{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:700;color:#100c04;
+    background:radial-gradient(circle at 32% 28%,#E8CE96,#8F6F33 78%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+  .nlinks{display:flex;align-items:center;gap:30px}
+  .nlinks a{font-size:14px;color:var(--mut);text-decoration:none;transition:color .15s}
+  .nlinks a:hover{color:var(--ink)}
+  .btn{display:inline-block;border-radius:9px;padding:12px 22px;font-size:14.5px;font-weight:600;
+    text-decoration:none;cursor:pointer;border:1px solid transparent;font-family:var(--disp);
+    transition:transform .15s ease,background .15s ease,border-color .15s}
+  .btn-gold{background:var(--gold-btn);color:#171410;font-weight:600}
+  .nlinks a.btn-gold,.nlinks a.btn-gold:hover{color:#171410}
+  .btn-gold:hover{transform:translateY(-1px);background:#B8933F}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+  .btn-ghost:hover{border-color:var(--mut)}
+  .nav .btn{padding:10px 18px}
+  .burger{display:none;background:none;border:0;color:var(--ink);font-size:22px;cursor:pointer;padding:4px}
+  .mmenu{display:none;flex-direction:column;border-top:1px solid var(--line-soft);background:var(--bg);padding:6px 28px 18px}
+  .mmenu a{padding:13px 0;border-bottom:1px solid var(--line-soft);color:var(--ink);text-decoration:none;font-size:16px}
+  .mmenu a:last-child{border:0}
+  @media(max-width:820px){.nlinks{display:none}.burger{display:block}.mmenu.open{display:flex}}
+
+  /* ---------- section frame ---------- */
+  section{padding:140px 0;border-top:1px solid var(--line-soft);position:relative}
+  section:first-of-type{border-top:0}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+  h2{font-size:clamp(1.9rem,1.3rem + 2.4vw,3.1rem);line-height:1.06;letter-spacing:-.025em;
+    font-weight:600;margin:18px 0 0;max-width:22ch;text-wrap:balance}
+  .lede{margin:20px 0 0;color:var(--mut);font-size:1.08rem;max-width:52ch;line-height:1.55}
+
+  /* ---------- hero ---------- */
+  .hero{padding:0;border-top:0}
+  .hero-in{max-width:var(--maxw);margin:0 auto;padding:96px 28px 110px;display:grid;}
+  .hero-in>*{min-width:0}
+  .hero-in{
+    grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;min-height:min(72vh,720px)}
+  @media(max-width:920px){.hero-in{grid-template-columns:1fr;gap:56px;padding-top:70px}}
+  h1{font-size:clamp(2.6rem,1.5rem + 4.6vw,4.5rem);line-height:1.02;letter-spacing:-.035em;
+    font-weight:600;margin:26px 0 0;max-width:15ch;text-wrap:balance}
+  h1 .g{color:var(--gold)}
+  .hero-sub{margin:26px 0 0;color:var(--mut);font-size:1.12rem;line-height:1.55;max-width:46ch}
+  .hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-note{margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--dim)}
+
+  /* the instrument */
+  .stage{position:relative;perspective:1100px}
+  .topo{position:absolute;inset:-60px 0;opacity:.5;pointer-events:none}
+  @media(min-width:920px){.topo{inset:-60px -40px}}
+  .topo path{fill:none;stroke:var(--line);stroke-width:1}
+  .cert{position:relative;background:linear-gradient(165deg,var(--panel-2),var(--panel) 60%);
+    border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;width:100%;max-width:430px;
+    margin-left:auto;box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 34px 70px -24px rgba(23,20,16,.45);
+    transform-style:preserve-3d;transition:transform .25s ease;will-change:transform}
+  .cert-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--line-soft)}
+  .cert-id{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--mut)}
+  .chip{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--gold);
+    border:1px solid var(--gold-line);border-radius:6px;padding:4px 8px}
+  .cert-rate{margin-top:20px;font-size:2.7rem;font-weight:600;letter-spacing:-.03em;line-height:1}
+  .cert-rate small{font-size:.95rem;color:var(--mut);font-weight:500;letter-spacing:0;margin-left:10px}
+  .cert-meta{margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mut)}
+  .cert svg.flow{display:block;width:100%;height:96px;margin-top:20px}
+  .cert-foot{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:16px;border-top:1px solid var(--line-soft)}
+  .cert-min{font-size:13.5px;color:var(--ink)}
+  .cert-min span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--dim);margin-top:3px}
+  .seal{width:56px;height:56px;border-radius:50%;border:1px solid var(--gold-line);display:grid;place-items:center;flex:none;transform:rotate(-8deg)}
+  .seal span{font-family:var(--mono);font-size:7px;letter-spacing:.12em;color:var(--gold);text-align:center;line-height:1.5}
+
+  /* ---------- void: stats + timeline ---------- */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);
+    border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;margin-top:56px}
+  @media(max-width:720px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--panel);padding:30px 28px}
+  .stat .n{font-size:clamp(2rem,1.5rem + 1.8vw,2.9rem);font-weight:600;letter-spacing:-.03em;color:var(--gold);font-variant-numeric:tabular-nums}
+  .stat .k{margin-top:8px;font-size:13.5px;color:var(--mut);line-height:1.45;max-width:24ch}
+  .tline{margin-top:64px}
+  .tline svg{display:block;width:100%;height:110px}
+  .tline-cap{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim)}
+
+
+  /* old route vs midas */
+  .oldnew{margin-top:64px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:820px}
+  .oldnew table{width:100%;border-collapse:collapse}
+  .oldnew th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);text-align:left;
+    padding:16px 24px 12px;border-bottom:1px solid var(--line-soft);font-weight:500}
+  .oldnew th.g{color:var(--gold)}
+  .oldnew td{padding:15px 24px;font-size:14.5px;border-top:1px solid var(--line-soft);color:var(--mut)}
+  .oldnew td:first-child{font-weight:600;color:var(--ink);font-size:14px}
+  .oldnew td.g{color:var(--ink);font-weight:600;background:var(--gold-soft)}
+  @media(max-width:640px){.oldnew td,.oldnew th{padding:12px 14px;font-size:12.5px}}
+
+  /* ---------- anatomy waterfall ---------- */
+  .wf{margin-top:60px;display:flex;flex-direction:column;gap:14px;max-width:760px}
+  .wf-row{display:grid;grid-template-columns:170px 1fr;gap:18px;align-items:center}
+  @media(max-width:600px){.wf-row{grid-template-columns:1fr;gap:6px}}
+  .wf-lab{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mut);text-align:right}
+  @media(max-width:600px){.wf-lab{text-align:left}}
+  .wf-bar{height:34px;border-radius:7px;background:var(--panel-2);border:1px solid var(--line-soft);overflow:hidden;position:relative}
+  .wf-fill{height:100%;width:0;border-radius:6px;background:var(--bar);
+    transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+  .wf-row.gold .wf-lab{color:var(--gold)}
+  .wf-row.gold .wf-fill{background:linear-gradient(90deg,#B08A3E,var(--gold-btn))}
+  .wf-row.gold .wf-bar{border-color:var(--gold-line)}
+  .in .wf-fill{width:var(--w)}
+  .wf-note{display:grid;grid-template-columns:170px 1fr;gap:18px;margin-top:2px}
+  .wf-note p{grid-column:2;font-size:13px;color:var(--mut);margin:0}
+  @media(max-width:600px){.wf-note{grid-template-columns:1fr}.wf-note p{grid-column:1}}
+  .traits{margin-top:54px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:14px;overflow:hidden}
+  @media(max-width:860px){.traits{grid-template-columns:1fr 1fr}}
+  .trait{background:var(--panel);padding:22px}
+  .trait b{display:block;font-size:14.5px;font-weight:600}
+  .trait p{margin:7px 0 0;font-size:12.5px;color:var(--mut);line-height:1.5}
+
+  /* ---------- underwriting rail ---------- */
+  .rail{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+  @media(max-width:960px){.rail{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.rail{grid-template-columns:1fr}}
+  .doc{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 22px 22px;overflow:hidden}
+  .doc .ref{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;
+    color:var(--dim);border:1px solid var(--line);border-radius:5px;padding:3px 7px;transform:rotate(4deg)}
+  .doc .no{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.14em}
+  .doc h3{margin:14px 0 0;font-size:1.12rem;font-weight:600;letter-spacing:-.01em}
+  .doc p{margin:10px 0 0;font-size:13.5px;color:var(--mut);line-height:1.55}
+  .rej{margin-top:34px;font-size:14px;color:var(--mut);max-width:56ch}
+  .rej b{color:var(--ink)}
+
+  /* ---------- pipeline board ---------- */
+  .board{margin-top:56px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .b-top{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;
+    border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .b-title{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink)}
+  .b-title i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--gold-soft)}
+  .b-note{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--dim)}
+  .b-head,.b-row{display:grid;grid-template-columns:110px 1.2fr 1.2fr 130px 90px 150px;gap:14px;
+    padding:15px 22px;align-items:center}
+  .b-head{padding:11px 22px;border-bottom:1px solid var(--line-soft)}
+  .b-head span{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--dim)}
+  .b-row{border-top:1px solid var(--line-soft);font-size:13.5px;transition:background .15s}
+  .b-row:hover{background:rgba(255,255,255,.018)}
+  .b-row .id{font-family:var(--mono);font-size:11.5px;color:var(--gold);letter-spacing:.06em}
+  .b-row .c1{font-weight:600}
+  .b-row .c2{color:var(--mut)}
+  .b-row .st{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+  .b-row .sz{font-family:var(--mono);font-size:11.5px;color:var(--mut)}
+  .dots{display:flex;align-items:center;gap:6px}
+  .dots i{width:6px;height:6px;border-radius:50%;background:var(--line)}
+  .dots i.on{background:var(--gold)}
+  .dots i.live{background:var(--gold);animation:pulse 2.2s infinite}
+  .dots em{font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--mut);margin-left:6px}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 var(--gold-soft)}50%{box-shadow:0 0 0 5px var(--gold-soft)}}
+  .b-lock{position:relative}
+  .b-lock .b-row{filter:blur(5px);pointer-events:none;user-select:none}
+  .b-veil{position:absolute;inset:0;display:grid;place-items:center;
+    background:linear-gradient(180deg,rgba(19,22,27,.25),rgba(19,22,27,.8))}
+  .b-cap{padding:13px 22px;border-top:1px solid var(--line-soft);font-family:var(--mono);
+    font-size:9.5px;letter-spacing:.1em;color:var(--dim)}
+  @media(max-width:860px){
+    .b-head{display:none}
+    .b-row{grid-template-columns:1fr 1fr;gap:8px 14px}
+    .b-row .id{grid-column:1/-1}
   }
 
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --ground:#121212; --ground-alt:#191919; --surface:rgba(255,255,255,.035); --surface-2:rgba(255,255,255,.055);
-    --hairline:rgba(255,255,255,.09); --hairline-strong:rgba(255,255,255,.16);
-    --ink:#fafafa; --ink-soft:#b7b1a7; --ink-faint:#837d73;
-    --gold:#c8a55a; --gold-deep:#9a7638; --gold-lift:#e0c483; --gold-wash:rgba(200,165,90,.10);
-    --good:#38c996; --warn:#e0a13a; --crit:#ef6a6a;
-    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 24px 60px -20px rgba(0,0,0,.6);
+  /* ---------- operators ---------- */
+  .ops{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:56px;align-items:start}
+  @media(max-width:860px){.ops{grid-template-columns:1fr}}
+  .ts{background:var(--panel);border:1px solid var(--gold-line);border-radius:14px;overflow:hidden}
+  .ts-top{padding:14px 24px;border-bottom:1px solid var(--line);background:var(--gold-soft);
+    font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--gold)}
+  .ts-row{display:flex;justify-content:space-between;gap:20px;padding:15px 24px;border-top:1px solid var(--line-soft);font-size:14px}
+  .ts-row:first-of-type{border-top:0}
+  .ts-row span{color:var(--mut)}
+  .ts-row b{font-weight:600;text-align:right}
+  .ts-foot{padding:14px 24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--gold)}
+  .cmp{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .cmp table{width:100%;border-collapse:collapse}
+  .cmp th{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--dim);
+    text-align:left;padding:14px 18px 10px;border-bottom:1px solid var(--line-soft);font-weight:500}
+  .cmp td{padding:13px 18px;font-size:13px;border-top:1px solid var(--line-soft);color:var(--mut)}
+  .cmp td:first-child{color:var(--ink);font-weight:600;font-size:13.5px}
+  .cmp tr.gold td{color:var(--ink)}
+  .cmp tr.gold td:first-child{color:var(--gold)}
+  .ops-cta{margin-top:34px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .ops-note{font-size:13px;color:var(--dim);max-width:38ch}
+
+  /* ---------- standards ---------- */
+  .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+  @media(max-width:860px){.grid6{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.grid6{grid-template-columns:1fr}}
+  .std{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:24px 22px}
+  .std .ix{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--gold)}
+  .std b{display:block;margin-top:12px;font-size:15px;font-weight:600}
+  .std p{margin:8px 0 0;font-size:13px;color:var(--mut);line-height:1.55}
+
+
+  /* five steps */
+  .steps5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:52px}
+  @media(max-width:960px){.steps5{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:620px){.steps5{grid-template-columns:1fr}}
+  .s5{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:22px 20px;position:relative}
+  .s5 .ix{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--gold)}
+  .s5 b{display:block;margin-top:12px;font-size:15px;font-weight:600}
+  .s5 p{margin:7px 0 0;font-size:12.5px;color:var(--mut);line-height:1.5}
+
+  /* ---------- founder ---------- */
+  .fdr{display:grid;grid-template-columns:250px 1fr;gap:52px;margin-top:56px;align-items:start}
+  @media(max-width:760px){.fdr{grid-template-columns:1fr;gap:30px}}
+  .fdr img{width:100%;border-radius:14px;border:1px solid var(--line);display:block;filter:saturate(.9)}
+  .fdr .nm{font-size:1.3rem;font-weight:600;margin:0}
+  .fdr .rl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--gold);margin-top:8px}
+  .fdr p{color:var(--mut);font-size:15.5px;line-height:1.65;margin:18px 0 0;max-width:56ch}
+  .fdr p b{color:var(--ink)}
+
+  /* ---------- faq ---------- */
+  .faq{margin-top:44px;max-width:780px}
+  .faq details{border-bottom:1px solid var(--line-soft)}
+  .faq summary{cursor:pointer;list-style:none;padding:22px 0;font-size:1.05rem;font-weight:600;
+    display:flex;justify-content:space-between;gap:24px;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--gold);font-size:1.3rem;font-weight:400;flex:none}
+  .faq details[open] summary::after{content:"–"}
+  .faq .a{color:var(--mut);font-size:14.5px;line-height:1.65;padding:0 0 24px;max-width:64ch}
+
+  /* ---------- access ---------- */
+  .access .wrap{max-width:620px}
+  .aform{margin-top:44px}
+  .aform label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);margin:0 0 8px}
+  .aform input,.aform select{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;font-size:15px;color:var(--ink);font-family:var(--disp);margin-bottom:18px}
+  .aform input:focus,.aform select:focus{outline:none;border-color:var(--gold-line)}
+  .aform select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--mut) 50%),linear-gradient(135deg,var(--mut) 50%,transparent 50%);
+    background-position:calc(100% - 21px) 50%,calc(100% - 16px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+  .aform .btn{width:100%;text-align:center;padding:15px}
+  .a-note{margin-top:16px;font-size:12px;color:var(--dim);line-height:1.6}
+  .a-done{margin-top:44px;background:var(--panel);border:1px solid var(--gold-line);border-radius:14px;padding:34px;display:none}
+  .a-done h3{margin:0;font-size:1.3rem}
+  .a-done p{color:var(--mut);font-size:14.5px;margin:12px 0 0}
+  .hp{position:absolute;left:-9999px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line-soft);padding:52px 0 60px}
+  .f-in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .f-legal{font-size:11.5px;color:var(--dim);line-height:1.7;max-width:62ch}
+  .f-links{display:flex;gap:22px;flex-wrap:wrap}
+  .f-links a{font-size:12.5px;color:var(--mut);text-decoration:none}
+  .f-links a:hover{color:var(--ink)}
+
+  /* ---------- legal pages (preserved) ---------- */
+  .band{padding:100px 0}
+  .legal{max-width:720px}
+  .legal .lh{font-size:clamp(1.8rem,1.3rem+1.8vw,2.4rem);font-weight:600;letter-spacing:-.02em;margin:0 0 6px}
+  .legal .eff{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.08em;margin:12px 0 26px}
+  .legal h3{font-size:1.15rem;font-weight:600;margin:30px 0 8px}
+  .legal p,.legal li{color:var(--mut);font-size:14.5px;line-height:1.65}
+  .legal a{color:var(--gold)}
+  .legal ul{padding-left:20px}
+
+  /* ---------- reveal ---------- */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    .wf-fill{transition:none;width:var(--w)}
+    .dots i.live{animation:none}
+    html{scroll-behavior:auto}
   }
+</style>
+</head>
+<body>
 
+<div class="tick" aria-hidden="true">
+  <div class="wrap">
+    <span class="lab">INDICATIVE SPOT</span>
+    <span class="q"><i>AU</i> <b data-v="2612" data-d="2">2,612.00</b> <i>/oz</i></span>
+    <span class="q"><i>CU</i> <b data-v="4.31" data-d="2">4.31</b> <i>/lb</i></span>
+    <span class="q"><i>FE</i> <b data-v="104.80" data-d="2">104.80</b> <i>/t</i></span>
+    <span class="q"><i>ZN</i> <b data-v="1.28" data-d="2">1.28</b> <i>/lb</i></span>
+    <span class="q"><i>SN</i> <b data-v="31450" data-d="0">31,450</b> <i>/t</i></span>
+    <span class="lab" style="margin-left:auto">CONTEXT ONLY</span>
+  </div>
+</div>
 
-  * { box-sizing: border-box; }
-  body { margin: 0; }
-  .page {
-    background: var(--ground);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-  h1,h2,h3 { font-family: var(--display); font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; margin: 0; }
-  p { margin: 0; }
-  a { color: inherit; }
-  h1, h2, h3, h4, .hero-h { letter-spacing: -.03em; font-weight: 600; line-height: 1.04; }
-  body { letter-spacing: -.011em; }
-  .band.stripe, .trust.stripe { background: var(--ground-alt); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-  .label {
-    font-family: var(--display); font-size: .95rem; letter-spacing: .005em;
-    text-transform: none; color: var(--gold); font-weight: 560; display: inline-block;
-  }
-
-  .gold-text {
-    background: linear-gradient(100deg, var(--gold-deep), var(--gold-lift), var(--gold));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
-    border-radius: 999px; padding: 14px 26px; font-size: 15px; font-weight: 600;
-    font-family: var(--body); text-decoration: none; border: 1px solid transparent;
-    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-  }
-  .btn-primary, .btn-primary:link, .btn-primary:visited { background: var(--ink); color: var(--ground) !important; font-weight: 600; border-color: var(--ink); box-shadow: 0 6px 18px -8px rgba(20,17,12,.45); }
-  .btn-primary:hover { background: var(--gold); border-color: var(--gold); color: #fff !important; }
-  .btn-primary:hover { transform: translateY(-1px); }
-  .btn-ghost { border-color: var(--hairline-strong); color: var(--ink); background: var(--surface); }
-  .btn-ghost:hover { border-color: var(--ink); }
-  .btn-ghost:hover { background: var(--surface); }
-
-  /* ---- top bar ---- */
-  .nav { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(14px);
-    background: color-mix(in srgb, var(--ground) 78%, transparent); border-bottom: 1px solid var(--hairline); }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; max-width: var(--maxw); margin: 0 auto; }
-  .brand { display: flex; align-items: center; gap: 11px; font-family: var(--display); font-size: 22px; letter-spacing: .01em; }
-  .coin { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
-    background: radial-gradient(circle at 32% 28%, var(--gold-lift), var(--gold-deep) 78%);
-    color: #241a08; font-family: var(--display); font-size: 15px; font-weight: 600;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.25), 0 2px 8px -2px rgba(0,0,0,.4); }
-  .nav-links { display: flex; align-items: center; gap: 28px; }
-  .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 14.5px; }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-links a.rlink { cursor: pointer; }
-  .nav-links a.active { color: var(--ink); }
-  .nav-links a.active::after { content: ""; display: block; height: 1.5px; background: var(--gold); margin-top: 3px; border-radius: 2px; }
-  .nav-dd { position: relative; }
-  .nav-dd .dd-btn { background: none; border: 0; color: var(--ink-soft); font-size: 14.5px; font-family: var(--body); cursor: pointer; padding: 0; }
-  .nav-dd .dd-btn:hover { color: var(--ink); }
-  .dd-menu { position: absolute; top: calc(100% + 14px); left: -14px; background: var(--ground); border: 1px solid var(--hairline-strong); border-radius: 14px; padding: 8px; min-width: 300px; display: none; box-shadow: var(--shadow); z-index: 60; }
-  .nav-dd:hover .dd-menu, .nav-dd.open .dd-menu { display: block; }
-  .dd-menu a { display: block; padding: 11px 14px; border-radius: 10px; text-decoration: none; }
-  .dd-menu a:hover { background: var(--surface-2); }
-  .dd-menu a b { display: block; color: var(--ink); font-size: 14.5px; font-weight: 650; }
-  .dd-menu a span { display: block; color: var(--ink-faint); font-size: 12px; margin-top: 2px; }
-  .theme-toggle { background: none; border: 1px solid var(--hairline-strong); border-radius: 999px; color: var(--ink-soft); width: 34px; height: 34px; font-size: 15px; line-height: 1; cursor: pointer; margin-left: 14px; }
-  .theme-toggle:hover { color: var(--ink); }
-  .hamburger { display: none; background: none; border: 0; color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; padding: 6px 4px; }
-  .mobile-menu { display: none; flex-direction: column; padding: 4px 28px 18px; background: var(--ground); border-top: 1px solid var(--hairline); }
-  .mobile-menu a { text-decoration: none; color: var(--ink); font-size: 17px; padding: 15px 2px; border-bottom: 1px solid var(--hairline); }
-  .mobile-menu a.active { color: var(--gold); }
-  .mobile-menu a.mm-apply { border: 0; margin-top: 16px; text-align: center; color: #17120a; padding: 15px 20px; }
-  @media (max-width: 720px){
-    .nav-links { display: none; }
-    .hamburger { display: block; }
-    .mobile-menu.open { display: flex; }
-  }
-  @media (min-width: 721px){ .mobile-menu { display: none !important; } }
-
-  /* ---- hero ---- */
-  .hero { position: relative; padding: 124px 0 96px; }
-  .grid-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0;
-    background-image: linear-gradient(var(--hairline) 1px, transparent 1px), linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
-    background-size: 58px 58px;
-    -webkit-mask-image: radial-gradient(680px 420px at 50% 8%, #000, transparent 78%);
-    mask-image: radial-gradient(680px 420px at 50% 8%, #000, transparent 78%); }
-  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
-  .hero-copy { min-width: 0; }
-  @media (max-width: 940px){ .hero-inner { grid-template-columns: 1fr; gap: 36px; } }
-  /* VSL */
-  .vsl { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--hairline-strong);
-    background: var(--surface-2); box-shadow: var(--shadow); aspect-ratio: 16/10; }
-  .vsl video, .vsl img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .vsl .play { position: absolute; inset: 0; display: grid; place-items: center; border: 0; cursor: pointer;
-    background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.52)); }
-  .vsl .play span { width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center;
-    background: var(--gold); color: #fff; font-size: 24px; padding-left: 5px;
-    box-shadow: 0 10px 34px -8px rgba(0,0,0,.5); }
-  .vsl .vcap { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 18px; color: #fff;
-    font-size: 13.5px; text-shadow: 0 1px 8px rgba(0,0,0,.6); pointer-events: none; }
-  .vsl .vcap b { display: block; font-family: var(--display); font-size: 1.02rem; font-weight: 600; }
-  .eyebrow-row { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
-  .eyebrow-row .label.callout {
-    font-family: var(--body); font-size: clamp(1.35rem, 1.05rem + 1vw, 2.05rem);
-    letter-spacing: .01em; text-transform: none; font-weight: 600; color: var(--ink);
-  }
-  .eyebrow-row .label.callout b { color: var(--gold); font-weight: 600; }
-  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px var(--gold-wash); }
-  h1.hero-h { font-size: clamp(2.9rem, 1.7rem + 5.1vw, 5.7rem); line-height: 1.0; max-width: 12ch; }
-  .hero-sub { margin-top: 26px; max-width: 34ch; font-size: clamp(1.1rem, 1rem + .65vw, 1.45rem); color: var(--ink-soft); line-height: 1.45; }
-  .hero-cta { margin-top: 38px; display: flex; gap: 14px; flex-wrap: wrap; }
-  .hero-note { margin-top: 20px; font-size: 13.5px; color: var(--ink-faint); }
-  .hero-sec { margin-top: 16px; font-size: 13px; color: var(--ink-faint); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .hero-sec svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.8; flex: none; }
-  .hero-sec a { color: var(--gold); text-decoration: none; font-weight: 600; }
-  .hero-sec a:hover { text-decoration: underline; }
-
-  /* stat strip */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 96px;
-    border: 1px solid var(--hairline); border-radius: 18px; overflow: hidden; background: var(--hairline); }
-  .stat { background: var(--ground); padding: 26px 24px; }
-  .stat .n { font-family: var(--display); font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.7rem); font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
-  .stat .k { margin-top: 8px; font-size: 13px; color: var(--ink-faint); line-height: 1.35; max-width: 22ch; }
-  @media (max-width: 760px){ .stats { grid-template-columns: repeat(2,1fr); } }
-
-  /* savings calculator */
-  .calc { display: grid; grid-template-columns: 1fr 1.5fr; gap: 34px; align-items: center; border: 1px solid var(--hairline); border-radius: 20px; padding: 34px; background: var(--surface); box-shadow: var(--shadow); }
-  @media (max-width: 860px){ .calc { grid-template-columns: 1fr; gap: 28px; } }
-  .calc-input label { font-family: var(--body); font-weight: 560; font-size: 13.5px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); }
-  .calc-val { font-family: var(--display); font-size: clamp(2rem, 1.6rem + 1.5vw, 2.8rem); font-weight: 600; margin: 8px 0 18px; font-variant-numeric: tabular-nums; }
-  .calc input[type=range] { width: 100%; accent-color: var(--gold); height: 4px; cursor: pointer; }
-  .calc-scale { display: flex; justify-content: space-between; font-family: var(--body); font-size: 11px; color: var(--ink-faint); margin-top: 10px; }
-  .calc-out { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-  @media (max-width: 560px){ .calc-out { grid-template-columns: 1fr; } }
-  .calc-card { border: 1px solid var(--hairline); border-radius: 14px; padding: 18px; background: var(--ground); }
-  .calc-card.hl { border-color: color-mix(in srgb, var(--gold) 55%, transparent); background: linear-gradient(180deg, var(--gold-wash), transparent 65%), var(--ground); }
-  .calc-card .cl { font-family: var(--body); font-weight: 560; font-size: 12.0px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); }
-  .calc-card .cv { font-family: var(--display); font-size: 1.7rem; font-weight: 600; margin: 7px 0; font-variant-numeric: tabular-nums; color: var(--gold); }
-  .calc-card.hl .cv { color: var(--gold-lift); }
-  .calc-card .cd { font-size: 12px; color: var(--ink-soft); line-height: 1.4; }
-  .calc-cta { display: flex; align-items: center; gap: 18px; margin-top: 26px; flex-wrap: wrap; }
-  .calc-note { font-size: 12px; color: var(--ink-faint); max-width: 42ch; }
-
-  /* ---- section frame ---- */
-  section { position: relative; }
-  .band { padding: 128px 0; border-top: 1px solid var(--hairline); }
-  .band-head { max-width: 50ch; margin-bottom: 60px; }
-  .band-head h2 { font-size: clamp(2rem, 1.45rem + 2.1vw, 3.4rem); line-height: 1.04; margin-top: 16px; }
-  .band-head p { margin-top: 18px; color: var(--ink-soft); font-size: 1.16rem; max-width: 44ch; }
-
-  /* problem timeline */
-  .arc { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  @media (max-width: 820px){ .arc { grid-template-columns: 1fr; } }
-  .arc-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px; padding: 26px; }
-  .arc-card .stage { font-family: var(--body); font-weight: 560; font-size: 13.5px; letter-spacing: .01em; text-transform: none; }
-  .arc-card.up .stage { color: var(--good); }
-  .arc-card.flat .stage { color: var(--warn); }
-  .arc-card.down .stage { color: var(--crit); }
-  .arc-card h3 { font-size: 1.35rem; margin: 14px 0 10px; }
-  .arc-card p { color: var(--ink-soft); font-size: 15.5px; line-height: 1.5; }
-  .spark { height: 40px; margin-top: 20px; width: 100%; display: block; }
-
-  /* ---- offer tiers ---- */
-  .tiers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 940px; margin: 0 auto; }
-  @media (max-width: 1100px){ .tiers { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 640px){ .tiers { grid-template-columns: 1fr; } }
-  .tier { position: relative; background: var(--surface); border: 1px solid var(--hairline); border-radius: 22px; padding: 34px; display: flex; flex-direction: column; box-shadow: var(--shadow); }
-  .tier.feature { border-color: color-mix(in srgb, var(--gold) 55%, transparent); background:
-    linear-gradient(180deg, var(--gold-wash), transparent 42%), var(--surface); }
-  .tier .tag { align-self: flex-start; font-family: var(--body); font-weight: 560; font-size: 13.0px; letter-spacing: .01em; text-transform: none; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); padding: 5px 11px; border-radius: 999px; }
-  .tier h3 { font-size: 1.9rem; margin: 22px 0 6px; }
-  .tier .who { color: var(--ink-soft); font-size: 15px; min-height: 42px; }
-  .tier .price { margin: 20px 0 6px; font-family: var(--display); font-size: 2.1rem; font-weight: 600; }
-  .tier .price span { font-family: var(--body); font-size: 14px; color: var(--ink-faint); }
-  .tier .model { font-size: 13px; color: var(--ink-faint); font-family: var(--body); letter-spacing: .01em; }
-  .tier ul { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-direction: column; gap: 13px; }
-  .tier li { display: flex; gap: 12px; font-size: 15px; color: var(--ink); line-height: 1.45; }
-  .tier li::before { content: ""; flex: none; margin-top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
-  .tier .foot { margin-top: 28px; }
-
-  /* who it's for */
-  .segs { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  @media (max-width: 860px){ .segs { grid-template-columns: 1fr; } }
-  .seg { border: 1px solid var(--hairline); border-radius: 16px; padding: 26px; background: var(--surface); }
-  .seg .fit { font-family: var(--body); font-weight: 560; font-size: 13.0px; letter-spacing: .01em; text-transform: none; padding: 4px 9px; border-radius: 999px; display: inline-block; }
-  .fit.high { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); }
-  .fit.mid { color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
-  .seg h3 { font-size: 1.3rem; margin: 16px 0 10px; }
-  .seg p { font-size: 14.5px; color: var(--ink-soft); }
-  .seg .lead { margin-top: 16px; font-size: 13px; color: var(--ink-faint); border-top: 1px solid var(--hairline); padding-top: 14px; }
-
-  /* engine / partner stack */
-  .engine { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
-  @media (max-width: 860px){ .engine { grid-template-columns: 1fr; } }
-  .stack { display: flex; flex-direction: column; gap: 12px; }
-  .layer { display: flex; align-items: center; gap: 16px; border: 1px solid var(--hairline); border-radius: 14px; padding: 18px 20px; background: var(--surface); }
-  .layer .ic { flex: none; width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: var(--gold-wash); border: 1px solid color-mix(in srgb, var(--gold) 34%, transparent); }
-  .layer .ic svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
-  .layer h4 { margin: 0 0 3px; font-family: var(--body); font-weight: 650; font-size: 15.5px; }
-  .layer p { font-size: 13.5px; color: var(--ink-soft); }
-
-  /* AI expense card */
-  .demo { border: 1px solid var(--hairline); border-radius: 20px; overflow: hidden; background: var(--surface-2); box-shadow: var(--shadow); }
-  .demo-top { display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--hairline); }
-  .demo-top .d { width: 10px; height: 10px; border-radius: 50%; background: var(--hairline-strong); }
-  .demo-top .t { margin-left: 8px; font-family: var(--mono); font-size: 12px; color: var(--ink-faint); letter-spacing: .04em; }
-  .demo-body { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
-  .bubble { max-width: 84%; padding: 13px 16px; border-radius: 15px; font-size: 14.5px; line-height: 1.45; }
-  .bubble.user { align-self: flex-end; background: linear-gradient(100deg, var(--gold-deep), var(--gold)); color: #1b1408; border-bottom-right-radius: 5px; }
-  .bubble.ai { align-self: flex-start; background: var(--surface); border: 1px solid var(--hairline); border-bottom-left-radius: 5px; }
-  .bubble.ai b { color: var(--gold); }
-  .verdict { display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; font-family: var(--mono); font-size: 12px; color: var(--good); }
-
-  /* platform / e-com tech */
-  .kpi { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 16px; overflow: hidden; margin-bottom: 30px; }
-  @media (max-width: 760px){ .kpi { grid-template-columns: repeat(2,1fr); } }
-  .kpi .cell { background: var(--ground); padding: 22px 20px; }
-  .kpi .cl { font-family: var(--body); font-weight: 560; font-size: 12.5px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); }
-  .kpi .cv { font-family: var(--display); font-size: 1.7rem; font-weight: 600; margin-top: 7px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
-  .kpi .cd { font-size: 12px; margin-top: 4px; color: var(--ink-soft); }
-  .kpi .cd.up { color: var(--good); } .kpi .cd.dn { color: var(--crit); }
-  .plat { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  @media (max-width: 860px){ .plat { grid-template-columns: 1fr; } }
-  .pcard { border: 1px solid var(--hairline); border-radius: 16px; padding: 24px; background: var(--surface); }
-  .pcard .ic { width: 58px; height: 58px; border-radius: 15px; display: grid; place-items: center; background: var(--gold-wash); border: 1px solid color-mix(in srgb, var(--gold) 34%, transparent); margin-bottom: 16px; }
-  .pcard .ic svg { width: 27px; height: 27px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
-  .pcard h4 { margin: 0 0 8px; font-family: var(--body); font-weight: 650; font-size: 16px; }
-  .pcard p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
-  .pcard .maps { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--hairline); font-size: 12.5px; color: var(--ink-faint); font-family: var(--body); letter-spacing: 0; }
-
-  /* functionality showcase */
-  .func { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  @media (max-width: 900px){ .func { grid-template-columns: 1fr; } }
-  .fcard { border: 1px solid var(--hairline); border-radius: 18px; background: var(--surface); overflow: hidden; display: flex; flex-direction: column; }
-  .fcard .mock { padding: 24px; background: var(--surface-2); border-bottom: 1px solid var(--hairline); min-height: 210px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
-  .fcard .cap2 { padding: 20px 22px; }
-  .fcard .cap2 .k { font-family: var(--body); font-weight: 560; font-size: 12.5px; letter-spacing: .01em; text-transform: none; color: var(--gold); }
-  .fcard .cap2 h3 { font-size: 1.15rem; margin: 8px 0 6px; font-family: var(--body); font-weight: 650; }
-  .fcard .cap2 p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
-  .wa { display: flex; flex-direction: column; gap: 8px; }
-  .wa .b { max-width: 92%; padding: 10px 13px; border-radius: 13px; font-size: 13px; line-height: 1.4; }
-  .wa .b.u { align-self: flex-end; background: linear-gradient(100deg,var(--gold-deep),var(--gold)); color: #1b1408; border-bottom-right-radius: 4px; }
-  .wa .b.m { align-self: flex-start; background: var(--surface); border: 1px solid var(--hairline); border-bottom-left-radius: 4px; }
-  .wa .rcpt { font-size: 11.5px; opacity: .8; }
-  .wa .ok { display: block; font-family: var(--mono); font-size: 10.5px; color: var(--good); margin-top: 5px; }
-  .mbig { font-family: var(--display); font-weight: 600; font-size: 2.4rem; color: var(--gold); font-variant-numeric: tabular-nums; letter-spacing: -.02em; line-height: 1; }
-  .msub { font-family: var(--body); font-weight: 560; font-size: 12.0px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); }
-  .mrow { font-size: 12.5px; color: var(--ink-soft); }
-  .mbtn { align-self: flex-start; margin-top: 4px; font-size: 12.5px; font-weight: 600; padding: 9px 15px; border-radius: 999px; background: linear-gradient(100deg,var(--gold-deep),var(--gold)); color: #17120a; }
-  .mstrike { text-decoration: line-through; color: var(--ink-faint); font-size: 1.3rem; }
-  .msaved { color: var(--good); font-family: var(--mono); font-size: 12px; }
-
-  /* qualification checklist */
-  .clean-check { list-style: none; padding: 0; max-width: 760px; display: flex; flex-direction: column; gap: 14px; }
-  .clean-check li { display: flex; gap: 14px; font-size: 16.5px; line-height: 1.5; color: var(--ink); background: var(--surface); border: 1px solid var(--hairline); border-radius: 14px; padding: 18px 22px; }
-  .clean-check li::before { content: "✓"; flex: none; color: var(--gold); font-weight: 700; }
-
-  /* guarantees */
-  .guars { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  @media (max-width: 860px){ .guars { grid-template-columns: 1fr; } }
-  .guar { border: 1px solid var(--hairline); border-radius: 18px; padding: 28px; background: var(--surface); }
-  .guar.hl { border-color: color-mix(in srgb, var(--gold) 55%, transparent); background: linear-gradient(180deg, var(--gold-wash), transparent 45%), var(--surface); }
-  .guar .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--gold-wash); border: 1px solid color-mix(in srgb, var(--gold) 34%, transparent); margin-bottom: 18px; }
-  .guar .ic svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
-  .guar h3 { font-size: 1.25rem; margin: 0 0 10px; }
-  .guar p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
-
-  /* application form */
-  .applyform { max-width: 560px; margin: 0 auto; }
-  .applyform .frow { margin-bottom: 18px; }
-  .applyform label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
-  .applyform input, .applyform select, .applyform textarea { width: 100%; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; padding: 13px 15px; font-size: 15px; font-family: var(--body); color: var(--ink); }
-  .applyform input:focus, .applyform select:focus, .applyform textarea:focus { outline: none; border-color: var(--gold); }
-  .applyform textarea { min-height: 96px; resize: vertical; }
-  .applyform .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 520px){ .applyform .two { grid-template-columns: 1fr; } }
-  .applyform .sub { width: 100%; margin-top: 6px; justify-content: center; font-size: 16px; padding: 16px; }
-  .applyform .hp { position: absolute; left: -9999px; }
-  .apply-note { text-align: center; font-size: 12.5px; color: var(--ink-faint); margin-top: 14px; }
-  .apply-thanks { max-width: 560px; margin: 0 auto; text-align: center; border: 1px solid var(--hairline); border-radius: 18px; padding: 44px 30px; background: var(--surface); }
-  .apply-thanks h3 { font-family: var(--display); font-weight: 600; font-size: 1.9rem; margin-bottom: 12px; }
-  .apply-thanks p { color: var(--ink-soft); margin-bottom: 24px; }
-  .assess-result { max-width: 560px; margin: 0 auto; text-align: center; border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent); border-radius: 18px; padding: 44px 30px; background: linear-gradient(180deg, var(--gold-wash), transparent 60%), var(--surface); }
-  .assess-result .rn { font-family: var(--display); font-weight: 600; font-size: clamp(2.2rem, 1.8rem + 2vw, 3.4rem); color: var(--gold-lift); font-variant-numeric: tabular-nums; }
-  .assess-result h3 { font-family: var(--display); font-weight: 600; font-size: 1.5rem; margin: 10px 0 12px; }
-  .assess-result p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; margin-bottom: 22px; }
-  .vslbox { max-width: 720px; margin: 0 auto 40px; border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); border-radius: 18px; background: var(--surface-2); aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; box-shadow: var(--shadow); }
-  .vslbox .play { width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(100deg, var(--gold-deep), var(--gold)); box-shadow: 0 10px 40px -10px rgba(200,165,90,.5); }
-  .vslbox .play svg { width: 26px; height: 26px; fill: #17120a; margin-left: 4px; }
-  .vslbox .vt2 { font-family: var(--display); font-weight: 600; font-size: 1.3rem; }
-  .vslbox .vs2 { font-family: var(--body); font-weight: 560; font-size: 13.0px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); }
-
-  /* case studies */
-  .cs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  @media (max-width: 900px){ .cs-grid { grid-template-columns: 1fr; } }
-  .cscard { border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); border-radius: 18px; background: var(--surface); overflow: hidden; }
-  .cscard .csh { padding: 18px 22px; border-bottom: 1px solid var(--hairline); background: linear-gradient(180deg, var(--gold-wash), transparent); }
-  .cscard .csh .label { font-size: 10.5px; }
-  .cscard .csh h3 { font-size: 1.25rem; margin-top: 6px; }
-  .cscard .meta { padding: 14px 22px; border-bottom: 1px solid var(--hairline); font-size: 12.5px; color: var(--ink-soft); line-height: 1.7; }
-  .cscard .meta b { color: var(--ink); }
-  .cscard table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  .cscard th { text-align: left; font-family: var(--body); font-weight: 560; font-size: 11.5px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); padding: 12px 22px 6px; }
-  .cscard td { padding: 7px 22px; color: var(--ink-soft); border-top: 1px solid var(--hairline); }
-  .cscard td:last-child { text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; }
-  .cscard .cstotal { padding: 14px 22px 18px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
-  .cscard .cstotal .tl { font-family: var(--body); font-weight: 560; font-size: 12.0px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); }
-  .cscard .cstotal .tv { font-family: var(--display); font-weight: 600; font-size: 1.6rem; color: var(--gold-lift); font-variant-numeric: tabular-nums; }
-  .cs-sample { display: inline-block; font-family: var(--body); font-weight: 560; font-size: 11.5px; letter-spacing: .01em; text-transform: none; color: var(--warn); border: 1px solid color-mix(in srgb, var(--warn) 40%, transparent); padding: 3px 9px; border-radius: 999px; margin-left: 10px; vertical-align: middle; }
-
-  /* GOLD system */
-  .gold-phases { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
-  @media (max-width: 900px){ .gold-phases { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 520px){ .gold-phases { grid-template-columns: 1fr; } }
-  .gphase { border: 1px solid var(--hairline); border-radius: 16px; padding: 26px; background: var(--surface); }
-  .gphase .gl { font-family: var(--display); font-weight: 600; font-size: 3.2rem; line-height: 1; background: linear-gradient(100deg,var(--gold-deep),var(--gold-lift),var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .gphase .pn { font-family: var(--body); font-weight: 560; font-size: 12.5px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); margin: 14px 0 4px; }
-  .gphase h3 { font-size: 1.2rem; margin: 0 0 8px; }
-  .gphase p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
-
-  /* live product screenshots — framed dark regardless of page theme */
-  .shots { display: flex; flex-direction: column; gap: 44px; }
-  .shot { border: 1px solid rgba(255,255,255,.10); border-radius: 16px; overflow: hidden; background: #0d0d0d; box-shadow: 0 30px 80px -30px rgba(0,0,0,.7); }
-  .shot .bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #191919; border-bottom: 1px solid rgba(255,255,255,.06); }
-  .shot .bar .d { width: 11px; height: 11px; border-radius: 50%; }
-  .shot .bar .r { background: #ff5f57; } .shot .bar .y { background: #febc2e; } .shot .bar .g { background: #28c840; }
-  .shot .bar .url { margin-left: 12px; font-family: var(--mono); font-size: 12px; color: #8a8a8a; background: rgba(255,255,255,.05); padding: 5px 16px; border-radius: 999px; }
-  .shot img { display: block; width: 100%; height: auto; }
-  .shot .cap { padding: 18px 24px 20px; background: #111; border-top: 1px solid rgba(255,255,255,.06); }
-  .shot .cap .k { font-family: var(--body); font-weight: 560; font-size: 13.0px; letter-spacing: .01em; text-transform: none; color: var(--gold-lift); }
-  .shot .cap p { font-size: 15px; color: #c4beb4; margin: 8px 0 0; line-height: 1.5; }
-  .shot .cap p b { color: #fff; font-weight: 600; }
-
-  /* trust strip */
-  .trust { border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-  .trust .wrap { display: flex; align-items: center; gap: 22px 40px; flex-wrap: wrap; justify-content: center; padding: 24px 28px; }
-  .trust .lab { font-family: var(--body); font-weight: 560; font-size: 13.0px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); }
-  .trust .logos { display: flex; gap: 14px 30px; flex-wrap: wrap; align-items: center; justify-content: center; }
-  .trust .logos span { font-family: var(--display); font-size: 1.15rem; color: var(--ink-soft); letter-spacing: -.01em; opacity: .9; }
-  @media (max-width: 680px){ .trust .wrap { flex-direction: column; gap: 16px; } }
-
-  /* how it works */
-  .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 18px; }
-  .guide-card { display: block; border: 1px solid var(--hairline); border-radius: 16px; padding: 24px; background: var(--surface); text-decoration: none; transition: border-color .2s, transform .2s; }
-  .guide-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-  .guide-card .tag { font-family: var(--body); font-weight: 560; font-size: 12.0px; letter-spacing: .01em; text-transform: none; color: var(--gold); }
-  .guide-card h3 { font-size: 1.15rem; margin: 12px 0 10px; color: var(--ink); }
-  .guide-card p { font-size: 14px; color: var(--ink-soft); margin-bottom: 14px; }
-  .guide-card .rd { font-size: 13px; color: var(--gold); font-weight: 600; }
-  .pcard .pico { display:inline-flex; width:58px; height:58px; border-radius:15px; align-items:center; justify-content:center;
-    background: color-mix(in srgb, var(--gold) 12%, transparent); border:1px solid color-mix(in srgb, var(--gold) 28%, transparent);
-    color: var(--gold); margin-bottom:16px; }
-  .pcard .pico svg { width:27px; height:27px; }
-  .csdocs { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:20px; }
-  .csdoc { display:block; text-decoration:none; border:1px solid var(--hairline); border-radius:16px; overflow:hidden;
-    background:var(--surface); transition:border-color .2s, transform .2s; }
-  .csdoc:hover { border-color:var(--gold); transform:translateY(-3px); }
-  .csdoc .shot { display:block; padding:26px 22px 22px; position:relative; background:var(--ground-alt); border-bottom:1px solid var(--hairline); }
-  .csdoc .ico { display:grid; place-items:center; width:52px; height:52px; border-radius:14px; background:var(--surface);
-    border:1px solid var(--hairline); margin-bottom:18px; }
-  .csdoc .ico svg { width:26px; height:26px; stroke:var(--gold); fill:none; stroke-width:1.6; }
-  .csdoc .big { display:block; font-family:var(--display); font-size:2.5rem; font-weight:600; letter-spacing:-.03em; color:var(--ink); line-height:1; }
-  .csdoc .big em { font-style:normal; font-size:1rem; color:var(--ink-faint); font-family:var(--body); font-weight:400; margin-left:7px; }
-  .csdoc .bars { display:block; margin-top:18px; }
-  .csdoc .bar2 { display:flex; align-items:center; gap:10px; font-size:12px; color:var(--ink-faint); margin-top:7px; }
-  .csdoc .bar2 i { display:block; height:7px; border-radius:4px; background:var(--hairline-strong); }
-  .csdoc .bar2.on i { background:var(--gold); }
-  .csdoc .cap { display:block; padding:18px 22px 20px; }
-  .csdoc .cap b { display:block; color:var(--ink); font-size:1.05rem; margin-bottom:5px; }
-  .csdoc .cap .rev { font-size:13px; color:var(--ink-faint); }
-
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 22px; }
-  @media (max-width: 820px){ .steps { grid-template-columns: 1fr; } }
-  .step { border: 1px solid var(--hairline); border-radius: 16px; padding: 28px; background: var(--surface); }
-  .step .no { font-family: var(--body); font-size: 12px; letter-spacing: .01em; color: var(--gold); }
-  .step h3 { font-size: 1.3rem; margin: 14px 0 10px; }
-  .step p { color: var(--ink-soft); font-size: 14.5px; }
-
-  /* quote */
-  .quote { border-left: 2px solid var(--gold); padding: 6px 0 6px 28px; max-width: 64ch; }
-  .quote p { font-family: var(--display); font-weight: 600; font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem); line-height: 1.3; }
-  .quote .by { margin-top: 20px; font-family: var(--body); font-weight: 560; font-size: 13.5px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); }
-  .quote .by b { color: var(--gold); font-weight: 600; }
-
-  /* faq */
-  .faq { max-width: 820px; }
-  .faq details { border-bottom: 1px solid var(--hairline); }
-  .faq summary { cursor: pointer; list-style: none; padding: 20px 0; font-size: 1.1rem; font-family: var(--display); font-weight: 600; display: flex; justify-content: space-between; gap: 20px; align-items: center; }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; color: var(--gold); font-size: 1.4rem; line-height: 1; }
-  .faq details[open] summary::after { content: "\2013"; }
-  .faq .a { color: var(--ink-soft); font-size: 15px; padding: 0 0 22px; max-width: 72ch; line-height: 1.6; }
-
-  /* resources */
-  .guides { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 900px; }
-  .guide { border: 1px solid var(--hairline); border-radius: 16px; background: var(--surface); overflow: hidden; }
-  .guide summary { cursor: pointer; list-style: none; padding: 24px 26px; display: flex; flex-direction: column; gap: 8px; }
-  .guide summary::-webkit-details-marker { display: none; }
-  .guide .tag { font-family: var(--body); font-weight: 560; font-size: 12.5px; letter-spacing: .01em; text-transform: none; color: var(--gold); }
-  .guide h3 { font-size: 1.25rem; }
-  .guide .sum { color: var(--ink-soft); font-size: 14.5px; }
-  .guide[open] summary { border-bottom: 1px solid var(--hairline); }
-  .guide .body { padding: 20px 26px 26px; color: var(--ink-soft); font-size: 15px; line-height: 1.65; }
-  .guide .body p { margin: 0 0 12px; }
-  .guide .body b { color: var(--ink); }
-
-  /* fat footer */
-  .footer2 .cols { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; padding: 56px 28px 30px; max-width: var(--maxw); margin: 0 auto; }
-  @media (max-width: 760px){ .footer2 .cols { grid-template-columns: 1fr 1fr; } }
-  .footer2 h5 { font-family: var(--body); font-size: 12.5px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); margin: 0 0 14px; font-weight: 500; }
-  .footer2 .cols a { display: block; color: var(--ink-soft); text-decoration: none; font-size: 14px; margin-bottom: 10px; }
-  .footer2 .cols a:hover { color: var(--ink); }
-  .footer2 .col-brand p { color: var(--ink-soft); font-size: 14px; margin: 14px 0 0; max-width: 34ch; }
-  .foot-legal { border-top: 1px solid var(--hairline); }
-  .foot-legal .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 20px 28px; max-width: var(--maxw); margin: 0 auto; }
-  .foot-legal p { font-size: 12px; color: var(--ink-faint); max-width: 72ch; }
-
-  /* legal pages */
-  .legal { max-width: 760px; }
-  .legal .lh { font-size: clamp(1.9rem, 1.4rem + 1.8vw, 2.6rem); margin-bottom: 8px; }
-  .legal .eff { font-family: var(--body); font-size: 12px; color: var(--ink-faint); letter-spacing: .01em; margin: 14px 0 28px; }
-  .legal h3 { font-family: var(--display); font-weight: 600; font-size: 1.35rem; margin: 32px 0 10px; }
-  .legal p { color: var(--ink-soft); font-size: 15px; line-height: 1.65; margin: 0 0 14px; }
-  .legal ul { margin: 0 0 14px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
-  .legal li { color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
-  .legal a { color: var(--gold); }
-
-  /* testimonials */
-  .tcards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  @media (max-width: 820px){ .tcards { grid-template-columns: 1fr; } }
-  .tcard { border: 1px solid var(--hairline); border-radius: 16px; padding: 26px; background: var(--surface); display: flex; flex-direction: column; gap: 16px; }
-  .tcard p { font-size: 15px; color: var(--ink); line-height: 1.55; }
-  .tcard .who { display: flex; align-items: center; gap: 12px; margin-top: auto; }
-  .tcard .av { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); color: #241a08; background: radial-gradient(circle at 32% 28%, var(--gold-lift), var(--gold-deep) 78%); font-size: 15px; }
-  .tcard .nm { font-weight: 650; font-size: 14.5px; }
-  .tcard .rl2 { font-size: 12.5px; color: var(--ink-faint); }
-  .tcard .stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; }
-  .ph-note { font-family: var(--body); font-weight: 560; font-size: 12.5px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); margin-top: 18px; }
-
-  /* founder letter */
-  .fletter { display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: start; }
-  @media (max-width: 860px){ .fletter { grid-template-columns: 1fr; gap: 30px; } }
-  .fletter .photo { position: relative; }
-  .fletter .photo img { width: 100%; border-radius: 18px; display: block; border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); }
-  .fletter .photo .cap3 { margin-top: 14px; }
-  .fletter .photo .nm2 { font-family: var(--display); font-size: 1.25rem; }
-  .fletter .photo .rl3 { font-family: var(--body); font-weight: 560; font-size: 13.0px; letter-spacing: .01em; text-transform: none; color: var(--gold); margin-top: 4px; }
-  .fletter .letter p { font-size: 16.5px; color: var(--ink-soft); line-height: 1.7; margin: 0 0 18px; }
-  .fletter .letter p b { color: var(--ink); }
-  .fletter .letter .sig { margin-top: 26px; font-family: var(--display); font-size: 1.3rem; color: var(--ink); }
-
-
-  /* price block */
-  .price { max-width: 720px; margin: 64px auto 0; border: 1px solid var(--hairline-strong); border-radius: 20px;
-    background: var(--surface); padding: 40px 38px; text-align: center; box-shadow: var(--shadow); }
-  .price .pk { font-family: var(--display); font-weight: 560; color: var(--gold); font-size: 1.05rem; }
-  .price .amt { font-family: var(--display); font-size: clamp(3rem,2.2rem + 3vw,4.6rem); line-height: 1; margin: 14px 0 6px; }
-  .price .amt .mo { font-size: .3em; color: var(--ink-faint); letter-spacing: 0; }
-  .price .per { color: var(--ink-faint); font-size: .95rem; }
-  .price .math { margin: 26px auto 0; max-width: 52ch; color: var(--ink-soft); font-size: 1.02rem; line-height: 1.6; }
-  .price .math b { color: var(--ink); }
-  .price .gtee { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--hairline);
-    font-size: 1.05rem; color: var(--ink); }
-  .price .gtee b { color: var(--gold); }
-  .price .btn { margin-top: 26px; }
-  .price .fine2 { margin-top: 16px; font-size: 12.5px; color: var(--ink-faint); }
-  @media (max-width: 620px){ .price { padding: 30px 22px; } }
-
-  /* team grid */
-  .team { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
-  #board .team { grid-template-columns: repeat(5,1fr); gap: 14px; }
-  #board .tm { padding: 20px 18px; }
-  @media (max-width: 1180px){ #board .team { grid-template-columns: repeat(3,1fr); } }
-  @media (max-width: 1000px){ #board .team { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 1000px){ .team { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px){ .team { grid-template-columns: 1fr; } }
-  .tm { border: 1px solid var(--hairline); border-radius: 16px; padding: 24px; background: var(--surface); }
-  .tm .av2 { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 16px;
-    background: radial-gradient(circle at 32% 28%, var(--gold-lift), var(--gold-deep) 78%); color: #241a08;
-    font-family: var(--display); font-size: 34px; letter-spacing: .02em;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.25), 0 3px 12px -3px rgba(0,0,0,.5); }
-  .tm .av2 img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-  .tm h4 { font-family: var(--display); font-weight: 600; font-size: 1.2rem; margin: 0 0 4px; }
-  .tm .rl4 { font-family: var(--body); font-weight: 560; font-size: 12.0px; letter-spacing: .01em; text-transform: none; color: var(--gold); margin-bottom: 12px; }
-  .tm p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
-  .taxteam { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
-  @media (max-width: 1000px){ .taxteam { grid-template-columns: 1fr 1fr; } }
-  .ttm { border: 1px solid var(--hairline); border-radius: 14px; padding: 18px; background: var(--surface); }
-  .ttm .av3 { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 12px;
-    background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px var(--hairline);
-    font-family: var(--display); font-size: 15px; color: var(--gold); overflow: hidden; }
-  .ttm .av3 img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-  .ttm .nm3 { font-weight: 650; font-size: 14.5px; }
-  .ttm .yr { font-family: var(--body); font-weight: 560; font-size: 12.0px; letter-spacing: .01em; text-transform: none; color: var(--gold); margin: 4px 0 8px; }
-  .ttm p { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; }
-
-  /* founders */
-  .founders { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
-  @media (max-width: 820px){ .founders { grid-template-columns: 1fr; } }
-  .founder { border: 1px solid var(--hairline); border-radius: 16px; padding: 26px; background: var(--surface); }
-  .founder .nm { font-family: var(--display); font-size: 1.3rem; }
-  .founder .rl { font-family: var(--body); font-weight: 560; font-size: 13.0px; letter-spacing: .01em; text-transform: none; color: var(--gold); margin: 6px 0 14px; }
-  .founder p { font-size: 14.5px; color: var(--ink-soft); }
-
-  /* CTA */
-  .cta { text-align: center; padding: 110px 0; border-top: 1px solid var(--hairline); }
-  .cta h2 { font-size: clamp(2.1rem, 1.5rem + 2.4vw, 3.6rem); line-height: 1.05; max-width: 18ch; margin: 0 auto; }
-  .cta p { margin: 22px auto 0; max-width: 44ch; color: var(--ink-soft); }
-  .cta .hero-cta { justify-content: center; }
-
-  footer { border-top: 1px solid var(--hairline); padding: 34px 0; }
-  .foot-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  .foot-inner p { font-size: 13px; color: var(--ink-faint); }
-  .draft { font-family: var(--body); font-weight: 560; font-size: 12.5px; letter-spacing: .01em; text-transform: none; color: var(--ink-faint); border: 1px solid var(--hairline); padding: 4px 10px; border-radius: 999px; }
-
-  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce){ .reveal { opacity: 1; transform: none; transition: none; } }
-
-  /* ===== royalty exchange additions ===== */
-  .chip { display:inline-flex; align-items:center; gap:6px; font-family:var(--body); font-weight:560; font-size:11.5px;
-    letter-spacing:.01em; padding:4px 10px; border-radius:999px; border:1px solid var(--hairline-strong); color:var(--ink-faint); }
-  .chip.live { color:var(--good); border-color:color-mix(in srgb, var(--good) 40%, transparent); background:color-mix(in srgb, var(--good) 10%, transparent); }
-  .chip.soon { color:var(--warn); border-color:color-mix(in srgb, var(--warn) 40%, transparent); background:color-mix(in srgb, var(--warn) 10%, transparent); }
-  .chip.illus { color:var(--warn); border-color:color-mix(in srgb, var(--warn) 40%, transparent); }
-  .chip i { width:6px; height:6px; border-radius:50%; background:currentColor; display:block; }
-
-  /* listing board */
-  .board { border:1px solid var(--hairline); border-radius:18px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow); }
-  .board-top { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 22px;
-    border-bottom:1px solid var(--hairline); background:var(--surface-2); flex-wrap:wrap; }
-  .board-top .bt { font-family:var(--body); font-weight:650; font-size:14.5px; }
-  .board-top .bs { font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); letter-spacing:.03em; }
-  .lrow { display:grid; grid-template-columns:1.5fr 1fr .8fr .8fr .9fr; gap:14px; align-items:center;
-    padding:18px 22px; border-top:1px solid var(--hairline); }
-  .lrow:first-of-type { border-top:0; }
-  .lhead { padding:11px 22px; border-top:1px solid var(--hairline); background:var(--ground-alt); }
-  .lhead span { font-family:var(--body); font-weight:560; font-size:11.5px; color:var(--ink-faint); letter-spacing:.01em; }
-  .lrow .asset b { display:block; font-size:15px; font-weight:650; }
-  .lrow .asset span { display:block; font-size:12.5px; color:var(--ink-faint); margin-top:2px; }
-  .lrow .cell2 { font-size:13.5px; color:var(--ink-soft); }
-  .lrow .num { font-family:var(--display); font-size:1.15rem; font-weight:600; font-variant-numeric:tabular-nums; color:var(--gold); }
-  .lrow .num small { display:block; font-family:var(--body); font-size:11.5px; color:var(--ink-faint); font-weight:400; margin-top:2px; }
-  @media (max-width:880px){
-    .lhead { display:none; }
-    .lrow { grid-template-columns:1fr 1fr; gap:12px 14px; }
-    .lrow .asset { grid-column:1 / -1; }
-  }
-
-  /* term grid */
-  .terms { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1px; background:var(--hairline);
-    border:1px solid var(--hairline); border-radius:16px; overflow:hidden; }
-  .terms .t { background:var(--ground); padding:22px 20px; }
-  .terms .t .tk { font-family:var(--body); font-weight:560; font-size:12px; color:var(--ink-faint); letter-spacing:.01em; }
-  .terms .t .tv { font-family:var(--display); font-size:1.4rem; font-weight:600; margin-top:8px; letter-spacing:-.01em; font-variant-numeric:tabular-nums; }
-  .terms .t .td { font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.45; }
-
-  /* two-column compare */
-  .vs2col { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  @media (max-width:860px){ .vs2col { grid-template-columns:1fr; } }
-  .vcard { border:1px solid var(--hairline); border-radius:16px; padding:26px; background:var(--surface); }
-  .vcard.win { border-color:color-mix(in srgb, var(--gold) 55%, transparent);
-    background:linear-gradient(180deg, var(--gold-wash), transparent 45%), var(--surface); }
-  .vcard h3 { font-size:1.25rem; margin:0 0 6px; }
-  .vcard .vt { font-family:var(--body); font-weight:560; font-size:12px; color:var(--ink-faint); letter-spacing:.01em; }
-  .vcard ul { list-style:none; padding:0; margin:18px 0 0; display:flex; flex-direction:column; gap:11px; }
-  .vcard li { display:flex; gap:11px; font-size:14px; color:var(--ink-soft); line-height:1.45; }
-  .vcard li::before { content:"–"; flex:none; color:var(--ink-faint); }
-  .vcard.win li::before { content:"✓"; color:var(--gold); font-weight:700; }
-
-  /* funding meter */
-  .meter { margin-top:14px; }
-  .meter .track { height:7px; border-radius:5px; background:var(--hairline-strong); overflow:hidden; }
-  .meter .fill { height:100%; border-radius:5px; background:linear-gradient(90deg, var(--gold-deep), var(--gold-lift)); }
-  .meter .mlab { display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-faint); margin-top:7px; font-variant-numeric:tabular-nums; }
-
-  /* notice bar */
-  .notice { border:1px solid color-mix(in srgb, var(--warn) 38%, transparent); background:color-mix(in srgb, var(--warn) 7%, transparent);
-    border-radius:14px; padding:18px 22px; display:flex; gap:14px; align-items:flex-start; }
-  .notice svg { width:19px; height:19px; stroke:var(--warn); fill:none; stroke-width:1.7; flex:none; margin-top:1px; }
-  .notice p { font-size:13.5px; color:var(--ink-soft); line-height:1.55; }
-  .notice p b { color:var(--ink); }
-  .calc-out.three { grid-template-columns:repeat(3,1fr); }
-  @media (max-width:700px){ .calc-out.three { grid-template-columns:1fr; } }
-  @media (max-width:560px){ .calc { padding:24px 20px; } }
-
-  /* clean hero video panel */
-  .vsl { background: var(--ground); }
-  .vposter { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center;
-    justify-content:center; gap:22px; padding:28px; text-align:center;
-    background: radial-gradient(120% 100% at 50% 0%, var(--gold-wash), transparent 68%), var(--surface-2); }
-  .vposter .play { position:static; background:none; display:block; }
-  .vposter .play span { width:62px; height:62px; }
-  .vposter .vtext b { display:block; font-family:var(--display); font-size:1.15rem; font-weight:600; color:var(--ink); }
-  .vposter .vtext span { display:block; margin-top:6px; font-size:13.5px; color:var(--ink-faint); }
-
-  /* hero board panel */
-  .hboard { position:relative; border:1px solid var(--hairline-strong); border-radius:18px; overflow:hidden;
-    background: linear-gradient(180deg, color-mix(in srgb, var(--gold) 7%, transparent), transparent 38%), var(--surface);
-    box-shadow: var(--shadow); display:flex; flex-direction:column; }
-  .hb-top { display:flex; align-items:center; justify-content:space-between; padding:15px 20px;
-    border-bottom:1px solid var(--hairline); background:var(--surface-2); }
-  .hb-mark { display:inline-flex; align-items:center; gap:9px; font-family:var(--body); font-weight:650;
-    font-size:12px; letter-spacing:.09em; color:var(--ink); }
-  .hb-mark i { width:7px; height:7px; border-radius:50%; background:var(--gold);
-    box-shadow:0 0 0 4px var(--gold-wash); flex:none; }
-  .hb-tag { font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--ink-faint);
-    border:1px solid var(--hairline-strong); border-radius:999px; padding:3px 9px; }
-  .hb-rows { display:flex; flex-direction:column; }
-  .hb-row { display:flex; align-items:center; justify-content:space-between; gap:16px;
-    padding:15px 20px; border-top:1px solid var(--hairline); }
-  .hb-row:first-child { border-top:0; }
-  .hb-a b { display:block; font-size:14.5px; font-weight:650; letter-spacing:-.01em; }
-  .hb-a span { display:block; font-size:11.5px; color:var(--ink-faint); margin-top:2px; }
-  .hb-n { text-align:right; flex:none; }
-  .hb-n em { display:block; font-style:normal; font-family:var(--display); font-weight:600; font-size:1.35rem;
-    letter-spacing:-.02em; color:var(--gold); font-variant-numeric:tabular-nums; }
-  .hb-n small { display:block; font-size:10.5px; color:var(--ink-faint); letter-spacing:.04em; margin-top:1px; }
-  .hb-foot { display:flex; align-items:center; justify-content:space-between; padding:13px 20px;
-    border-top:1px solid var(--hairline); background:var(--ground-alt); font-size:11.5px; color:var(--ink-faint); }
-  .hb-min { font-family:var(--mono); color:var(--ink-soft); }
-  @media (max-width:940px){ .hboard { max-width:460px; } }
-</style><body>
-<div class="page">
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="#/home" class="brand" style="text-decoration:none;color:inherit;"><span class="coin">M</span> Midas</a>
-      <div class="nav-links">
-        <div class="nav-dd" id="navDD">
-          <button class="dd-btn" aria-haspopup="true" aria-expanded="false">Platform ▾</button>
-          <div class="dd-menu">
-            <a href="#/instrument"><b>The instrument</b><span>What a royalty is</span></a>
-            <a href="#/howitworks"><b>How it works</b><span>Four steps</span></a>
-            <a href="#/underwriting"><b>Underwriting</b><span>What we reject</span></a>
-            <a href="#/market"><b>The board</b><span>What's in the pipeline</span></a>
-          </div>
-        </div>
-        <a href="#/investors" class="rlink">Investors</a>
-        <a href="#/operators" class="rlink">Operators</a>
-        <a href="#/about" class="rlink">About</a>
-        <a href="#/faq" class="rlink">FAQ</a>
-        <a href="#/access" class="btn btn-primary">Request access</a>
-      </div>
-      <button class="theme-toggle" id="themeToggle" aria-label="Switch to light mode" title="Light / dark">☀</button>
-      <button class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand" style="color:inherit"><span class="coin">M</span> Midas</a>
+    <div class="nlinks">
+      <a href="#asset">The asset</a>
+      <a href="#underwriting">How it works</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#operators">Operators</a>
+      <a href="#access" class="btn btn-gold">Request access</a>
     </div>
-    <div class="mobile-menu">
-      <a href="#/instrument" class="rlink">The instrument</a>
-      <a href="#/howitworks" class="rlink">How it works</a>
-      <a href="#/underwriting" class="rlink">Underwriting</a>
-      <a href="#/market" class="rlink">The board</a>
-      <a href="#/investors" class="rlink">Investors</a>
-      <a href="#/operators" class="rlink">Operators</a>
-      <a href="#/about" class="rlink">About</a>
-      <a href="#/faq" class="rlink">FAQ</a>
-      <a href="#/access" class="btn btn-primary mm-apply">Request access</a>
-    </div>
-  </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+  <div class="mmenu">
+    <a href="#asset">The asset</a>
+    <a href="#underwriting">How it works</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#operators">Operators</a>
+    <a href="#access">Request access</a>
+  </div>
+</nav>
 
-  <!-- ===== HERO ===== -->
-  <header class="hero" data-page="home">
-    <div class="grid-bg"></div>
-    <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <div class="eyebrow-row">
-          <span class="dot"></span>
-          <span class="label callout">A market that <b>didn't exist.</b></span>
-        </div>
-        <h1 class="hero-h">Trade what comes out of the ground.</h1>
-        <p class="hero-sub">Every mine sells something. None of that revenue has ever been tradeable on its own. That's the market we're building.</p>
-        <div class="hero-cta">
-          <a href="#/access" class="btn btn-primary">Request access</a>
-          <a href="#/instrument" class="btn btn-ghost">How it works</a>
-        </div>
-        <p class="hero-note">Qualified investors. Producing mines. Nothing else.</p>
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">A new market</span>
+      <h1>The best asset in mining has never been <span class="g">for sale.</span></h1>
+      <p class="hero-sub">We're changing that. Midas underwrites mining royalties — engineers first, then lawyers — and opens them to investors from $25,000. The first instruments are in underwriting now.</p>
+      <div class="hero-cta">
+        <a href="#access" class="btn btn-gold">Request access</a>
+        <a href="#pipeline" class="btn btn-ghost">See the pipeline</a>
       </div>
-      <div class="hboard" id="hboard">
-        <div class="hb-top">
-          <span class="hb-mark"><i></i>MIDAS BOARD</span>
-          <span class="hb-tag">PREVIEW</span>
+      <p class="hero-note">QUALIFIED INVESTORS ONLY</p>
+    </div>
+    <div class="stage">
+      <svg class="topo" viewBox="0 0 520 560" aria-hidden="true">
+        <path d="M60,80 C160,20 300,50 380,120 C460,190 470,300 400,370 C330,440 180,450 110,380 C40,310 -40,140 60,80Z"/>
+        <path d="M90,110 C175,60 290,85 355,145 C420,205 430,290 372,348 C314,406 190,414 132,356 C74,298 5,160 90,110Z"/>
+        <path d="M120,140 C190,100 280,120 330,170 C380,220 388,280 344,326 C300,372 200,378 154,332 C108,286 50,180 120,140Z"/>
+        <path d="M150,170 C200,140 268,155 305,192 C342,229 348,272 316,306 C284,340 212,344 178,310 C144,276 100,200 150,170Z"/>
+        <path d="M180,200 C215,180 258,190 282,214 C306,238 310,266 289,288 C268,310 222,312 200,290 C178,268 145,220 180,200Z"/>
+      </svg>
+      <div class="cert dk" id="cert">
+        <div class="cert-top">
+          <span class="cert-id">MDS-AU-001</span>
+          <span class="chip">PREVIEW</span>
         </div>
-        <div class="hb-rows">
-          <div class="hb-row">
-            <div class="hb-a"><b>Iron ore</b><span>West Africa · producing</span></div>
-            <div class="hb-n"><em data-to="16.5" data-suffix="%">16.5%</em><small>target</small></div>
-          </div>
-          <div class="hb-row">
-            <div class="hb-a"><b>Copper</b><span>Southern Africa · construction</span></div>
-            <div class="hb-n"><em data-to="14.5" data-suffix="%">14.5%</em><small>target</small></div>
-          </div>
-          <div class="hb-row">
-            <div class="hb-a"><b>Tin &amp; tungsten</b><span>Central Africa · producing</span></div>
-            <div class="hb-n"><em data-to="16.5" data-suffix="%">16.5%</em><small>target</small></div>
-          </div>
-          <div class="hb-row">
-            <div class="hb-a"><b>Zinc</b><span>Australia · feasibility</span></div>
-            <div class="hb-n"><em data-to="18.0" data-suffix="%">18.0%</em><small>target</small></div>
-          </div>
-        </div>
-        <div class="hb-foot">
-          <span>Underwritten before listing</span>
-          <span class="hb-min">from $25K</span>
+        <div class="cert-rate num">2.0% <small>net smelter return</small></div>
+        <div class="cert-meta">GOLD · PRODUCING · LIFE OF MINE</div>
+        <svg class="flow" viewBox="0 0 380 96" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="gf" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#C6A15B" stop-opacity=".28"/>
+              <stop offset="1" stop-color="#C6A15B" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,88 C30,80 45,50 80,42 C115,34 140,20 190,18 C240,16 260,26 300,34 C340,42 360,52 380,56 L380,96 L0,96 Z" fill="url(#gf)"/>
+          <path d="M0,88 C30,80 45,50 80,42 C115,34 140,20 190,18 C240,16 260,26 300,34 C340,42 360,52 380,56" fill="none" stroke="#C6A15B" stroke-width="1.6"/>
+          <text x="2" y="12" font-family="JetBrains Mono" font-size="7.5" fill="#5C6169" letter-spacing="1.5">ROYALTY CASH FLOW · LIFE OF MINE</text>
+        </svg>
+        <div class="cert-foot">
+          <div class="cert-min">Fractional from $25,000<span>REGISTERED AGAINST THE MINING LICENCE</span></div>
+          <div class="seal"><span>MIDAS<br/>SPV<br/>SEGREGATED</span></div>
         </div>
       </div>
     </div>
-    <div class="wrap">
-      <div class="stats">
-        <div class="stat"><div class="n">Zero</div><div class="k">Mining royalties trading on any exchange today</div></div>
-        <div class="stat"><div class="n">3</div><div class="k">Companies own the entire asset class</div></div>
-        <div class="stat"><div class="n">75%</div><div class="k">Of global mining has no royalty market at all</div></div>
-        <div class="stat"><div class="n">$25K</div><div class="k">The new minimum. It used to be $5M.</div></div>
-      </div>
-      <p class="hero-note" style="margin-top:18px;">Industry estimates. Minimums vary by listing and jurisdiction.</p>
-    </div>
-  </header>
+  </div>
+</section>
 
-  <!-- ===== PROBLEM ===== -->
-  <section class="band" id="problem" data-page="home">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">The void</span>
-        <h2>Nobody has ever traded a mining royalty.</h2>
-      </div>
-      <div class="arc">
-        <div class="arc-card down">
-          <div class="stage">Operators</div>
-          <h3>They pay for money twice.</h3>
-          <p>Equity dilutes forever, and it's cheapest to sell exactly when you can't afford to. Debt turns one bad quarter into a default. A royalty does neither.</p>
-          <svg class="spark" viewBox="0 0 200 40" preserveAspectRatio="none"><path d="M0 8 L40 14 L80 13 L120 24 L160 30 L200 36" fill="none" stroke="var(--crit)" stroke-width="2"/></svg>
-        </div>
-        <div class="arc-card flat">
-          <div class="stage">Investors</div>
-          <h3>You can't buy one royalty.</h3>
-          <p>Your options are a gold major, where you inherit its entire book. Or a fund invite you probably won't get. That's the whole menu.</p>
-          <svg class="spark" viewBox="0 0 200 40" preserveAspectRatio="none"><path d="M0 20 L40 19 L80 21 L120 20 L160 20 L200 21" fill="none" stroke="var(--warn)" stroke-width="2"/></svg>
-        </div>
-        <div class="arc-card up">
-          <div class="stage">The market</div>
-          <h3>A 30-year contract in a drawer.</h3>
-          <p>Private royalties never trade. No price, no bid, no exit. Everyone discounts them for it — which is exactly where the return lives.</p>
-          <svg class="spark" viewBox="0 0 200 40" preserveAspectRatio="none"><path d="M0 34 L40 30 L80 24 L120 18 L160 11 L200 5" fill="none" stroke="var(--good)" stroke-width="2"/></svg>
-        </div>
-      </div>
+<!-- ============ THE VOID ============ -->
+<section id="void">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 01 · The gap</span>
+    <h2 class="rv">There is a $100B asset class you have never been offered.</h2>
+    <p class="lede rv">A royalty is a permanent share of a mine's revenue. For forty years the only way in was a $50M cheque. Almost nobody got to write one.</p>
+    <div class="stats rv">
+      <div class="stat"><div class="n num" data-to="100" data-pre="$" data-suf="B+">$100B+</div><div class="k">The royalty asset class, held almost entirely in private hands</div></div>
+      <div class="stat"><div class="n num" data-to="3" data-suf="">3</div><div class="k">Balance sheets hold most of it. None of it trades openly</div></div>
+      <div class="stat"><div class="n num" data-to="5" data-pre="$" data-suf="M">$5M</div><div class="k">The old minimum ticket. Ours is $25,000</div></div>
     </div>
-  </section>
-
-<!-- ===== INVESTORS PAGE ===== -->
-  <section class="band" data-page="investors">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">Investors</span>
-        <h2>Mining cash flow. None of the mining.</h2>
-        <p>Buy a royalty company and you get its whole book, its hedges and its next decision. A listing is one asset and one file.</p>
-      </div>
-      <div class="steps">
-        <div class="step"><div class="no">01</div><h3>Get through the gate</h3><p>Identity, source of funds, investor status. Slow on purpose.</p></div>
-        <div class="step"><div class="no">02</div><h3>Read the file</h3><p>Reserve, licence, offtake, technical review, valuation, risk rating. If something's missing, that's your answer.</p></div>
-        <div class="step"><div class="no">03</div><h3>Take a fraction</h3><p>From $25K. Spread it across commodities and countries instead of one company's view.</p></div>
-        <div class="step"><div class="no">04</div><h3>Collect, or sell</h3><p>Cash arrives as the mine produces. Want out early? Sell the fraction on the board.</p></div>
-      </div>
-      <div class="quote" style="margin-top:64px;">
-        <p>The royalty was always the best seat in mining. It just came with a ten-year lock and a $5M minimum.</p>
-        <div class="by">Why Midas exists — <b>in one line</b></div>
-      </div>
+    <div class="tline rv">
+      <svg viewBox="0 0 1040 110" preserveAspectRatio="xMidYMid meet">
+        <line x1="20" y1="55" x2="950" y2="55" stroke="#232830" stroke-width="1.5"/>
+        <g font-family="JetBrains Mono" font-size="11" fill="#5C6169" letter-spacing="1">
+          <line x1="20" y1="48" x2="20" y2="62" stroke="#232830" stroke-width="1.5"/><text x="20" y="86" text-anchor="middle">1986</text>
+          <line x1="253" y1="50" x2="253" y2="60" stroke="#232830"/><text x="253" y="86" text-anchor="middle">1996</text>
+          <line x1="486" y1="50" x2="486" y2="60" stroke="#232830"/><text x="486" y="86" text-anchor="middle">2006</text>
+          <line x1="719" y1="50" x2="719" y2="60" stroke="#232830"/><text x="719" y="86" text-anchor="middle">2016</text>
+        </g>
+        <text x="470" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#8A8F98" letter-spacing="2">FORTY YEARS · ZERO PUBLIC TRANSACTIONS</text>
+        <circle cx="950" cy="55" r="7" fill="#C6A15B"/>
+        <circle cx="950" cy="55" r="14" fill="none" stroke="#C6A15B" stroke-opacity=".3"/>
+        <text x="950" y="86" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#C6A15B" letter-spacing="1">2026</text>
+        <text x="950" y="103" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#171410" letter-spacing="1">MIDAS</text>
+      </svg>
     </div>
-  </section>
-
-<!-- ===== OPERATORS PAGE ===== -->
-  <section class="band" data-page="operators">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">Operators</span>
-        <h2>Money that only costs you when you're producing.</h2>
-        <p>Price the dilution you'd otherwise hand over. A royalty is usually the cheapest capital on the table.</p>
-      </div>
-      <div class="steps">
-        <div class="step"><div class="no">01</div><h3>Send the asset</h3><p>Reserve, production, offtake, licence, ownership. Thin data room? We'll say so before wasting your week.</p></div>
-        <div class="step"><div class="no">02</div><h3>We price it</h3><p>A rate, a size, a structure. Off the asset — not your share price.</p></div>
-        <div class="step"><div class="no">03</div><h3>Register and list</h3><p>Documented against the licence, wrapped, put on the board. You keep every share you own.</p></div>
-        <div class="step"><div class="no">04</div><h3>Pay from revenue</h3><p>No production, no payment. No maturity date waiting for you.</p></div>
-      </div>
-      <div class="vs2col" style="margin-top:64px;">
-        <div class="vcard win">
-          <div class="vt">Acquisition financing</div>
-          <h3>Fund the buy with the asset</h3>
-          <ul><li>Write a royalty over the target to raise the purchase price</li><li>The equity and the royalty are often worth more apart</li><li>Standard in Canadian gold. Rare in bulk commodities.</li></ul>
-        </div>
-        <div class="vcard win">
-          <div class="vt">Existing holders</div>
-          <h3>Sell down, don't sell out</h3>
-          <ul><li>Monetise part of a royalty you already hold</li><li>Finally get a mark on it</li><li>Built for funds near end of life</li></ul>
-        </div>
-        <div class="vcard win">
-          <div class="vt">Where we fit</div>
-          <h3>Size and commodity</h3>
-          <ul><li>From $10M, producing or near it</li><li>Copper, iron ore, zinc, tin, tungsten</li><li>Too small for the big royalty houses</li></ul>
-        </div>
-      </div>
-      <div class="calc-cta" style="margin-top:48px;">
-        <a href="#/access" class="btn btn-primary">Send us the asset</a>
-        <p class="calc-note">You'll know inside a week whether it's underwritable.</p>
-      </div>
+    <div class="oldnew rv">
+      <table>
+        <tr><th></th><th>THE OLD ROUTE</th><th class="g">MIDAS</th></tr>
+        <tr><td>Minimum</td><td>$5M+</td><td class="g">$25,000</td></tr>
+        <tr><td>Access</td><td>Invitation-only funds</td><td class="g">Qualified investors, direct</td></tr>
+        <tr><td>What you own</td><td>A blended book</td><td class="g">One named royalty</td></tr>
+        <tr><td>The file</td><td>A summary deck</td><td class="g">Full technical &amp; legal file</td></tr>
+        <tr><td>Exit</td><td>Ten-year lock</td><td class="g">Transferable fractions</td></tr>
+      </table>
     </div>
-  </section>
+  </div>
+</section>
 
-<!-- ===== INSTRUMENT ===== -->
-  <section class="band" id="instrument" data-page="home instrument">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">The instrument</span>
-        <h2>Three ways to fund a mine. Two of them hurt.</h2>
-      </div>
-      <div class="vs2col">
-        <div class="vcard">
-          <div class="vt">Option one</div>
-          <h3>Equity</h3>
-          <ul><li>Permanent dilution, priced at the worst moment in the cycle</li><li>Sells the upside on every tonne, forever</li><li>Cheapest when you don't need it</li></ul>
-        </div>
-        <div class="vcard">
-          <div class="vt">Option two</div>
-          <h3>Debt</h3>
-          <ul><li>Interest accrues whether the mine runs or not</li><li>Covenants, security, a repayment date</li><li>One bad quarter is a default</li></ul>
-        </div>
-        <div class="vcard win">
-          <div class="vt">Option three</div>
-          <h3>A royalty</h3>
-          <ul><li>No interest. No covenants. No maturity.</li><li>Paid only out of production</li><li>Attached to the ground, so it survives insolvency</li><li>Leaves the cap table alone</li></ul>
-        </div>
-      </div>
-      <div class="engine" style="margin-top:64px;">
-        <div>
-          <h2 style="font-size:clamp(1.6rem,1.25rem + 1.1vw,2.2rem);">What you actually own.</h2>
-          <p style="margin-top:16px;color:var(--ink-soft);max-width:40ch;">A fraction of a registered royalty, and the cash it throws off. Not equity. Not debt. A third thing that has never had a market.</p>
-        </div>
-        <div class="stack">
-          <div class="layer">
-            <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></div>
-            <div><h4>Stapled to the licence</h4><p>Registered against the ground, not the company.</p></div>
-          </div>
-          <div class="layer">
-            <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 8h14"/><path d="M5 16h14"/></svg></div>
-            <div><h4>Senior to equity</h4><p>Paid off the top line, before costs and shareholders.</p></div>
-          </div>
-          <div class="layer">
-            <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8"/></svg></div>
-            <div><h4>Runs for the reserve life</h4><p>On long-life assets, decades. It passes to your heirs.</p></div>
-          </div>
-          <div class="layer">
-            <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h6l2 6 3-12 2 6h5"/></svg></div>
-            <div><h4>Tradeable</h4><p>Exit the position without unwinding the royalty.</p></div>
-          </div>
-        </div>
-      </div>
+<!-- ============ ANATOMY ============ -->
+<section id="asset">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 02 · The instrument</span>
+    <h2 class="rv">A royalty is a share of what the mine sells. It gets paid before everyone else.</h2>
+    <p class="lede rv">Off the top line. Before costs, before the bank, before shareholders. For the life of the mine.</p>
+    <div class="wf rv" id="wf">
+      <div class="wf-row"><div class="wf-lab">MINE REVENUE</div><div class="wf-bar"><div class="wf-fill" style="--w:100%"></div></div></div>
+      <div class="wf-row gold"><div class="wf-lab">ROYALTY · PAID FIRST</div><div class="wf-bar"><div class="wf-fill" style="--w:8%"></div></div></div>
+      <div class="wf-note"><p>A fixed percentage of everything the mine sells, diverted before a single cost is paid.</p></div>
+      <div class="wf-row"><div class="wf-lab">OPERATING COSTS</div><div class="wf-bar"><div class="wf-fill" style="--w:54%"></div></div></div>
+      <div class="wf-row"><div class="wf-lab">DEBT SERVICE</div><div class="wf-bar"><div class="wf-fill" style="--w:18%"></div></div></div>
+      <div class="wf-row"><div class="wf-lab">EQUITY — WHAT'S LEFT</div><div class="wf-bar"><div class="wf-fill" style="--w:20%"></div></div></div>
     </div>
-  </section>
+    <div class="traits rv">
+      <div class="trait"><b>Registered against the licence</b><p>Attached to the ground, not the company. It survives insolvency and change of control.</p></div>
+      <div class="trait"><b>Senior to equity</b><p>Paid off the top line, before costs, lenders and shareholders.</p></div>
+      <div class="trait"><b>No covenants, no dilution</b><p>Nothing is owed in a month the mine doesn't produce. Nobody's cap table moves.</p></div>
+      <div class="trait"><b>Life of mine</b><p>Runs as long as the reserve does. On long-life assets, that means decades.</p></div>
+    </div>
+  </div>
+</section>
 
-  <!-- ===== CALCULATOR ===== -->
-  <section class="band" id="calc" data-page="home investors">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">The maths</span>
-        <h2>So what does a royalty pay?</h2>
-        <p>Set a ticket. Set a target. This is the shape of the cash.</p>
+<!-- ============ UNDERWRITING ============ -->
+<section id="underwriting">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 03 · Underwriting</span>
+    <h2 class="rv">One royalty at a time. Engineers first. Then lawyers. Then investors.</h2>
+    <div class="rail rv">
+      <div class="doc"><span class="ref">TR-01</span><span class="no">01 · TECHNICAL</span><h3>The rock is reviewed</h3><p>Geologists and mining engineers on the reserve, the grade and the production schedule. Most assets stop here.</p></div>
+      <div class="doc"><span class="ref">LG-02</span><span class="no">02 · LEGAL</span><h3>The claim is registered</h3><p>Host-country counsel registers the royalty against the mining licence. If it can't be enforced locally, it doesn't proceed.</p></div>
+      <div class="doc"><span class="ref">ST-03</span><span class="no">03 · STRUCTURE</span><h3>The vehicle is built</h3><p>One segregated vehicle per royalty. Custody, transfer controls and reporting set before a dollar moves.</p></div>
+      <div class="doc"><span class="ref">FR-04</span><span class="no">04 · FRACTIONS</span><h3>The instrument opens</h3><p>Divided from $25,000, offered to qualified investors with the full technical and legal file attached.</p></div>
+    </div>
+    <p class="rej rv"><b>The whole business is what we refuse.</b> No exploration ground. No unregistrable claims. No operator who won't open the drill data. The file publishes with every instrument, so you can disagree with us in public.</p>
+  </div>
+</section>
+
+<!-- ============ PIPELINE ============ -->
+<section id="pipeline">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 04 · The board</span>
+    <h2 class="rv">The first royalties are being underwritten now.</h2>
+    <div class="board dk rv">
+      <div class="b-top">
+        <span class="b-title"><i></i>UNDERWRITING PIPELINE</span>
+        <span class="b-note">PREVIEW — NOT AN OFFER</span>
       </div>
-      <div class="calc">
-        <div class="calc-input">
-          <label for="tkt">Ticket</label>
-          <div class="calc-val" id="tktLabel">$250,000</div>
-          <input type="range" id="tkt" min="25000" max="5000000" step="25000" value="250000" />
-          <div class="calc-scale"><span>$25K</span><span>$1M</span><span>$5M</span></div>
-          <label for="irrIn" style="display:block;margin-top:26px;">Target return</label>
-          <div class="calc-val" id="irrLabel">15%</div>
-          <input type="range" id="irrIn" min="8" max="20" step="1" value="15" />
-          <div class="calc-scale"><span>8% gold</span><span>14%</span><span>20% frontier</span></div>
+      <div class="b-head">
+        <span>REF</span><span>COMMODITY</span><span>JURISDICTION</span><span>STRUCTURE</span><span>TARGET</span><span>STAGE</span>
+      </div>
+      <div class="b-row">
+        <span class="id">MDS-FE-01</span><span class="c1">Iron ore</span><span class="c2">West Africa</span>
+        <span class="st">$0.30/t GRR</span><span class="sz">$20M</span>
+        <span class="dots"><i class="on"></i><i class="on"></i><i class="live"></i><i></i><em>LEGAL</em></span>
+      </div>
+      <div class="b-row">
+        <span class="id">MDS-CU-02</span><span class="c1">Copper</span><span class="c2">Southern Africa</span>
+        <span class="st">1.5% NSR</span><span class="sz">$15M</span>
+        <span class="dots"><i class="on"></i><i class="live"></i><i></i><i></i><em>TECHNICAL</em></span>
+      </div>
+      <div class="b-lock">
+        <div class="b-row">
+          <span class="id">MDS-SN-03</span><span class="c1">Tin &amp; tungsten</span><span class="c2">Central Africa</span>
+          <span class="st">2.0% GRR</span><span class="sz">$12M</span>
+          <span class="dots"><i class="on"></i><i></i><i></i><i></i><em>DILIGENCE</em></span>
         </div>
-        <div>
-          <div class="calc-out three">
-            <div class="calc-card"><div class="cl">A year</div><div class="cv" id="outAnnual">$38,700</div><div class="cd">Paid out of production</div></div>
-            <div class="calc-card"><div class="cl">Over 25 years</div><div class="cv" id="outTotal">$966,900</div><div class="cd">Before you sell the position</div></div>
-            <div class="calc-card hl"><div class="cl">On your capital</div><div class="cv" id="outMoic">3.87x</div><div class="cd">If the mine runs its reserve</div></div>
-          </div>
-          <div class="calc-cta">
-            <a href="#/access" class="btn btn-primary">Request access</a>
-            <p class="calc-note">Illustrative. Real royalties are lumpy, track the commodity price, and pay nothing if a mine stops.</p>
-          </div>
+        <div class="b-row">
+          <span class="id">MDS-AU-04</span><span class="c1">Gold</span><span class="c2">South America</span>
+          <span class="st">1.0% NSR</span><span class="sz">$18M</span>
+          <span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><em>TECHNICAL</em></span>
         </div>
+        <div class="b-row">
+          <span class="id">MDS-ZN-05</span><span class="c1">Zinc</span><span class="c2">Australia</span>
+          <span class="st">2.5% GRR</span><span class="sz">$10M</span>
+          <span class="dots"><i class="on"></i><i></i><i></i><i></i><em>DILIGENCE</em></span>
+        </div>
+        <div class="b-veil"><a class="btn btn-ghost" href="#access">Request access to view the full pipeline</a></div>
+      </div>
+      <div class="b-cap">UNDERWRITING PIPELINE · STAGES AND STRUCTURES INDICATIVE · NOTHING HERE IS AN OFFER OF SECURITIES</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPERATORS ============ -->
+<section id="operators">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 05 · For operators</span>
+    <h2 class="rv">Operators: raise $10M+ without giving up a share.</h2>
+    <p class="lede rv">A percentage of revenue, priced by people who have actually sat on mine sites. No covenants, no board seat, no dilution.</p>
+    <div class="ops rv">
+      <div class="ts">
+        <div class="ts-top">INDICATIVE TERM SHEET</div>
+        <div class="ts-row"><span>Instrument</span><b>Revenue royalty (NSR / GRR)</b></div>
+        <div class="ts-row"><span>Size</span><b>$10M – $30M</b></div>
+        <div class="ts-row"><span>Term</span><b>Life of mine</b></div>
+        <div class="ts-row"><span>Security</span><b>Registered against the licence</b></div>
+        <div class="ts-row"><span>Repayment</span><b>None — paid from production</b></div>
+        <div class="ts-foot">NO COVENANTS · NO BOARD SEAT · NO DILUTION</div>
+      </div>
+      <div class="cmp">
+        <table>
+          <tr><th>CAPITAL</th><th>DILUTION</th><th>COVENANTS</th><th>MATURITY</th></tr>
+          <tr><td>Bank debt</td><td>None</td><td>Heavy</td><td>Fixed date</td></tr>
+          <tr><td>Equity</td><td>Permanent</td><td>None</td><td>Never repaid</td></tr>
+          <tr class="gold"><td>Royalty</td><td>None</td><td>None</td><td>Life of mine</td></tr>
+        </table>
       </div>
     </div>
-  </section>
-
-  <!-- ===== BENCHMARKS ===== -->
-  <section class="trust" data-page="home">
-    <div class="wrap">
-      <span class="lab">The asset class:</span>
-      <div class="logos"><span>Production-backed</span><span>Perpetual</span><span>Senior to equity</span><span>Fractional</span><span>Tradeable</span></div>
-      <span class="lab">Structured in the UAE.</span>
+    <div class="ops-cta rv">
+      <a href="#access" class="btn btn-gold">Submit an asset</a>
+      <p class="ops-note">Producing or near-production. You'll know inside a week whether it's underwritable.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  
+<!-- ============ STANDARDS ============ -->
+<section id="standards">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 06 · Structure</span>
+    <h2 class="rv">How it's structured.</h2>
+    <div class="grid6 rv">
+      <div class="std"><span class="ix">01</span><b>Regulated issuance</b><p>Issued under a framework built for tokenised real-world assets. The specifics are in the disclosures, in writing.</p></div>
+      <div class="std"><span class="ix">02</span><b>One vehicle per royalty</b><p>Each instrument sits in its own segregated SPV. No pooling. No blended book.</p></div>
+      <div class="std"><span class="ix">03</span><b>Qualified investors only</b><p>KYC, AML, sanctions and suitability checks before onboarding. We'd rather decline you than sort it out later.</p></div>
+      <div class="std"><span class="ix">04</span><b>Independent technical review</b><p>Reserve and production analysis by qualified engineers and geologists — not by us reading a summary.</p></div>
+      <div class="std"><span class="ix">05</span><b>Licence-registered security</b><p>Every royalty is registered against the mining licence in the host jurisdiction, with local counsel's enforceability opinion.</p></div>
+      <div class="std"><span class="ix">06</span><b>Custody &amp; transfer controls</b><p>Fractions move only between verified holders. The register is the record; the token is its instrument.</p></div>
+    </div>
+  </div>
+</section>
 
-  
-
-  
-
-  <!-- ===== FOUR STEPS ===== -->
-  <section class="band" id="phases" data-page="home howitworks">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">How it works</span>
-        <h2>Four steps from a mine to something you can trade.</h2>
-        <p>None of this is new finance. Royalties have worked this way for forty years. The new part is that the claim gets divided.</p>
-      </div>
-      <div class="gold-phases">
-        <div class="gphase">
-          <div class="gl">01</div><div class="pn">Source</div>
-          <h3>Find the claim</h3>
-          <p>Producing and near-production assets, weighted to what nobody covers. Copper, iron ore, zinc, tungsten.</p>
-        </div>
-        <div class="gphase">
-          <div class="gl">02</div><div class="pn">Underwrite</div>
-          <h3>Test it properly</h3>
-          <p>Engineers and geologists on the reserve and the grade. Valuation across several scenarios. Most of it fails.</p>
-        </div>
-        <div class="gphase">
-          <div class="gl">03</div><div class="pn">Structure</div>
-          <h3>Staple it down</h3>
-          <p>Registered against the mining licence, so it survives a bankruptcy or a sale. Then wrapped and split into fractions.</p>
-        </div>
-        <div class="gphase">
-          <div class="gl">04</div><div class="pn">Trade</div>
-          <h3>Make it liquid</h3>
-          <p>It lists with its file and its risk rating. Cash flows through. Holders who want out sell to holders who want in.</p>
-        </div>
+<!-- ============ FOUNDER ============ -->
+<section id="founder">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 07 · The people</span>
+    <h2 class="rv">Who is behind this.</h2>
+    <div class="fdr rv">
+      <img src="lavine.jpeg" alt="Lavine Hemlani" />
+      <div>
+        <p class="nm">Lavine Hemlani</p>
+        <p class="rl">FOUNDER · MIDAS</p>
+        <p>Lavine built his first eight-figure business in his twenties and has been building in finance since. Midas started because five people in mining finance described the same gap to him inside a few months: <b>the best instrument in the industry, and no way to buy it.</b></p>
+        <p>Every instrument is reviewed by qualified engineers, geologists and local counsel. We don't put advisors on this page until mandates are signed. Ask on a call and we'll tell you exactly where things stand.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  
-
-  <!-- ===== THE BOARD ===== -->
-  <section class="band" id="market" data-page="home market">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">The board</span>
-        <h2>One royalty. One file. One decision.</h2>
-        <p>Reserve, licence chain, offtake, technical review, risk rating. You read the asset before you back it.</p>
-      </div>
-      <div class="board">
-        <div class="board-top">
-          <span class="bt">Underwriting pipeline</span>
-          <span class="bs">INDICATIVE — NOT AN OFFER</span>
-        </div>
-        <div class="lhead">
-          <div class="lrow" style="padding:0;border:0;"><span>Asset</span><span>Stage</span><span>Royalty</span><span>Indicative</span><span>Status</span></div>
-        </div>
-        <div class="lrow">
-          <div class="asset"><b>West Africa — iron ore</b><span>Port-adjacent, shipping already</span></div>
-          <div class="cell2">Producing</div><div class="cell2">$0.30 / tonne</div>
-          <div class="num">16–17%<small>target IRR</small></div>
-          <div><span class="chip live"><i></i>Under review</span></div>
-        </div>
-        <div class="lrow">
-          <div class="asset"><b>Southern Africa — copper</b><span>Offtake in negotiation</span></div>
-          <div class="cell2">Construction</div><div class="cell2">1.5% NSR</div>
-          <div class="num">14–15%<small>target IRR</small></div>
-          <div><span class="chip soon"><i></i>Pipeline</span></div>
-        </div>
-        <div class="lrow">
-          <div class="asset"><b>Central Africa — tin &amp; tungsten</b><span>Certified chain, smelter buyers in place</span></div>
-          <div class="cell2">Producing</div><div class="cell2">2.0% GRR</div>
-          <div class="num">15–18%<small>target IRR</small></div>
-          <div><span class="chip soon"><i></i>Pipeline</span></div>
-        </div>
-        <div class="lrow">
-          <div class="asset"><b>South America — gold</b><span>Long-life underground</span></div>
-          <div class="cell2">Producing</div><div class="cell2">1.0% NSR</div>
-          <div class="num">6–8%<small>target IRR</small></div>
-          <div><span class="chip soon"><i></i>Pipeline</span></div>
-        </div>
-        <div class="lrow">
-          <div class="asset"><b>Australia — zinc</b><span>Feasibility done, permitting under way</span></div>
-          <div class="cell2">Feasibility</div><div class="cell2">2.5% GRR</div>
-          <div class="num">17–19%<small>target IRR</small></div>
-          <div><span class="chip"><i></i>Screening</span></div>
-        </div>
-      </div>
-      <p class="hero-note" style="margin-top:18px;">Illustrative of what we underwrite. Not live listings. A royalty on a mine that stops pays nothing.</p>
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 08 · The process</span>
+    <h2 class="rv">From request to first distribution.</h2>
+    <div class="steps5 rv">
+      <div class="s5"><span class="ix">01</span><b>Request access</b><p>Two minutes. A person reads it.</p></div>
+      <div class="s5"><span class="ix">02</span><b>Verify</b><p>Identity, suitability, source of funds. Once.</p></div>
+      <div class="s5"><span class="ix">03</span><b>Read the file</b><p>Reserve, licence, legal opinion — the full record.</p></div>
+      <div class="s5"><span class="ix">04</span><b>Subscribe</b><p>From $25,000, into one named royalty.</p></div>
+      <div class="s5"><span class="ix">05</span><b>Collect</b><p>Distributions as the mine sells. For the life of the mine.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== WORKED EXAMPLE ===== -->
-  <section class="band" id="anchor" data-page="market">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">Worked example <span class="chip illus" style="margin-left:8px;">Illustrative</span></span>
-        <h2>A $20M royalty, cut into pieces.</h2>
-        <p>A bulk asset already shipping. The operator needs the last slice financed and won't sell equity to get it.</p>
-      </div>
-      <div class="terms">
-        <div class="t"><div class="tk">Rate</div><div class="tv">$0.30 / t</div><div class="td">Gross revenue, on the licence</div></div>
-        <div class="t"><div class="tk">Throughput</div><div class="tv">55M t</div><div class="td">A reserve measured in decades</div></div>
-        <div class="t"><div class="tk">Raise</div><div class="tv">$20M</div><div class="td">The last tranche</div></div>
-        <div class="t"><div class="tk">Front-loaded</div><div class="tv">Years 1–3</div><div class="td">Investors recover sooner</div></div>
-        <div class="t"><div class="tk">Indicative IRR</div><div class="tv">16–17%</div><div class="td">Priced on production and jurisdiction</div></div>
-        <div class="t"><div class="tk">Minimum</div><div class="tv">$25K</div><div class="td">It stops being a two-buyer instrument</div></div>
-      </div>
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 09 · Questions</span>
+    <h2 class="rv">Questions we get.</h2>
+    <div class="faq rv">
+      <details><summary>Who can invest?</summary><div class="a">Qualified and professional investors in jurisdictions where participation is permitted. Onboarding includes identity, source-of-funds and suitability checks. This is deliberate — the structure only works if the register stays clean.</div></details>
+      <details><summary>What exactly do I own?</summary><div class="a">A fraction of a segregated vehicle whose only asset is one royalty, registered against a specific mining licence — plus your share of the cash it produces. Not shares in the mine. Not a loan to the operator.</div></details>
+      <details><summary>How does a royalty pay?</summary><div class="a">A fixed percentage of the mine's revenue, paid as it sells production. Off the top line — before operating costs, debt service or any distribution to shareholders.</div></details>
+      <details><summary>What if the mine stops producing?</summary><div class="a">Distributions stop. Nothing accrues and nothing is owed. The claim stays registered against the licence, so a restart — under the same owner or a new one — brings it back. Size every position knowing a mine can pause for years.</div></details>
+      <details><summary>How is it structured?</summary><div class="a">One segregated vehicle per royalty, issued under a framework built for tokenised real-world assets, with local counsel in the country where the mine actually sits. Full detail is in the <a href="#/disclosures">disclosures</a>.</div></details>
+      <details><summary>When does trading open?</summary><div class="a">When it's ready. Underwriting comes first — the instruments now in the pipeline set the standard for everything after. Access members hear first, and in order.</div></details>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== UNDERWRITING ===== -->
-  <section class="band" id="underwriting" data-page="home underwriting">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">Underwriting</span>
-        <h2>Tokenising a bad royalty just makes it easier to sell.</h2>
-        <p>So the whole business is what we turn down. Three reviews, and the file lists with the asset.</p>
-      </div>
-      <div class="plat">
-        <div class="pcard">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M6 19V9l4-4 4 4v10"/><path d="M14 19v-6l4-3v9"/></svg></div>
-          <h4>Technical</h4>
-          <p>Engineers and geologists on reserve, grade, recovery and schedule. Where drill data exists we re-run it.</p>
-          <div class="maps">Out: production profile</div>
-        </div>
-        <div class="pcard">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l5-6 4 3 5-8"/><path d="M3 21h18"/></svg></div>
-          <h4>Financial</h4>
-          <p>Net present value across scenarios for output, price and discount rate. Priced on the risk-weighted case, not the operator's plan.</p>
-          <div class="maps">Out: valuation range</div>
-        </div>
-        <div class="pcard">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h4>Legal</h4>
-          <p>Licence chain, registration against the ground, enforceability at home, sanctions and ownership checks.</p>
-          <div class="maps">Out: enforceability opinion</div>
-        </div>
-      </div>
-      <div class="band-head" style="margin-top:64px;margin-bottom:26px;">
-        <h2 style="font-size:clamp(1.6rem,1.25rem + 1.1vw,2.2rem);">What doesn't list.</h2>
-      </div>
-      <ul class="clean-check">
-        <li>Exploration ground with no reserve and no path to production</li>
-        <li>Royalties we can't register against the licence and enforce locally</li>
-        <li>Operators who won't open the drill data, the offtake or the ownership</li>
-        <li>Sanctioned jurisdictions, or title re-issued over an existing holder</li>
-        <li>Anything available only because better-informed capital already passed</li>
-      </ul>
+<!-- ============ ACCESS ============ -->
+<section class="access" id="access">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 10 · Access</span>
+    <h2 class="rv">We open to a small first list. Get on it.</h2>
+    <form class="aform rv" id="accessForm" name="access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="access" />
+      <p class="hp"><label>Leave this empty <input name="bot-field" /></label></p>
+      <label for="afName">NAME</label>
+      <input id="afName" name="name" required autocomplete="name" />
+      <label for="afEmail">EMAIL</label>
+      <input id="afEmail" name="email" type="email" required autocomplete="email" />
+      <label for="afSide">I AM</label>
+      <select id="afSide" name="side" required>
+        <option value="">Select one</option>
+        <option>An investor — family office / professional</option>
+        <option>An investor — digital-asset allocator</option>
+        <option>An operator raising against production</option>
+        <option>A royalty holder seeking liquidity</option>
+        <option>An adviser or intermediary</option>
+      </select>
+      <button type="submit" class="btn btn-gold">Request access</button>
+      <p class="a-note">Not a subscription or an offer. Access requires identity and suitability checks, and we may not be able to onboard your jurisdiction. A person reads every request.</p>
+    </form>
+    <div class="a-done" id="accessDone">
+      <h3>Received.</h3>
+      <p>Expect a reply within two business days — a short call to establish eligibility, then the pipeline file. If we can't onboard you, we'll say so plainly and why.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== WHO ===== -->
-  <section class="band" id="who" data-page="investors">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">Fit</span>
-        <h2>Who this is for.</h2>
-      </div>
-      <div class="segs">
-        <div class="seg">
-          <span class="fit high">Strong fit</span>
-          <h3>Family offices</h3>
-          <p>Long income, hard asset, priced above credit. No view on any single quarter required.</p>
-          <div class="lead">$250K – $5M, across listings</div>
-        </div>
-        <div class="seg">
-          <span class="fit high">Strong fit</span>
-          <h3>Digital-asset allocators</h3>
-          <p>On-chain exposure to something that actually produces cash. The token is the wrapper, not the asset.</p>
-          <div class="lead">$25K – $500K, self-custodied</div>
-        </div>
-        <div class="seg">
-          <span class="fit high">Strong fit</span>
-          <h3>Operators and holders</h3>
-          <p>Producers who need the last tranche without dilution. Funds sitting on royalties they can't sell.</p>
-          <div class="lead">$10M+, or a partial sell-down</div>
-        </div>
-      </div>
-      <div class="notice" style="margin-top:28px;">
-        <svg viewBox="0 0 24 24"><path d="M12 9v5"/><circle cx="12" cy="17" r=".6" fill="currentColor" stroke="none"/><path d="M10.3 3.9 2.6 17.4A1.9 1.9 0 0 0 4.3 20h15.4a1.9 1.9 0 0 0 1.7-2.6L13.7 3.9a1.9 1.9 0 0 0-3.4 0z"/></svg>
-        <p><b>Not open to general retail.</b> Qualified and professional investors only, in permitted jurisdictions. We'd rather tell you now than take your money and sort it out later.</p>
-      </div>
-    </div>
-  </section>
+</main>
 
-<!-- ===== TWO WAYS IN ===== -->
-  <section class="band" id="offer" data-page="home">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">Two sides</span>
-        <h2>Two ways in.</h2>
-      </div>
-      <div class="tiers">
-        <div class="tier feature">
-          <span class="tag">Investors</span>
-          <h3>Buy the royalty</h3>
-          <p class="who">Family offices, professional investors, digital-asset allocators.</p>
-          <div class="price">From $25,000</div>
-          <div class="model">Fractional. Underwritten. Transferable.</div>
-          <ul>
-            <li>Back one asset, not somebody's whole book</li>
-            <li>Full technical and legal file on every listing</li>
-            <li>Paid out of production, in proportion to your fraction</li>
-            <li>Sell on the board instead of waiting out the mine life</li>
-          </ul>
-          <div class="foot"><a href="#/investors" class="btn btn-primary">For investors</a></div>
-        </div>
-        <div class="tier">
-          <span class="tag">Operators</span>
-          <h3>Sell the royalty</h3>
-          <p class="who">Producers, near-production developers, existing royalty holders.</p>
-          <div class="price">$10M+</div>
-          <div class="model">No equity. No interest. No covenants.</div>
-          <ul>
-            <li>Priced off your reserve, not your share price</li>
-            <li>Zero dilution — it attaches to the licence, not the cap table</li>
-            <li>Nothing owed in a month you don't produce</li>
-            <li>Front-load the early years if you want the raise cleared faster</li>
-          </ul>
-          <div class="foot"><a href="#/operators" class="btn btn-ghost">For operators</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== RISK ===== -->
-  <section class="band" id="risk" data-page="home risk">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">Risk</span>
-        <h2>How you lose money on this.</h2>
-        <p>Royalties are senior and durable. They are not safe. Anyone selling you mining without this page is selling you something else.</p>
-      </div>
-      <div class="guars">
-        <div class="guar">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20V11"/><path d="M12 20V6"/><path d="M17 20v-5"/></svg></div>
-          <h3>Production</h3>
-          <p>If the mine stalls, floods, misses grade or loses its permit, the cash stops. Nothing accrues in the background. Nothing is owed to you.</p>
-        </div>
-        <div class="guar">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 16l5-5 4 3 4-7 5 4"/></svg></div>
-          <h3>Commodity price</h3>
-          <p>A revenue royalty moves with the price of what's sold. A long downturn cuts every payment, and can shut a marginal mine entirely.</p>
-        </div>
-        <div class="guar">
-          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3 3 3 15 0 18"/></svg></div>
-          <h3>Jurisdiction</h3>
-          <p>The extra return exists because these assets sit in harder countries. Licences get challenged. Enforcing a claim locally is slow and uncertain.</p>
-        </div>
-        <div class="guar">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h6l2 6 3-12 2 6h5"/></svg></div>
-          <h3>Liquidity</h3>
-          <p>Transferable is not the same as liquid. Early on the book will be thin and spreads wide. Size every position as if you'll hold it to maturity.</p>
-        </div>
-        <div class="guar">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div>
-          <h3>Structure</h3>
-          <p>You hold a fraction of a vehicle that holds the royalty. That's a legal layer between you and the cash. Digital-asset rules are still moving.</p>
-        </div>
-        <div class="guar">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg></div>
-          <h3>Counterparty</h3>
-          <p>The operator has to report honestly and stay solvent. Registration is your protection. It's also a lawsuit, which means time and cost.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section class="band" id="founder" data-page="about">
-    <div class="wrap">
-      <div class="fletter">
-        <div class="photo">
-          <img src="lavine.jpeg" alt="Lavine Hemlani" />
-          <div class="cap3"><div class="nm2">Lavine Hemlani</div><div class="rl3">Founder</div></div>
-        </div>
-        <div class="letter">
-          <span class="label">Why this exists</span>
-          <h2 style="font-size:clamp(1.9rem,1.4rem + 1.7vw,2.8rem);margin:14px 0 26px;">I couldn't work out why I'd never been offered one.</h2>
-          <p>Someone explained royalty financing to me like it was obvious. A permanent cut of a mine's revenue. Ahead of the equity. No interest, no covenants, no repayment date. If the mine produces, you get paid. If it doesn't, nobody defaults.</p>
-          <p>Three companies quietly own that entire asset class. Not one of the royalties inside them has ever traded on its own. If you have $250,000 and a real view on copper, there is nothing for you to buy.</p>
-          <p><b>So we are not building a better royalty company. We are building the market underneath one.</b> Royalties aren't new. A place to trade them is.</p>
-          <p>Two things say the timing is right. Gold is a quarter of global mining and almost the entire royalty market — so copper and iron ore price several points wider for structural reasons, not because the rock is worse. And five different people brought me this idea inside a few months. When that happens you're either early or late. Only one way to find out.</p>
-          <p>What I actually care about is the underwriting. Putting a royalty on-chain doesn't improve it. So most of what we see won't list, and the file goes up next to every listing — so you can disagree with me in public.</p>
-          <div class="sig">Lavine Hemlani<br /><span style="font-family:var(--body);font-size:13px;color:var(--ink-faint);">Dubai</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="team" data-page="about">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">Who's behind it</span>
-        <h2>Generalists don't underwrite mines.</h2>
-        <p>Technical review is done by qualified engineers and geologists. Legal work is done by counsel in the host country, not by us reading a licence in translation.</p>
-      </div>
-      <div class="notice">
-        <svg viewBox="0 0 24 24"><path d="M12 9v5"/><circle cx="12" cy="17" r=".6" fill="currentColor" stroke="none"/><path d="M10.3 3.9 2.6 17.4A1.9 1.9 0 0 0 4.3 20h15.4a1.9 1.9 0 0 0 1.7-2.6L13.7 3.9a1.9 1.9 0 0 0-3.4 0z"/></svg>
-        <p><b>We don't list advisors we haven't signed.</b> Conversations with mining bankers and royalty fund managers are live. None of them go on this site until a mandate is signed and they've approved the wording. Ask on a call and we'll tell you where things stand.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FAQ ===== -->
-  <section class="band" id="faq" data-page="home faq">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="label">Questions</span>
-        <h2>What serious people ask first.</h2>
-      </div>
-      <div class="faq">
-        <details><summary>What am I buying?</summary><div class="a">A fraction of a vehicle whose only asset is a royalty registered against a specific mining licence — plus your share of the cash it produces. Not shares in the mine. Not a loan to the operator. The token is the record, not the asset.</div></details>
-        <details><summary>Is this a security?</summary><div class="a">Treat it as one. Depending on structure and where you live, it may be regulated. That's why access is restricted, why onboarding includes suitability checks, and why nothing here is an offer.</div></details>
-        <details><summary>What if the mine stops producing?</summary><div class="a">The cash stops. Nothing accrues, nothing is owed, nothing accelerates. The claim stays on the licence, so a restart brings it back — but a suspended mine can pay nothing for years.</div></details>
-        <details><summary>How is a royalty valued?</summary><div class="a">Net present value of the expected cash flow, across scenarios for production, price and discount rate. We price the risk-weighted case, not the operator's plan. The assumptions publish with the listing so you can substitute your own.</div></details>
-        <details><summary>Why non-precious metals?</summary><div class="a">That's where the mispricing is. Gold is a quarter of mining and almost all of the royalty market, so precious royalties are bid to single digits. Copper, iron ore and zinc price several points wider — partly for real reasons, partly because the buyers never existed.</div></details>
-        <details><summary>Can I sell before production starts?</summary><div class="a">That's the intent — and a pre-production royalty can appreciate as the asset de-risks. The caveat is honest: a market needs someone on the other side. Early on, expect a thin book.</div></details>
-        <details><summary>What's the minimum?</summary><div class="a">Around $25,000 per listing, depending on the listing and your jurisdiction.</div></details>
-        <details><summary>How does Midas get paid?</summary><div class="a">A structuring fee on the raise, paid by the operator, plus a fee on secondary trades. We don't mark up the royalty rate between the operator and the board.</div></details>
-        <details><summary>GRR or NSR — does it matter?</summary><div class="a">A gross revenue royalty pays on everything sold. A net smelter return deducts transport and refining first. Usually they land close, but deductions are exactly where a royalty gets quietly worse than it looks. Every listing states which it is.</div></details>
-        <details><summary>Why would an operator give up a perpetual royalty?</summary><div class="a">Because the alternative is worse. Equity sold at the bottom is permanent dilution on every tonne. Bank debt on a single-asset frontier mine often isn't available at any price. And they keep the whole cap table.</div></details>
-        <details><summary>Where is Midas regulated?</summary><div class="a">The structure is being built in the UAE, with host-country counsel on each royalty. We picked it because the licensing path for tokenised real-world assets is workable there rather than theoretical. Specifics are in the <a href="#/disclosures">disclosures</a>.</div></details>
-        <details><summary>Haven't platforms tried to crowdfund mining before?</summary><div class="a">They have, and they stalled on the same thing: nothing worth buying on one side, no capital on the other. We start from supply — royalties on assets that already produce — and go to investors who already understand the instrument.</div></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ACCESS ===== -->
-  <section class="band" id="access-page" data-page="access">
-    <div class="wrap">
-      <div class="band-head" style="text-align:center;margin:0 auto 44px;max-width:36ch;">
-        <span class="label">Request access</span>
-        <h2>Which side are you on?</h2>
-        <p style="margin-left:auto;margin-right:auto;">Two minutes. A person reads it. You'll hear back either way.</p>
-      </div>
-      <form class="applyform" id="accessForm" name="access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="access" />
-        <p class="hp"><label>Don't fill this in: <input name="bot-field" /></label></p>
-        <div class="frow two">
-          <div><label for="afName">Name</label><input id="afName" name="name" required /></div>
-          <div><label for="afEmail">Email</label><input id="afEmail" name="email" type="email" required /></div>
-        </div>
-        <div class="frow two">
-          <div><label for="afOrg">Company or fund</label><input id="afOrg" name="organisation" /></div>
-          <div><label for="afCountry">Country</label><input id="afCountry" name="country" required /></div>
-        </div>
-        <div class="frow">
-          <label for="afSide">You are</label>
-          <select id="afSide" name="side" required>
-            <option value="">Select one</option>
-            <option>Family office or professional investor</option>
-            <option>Digital-asset allocator</option>
-            <option>Operator raising against production</option>
-            <option>Royalty holder wanting liquidity</option>
-            <option>Adviser, banker or intermediary</option>
-            <option>Something else</option>
-          </select>
-        </div>
-        <div class="frow">
-          <label for="afSize">Size</label>
-          <select id="afSize" name="size">
-            <option value="">Select one</option>
-            <option>Investing — $25K to $250K</option>
-            <option>Investing — $250K to $1M</option>
-            <option>Investing — $1M to $5M</option>
-            <option>Investing — $5M+</option>
-            <option>Raising — $10M to $25M</option>
-            <option>Raising — $25M+</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="frow">
-          <label for="afNote">Anything useful</label>
-          <textarea id="afNote" name="note" placeholder="Raising? Commodity, stage, jurisdiction, current production. Investing? What you already hold here."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary sub">Request access</button>
-        <p class="apply-note">Not a subscription or a commitment. Access requires identity and suitability checks, and we may not be able to onboard your jurisdiction.</p>
-      </form>
-      <div class="apply-thanks" id="accessThanks" style="display:none;">
-        <h3>Got it.</h3>
-        <p>We read these properly. Expect a reply within two business days — including if the answer is no, and why.</p>
-        <a href="#/instrument" class="btn btn-ghost">Read how it works</a>
-      </div>
-    </div>
-  </section>
-
-<!-- ===================== DISCLOSURES ===================== -->
-  <section class="band" data-page="disclosures">
+<div id="legalwrap" style="display:none">
+<section class="band" data-page="disclosures">
     <div class="wrap">
       <div class="legal">
         <h2 class="lh">Disclosures</h2>
@@ -1360,7 +681,7 @@
         <h3>No advice</h3>
         <p>Nothing on this site is investment, legal, tax or accounting advice, and none of it takes account of your objectives, circumstances or risk tolerance. Royalty interests in mining assets are complex and illiquid. Take independent professional advice before acting.</p>
         <h3>Illustrative figures</h3>
-        <p>Every number presented on this site as a return, IRR, distribution, multiple, royalty rate, throughput or allocation is illustrative. The calculator applies simple level-payment annuity mathematics to inputs you choose over a fixed assumed life; it is a way of showing the shape of a royalty cash flow, not a projection of any actual listing. Real royalty income is irregular, depends on production volumes and commodity prices, and may be zero.</p>
+        <p>Every number presented on this site as a return, IRR, distribution, multiple, royalty rate, throughput or allocation is illustrative. Real royalty income is irregular, depends on production volumes and commodity prices, and may be zero.</p>
         <h3>The pipeline shown is not live</h3>
         <p>Assets described on the board and in worked examples are illustrative of the type, stage, structure and pricing range Midas underwrites. They are not live listings, not available for subscription, and terms shown are indicative and subject to change. Descriptions have been generalised and do not identify any counterparty.</p>
         <h3>Forward-looking statements</h3>
@@ -1381,8 +702,7 @@
     </div>
   </section>
 
-<!-- ===================== PRIVACY ===================== -->
-  <section class="band" data-page="privacy">
+<section class="band" data-page="privacy">
     <div class="wrap">
       <div class="legal">
         <h2 class="lh">Privacy Policy</h2>
@@ -1403,8 +723,7 @@
     </div>
   </section>
 
-<!-- ===================== TERMS ===================== -->
-  <section class="band" data-page="terms">
+<section class="band" data-page="terms">
     <div class="wrap">
       <div class="legal">
         <h2 class="lh">Terms of Service</h2>
@@ -1426,208 +745,115 @@
       </div>
     </div>
   </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="cta band" id="cta" data-page="all">
-    <div class="wrap" style="text-align:center;">
-      <span class="label">Next</span>
-      <h2 style="font-size:clamp(2rem,1.45rem + 2.1vw,3.4rem);margin:16px auto 0;max-width:18ch;">Own the revenue. Not the mine.</h2>
-      <p style="margin:20px auto 0;max-width:40ch;color:var(--ink-soft);font-size:1.1rem;">Investors get a full listing file. Operators get an answer inside a week.</p>
-      <div class="hero-cta" style="justify-content:center;margin-top:34px;">
-        <a href="#/access" class="btn btn-primary">Request access</a>
-        <a href="#/risk" class="btn btn-ghost">Read the risks first</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer2" data-page="all">
-    <div class="cols">
-      <div class="col-brand">
-        <a href="#/home" class="brand" style="text-decoration:none;color:inherit;"><span class="coin">M</span> Midas</a>
-        <p>Mining royalties, underwritten one at a time and cut into fractions. Built from Dubai.</p>
-      </div>
-      <div>
-        <h5>Platform</h5>
-        <a href="#/instrument">The instrument</a>
-        <a href="#/howitworks">How it works</a>
-        <a href="#/underwriting">Underwriting</a>
-        <a href="#/market">The board</a>
-      </div>
-      <div>
-        <h5>Counterparties</h5>
-        <a href="#/investors">Investors</a>
-        <a href="#/operators">Operators</a>
-        <a href="#/faq">FAQ</a>
-        <a href="#/access">Request access</a>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <a href="#/about">About</a>
-        <a href="#/risk">Risk factors</a>
-        <a href="#/disclosures">Disclosures</a>
-        <a href="#/privacy">Privacy</a>
-        <a href="#/terms">Terms</a>
-      </div>
-    </div>
-    <div class="foot-legal">
-      <div class="row">
-        <p>© 2026 Midas. Nothing here is an offer to sell or a solicitation to buy any security, token or royalty interest, and nothing here is investment advice. All return figures are illustrative. Royalty interests are illiquid and you can lose everything. Access is restricted to eligible investors in permitted jurisdictions. Any third party referred to on this site is market context only and is not affiliated with Midas.</p>
-        <p><a href="#/disclosures" style="color:var(--gold);">Full disclosures</a></p>
-      </div>
-    </div>
-  </footer>
 </div>
 
+<footer>
+  <div class="wrap f-in">
+    <p class="f-legal">© 2026 Midas. Nothing on this site is an offer to sell or a solicitation of an offer to buy any security, token or royalty interest, and nothing here is investment advice. Pipeline entries are indicative and generalised; structures and stages may change. Royalty interests are illiquid and you can lose your entire investment. Access is restricted to qualified investors in permitted jurisdictions.</p>
+    <div class="f-links">
+      <a href="#/disclosures">Disclosures</a>
+      <a href="#/privacy">Privacy</a>
+      <a href="#/terms">Terms</a>
+      <a href="mailto:hello@gomidas.co">hello@gomidas.co</a>
+    </div>
+  </div>
+</footer>
+
 <script>
-  (function () {
-    var dd = document.getElementById('navDD');
-    if (dd) {
-      dd.querySelector('.dd-btn').addEventListener('click', function(e){ e.stopPropagation(); dd.classList.toggle('open'); });
-      document.addEventListener('click', function(){ dd.classList.remove('open'); });
-      dd.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ dd.classList.remove('open'); }); });
-    }
-    var tt = document.getElementById('themeToggle');
-    function setTheme(mode){
-      if (mode === 'dark') { document.documentElement.setAttribute('data-theme','dark'); if (tt){ tt.textContent='☀'; tt.setAttribute('aria-label','Switch to light mode'); } }
-      else { document.documentElement.removeAttribute('data-theme'); if (tt){ tt.textContent='☾'; tt.setAttribute('aria-label','Switch to dark mode'); } }
-      try { localStorage.setItem('midas-royalty-theme', mode); } catch(e){}
-    }
-    try { setTheme(localStorage.getItem('midas-royalty-theme') === 'dark' ? 'dark' : 'light'); } catch(e){ setTheme('light'); }
-    if (tt) tt.addEventListener('click', function(){
-      setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+(function(){
+  /* ---- burger ---- */
+  var burger=document.querySelector('.burger'),mm=document.querySelector('.mmenu');
+  if(burger&&mm){
+    burger.addEventListener('click',function(){var o=mm.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false');});
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');});});
+  }
+
+  /* ---- ambient ticker: gentle drift around seeded values ---- */
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced){
+    var qs=[].slice.call(document.querySelectorAll('.tick b'));
+    setInterval(function(){
+      if(document.visibilityState!=='visible')return;
+      var el=qs[Math.floor(Math.random()*qs.length)];
+      var base=parseFloat(el.getAttribute('data-v')),d=+el.getAttribute('data-d');
+      var v=base*(1+(Math.random()-.5)*.003);
+      el.textContent=v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+    },2600);
+  }
+
+  /* ---- cert tilt (≤4deg) ---- */
+  var cert=document.getElementById('cert');
+  if(cert&&!reduced&&window.matchMedia('(pointer:fine)').matches){
+    var stage=cert.parentElement;
+    stage.addEventListener('mousemove',function(e){
+      var r=cert.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      cert.style.transform='rotateY('+(x*7)+'deg) rotateX('+(-y*6)+'deg)';
     });
+    stage.addEventListener('mouseleave',function(){cert.style.transform='none';});
+  }
 
-    /* ---- hero board: count the targets up once ---- */
-    var counted = false;
-    function countUp(){
-      if (counted) return;
-      /* only animate when the tab is actually visible — rAF is paused otherwise,
-         which would strand the board on 0.0%. The true values are already in the DOM. */
-      if (document.visibilityState !== 'visible') return;
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      counted = true;
-      document.querySelectorAll('.hb-n em').forEach(function(el, i){
-        var to = parseFloat(el.getAttribute('data-to')) || 0;
-        var suf = el.getAttribute('data-suffix') || '';
-        var final = to.toFixed(1) + suf;
-        var dur = 850, delay = i * 90, t0 = null;
-        el.textContent = '0.0' + suf;
-        function step(ts){
-          if (t0 === null) t0 = ts;
-          var p = Math.min(1, (ts - t0) / dur);
-          el.textContent = (to * (1 - Math.pow(1 - p, 3))).toFixed(1) + suf;
-          if (p < 1) requestAnimationFrame(step); else el.textContent = final;
-        }
-        setTimeout(function(){ requestAnimationFrame(step); }, delay);
-        /* whatever happens, land on the real number */
-        setTimeout(function(){ el.textContent = final; }, delay + dur + 450);
-      });
-    }
-    document.addEventListener('visibilitychange', countUp);
+  /* ---- reveal + waterfall + count-up (values correct without JS) ---- */
+  function showAll(){document.querySelectorAll('.rv').forEach(function(n){n.classList.add('in');});}
+  try{
+    var nodes=document.querySelectorAll('.rv');
+    if('IntersectionObserver' in window&&!reduced){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting)return;
+          en.target.classList.add('in');
+          en.target.querySelectorAll('.n[data-to]').forEach(count);
+          io.unobserve(en.target);
+        });
+      },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+      nodes.forEach(function(n){io.observe(n);});
+    }else{showAll();}
+  }catch(e){showAll();}
+  setTimeout(showAll,2000);
 
-    /* ---- scroll reveal, with a guaranteed fallback ---- */
-    var REVEAL_SEL = '.band-head, .arc-card, .gphase, .vcard, .tier, .guar, .pcard, .seg, .step,'
-                   + ' .terms .t, .board, .stats, .calc, .hboard, .clean-check li, .faq details,'
-                   + ' .notice, .quote, .fletter, .layer';
-    function showAllIn(root){
-      (root || document).querySelectorAll('.reveal').forEach(function(r){ r.classList.add('in'); });
+  function count(el){
+    if(el.dataset.done||document.visibilityState!=='visible')return;
+    el.dataset.done='1';
+    var to=parseFloat(el.getAttribute('data-to')),pre=el.getAttribute('data-pre')||'',suf=el.getAttribute('data-suf')||'';
+    var final=pre+to.toLocaleString('en-US')+suf,t0=null,dur=900;
+    function step(ts){
+      if(t0===null)t0=ts;
+      var p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,3);
+      el.textContent=pre+Math.round(to*e).toLocaleString('en-US')+suf;
+      if(p<1)requestAnimationFrame(step);else el.textContent=final;
     }
-    try {
-      var nodes = document.querySelectorAll(REVEAL_SEL);
-      nodes.forEach(function(n){ n.classList.add('reveal'); });
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function(entries){
-          entries.forEach(function(en){
-            if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        nodes.forEach(function(n){ io.observe(n); });
-      } else { showAllIn(); }
-    } catch(e) { showAllIn(); }
-    /* nothing may ever stay invisible */
-    setTimeout(showAllIn, 1800);
-    countUp();
+    requestAnimationFrame(step);
+    setTimeout(function(){el.textContent=final;},dur+400);
+  }
 
-    var menu = document.querySelector('.mobile-menu');
-    var burger = document.querySelector('.hamburger');
-    var PAGES = ['home','instrument','howitworks','underwriting','market','investors',
-                 'operators','about','faq','access','risk','disclosures','privacy','terms'];
-    function activePage(){
-      var h = location.hash;
-      var p = (h.indexOf('#/') === 0) ? (h.slice(2) || 'home') : 'home';
-      return PAGES.indexOf(p) >= 0 ? p : 'home';
-    }
-    function route(){
-      var page = activePage();
-      document.querySelectorAll('[data-page]').forEach(function(el){
-        var pgs = el.getAttribute('data-page');
-        var show = (pgs === 'all') || pgs.split(' ').indexOf(page) >= 0;
-        el.style.display = show ? '' : 'none';
-      });
-      var vis = [];
-      document.querySelectorAll('section.band, section.trust').forEach(function(el){
-        el.classList.remove('stripe');
-        if (el.style.display !== 'none') vis.push(el);
-      });
-      vis.forEach(function(el, i){ if (i % 2 === 1) el.classList.add('stripe'); });
-      document.querySelectorAll('.rlink').forEach(function(a){
-        a.classList.toggle('active', a.getAttribute('href') === '#/' + page);
-      });
-      if (menu) menu.classList.remove('open');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-      window.scrollTo(0, 0);
-      if (typeof showAllIn === 'function') showAllIn();
-    }
-    if (burger && menu) {
-      burger.addEventListener('click', function(){
-        var open = menu.classList.toggle('open');
-        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      menu.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){ menu.classList.remove('open'); });
-      });
-    }
+  /* ---- minimal router: legal pages ---- */
+  var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
+  var tickbar=document.querySelector('.tick');
+  function route(){
+    var h=location.hash,page=(h.indexOf('#/')===0)?h.slice(2):'';
+    var legal=['disclosures','privacy','terms'].indexOf(page)>=0;
+    main.style.display=legal?'none':'';
+    lw.style.display=legal?'':'none';
+    if(tickbar)tickbar.style.display=legal?'none':'';
+    lw.querySelectorAll('[data-page]').forEach(function(s){
+      s.style.display=(legal&&s.getAttribute('data-page')===page)?'':'none';
+    });
+    if(legal)window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',route);
+  route();
 
-    var tkt = document.getElementById('tkt'), irrIn = document.getElementById('irrIn');
-    if (tkt && irrIn) {
-      var LIFE = 25;
-      var money = function(n){ return '$' + Math.round(n).toLocaleString('en-US'); };
-      var r100 = function(n){ return Math.round(n / 100) * 100; };
-      var calc = function(){
-        var ticket = +tkt.value, r = (+irrIn.value) / 100;
-        var af = (1 - Math.pow(1 + r, -LIFE)) / r;
-        var annual = ticket / af, total = annual * LIFE;
-        document.getElementById('tktLabel').textContent = money(ticket);
-        document.getElementById('irrLabel').textContent = (+irrIn.value) + '%';
-        document.getElementById('outAnnual').textContent = money(r100(annual));
-        document.getElementById('outTotal').textContent = money(r100(total));
-        document.getElementById('outMoic').textContent = (total / ticket).toFixed(2) + 'x';
-      };
-      tkt.addEventListener('input', calc);
-      irrIn.addEventListener('input', calc);
-      calc();
-    }
-
-    var acf = document.getElementById('accessForm');
-    if (acf) {
-      acf.addEventListener('submit', function(e){
-        e.preventDefault();
-        var body = new URLSearchParams(new FormData(acf)).toString();
-        var done = function(){
-          acf.style.display = 'none';
-          var t = document.getElementById('accessThanks');
-          if (t) t.style.display = '';
-          window.scrollTo(0, 0);
-        };
-        fetch('/', { method:'POST', headers:{ 'Content-Type':'application/x-www-form-urlencoded' }, body: body })
-          .then(done).catch(done);
-      });
-    }
-
-    window.addEventListener('hashchange', function(){ if (location.hash.indexOf('#/') === 0) route(); });
-    route();
-  })();
+  /* ---- access form ---- */
+  var f=document.getElementById('accessForm');
+  if(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var body=new URLSearchParams(new FormData(f)).toString();
+      var done=function(){f.style.display='none';var d=document.getElementById('accessDone');d.style.display='block';};
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(done).catch(done);
+    });
+  }
+})();
 </script>
 </body>
 </html>
