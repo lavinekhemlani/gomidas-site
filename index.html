@@ -338,6 +338,82 @@
   .legal a{color:var(--gold)}
   .legal ul{padding-left:20px}
 
+
+  /* rails */
+  .ringwrap{display:flex;justify-content:center;margin-top:60px}
+  .ring{position:relative;width:210px;height:210px;border-radius:50%;display:grid;place-items:center}
+  .ring::before{content:"";position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg,rgba(198,161,91,0) 0deg,rgba(198,161,91,.15) 90deg,#E3C37D 180deg,rgba(198,161,91,.15) 270deg,rgba(198,161,91,0) 360deg);
+    -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 10px),#000 calc(100% - 9px));
+    mask:radial-gradient(farthest-side,transparent calc(100% - 10px),#000 calc(100% - 9px));
+    animation:spin 7s linear infinite}
+  .ring::after{content:"";position:absolute;inset:14px;border-radius:50%;border:1px solid var(--line-soft)}
+  .ring-in{text-align:center;padding:0 26px}
+  .ring-in b{display:block;font-size:16px;font-weight:600}
+  .ring-in span{display:block;margin-top:6px;font-size:11.5px;color:var(--dim)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .railsvg{margin-top:54px;background:var(--panel);border:1px solid var(--line-soft);border-radius:16px;padding:26px 18px 10px;overflow-x:auto}
+  .railsvg svg{display:block;width:100%;min-width:760px;height:auto}
+  .fl{fill:none;stroke:#3A3F49;stroke-width:1.4;stroke-dasharray:4 6;animation:dashmove 1.6s linear infinite}
+  @keyframes dashmove{to{stroke-dashoffset:-20}}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+  @media(max-width:960px){.grid4{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.grid4{grid-template-columns:1fr}}
+  .r4{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:22px 20px}
+  .r4 b{display:block;font-size:15px;font-weight:600}
+  .r4 p{margin:8px 0 0;font-size:13px;color:var(--mut);line-height:1.55}
+
+  /* motion layer */
+  h1 .g{background-size:220% 100%;animation:shimmer 7s ease-in-out infinite}
+  @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .hglow{animation:breathe 9s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:1}50%{opacity:.55}}
+  .tape{padding:0;justify-content:flex-start;overflow:hidden}
+  .tape-t{display:flex;gap:58px;flex:none;min-width:100%;justify-content:space-around;
+    padding:19px 29px;animation:tapemove 30s linear infinite}
+  .tick b.u{color:var(--green);transition:color .15s}
+  .tick b.d{color:#E06A6A;transition:color .15s}
+  @keyframes tapemove{to{transform:translateX(-100%)}}
+  @media(prefers-reduced-motion:reduce){
+    .ring::before,.fl,h1 .g,.hglow,.tape-t{animation:none}
+    .pulses{display:none}
+  }
+
+
+  /* three big steps */
+  .big3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+  @media(max-width:860px){.big3{grid-template-columns:1fr}}
+  .b3{position:relative;background:var(--panel);border:1px solid var(--line-soft);border-radius:18px;padding:34px 28px;overflow:hidden;transition:border-color .2s,transform .2s}
+  .b3:hover{border-color:var(--gold-line);transform:translateY(-3px)}
+  .b3 .n3{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;
+    background:var(--gold-soft);border:1px solid var(--gold-line);color:var(--gold);
+    font-family:var(--big);font-size:20px;font-weight:700}
+  .b3 b{display:block;margin-top:20px;font-size:19px;font-weight:600;letter-spacing:-.01em}
+  .b3 p{margin:10px 0 0;font-size:14.5px;color:var(--mut);line-height:1.6}
+
+  /* audience doors */
+  .doors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+  @media(max-width:860px){.doors{grid-template-columns:1fr}}
+  .door{display:block;background:var(--panel);border:1px solid var(--line-soft);border-radius:18px;
+    padding:32px 28px;text-decoration:none;transition:border-color .2s,transform .2s,box-shadow .2s}
+  .door:hover{border-color:var(--gold-line);transform:translateY(-4px);box-shadow:0 24px 50px -24px rgba(198,161,91,.25)}
+  .door b{font-size:21px;font-weight:600;letter-spacing:-.01em}
+  .door p{margin:12px 0 0;font-size:14.5px;color:var(--mut);line-height:1.6;min-height:66px}
+  .door .go{display:inline-block;margin-top:18px;font-size:14px;font-weight:600;color:var(--gold)}
+  .door.gold{background:linear-gradient(170deg,rgba(198,161,91,.10),transparent 55%),var(--panel);border-color:var(--gold-line)}
+
+  .grid3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:960px){.grid3{grid-template-columns:1fr}}
+  /* speed race bars */
+  .race{margin-top:52px;display:flex;flex-direction:column;gap:22px;max-width:820px}
+  .lane .ll{font-size:14.5px;font-weight:600;margin-bottom:9px}
+  .lane .lbar{height:14px;border-radius:8px;background:var(--panel-2);border:1px solid var(--line-soft);overflow:hidden}
+  .lane .lfill{height:100%;width:0;border-radius:8px;background:#3A3F49;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+  .lane.gold .lfill{background:linear-gradient(90deg,#B08A3E,#E3C37D)}
+  .race.in .lfill{width:var(--w)}
+  .lane .lt{margin-top:8px;font-size:12.5px;color:var(--dim)}
+  @media(prefers-reduced-motion:reduce){.lane .lfill{transition:none;width:var(--w)}}
+
   /* ---------- reveal ---------- */
   .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
   .rv.in{opacity:1;transform:none}
@@ -367,25 +443,24 @@
   <div class="nav-in">
     <a href="#top" class="brand" style="color:inherit"><span class="coin">M</span> Midas</a>
     <div class="nlinks">
-      <a href="#void" data-spy="void asset">For investors</a>
-      <a href="#operators" data-spy="operators">For operators</a>
-      <a href="#underwriting" data-spy="underwriting">How it works</a>
-      <a href="#pipeline" data-spy="pipeline">Pipeline</a>
+      <a href="#/investors" data-route-link="investors">For investors</a>
+      <a href="#/operators" data-route-link="operators">For miners</a>
+      <a href="#/institutions" data-route-link="institutions">For institutions</a>
       <a href="#access" class="btn btn-gold">Request access</a>
     </div>
     <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
   <div class="mmenu">
-    <a href="#void">For investors</a>
-    <a href="#operators">For operators</a>
-    <a href="#underwriting">How it works</a>
-    <a href="#pipeline">Pipeline</a>
+    <a href="#/investors">For investors</a>
+    <a href="#/operators">For miners</a>
+    <a href="#/institutions">For institutions</a>
     <a href="#access">Request access</a>
   </div>
 </nav>
 
 <main id="main">
 
+<div data-route="home">
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hglow" aria-hidden="true"></div>
@@ -400,19 +475,24 @@
     </div>
     <p class="hero-note">Qualified investors only</p>
   </div>
-  <div class="tape" aria-hidden="true">
-    <span>Iron ore · West Africa <b>$20M</b></span>
+  <div class="tape" aria-hidden="true"><div class="tape-t"><span>Iron ore · West Africa <b>$20M</b></span>
     <span>Copper · Southern Africa <b>$15M</b></span>
     <span>Tin &amp; tungsten · Central Africa <b>$12M</b></span>
     <span>Gold · South America <b>$18M</b></span>
     <span>Zinc · Australia <b>$10M</b></span>
-  </div>
+    <span>Five instruments in underwriting <b>$75M</b></span></div><div class="tape-t"><span>Iron ore · West Africa <b>$20M</b></span>
+    <span>Copper · Southern Africa <b>$15M</b></span>
+    <span>Tin &amp; tungsten · Central Africa <b>$12M</b></span>
+    <span>Gold · South America <b>$18M</b></span>
+    <span>Zinc · Australia <b>$10M</b></span>
+    <span>Five instruments in underwriting <b>$75M</b></span></div></div>
 </section>
+
 
 <!-- ============ PIPELINE ============ -->
 <section id="pipeline">
   <div class="wrap">
-    <span class="eyebrow rv">01 — The board</span>
+    <span class="eyebrow rv">The board</span>
     <h2 class="rv">The first royalties are being underwritten now.</h2>
     <div class="board dk rv">
       <div class="b-top">
@@ -455,10 +535,63 @@
   </div>
 </section>
 
-<!-- ============ THE VOID ============ -->
-<section id="void">
+
+
+<!-- home: the gap, condensed -->
+<section id="gap" data-route="home">
   <div class="wrap">
-    <span class="eyebrow rv">02 — The gap</span>
+    <span class="eyebrow rv">The gap</span>
+    <h2 class="rv">There is a $100B asset class you have never been offered.</h2>
+    <div class="stats rv">
+      <div class="stat"><div class="n num" data-to="100" data-pre="$" data-suf="B+">$100B+</div><div class="k">The royalty asset class, held almost entirely in private hands</div></div>
+      <div class="stat"><div class="n num" data-to="3" data-suf="">3</div><div class="k">Balance sheets hold most of it. None of it trades openly</div></div>
+      <div class="stat"><div class="n num" data-to="25" data-pre="$" data-suf="K">$25K</div><div class="k">The new minimum. It used to be $5M</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- home: three steps -->
+<section id="how" data-route="home">
+  <div class="wrap">
+    <span class="eyebrow rv">How it works</span>
+    <h2 class="rv">Three steps. That's the product.</h2>
+    <div class="big3 rv">
+      <div class="b3"><span class="n3">1</span><b>Own a piece of a royalty</b><p>A share of everything a mine sells, from $25,000. Registered against the licence itself.</p></div>
+      <div class="b3"><span class="n3">2</span><b>Get paid when the mine sells</b><p>Off the top line — before costs, banks and shareholders. Automated, pro-rata, same day.</p></div>
+      <div class="b3"><span class="n3">3</span><b>Trade any time</b><p>Fractions move between verified holders 24/7. No lockups. No waiting for a fund to wind up.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- home: audience doors -->
+<section id="doors" data-route="home">
+  <div class="wrap">
+    <span class="eyebrow rv">Pick your door</span>
+    <h2 class="rv">Built for three kinds of people.</h2>
+    <div class="doors rv">
+      <a class="door" href="#/investors">
+        <b>Investors</b>
+        <p>Own mining cash flow without owning a mining company. From $25,000.</p>
+        <span class="go">For investors →</span>
+      </a>
+      <a class="door gold" href="#/operators">
+        <b>Miners</b>
+        <p>Raise $10M+ in weeks, not 18 months. Keep every share you own.</p>
+        <span class="go">For miners →</span>
+      </a>
+      <a class="door" href="#/institutions">
+        <b>Institutions</b>
+        <p>Size, structure and sell-downs. A pipeline you can actually underwrite.</p>
+        <span class="go">For institutions →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE VOID ============ -->
+<section id="void" style="display:none">
+  <div class="wrap">
+    <span class="eyebrow rv">The gap</span>
     <h2 class="rv">There is a $100B asset class you have never been offered.</h2>
     <p class="lede rv">A royalty is a permanent share of a mine's revenue. For forty years the only way in was a $50M cheque. Almost nobody got to write one.</p>
     <div class="stats rv">
@@ -495,10 +628,22 @@
   </div>
 </section>
 
+
+</div>
+
+<div data-route="investors">
+
+<section id="inv" >
+  <div class="wrap">
+    <span class="eyebrow rv">Investors</span>
+    <h2 class="rv">Own mining cash flow. Not a mining company.</h2>
+    <p class="lede rv">Buy a royalty company's shares and you get its whole book and its management's next decision. Here you back one asset, with one file, from $25,000.</p>
+  </div>
+</section>
 <!-- ============ ANATOMY ============ -->
 <section id="asset">
   <div class="wrap">
-    <span class="eyebrow rv">03 — The instrument</span>
+    <span class="eyebrow rv">The instrument</span>
     <h2 class="rv">A royalty is a share of what the mine sells. It gets paid before everyone else.</h2>
     <p class="lede rv">Off the top line. Before costs, before the bank, before shareholders. For the life of the mine.</p>
     <div class="wf rv" id="wf">
@@ -537,27 +682,140 @@
   </div>
 </section>
 
-<!-- ============ UNDERWRITING ============ -->
-<section id="underwriting">
+
+<!-- ============ RAILS ============ -->
+<section id="rails">
   <div class="wrap">
-    <span class="eyebrow rv">04 — Underwriting</span>
-    <h2 class="rv">One royalty at a time. Engineers first. Then lawyers. Then investors.</h2>
-    <div class="rail rv">
-      <div class="doc"><span class="ref">TR-01</span><span class="no">01 · TECHNICAL</span><h3>The rock is reviewed</h3><p>Geologists and mining engineers on the reserve, the grade and the production schedule. Most assets stop here.</p></div>
-      <div class="doc"><span class="ref">LG-02</span><span class="no">02 · LEGAL</span><h3>The claim is registered</h3><p>Host-country counsel registers the royalty against the mining licence. If it can't be enforced locally, it doesn't proceed.</p></div>
-      <div class="doc"><span class="ref">ST-03</span><span class="no">03 · STRUCTURE</span><h3>The vehicle is built</h3><p>One segregated vehicle per royalty. Custody, transfer controls and reporting set before a dollar moves.</p></div>
-      <div class="doc"><span class="ref">FR-04</span><span class="no">04 · FRACTIONS</span><h3>The instrument opens</h3><p>Divided from $25,000, offered to qualified investors with the full technical and legal file attached.</p></div>
+    <span class="eyebrow rv">The rails</span>
+    <h2 class="rv">Crypto rails. Real-world collateral.</h2>
+    <p class="lede rv">The royalty is legal machinery, registered against the mine. The token is how it moves.</p>
+
+    <div class="ringwrap rv">
+      <div class="ring"><div class="ring-in"><b>The royalty token</b><span>One royalty · one SPV · one token</span></div></div>
     </div>
-    <p class="rej rv"><b>The whole business is what we refuse.</b> No exploration ground. No unregistrable claims. No operator who won't open the drill data. The file publishes with every instrument, so you can disagree with us in public.</p>
+
+    <div class="railsvg rv">
+      <svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid meet" aria-label="How ownership and settlement flow">
+        <defs>
+          <marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8" fill="none" stroke="#615C52" stroke-width="1.3"/>
+          </marker>
+        </defs>
+        <text x="20" y="28" font-family="Switzer, sans-serif" font-size="13" font-weight="600" fill="#C6A15B">Ownership</text>
+        <g font-family="Switzer, sans-serif" font-size="12.5" font-weight="500">
+          <g><rect x="20" y="44" width="140" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="90" y="70" text-anchor="middle" fill="#F2EFE8">Mine licence</text></g>
+          <path class="fl" d="M160,66 L200,66" marker-end="url(#ar)"/>
+          <g><rect x="204" y="44" width="150" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="279" y="70" text-anchor="middle" fill="#F2EFE8">Royalty registered</text></g>
+          <path class="fl" d="M354,66 L394,66" marker-end="url(#ar)"/>
+          <g><rect x="398" y="44" width="150" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="473" y="70" text-anchor="middle" fill="#F2EFE8">SPV, segregated</text></g>
+          <path class="fl" d="M548,66 L588,66" marker-end="url(#ar)"/>
+          <g><rect x="592" y="44" width="130" height="44" rx="9" fill="#171A21" stroke="rgba(198,161,91,.5)"/><text x="657" y="70" text-anchor="middle" fill="#E3C37D">Token issued</text></g>
+          <path class="fl" d="M722,66 L762,66" marker-end="url(#ar)"/>
+          <g><rect x="766" y="44" width="118" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="825" y="70" text-anchor="middle" fill="#F2EFE8">Verified holders</text></g>
+        </g>
+        <text x="20" y="168" font-family="Switzer, sans-serif" font-size="13" font-weight="600" fill="#C6A15B">Settlement</text>
+        <g font-family="Switzer, sans-serif" font-size="12.5" font-weight="500">
+          <g><rect x="20" y="184" width="160" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="100" y="210" text-anchor="middle" fill="#F2EFE8">Mine sells production</text></g>
+          <path class="fl" d="M180,206 L232,206" marker-end="url(#ar)"/>
+          <g><rect x="236" y="184" width="150" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="311" y="210" text-anchor="middle" fill="#F2EFE8">Royalty share paid</text></g>
+          <path class="fl" d="M386,206 L438,206" marker-end="url(#ar)"/>
+          <g><rect x="442" y="184" width="160" height="44" rx="9" fill="#171A21" stroke="rgba(198,161,91,.5)"/><text x="522" y="210" text-anchor="middle" fill="#E3C37D">Contract distributes</text></g>
+          <path class="fl" d="M602,206 L654,206" marker-end="url(#ar)"/>
+          <g><rect x="658" y="184" width="226" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="771" y="210" text-anchor="middle" fill="#F2EFE8">Every holder, pro-rata, same day</text></g>
+        </g>
+        <g class="pulses" fill="#E3C37D">
+          <circle r="3"><animateMotion dur="2.4s" repeatCount="indefinite" path="M160,66 L200,66"/></circle>
+          <circle r="3"><animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M354,66 L394,66"/></circle>
+          <circle r="3"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M548,66 L588,66"/></circle>
+          <circle r="3"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M722,66 L762,66"/></circle>
+          <circle r="3"><animateMotion dur="2.2s" begin="0.3s" repeatCount="indefinite" path="M180,206 L232,206"/></circle>
+          <circle r="3"><animateMotion dur="2.2s" begin="0.9s" repeatCount="indefinite" path="M386,206 L438,206"/></circle>
+          <circle r="3"><animateMotion dur="2.2s" begin="1.5s" repeatCount="indefinite" path="M602,206 L654,206"/></circle>
+        </g>
+        <text x="450" y="285" text-anchor="middle" font-family="Switzer, sans-serif" font-size="11.5" fill="#615C52">Transfers move only between verified wallets. Chain and token standard are set out in the instrument documents.</text>
+      </svg>
+    </div>
+
+    <div class="grid4 rv">
+      <div class="r4"><b>Settlement in minutes</b><p>Transfers clear between verified holders the moment they match. No T+2, no registrar queue.</p></div>
+      <div class="r4"><b>Automated distributions</b><p>Production reports trigger the payout. Every fraction gets its share through the contract, same day.</p></div>
+      <div class="r4"><b>Verified holders only</b><p>Every wallet clears KYC before it can hold. The register stays clean, and so does the asset.</p></div>
+      <div class="r4"><b>24/7, global</b><p>The market doesn't close. Fractions move any hour, anywhere participation is permitted.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="wrap">
+    <span class="eyebrow rv">The process</span>
+    <h2 class="rv">From request to first distribution.</h2>
+    <div class="steps5 rv">
+      <div class="s5"><span class="ix">01</span><b>Request access</b><p>Two minutes. A person reads it.</p></div>
+      <div class="s5"><span class="ix">02</span><b>Verify</b><p>Identity, suitability, source of funds. Once.</p></div>
+      <div class="s5"><span class="ix">03</span><b>Read the file</b><p>Reserve, licence, legal opinion — the full record.</p></div>
+      <div class="s5"><span class="ix">04</span><b>Subscribe</b><p>From $25,000, into one named royalty.</p></div>
+      <div class="s5"><span class="ix">05</span><b>Collect</b><p>Distributions as the mine sells. For the life of the mine.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow rv">Questions</span>
+    <h2 class="rv">Questions we get.</h2>
+    <div class="faq rv">
+      <details><summary>Who can invest?</summary><div class="a">Qualified and professional investors in jurisdictions where participation is permitted. Onboarding includes identity, source-of-funds and suitability checks. This is deliberate — the structure only works if the register stays clean.</div></details>
+      <details><summary>What exactly do I own?</summary><div class="a">A fraction of a segregated vehicle whose only asset is one royalty, registered against a specific mining licence — plus your share of the cash it produces. Not shares in the mine. Not a loan to the operator.</div></details>
+      <details><summary>How does a royalty pay?</summary><div class="a">A fixed percentage of the mine's revenue, paid as it sells production. Off the top line — before operating costs, debt service or any distribution to shareholders.</div></details>
+      <details><summary>What if the mine stops producing?</summary><div class="a">Distributions stop. Nothing accrues and nothing is owed. The claim stays registered against the licence, so a restart — under the same owner or a new one — brings it back. Size every position knowing a mine can pause for years.</div></details>
+      <details><summary>How is it structured?</summary><div class="a">One segregated vehicle per royalty, issued under a framework built for tokenised real-world assets, with local counsel in the country where the mine actually sits. Full detail is in the <a href="#/disclosures">disclosures</a>.</div></details>
+      <details><summary>When does trading open?</summary><div class="a">When it's ready. Underwriting comes first — the instruments now in the pipeline set the standard for everything after. Access members hear first, and in order.</div></details>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<div data-route="operators">
+
+<section id="opshero">
+  <div class="wrap">
+    <span class="eyebrow rv">Miners</span>
+    <h2 class="rv">Raise $10M+ in weeks. Keep every share.</h2>
+    <p class="lede rv">A royalty is the capital that doesn't dilute you, doesn't sit on your board, and doesn't default you in a bad quarter.</p>
+  </div>
+</section>
+
+<!-- operators: speed -->
+<section id="speed" data-route="operators">
+  <div class="wrap">
+    <span class="eyebrow rv">Speed</span>
+    <h2 class="rv">Weeks, not months. 2%, not 10%.</h2>
+    <p class="lede rv">Raising debt or equity takes 12–18 months. An exchange listing costs a mine around 10% in fees. This is the alternative.</p>
+    <div class="race rv">
+      <div class="lane"><div class="ll">Bank debt or equity raise</div><div class="lbar"><div class="lfill slow" style="--w:100%"></div></div><div class="lt">12–18 months · covenants or dilution</div></div>
+      <div class="lane"><div class="ll">Exchange listing</div><div class="lbar"><div class="lfill slow" style="--w:78%"></div></div><div class="lt">~10% of the raise in fees</div></div>
+      <div class="lane gold"><div class="ll">Midas royalty</div><div class="lbar"><div class="lfill" style="--w:14%"></div></div><div class="lt">Weeks · ~2% · paid only from production</div></div>
+    </div>
+    <div class="grid4 grid3 rv">
+      <div class="r4"><b>What you get</b><p>$10M–$30M against production. Cash for the build, the acquisition, or the restart — priced off the asset, not your share price.</p></div>
+      <div class="r4"><b>What you keep</b><p>Every share. Every board seat. Every decision. A royalty attaches to the licence, not the cap table.</p></div>
+      <div class="r4"><b>What you owe</b><p>A fixed share of revenue, only when you produce. No production, no payment. No maturity date waiting for you.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- ============ OPERATORS ============ -->
 <section id="operators">
   <div class="wrap">
-    <span class="eyebrow rv">05 — For operators</span>
-    <h2 class="rv">Operators: raise $10M+ without giving up a share.</h2>
-    <p class="lede rv">A percentage of revenue, priced by people who have actually sat on mine sites. No covenants, no board seat, no dilution.</p>
+    <span class="eyebrow rv">The paper</span>
+    <h2 class="rv">The term sheet, before you even call.</h2>
+    <p class="lede rv">Priced by people who have actually sat on mine sites.</p>
     <div class="ops rv">
       <div class="ts">
         <div class="ts-top">Indicative term sheet</div>
@@ -584,10 +842,45 @@
   </div>
 </section>
 
+
+<!-- ============ UNDERWRITING ============ -->
+<section id="underwriting">
+  <div class="wrap">
+    <span class="eyebrow rv">Underwriting</span>
+    <h2 class="rv">One royalty at a time. Engineers first. Then lawyers. Then investors.</h2>
+    <div class="rail rv">
+      <div class="doc"><span class="ref">TR-01</span><span class="no">01 · TECHNICAL</span><h3>The rock is reviewed</h3><p>Geologists and mining engineers on the reserve, the grade and the production schedule. Most assets stop here.</p></div>
+      <div class="doc"><span class="ref">LG-02</span><span class="no">02 · LEGAL</span><h3>The claim is registered</h3><p>Host-country counsel registers the royalty against the mining licence. If it can't be enforced locally, it doesn't proceed.</p></div>
+      <div class="doc"><span class="ref">ST-03</span><span class="no">03 · STRUCTURE</span><h3>The vehicle is built</h3><p>One segregated vehicle per royalty. Custody, transfer controls and reporting set before a dollar moves.</p></div>
+      <div class="doc"><span class="ref">FR-04</span><span class="no">04 · FRACTIONS</span><h3>The instrument opens</h3><p>Divided from $25,000, offered to qualified investors with the full technical and legal file attached.</p></div>
+    </div>
+    <p class="rej rv"><b>The whole business is what we refuse.</b> No exploration ground. No unregistrable claims. No operator who won't open the drill data. The file publishes with every instrument, so you can disagree with us in public.</p>
+  </div>
+</section>
+
+
+</div>
+
+<div data-route="institutions">
+
+<!-- institutions: hero-lite + lanes -->
+<section id="inst" data-route="institutions">
+  <div class="wrap">
+    <span class="eyebrow rv">Institutions</span>
+    <h2 class="rv">A pipeline you can actually underwrite.</h2>
+    <p class="lede rv">Every instrument carries the full file — reserve, licence chain, enforceability opinion, production history. Read it, model it, disagree with us.</p>
+    <div class="grid4 grid3 rv">
+      <div class="r4"><b>Family offices</b><p>Direct fractions or pre-tokenisation SPVs on single instruments. Long-duration income against a hard asset.</p></div>
+      <div class="r4"><b>Funds &amp; royalty holders</b><p>Sell down part of an existing royalty without releasing the position. Get a mark on an asset that has never had one.</p></div>
+      <div class="r4"><b>Strategic buyers</b><p>Exposure to the commodities you actually consume, structured against producing assets.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ STANDARDS ============ -->
 <section id="standards">
   <div class="wrap">
-    <span class="eyebrow rv">06 — Structure</span>
+    <span class="eyebrow rv">Structure</span>
     <h2 class="rv">How it's structured.</h2>
     <div class="grid6 rv">
       <div class="std"><span class="ix">01</span><b>Regulated issuance</b><p>Issued under a framework built for tokenised real-world assets. The specifics are in the disclosures, in writing.</p></div>
@@ -600,10 +893,11 @@
   </div>
 </section>
 
+
 <!-- ============ FOUNDER ============ -->
 <section id="founder">
   <div class="wrap">
-    <span class="eyebrow rv">07 — The people</span>
+    <span class="eyebrow rv">The people</span>
     <h2 class="rv">Who is behind this.</h2>
     <div class="fdr rv">
       <img src="lavine.jpeg" alt="Lavine Hemlani" />
@@ -617,41 +911,13 @@
   </div>
 </section>
 
-<!-- ============ PROCESS ============ -->
-<section id="process">
-  <div class="wrap">
-    <span class="eyebrow rv">08 — The process</span>
-    <h2 class="rv">From request to first distribution.</h2>
-    <div class="steps5 rv">
-      <div class="s5"><span class="ix">01</span><b>Request access</b><p>Two minutes. A person reads it.</p></div>
-      <div class="s5"><span class="ix">02</span><b>Verify</b><p>Identity, suitability, source of funds. Once.</p></div>
-      <div class="s5"><span class="ix">03</span><b>Read the file</b><p>Reserve, licence, legal opinion — the full record.</p></div>
-      <div class="s5"><span class="ix">04</span><b>Subscribe</b><p>From $25,000, into one named royalty.</p></div>
-      <div class="s5"><span class="ix">05</span><b>Collect</b><p>Distributions as the mine sells. For the life of the mine.</p></div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ FAQ ============ -->
-<section id="faq">
-  <div class="wrap">
-    <span class="eyebrow rv">09 — Questions</span>
-    <h2 class="rv">Questions we get.</h2>
-    <div class="faq rv">
-      <details><summary>Who can invest?</summary><div class="a">Qualified and professional investors in jurisdictions where participation is permitted. Onboarding includes identity, source-of-funds and suitability checks. This is deliberate — the structure only works if the register stays clean.</div></details>
-      <details><summary>What exactly do I own?</summary><div class="a">A fraction of a segregated vehicle whose only asset is one royalty, registered against a specific mining licence — plus your share of the cash it produces. Not shares in the mine. Not a loan to the operator.</div></details>
-      <details><summary>How does a royalty pay?</summary><div class="a">A fixed percentage of the mine's revenue, paid as it sells production. Off the top line — before operating costs, debt service or any distribution to shareholders.</div></details>
-      <details><summary>What if the mine stops producing?</summary><div class="a">Distributions stop. Nothing accrues and nothing is owed. The claim stays registered against the licence, so a restart — under the same owner or a new one — brings it back. Size every position knowing a mine can pause for years.</div></details>
-      <details><summary>How is it structured?</summary><div class="a">One segregated vehicle per royalty, issued under a framework built for tokenised real-world assets, with local counsel in the country where the mine actually sits. Full detail is in the <a href="#/disclosures">disclosures</a>.</div></details>
-      <details><summary>When does trading open?</summary><div class="a">When it's ready. Underwriting comes first — the instruments now in the pipeline set the standard for everything after. Access members hear first, and in order.</div></details>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- ============ ACCESS ============ -->
 <section class="access" id="access">
   <div class="wrap">
-    <span class="eyebrow rv">10 — Access</span>
+    <span class="eyebrow rv">Request access</span>
     <h2 class="rv">We open to a small first list. Get on it.</h2>
     <form class="aform rv" id="accessForm" name="access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="access" />
@@ -788,7 +1054,11 @@
       var el=qs[Math.floor(Math.random()*qs.length)];
       var base=parseFloat(el.getAttribute('data-v')),d=+el.getAttribute('data-d');
       var v=base*(1+(Math.random()-.5)*.003);
+      var prev=parseFloat(el.textContent.replace(/,/g,''))||base;
       el.textContent=v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+      el.classList.remove('u','d');
+      el.classList.add(v>=prev?'u':'d');
+      setTimeout(function(){el.classList.remove('u','d');},700);
     },2600);
   }
 
@@ -837,37 +1107,53 @@
     setTimeout(function(){el.textContent=final;},dur+400);
   }
 
-  /* ---- minimal router: legal pages ---- */
+  /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
+  var ROUTES=['home','investors','operators','institutions'];
+  var LEGAL=['disclosures','privacy','terms'];
+  function currentRoute(){
+    var h=location.hash;
+    if(h.indexOf('#/')!==0)return 'home';
+    var p=h.slice(2).split('#')[0];
+    if(ROUTES.indexOf(p)>=0||LEGAL.indexOf(p)>=0)return p;
+    return 'home';
+  }
   function route(){
-    var h=location.hash,page=(h.indexOf('#/')===0)?h.slice(2):'';
-    var legal=['disclosures','privacy','terms'].indexOf(page)>=0;
-    main.style.display=legal?'none':'';
+    var r=currentRoute(),legal=LEGAL.indexOf(r)>=0;
     lw.style.display=legal?'':'none';
     if(tickbar)tickbar.style.display=legal?'none':'';
-    lw.querySelectorAll('[data-page]').forEach(function(s){
-      s.style.display=(legal&&s.getAttribute('data-page')===page)?'':'none';
+    lw.querySelectorAll('[data-page]').forEach(function(x){
+      x.style.display=(legal&&x.getAttribute('data-page')===r)?'':'none';
     });
-    if(legal)window.scrollTo(0,0);
+    var kids=main.children;
+    for(var i=0;i<kids.length;i++){
+      var k=kids[i],dr=k.getAttribute&&k.getAttribute('data-route');
+      if(dr)k.style.display=(!legal&&dr===r)?'':'none';
+      else k.style.display=legal?'none':'';
+    }
+    document.querySelectorAll('[data-route-link]').forEach(function(a2){
+      a2.classList.toggle('on',a2.getAttribute('data-route-link')===r);
+    });
+    setTimeout(showAll,80);
+    window.scrollTo(0,0);
   }
   window.addEventListener('hashchange',route);
   route();
 
-  /* ---- nav scrollspy ---- */
-  try{
-    var spies=[].slice.call(document.querySelectorAll('.nlinks a[data-spy]'));
-    var map={};
-    spies.forEach(function(a){a.getAttribute('data-spy').split(' ').forEach(function(id){map[id]=a;});});
-    var so=new IntersectionObserver(function(es){
-      es.forEach(function(en){
-        if(!en.isIntersecting)return;
-        spies.forEach(function(a){a.classList.remove('on');});
-        var a=map[en.target.id];if(a)a.classList.add('on');
-      });
-    },{rootMargin:'-30% 0px -60% 0px'});
-    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el);});
-  }catch(e){}
+  /* ---- in-page anchors: scroll without breaking the route ---- */
+  document.addEventListener('click',function(e){
+    var a2=e.target.closest&&e.target.closest('a[href^="#"]');
+    if(!a2)return;
+    var href=a2.getAttribute('href');
+    if(href.indexOf('#/')===0)return; /* real route change */
+    var id=href.slice(1);
+    e.preventDefault();
+    function go(){var t=document.getElementById(id);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}
+    var el=document.getElementById(id);
+    if(el&&el.offsetParent!==null){go();}
+    else{location.hash='#/home';setTimeout(go,140);}
+  });
 
   /* ---- access form ---- */
   var f=document.getElementById('accessForm');

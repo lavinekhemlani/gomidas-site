@@ -2,6 +2,12 @@
 
 The market for mining royalties. Single static `index.html`, no build step.
 
+## Pages (hash-routed)
+`#/home` (simple, mass-market) · `#/investors` (instrument + rails + process + FAQ)
+· `#/operators` (miners: what you get / speed race / term sheet / underwriting)
+· `#/institutions` (lanes + structure + founder) · legal: `#/disclosures` `#/privacy` `#/terms`
+Access form + footer render on every page. In-page # anchors scroll without breaking the route.
+
 ## Design direction (v2 — rebuilt from zero)
 "Engineered document, gold restraint," per deep research on Kalshi/Polymarket/Ondo/
 Hyperliquid/Percent/octamem + the royalty incumbents:
