@@ -24,32 +24,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FDFDFB; --panel:#FFFFFF; --panel-2:#F5F4EF; --line:#E4E2D9; --line-soft:#EEEDE6;
-    --ink:#171410; --mut:#6E675C; --dim:#9B948A;
-    --gold:#96762F; --gold-soft:rgba(150,118,47,.09); --gold-line:rgba(150,118,47,.38);
+    --bg:#0A0B0D; --panel:#12141A; --panel-2:#171A21; --line:#242832; --line-soft:#1A1D24;
+    --ink:#F2EFE8; --mut:#9A948A; --dim:#615C52;
+    --gold:#C6A15B; --gold-soft:rgba(198,161,91,.10); --gold-line:rgba(198,161,91,.42);
     --gold-btn:#C6A15B;
-    --bar:#E6E0D2;
-    --green:#1E8A5E;
+    --bar:#262B33;
+    --green:#3FB57E;
     --disp:"Switzer","Inter",system-ui,sans-serif;
+    --big:"Inter Tight",system-ui,sans-serif;
     --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
     --maxw:1100px;
   }
-  .dk{
-    --panel:#13161B; --panel-2:#171B21; --line:#232830; --line-soft:#1A1E24;
-    --ink:#EDEAE3; --mut:#8A8F98; --dim:#5C6169;
-    --gold:#C6A15B; --gold-soft:rgba(198,161,91,.12); --gold-line:rgba(198,161,91,.35);
-    --bar:#2A2F37;
-    color:var(--ink);
-  }
+  .dk{}
   *{box-sizing:border-box} html{scroll-behavior:smooth}
   html,body{overflow-x:clip}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);
     font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
   a{color:inherit}
-  ::selection{background:var(--gold-btn);color:#171410}
+  ::selection{background:var(--gold-btn);color:#0A0B0D}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
   .mono{font-family:var(--mono)}
   .num{font-variant-numeric:tabular-nums}
@@ -64,7 +60,7 @@
   @media(max-width:760px){.tick .q:nth-child(n+5){display:none}}
 
   /* ---------- nav ---------- */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(253,253,251,.88);backdrop-filter:blur(14px);
+  .nav{position:sticky;top:0;z-index:50;background:rgba(10,11,13,.85);backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line-soft)}
   .nav-in{max-width:var(--maxw);margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between}
   .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:22px;letter-spacing:-.015em;text-decoration:none}
@@ -77,9 +73,9 @@
   .btn{display:inline-block;border-radius:9px;padding:12px 22px;font-size:14.5px;font-weight:600;
     text-decoration:none;cursor:pointer;border:1px solid transparent;font-family:var(--disp);
     transition:transform .15s ease,background .15s ease,border-color .15s}
-  .btn-gold{background:var(--gold-btn);color:#171410;font-weight:600}
-  .nlinks a.btn-gold,.nlinks a.btn-gold:hover{color:#171410}
-  .btn-gold:hover{transform:translateY(-1px);background:#B8933F}
+  .btn-gold{background:var(--gold-btn);color:#0A0B0D;font-weight:700}
+  .nlinks a.btn-gold,.nlinks a.btn-gold:hover{color:#0A0B0D}
+  .btn-gold:hover{transform:translateY(-1px);background:#D9B876}
   .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
   .btn-ghost:hover{border-color:var(--mut)}
   .nav .btn{padding:10px 18px}
@@ -93,24 +89,39 @@
   section{padding:140px 0;border-top:1px solid var(--line-soft);position:relative}
   section:first-of-type{border-top:0}
   .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
-  h2{font-size:clamp(1.9rem,1.3rem + 2.4vw,3.1rem);line-height:1.06;letter-spacing:-.025em;
-    font-weight:600;margin:18px 0 0;max-width:22ch;text-wrap:balance}
+  h2{font-family:var(--big);font-size:clamp(1.9rem,1.3rem + 2.4vw,3.1rem);line-height:1.06;letter-spacing:-.03em;
+    font-weight:700;margin:18px 0 0;max-width:22ch;text-wrap:balance}
   .lede{margin:20px 0 0;color:var(--mut);font-size:1.08rem;max-width:52ch;line-height:1.55}
 
   /* ---------- hero ---------- */
-  .hero{padding:0;border-top:0}
-  .hero-in{max-width:var(--maxw);margin:0 auto;padding:96px 28px 110px;display:grid;}
-  .hero-in>*{min-width:0}
-  .hero-in{
-    grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;min-height:min(72vh,720px)}
-  @media(max-width:920px){.hero-in{grid-template-columns:1fr;gap:56px;padding-top:70px}}
-  h1{font-size:clamp(2.6rem,1.5rem + 4.6vw,4.5rem);line-height:1.02;letter-spacing:-.035em;
-    font-weight:600;margin:26px 0 0;max-width:15ch;text-wrap:balance}
-  h1 .g{color:var(--gold)}
-  .hero-sub{margin:26px 0 0;color:var(--mut);font-size:1.12rem;line-height:1.55;max-width:46ch}
-  .hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .hero-note{margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--dim)}
-
+  .hero{padding:0;border-top:0;position:relative;overflow:hidden}
+  .hglow{position:absolute;inset:0;background:radial-gradient(900px 520px at 50% -12%,rgba(198,161,91,.15),transparent 70%);pointer-events:none}
+  .hgrid{position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:72px 72px;
+    -webkit-mask-image:radial-gradient(1000px 620px at 50% 0,#000,transparent 80%);
+    mask-image:radial-gradient(1000px 620px at 50% 0,#000,transparent 80%)}
+  .heroC{position:relative;max-width:900px;margin:0 auto;text-align:center;padding:120px 28px 0}
+  .pill{display:inline-flex;gap:9px;align-items:center;font-family:var(--mono);font-size:11px;
+    letter-spacing:.16em;color:var(--gold);border:1px solid var(--gold-line);border-radius:999px;padding:8px 18px}
+  .pill i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:block;animation:pulse 2.4s infinite}
+  h1{font-family:var(--big);margin:36px 0 0;font-size:clamp(3rem,1.6rem + 6.4vw,6rem);line-height:.98;
+    letter-spacing:-.04em;font-weight:700;text-wrap:balance}
+  h1 .g{background:linear-gradient(95deg,#F5E0AA,#C6A15B 60%,#9A7638);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-sub{margin:28px auto 0;color:var(--mut);font-size:1.18rem;line-height:1.55;max-width:50ch}
+  .hero-cta{margin-top:40px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+  .hero-cta .btn{padding:16px 32px;font-size:16px;border-radius:11px}
+  .hero-note{margin-top:20px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim)}
+  .tape{position:relative;margin-top:84px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    display:flex;justify-content:center;gap:58px;padding:19px 28px;font-family:var(--mono);font-size:12px;
+    color:var(--dim);letter-spacing:.06em;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+  .tape::-webkit-scrollbar{display:none}
+  .tape b{color:var(--gold);font-weight:500;margin-left:6px}
+  .instgrid{margin-top:56px;display:flex;justify-content:center}
+  .instgrid .cert{margin:0}
+  /* the instrument */
+  .instgrid{margin-top:56px;display:flex;justify-content:center}
+  .instgrid .cert{margin:0}
   /* the instrument */
   .stage{position:relative;perspective:1100px}
   .topo{position:absolute;inset:-60px 0;opacity:.5;pointer-events:none}
@@ -118,7 +129,7 @@
   .topo path{fill:none;stroke:var(--line);stroke-width:1}
   .cert{position:relative;background:linear-gradient(165deg,var(--panel-2),var(--panel) 60%);
     border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;width:100%;max-width:430px;
-    margin-left:auto;box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 34px 70px -24px rgba(23,20,16,.45);
+    margin-left:auto;box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 40px 90px -30px rgba(0,0,0,.8);
     transform-style:preserve-3d;transition:transform .25s ease;will-change:transform}
   .cert-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--line-soft)}
   .cert-id{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--mut)}
@@ -159,6 +170,11 @@
 
   /* ---------- anatomy waterfall ---------- */
   .wf{margin-top:60px;display:flex;flex-direction:column;gap:14px;max-width:760px}
+  @media(min-width:1000px){#asset .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+  #asset .eyebrow,#asset h2,#asset .lede{grid-column:1/-1}
+  #asset .wf{grid-column:1;margin-top:44px}
+  #asset .instgrid{grid-column:2;margin-top:44px;align-self:center}
+  #asset .traits{grid-column:1/-1}}
   .wf-row{display:grid;grid-template-columns:170px 1fr;gap:18px;align-items:center}
   @media(max-width:600px){.wf-row{grid-template-columns:1fr;gap:6px}}
   .wf-lab{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mut);text-align:right}
@@ -272,7 +288,7 @@
   /* ---------- founder ---------- */
   .fdr{display:grid;grid-template-columns:250px 1fr;gap:52px;margin-top:56px;align-items:start}
   @media(max-width:760px){.fdr{grid-template-columns:1fr;gap:30px}}
-  .fdr img{width:100%;border-radius:14px;border:1px solid var(--line);display:block;filter:saturate(.9)}
+  .fdr img{width:100%;border-radius:14px;border:1px solid var(--line);display:block;filter:saturate(.85) brightness(.96)}
   .fdr .nm{font-size:1.3rem;font-weight:600;margin:0}
   .fdr .rl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--gold);margin-top:8px}
   .fdr p{color:var(--mut);font-size:15.5px;line-height:1.65;margin:18px 0 0;max-width:56ch}
@@ -372,134 +388,31 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="hero-in">
-    <div>
-      <span class="eyebrow">A new market</span>
-      <h1>The best asset in mining has never been <span class="g">for sale.</span></h1>
-      <p class="hero-sub">We're changing that. Midas underwrites mining royalties — engineers first, then lawyers — and opens them to investors from $25,000. The first instruments are in underwriting now.</p>
-      <div class="hero-cta">
-        <a href="#access" class="btn btn-gold">Request access</a>
-        <a href="#pipeline" class="btn btn-ghost">See the pipeline</a>
-      </div>
-      <p class="hero-note">QUALIFIED INVESTORS ONLY</p>
+  <div class="hglow" aria-hidden="true"></div>
+  <div class="hgrid" aria-hidden="true"></div>
+  <div class="heroC">
+    <span class="pill rv in"><i></i>FIVE ROYALTIES IN UNDERWRITING</span>
+    <h1>The market for<br/><span class="g">mining royalties.</span></h1>
+    <p class="hero-sub">A royalty is a share of everything a mine sells, paid before anyone else. For forty years you couldn't buy one. Now you can — from $25,000.</p>
+    <div class="hero-cta">
+      <a href="#access" class="btn btn-gold">Request access</a>
+      <a href="#pipeline" class="btn btn-ghost">See the pipeline</a>
     </div>
-    <div class="stage">
-      <svg class="topo" viewBox="0 0 520 560" aria-hidden="true">
-        <path d="M60,80 C160,20 300,50 380,120 C460,190 470,300 400,370 C330,440 180,450 110,380 C40,310 -40,140 60,80Z"/>
-        <path d="M90,110 C175,60 290,85 355,145 C420,205 430,290 372,348 C314,406 190,414 132,356 C74,298 5,160 90,110Z"/>
-        <path d="M120,140 C190,100 280,120 330,170 C380,220 388,280 344,326 C300,372 200,378 154,332 C108,286 50,180 120,140Z"/>
-        <path d="M150,170 C200,140 268,155 305,192 C342,229 348,272 316,306 C284,340 212,344 178,310 C144,276 100,200 150,170Z"/>
-        <path d="M180,200 C215,180 258,190 282,214 C306,238 310,266 289,288 C268,310 222,312 200,290 C178,268 145,220 180,200Z"/>
-      </svg>
-      <div class="cert dk" id="cert">
-        <div class="cert-top">
-          <span class="cert-id">MDS-AU-001</span>
-          <span class="chip">PREVIEW</span>
-        </div>
-        <div class="cert-rate num">2.0% <small>net smelter return</small></div>
-        <div class="cert-meta">GOLD · PRODUCING · LIFE OF MINE</div>
-        <svg class="flow" viewBox="0 0 380 96" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="gf" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#C6A15B" stop-opacity=".28"/>
-              <stop offset="1" stop-color="#C6A15B" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <path d="M0,88 C30,80 45,50 80,42 C115,34 140,20 190,18 C240,16 260,26 300,34 C340,42 360,52 380,56 L380,96 L0,96 Z" fill="url(#gf)"/>
-          <path d="M0,88 C30,80 45,50 80,42 C115,34 140,20 190,18 C240,16 260,26 300,34 C340,42 360,52 380,56" fill="none" stroke="#C6A15B" stroke-width="1.6"/>
-          <text x="2" y="12" font-family="JetBrains Mono" font-size="7.5" fill="#5C6169" letter-spacing="1.5">ROYALTY CASH FLOW · LIFE OF MINE</text>
-        </svg>
-        <div class="cert-foot">
-          <div class="cert-min">Fractional from $25,000<span>REGISTERED AGAINST THE MINING LICENCE</span></div>
-          <div class="seal"><span>MIDAS<br/>SPV<br/>SEGREGATED</span></div>
-        </div>
-      </div>
-    </div>
+    <p class="hero-note">QUALIFIED INVESTORS ONLY</p>
   </div>
-</section>
-
-<!-- ============ THE VOID ============ -->
-<section id="void">
-  <div class="wrap">
-    <span class="eyebrow rv">§ 01 · The gap</span>
-    <h2 class="rv">There is a $100B asset class you have never been offered.</h2>
-    <p class="lede rv">A royalty is a permanent share of a mine's revenue. For forty years the only way in was a $50M cheque. Almost nobody got to write one.</p>
-    <div class="stats rv">
-      <div class="stat"><div class="n num" data-to="100" data-pre="$" data-suf="B+">$100B+</div><div class="k">The royalty asset class, held almost entirely in private hands</div></div>
-      <div class="stat"><div class="n num" data-to="3" data-suf="">3</div><div class="k">Balance sheets hold most of it. None of it trades openly</div></div>
-      <div class="stat"><div class="n num" data-to="5" data-pre="$" data-suf="M">$5M</div><div class="k">The old minimum ticket. Ours is $25,000</div></div>
-    </div>
-    <div class="tline rv">
-      <svg viewBox="0 0 1040 110" preserveAspectRatio="xMidYMid meet">
-        <line x1="20" y1="55" x2="950" y2="55" stroke="#232830" stroke-width="1.5"/>
-        <g font-family="JetBrains Mono" font-size="11" fill="#5C6169" letter-spacing="1">
-          <line x1="20" y1="48" x2="20" y2="62" stroke="#232830" stroke-width="1.5"/><text x="20" y="86" text-anchor="middle">1986</text>
-          <line x1="253" y1="50" x2="253" y2="60" stroke="#232830"/><text x="253" y="86" text-anchor="middle">1996</text>
-          <line x1="486" y1="50" x2="486" y2="60" stroke="#232830"/><text x="486" y="86" text-anchor="middle">2006</text>
-          <line x1="719" y1="50" x2="719" y2="60" stroke="#232830"/><text x="719" y="86" text-anchor="middle">2016</text>
-        </g>
-        <text x="470" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#8A8F98" letter-spacing="2">FORTY YEARS · ZERO PUBLIC TRANSACTIONS</text>
-        <circle cx="950" cy="55" r="7" fill="#C6A15B"/>
-        <circle cx="950" cy="55" r="14" fill="none" stroke="#C6A15B" stroke-opacity=".3"/>
-        <text x="950" y="86" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#C6A15B" letter-spacing="1">2026</text>
-        <text x="950" y="103" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#171410" letter-spacing="1">MIDAS</text>
-      </svg>
-    </div>
-    <div class="oldnew rv">
-      <table>
-        <tr><th></th><th>THE OLD ROUTE</th><th class="g">MIDAS</th></tr>
-        <tr><td>Minimum</td><td>$5M+</td><td class="g">$25,000</td></tr>
-        <tr><td>Access</td><td>Invitation-only funds</td><td class="g">Qualified investors, direct</td></tr>
-        <tr><td>What you own</td><td>A blended book</td><td class="g">One named royalty</td></tr>
-        <tr><td>The file</td><td>A summary deck</td><td class="g">Full technical &amp; legal file</td></tr>
-        <tr><td>Exit</td><td>Ten-year lock</td><td class="g">Transferable fractions</td></tr>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ANATOMY ============ -->
-<section id="asset">
-  <div class="wrap">
-    <span class="eyebrow rv">§ 02 · The instrument</span>
-    <h2 class="rv">A royalty is a share of what the mine sells. It gets paid before everyone else.</h2>
-    <p class="lede rv">Off the top line. Before costs, before the bank, before shareholders. For the life of the mine.</p>
-    <div class="wf rv" id="wf">
-      <div class="wf-row"><div class="wf-lab">MINE REVENUE</div><div class="wf-bar"><div class="wf-fill" style="--w:100%"></div></div></div>
-      <div class="wf-row gold"><div class="wf-lab">ROYALTY · PAID FIRST</div><div class="wf-bar"><div class="wf-fill" style="--w:8%"></div></div></div>
-      <div class="wf-note"><p>A fixed percentage of everything the mine sells, diverted before a single cost is paid.</p></div>
-      <div class="wf-row"><div class="wf-lab">OPERATING COSTS</div><div class="wf-bar"><div class="wf-fill" style="--w:54%"></div></div></div>
-      <div class="wf-row"><div class="wf-lab">DEBT SERVICE</div><div class="wf-bar"><div class="wf-fill" style="--w:18%"></div></div></div>
-      <div class="wf-row"><div class="wf-lab">EQUITY — WHAT'S LEFT</div><div class="wf-bar"><div class="wf-fill" style="--w:20%"></div></div></div>
-    </div>
-    <div class="traits rv">
-      <div class="trait"><b>Registered against the licence</b><p>Attached to the ground, not the company. It survives insolvency and change of control.</p></div>
-      <div class="trait"><b>Senior to equity</b><p>Paid off the top line, before costs, lenders and shareholders.</p></div>
-      <div class="trait"><b>No covenants, no dilution</b><p>Nothing is owed in a month the mine doesn't produce. Nobody's cap table moves.</p></div>
-      <div class="trait"><b>Life of mine</b><p>Runs as long as the reserve does. On long-life assets, that means decades.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ UNDERWRITING ============ -->
-<section id="underwriting">
-  <div class="wrap">
-    <span class="eyebrow rv">§ 03 · Underwriting</span>
-    <h2 class="rv">One royalty at a time. Engineers first. Then lawyers. Then investors.</h2>
-    <div class="rail rv">
-      <div class="doc"><span class="ref">TR-01</span><span class="no">01 · TECHNICAL</span><h3>The rock is reviewed</h3><p>Geologists and mining engineers on the reserve, the grade and the production schedule. Most assets stop here.</p></div>
-      <div class="doc"><span class="ref">LG-02</span><span class="no">02 · LEGAL</span><h3>The claim is registered</h3><p>Host-country counsel registers the royalty against the mining licence. If it can't be enforced locally, it doesn't proceed.</p></div>
-      <div class="doc"><span class="ref">ST-03</span><span class="no">03 · STRUCTURE</span><h3>The vehicle is built</h3><p>One segregated vehicle per royalty. Custody, transfer controls and reporting set before a dollar moves.</p></div>
-      <div class="doc"><span class="ref">FR-04</span><span class="no">04 · FRACTIONS</span><h3>The instrument opens</h3><p>Divided from $25,000, offered to qualified investors with the full technical and legal file attached.</p></div>
-    </div>
-    <p class="rej rv"><b>The whole business is what we refuse.</b> No exploration ground. No unregistrable claims. No operator who won't open the drill data. The file publishes with every instrument, so you can disagree with us in public.</p>
+  <div class="tape" aria-hidden="true">
+    <span>IRON ORE · W. AFRICA <b>$20M</b></span>
+    <span>COPPER · S. AFRICA <b>$15M</b></span>
+    <span>TIN &amp; TUNGSTEN · C. AFRICA <b>$12M</b></span>
+    <span>GOLD · S. AMERICA <b>$18M</b></span>
+    <span>ZINC · AUSTRALIA <b>$10M</b></span>
   </div>
 </section>
 
 <!-- ============ PIPELINE ============ -->
 <section id="pipeline">
   <div class="wrap">
-    <span class="eyebrow rv">§ 04 · The board</span>
+    <span class="eyebrow rv">§ 01 · The board</span>
     <h2 class="rv">The first royalties are being underwritten now.</h2>
     <div class="board dk rv">
       <div class="b-top">
@@ -539,6 +452,103 @@
       </div>
       <div class="b-cap">UNDERWRITING PIPELINE · STAGES AND STRUCTURES INDICATIVE · NOTHING HERE IS AN OFFER OF SECURITIES</div>
     </div>
+  </div>
+</section>
+
+<!-- ============ THE VOID ============ -->
+<section id="void">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 02 · The gap</span>
+    <h2 class="rv">There is a $100B asset class you have never been offered.</h2>
+    <p class="lede rv">A royalty is a permanent share of a mine's revenue. For forty years the only way in was a $50M cheque. Almost nobody got to write one.</p>
+    <div class="stats rv">
+      <div class="stat"><div class="n num" data-to="100" data-pre="$" data-suf="B+">$100B+</div><div class="k">The royalty asset class, held almost entirely in private hands</div></div>
+      <div class="stat"><div class="n num" data-to="3" data-suf="">3</div><div class="k">Balance sheets hold most of it. None of it trades openly</div></div>
+      <div class="stat"><div class="n num" data-to="5" data-pre="$" data-suf="M">$5M</div><div class="k">The old minimum ticket. Ours is $25,000</div></div>
+    </div>
+    <div class="tline rv">
+      <svg viewBox="0 0 1040 110" preserveAspectRatio="xMidYMid meet">
+        <line x1="20" y1="55" x2="950" y2="55" stroke="#232830" stroke-width="1.5"/>
+        <g font-family="JetBrains Mono" font-size="11" fill="#5C6169" letter-spacing="1">
+          <line x1="20" y1="48" x2="20" y2="62" stroke="#232830" stroke-width="1.5"/><text x="20" y="86" text-anchor="middle">1986</text>
+          <line x1="253" y1="50" x2="253" y2="60" stroke="#232830"/><text x="253" y="86" text-anchor="middle">1996</text>
+          <line x1="486" y1="50" x2="486" y2="60" stroke="#232830"/><text x="486" y="86" text-anchor="middle">2006</text>
+          <line x1="719" y1="50" x2="719" y2="60" stroke="#232830"/><text x="719" y="86" text-anchor="middle">2016</text>
+        </g>
+        <text x="470" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#8A8F98" letter-spacing="2">FORTY YEARS · ZERO PUBLIC TRANSACTIONS</text>
+        <circle cx="950" cy="55" r="7" fill="#C6A15B"/>
+        <circle cx="950" cy="55" r="14" fill="none" stroke="#C6A15B" stroke-opacity=".3"/>
+        <text x="950" y="86" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#C6A15B" letter-spacing="1">2026</text>
+        <text x="950" y="103" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#171410" letter-spacing="1">MIDAS</text>
+      </svg>
+    </div>
+    <div class="oldnew rv">
+      <table>
+        <tr><th></th><th>THE OLD ROUTE</th><th class="g">MIDAS</th></tr>
+        <tr><td>Minimum</td><td>$5M+</td><td class="g">$25,000</td></tr>
+        <tr><td>Access</td><td>Invitation-only funds</td><td class="g">Qualified investors, direct</td></tr>
+        <tr><td>What you own</td><td>A blended book</td><td class="g">One named royalty</td></tr>
+        <tr><td>The file</td><td>A summary deck</td><td class="g">Full technical &amp; legal file</td></tr>
+        <tr><td>Exit</td><td>Ten-year lock</td><td class="g">Transferable fractions</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANATOMY ============ -->
+<section id="asset">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 03 · The instrument</span>
+    <h2 class="rv">A royalty is a share of what the mine sells. It gets paid before everyone else.</h2>
+    <p class="lede rv">Off the top line. Before costs, before the bank, before shareholders. For the life of the mine.</p>
+    <div class="wf rv" id="wf">
+      <div class="wf-row"><div class="wf-lab">MINE REVENUE</div><div class="wf-bar"><div class="wf-fill" style="--w:100%"></div></div></div>
+      <div class="wf-row gold"><div class="wf-lab">ROYALTY · PAID FIRST</div><div class="wf-bar"><div class="wf-fill" style="--w:8%"></div></div></div>
+      <div class="wf-note"><p>A fixed percentage of everything the mine sells, diverted before a single cost is paid.</p></div>
+      <div class="wf-row"><div class="wf-lab">OPERATING COSTS</div><div class="wf-bar"><div class="wf-fill" style="--w:54%"></div></div></div>
+      <div class="wf-row"><div class="wf-lab">DEBT SERVICE</div><div class="wf-bar"><div class="wf-fill" style="--w:18%"></div></div></div>
+      <div class="wf-row"><div class="wf-lab">EQUITY — WHAT'S LEFT</div><div class="wf-bar"><div class="wf-fill" style="--w:20%"></div></div></div>
+    </div>
+    <div class="instgrid rv">
+      <div class="cert dk" id="cert">
+        <div class="cert-top"><span class="cert-id">MDS-AU-001</span><span class="chip">PREVIEW</span></div>
+        <div class="cert-rate num">2.0% <small>net smelter return</small></div>
+        <div class="cert-meta">GOLD · PRODUCING · LIFE OF MINE</div>
+        <svg class="flow" viewBox="0 0 380 96" preserveAspectRatio="none" aria-hidden="true">
+          <defs><linearGradient id="gf" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#C6A15B" stop-opacity=".28"/><stop offset="1" stop-color="#C6A15B" stop-opacity="0"/>
+          </linearGradient></defs>
+          <path d="M0,88 C30,80 45,50 80,42 C115,34 140,20 190,18 C240,16 260,26 300,34 C340,42 360,52 380,56 L380,96 L0,96 Z" fill="url(#gf)"/>
+          <path d="M0,88 C30,80 45,50 80,42 C115,34 140,20 190,18 C240,16 260,26 300,34 C340,42 360,52 380,56" fill="none" stroke="#C6A15B" stroke-width="1.6"/>
+          <text x="2" y="12" font-family="JetBrains Mono" font-size="7.5" fill="#615C52" letter-spacing="1.5">ROYALTY CASH FLOW · LIFE OF MINE</text>
+        </svg>
+        <div class="cert-foot">
+          <div class="cert-min">Fractional from $25,000<span>REGISTERED AGAINST THE MINING LICENCE</span></div>
+          <div class="seal"><span>MIDAS<br/>SPV<br/>SEGREGATED</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="traits rv">
+      <div class="trait"><b>Registered against the licence</b><p>Attached to the ground, not the company. It survives insolvency and change of control.</p></div>
+      <div class="trait"><b>Senior to equity</b><p>Paid off the top line, before costs, lenders and shareholders.</p></div>
+      <div class="trait"><b>No covenants, no dilution</b><p>Nothing is owed in a month the mine doesn't produce. Nobody's cap table moves.</p></div>
+      <div class="trait"><b>Life of mine</b><p>Runs as long as the reserve does. On long-life assets, that means decades.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UNDERWRITING ============ -->
+<section id="underwriting">
+  <div class="wrap">
+    <span class="eyebrow rv">§ 04 · Underwriting</span>
+    <h2 class="rv">One royalty at a time. Engineers first. Then lawyers. Then investors.</h2>
+    <div class="rail rv">
+      <div class="doc"><span class="ref">TR-01</span><span class="no">01 · TECHNICAL</span><h3>The rock is reviewed</h3><p>Geologists and mining engineers on the reserve, the grade and the production schedule. Most assets stop here.</p></div>
+      <div class="doc"><span class="ref">LG-02</span><span class="no">02 · LEGAL</span><h3>The claim is registered</h3><p>Host-country counsel registers the royalty against the mining licence. If it can't be enforced locally, it doesn't proceed.</p></div>
+      <div class="doc"><span class="ref">ST-03</span><span class="no">03 · STRUCTURE</span><h3>The vehicle is built</h3><p>One segregated vehicle per royalty. Custody, transfer controls and reporting set before a dollar moves.</p></div>
+      <div class="doc"><span class="ref">FR-04</span><span class="no">04 · FRACTIONS</span><h3>The instrument opens</h3><p>Divided from $25,000, offered to qualified investors with the full technical and legal file attached.</p></div>
+    </div>
+    <p class="rej rv"><b>The whole business is what we refuse.</b> No exploration ground. No unregistrable claims. No operator who won't open the drill data. The file publishes with every instrument, so you can disagree with us in public.</p>
   </div>
 </section>
 
