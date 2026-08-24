@@ -67,12 +67,13 @@
   .nav{position:sticky;top:0;z-index:50;background:rgba(253,253,251,.88);backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line-soft)}
   .nav-in{max-width:var(--maxw);margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:11px;font-weight:600;font-size:19px;letter-spacing:.01em;text-decoration:none}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:22px;letter-spacing:-.015em;text-decoration:none}
   .coin{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:700;color:#100c04;
     background:radial-gradient(circle at 32% 28%,#E8CE96,#8F6F33 78%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
-  .nlinks{display:flex;align-items:center;gap:30px}
-  .nlinks a{font-size:14px;color:var(--mut);text-decoration:none;transition:color .15s}
-  .nlinks a:hover{color:var(--ink)}
+  .nlinks{display:flex;align-items:center;gap:32px}
+  .nlinks a{position:relative;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;padding:6px 0}
+  .nlinks a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2.5px;background:var(--gold-btn);transition:right .18s ease}
+  .nlinks a:not(.btn):hover::after,.nlinks a.on::after{right:0}
   .btn{display:inline-block;border-radius:9px;padding:12px 22px;font-size:14.5px;font-weight:600;
     text-decoration:none;cursor:pointer;border:1px solid transparent;font-family:var(--disp);
     transition:transform .15s ease,background .15s ease,border-color .15s}
@@ -350,19 +351,19 @@
   <div class="nav-in">
     <a href="#top" class="brand" style="color:inherit"><span class="coin">M</span> Midas</a>
     <div class="nlinks">
-      <a href="#asset">The asset</a>
-      <a href="#underwriting">How it works</a>
-      <a href="#pipeline">Pipeline</a>
-      <a href="#operators">Operators</a>
+      <a href="#void" data-spy="void asset">For investors</a>
+      <a href="#operators" data-spy="operators">For operators</a>
+      <a href="#underwriting" data-spy="underwriting">How it works</a>
+      <a href="#pipeline" data-spy="pipeline">Pipeline</a>
       <a href="#access" class="btn btn-gold">Request access</a>
     </div>
     <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
   <div class="mmenu">
-    <a href="#asset">The asset</a>
+    <a href="#void">For investors</a>
+    <a href="#operators">For operators</a>
     <a href="#underwriting">How it works</a>
     <a href="#pipeline">Pipeline</a>
-    <a href="#operators">Operators</a>
     <a href="#access">Request access</a>
   </div>
 </nav>
@@ -842,6 +843,21 @@
   }
   window.addEventListener('hashchange',route);
   route();
+
+  /* ---- nav scrollspy ---- */
+  try{
+    var spies=[].slice.call(document.querySelectorAll('.nlinks a[data-spy]'));
+    var map={};
+    spies.forEach(function(a){a.getAttribute('data-spy').split(' ').forEach(function(id){map[id]=a;});});
+    var so=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting)return;
+        spies.forEach(function(a){a.classList.remove('on');});
+        var a=map[en.target.id];if(a)a.classList.add('on');
+      });
+    },{rootMargin:'-30% 0px -60% 0px'});
+    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el);});
+  }catch(e){}
 
   /* ---- access form ---- */
   var f=document.getElementById('accessForm');
