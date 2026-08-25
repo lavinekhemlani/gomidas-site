@@ -713,6 +713,22 @@
 
 .mtyp{font-size:10.5px;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:2px 8px;margin-left:8px}
 .mtyp.sec{color:var(--gold);border-color:rgba(198,161,91,.45)}
+
+/* ---- receipts tile visuals ---- */
+.stat .viz{height:66px;margin-bottom:16px;display:flex;align-items:flex-end}
+.stat .viz svg{width:100%;height:100%;display:block}
+.vcurve{stroke-dasharray:260;stroke-dashoffset:260;transition:stroke-dashoffset 1.4s ease .3s}
+.vdot{opacity:0;transition:opacity .4s ease 1.5s}
+.stats.in .vcurve{stroke-dashoffset:0}
+.stats.in .vdot{opacity:1}
+.vbars{gap:18px}
+.vb{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:5px}
+.vb i{display:block;width:30px;height:0;border-radius:3px 3px 0 0;transition:height .9s ease .3s}
+.vb i.gold{background:linear-gradient(180deg,#E3C37D,rgba(198,161,91,.4))}
+.vb i.grey{background:#2A2F39}
+.stats.in .vb i{height:var(--vh)}
+.vb em{font-style:normal;color:var(--dim);font-size:10px}
+@media(prefers-reduced-motion:reduce){.vcurve{stroke-dashoffset:0}.vdot{opacity:1}.vb i{height:var(--vh)}}
 </style>
 </head>
 <body>
@@ -801,9 +817,18 @@
     <h2 class="rv">This is already happening.</h2>
     <p class="lede rv">Phones, cars, data centers, the grid — everything new is built from stuff dug out of the ground, and there isn't enough of it. The checks coming off those mines have been private for 40 years: three companies and a few billionaires. That's the trade you're getting cut into.</p>
     <div class="stats rv">
-      <div class="stat"><div class="n num">$2B → $60B+</div><div class="k">what the mining-royalty business grew into over 15 years — while it stayed closed to the public</div></div>
-      <div class="stat"><div class="n num">25–30%</div><div class="k">the copper shortfall coming by 2035. Everything electric fights over the same metal (IEA)</div></div>
-      <div class="stat"><div class="n num">$800B</div><div class="k">what mines need to raise by 2040. They raised $10B last year. That gap is your way in</div></div>
+      <div class="stat">
+        <div class="viz"><svg viewBox="0 0 200 64" preserveAspectRatio="none"><path class="vcurve" d="M2,60 C70,58 120,46 158,26 S196,6 198,4" fill="none" stroke="#C6A15B" stroke-width="2.5" stroke-linecap="round"/><circle class="vdot" cx="198" cy="4" r="3.5" fill="#E3C37D"/></svg></div>
+        <div class="n num">$2B → $60B+</div><div class="k">what the mining-royalty business grew into over 15 years — while it stayed closed to the public</div>
+      </div>
+      <div class="stat">
+        <div class="viz vbars"><div class="vb"><i class="grey" style="--vh:58%"></i><em>supply</em></div><div class="vb"><i class="gold" style="--vh:88%"></i><em>demand</em></div></div>
+        <div class="n num">25–30%</div><div class="k">the copper shortfall coming by 2035. Everything electric fights over the same metal (IEA)</div>
+      </div>
+      <div class="stat">
+        <div class="viz vbars"><div class="vb"><i class="grey" style="--vh:5%"></i><em>raised</em></div><div class="vb"><i class="gold" style="--vh:92%"></i><em>needed</em></div></div>
+        <div class="n num">$800B</div><div class="k">what mines need to raise by 2040. They raised $10B last year. That gap is your way in</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1119,20 +1144,6 @@
         <p>Size, structure and sell-downs. A pipeline you can actually underwrite.</p>
         <span class="go">For institutions →</span>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ THE PLAN ============ -->
-<section id="plan" data-route="home">
-  <div class="wrap">
-    <span class="eyebrow rv">Where this goes</span>
-    <h2 class="rv">The plan, in four moves.</h2>
-    <div class="plan rv">
-      <div class="pl-row"><span class="ix">01</span><b>Buy</b><p>Own a piece of a real mine's sales. Any amount.</p><span class="pl-tag now">Now</span></div>
-      <div class="pl-row"><span class="ix">02</span><b>Trade</b><p>Sell or add any hour, any day. No broker, no waiting.</p><span class="pl-tag">Next</span></div>
-      <div class="pl-row"><span class="ix">03</span><b>Baskets</b><p>One click buys a slice of many mines and many metals.</p><span class="pl-tag">Then</span></div>
-      <div class="pl-row"><span class="ix">04</span><b>The benchmark</b><p>Where the world checks what a royalty is worth.</p><span class="pl-tag">The goal</span></div>
     </div>
   </div>
 </section>
