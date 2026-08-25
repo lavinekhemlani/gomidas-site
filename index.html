@@ -676,6 +676,23 @@
 @media(max-width:1080px){.app-main{grid-template-columns:1fr 300px}.app-ob{display:none}}
 @media(max-width:860px){.app-main{grid-template-columns:1fr}}
 .uwrail{margin:34px 0 8px}.uwrail svg{width:100%;height:auto;display:block}
+
+/* ---- app capability strip ---- */
+.app-caps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-soft)}
+.cap{padding:16px 22px;border-right:1px solid var(--line-soft)}
+.cap:last-child{border-right:0}
+.cap b{font-size:13px;color:var(--ink)}
+.cap p{color:var(--dim);font-size:12px;line-height:1.55;margin:5px 0 0}
+@media(max-width:860px){.app-caps{grid-template-columns:1fr}.cap{border-right:0;border-bottom:1px solid var(--line-soft)}}
+/* ---- worked math ---- */
+.mathcard{background:var(--panel);border:1px solid var(--line-soft);border-radius:16px;padding:10px 26px;margin-top:34px}
+.m-row{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-soft)}
+.m-row:last-of-type{border-bottom:0}
+.m-row .m-n{font-family:var(--big);font-weight:700;font-size:24px;color:var(--ink);font-variant-numeric:tabular-nums}
+.m-row.gold .m-n{color:var(--gold)}
+.m-row p{margin:0;color:var(--mut);font-size:15px;line-height:1.6}
+.mathcard .lc-cap{padding:14px 0 12px}
+@media(max-width:640px){.m-row{grid-template-columns:1fr;gap:6px}}
 </style>
 </head>
 <body>
@@ -1185,6 +1202,11 @@
         </div>
       </div>
       <div class="app-pos">Positions · none yet — trading opens with Deal 001</div>
+      <div class="app-caps">
+        <div class="cap"><b>Connect your wallet</b><p>MetaMask and major wallets — or start with just an email. The token settles to a verified wallet either way.</p></div>
+        <div class="cap"><b>Pay your way</b><p>Card, stablecoin, crypto or bank transfer. Buy in dollars, hold a claim on metal.</p></div>
+        <div class="cap"><b>Escrow settlement</b><p>Buyer and seller clear in real time between verified accounts. No counterparty limbo.</p></div>
+      </div>
     </div>
     <p class="b-cap" style="margin-top:16px">Product preview. Figures shown as “—” do not exist yet and won't until trading opens. Nothing on this page is an offer of securities.</p>
   </div>
@@ -1320,6 +1342,19 @@
 
 
 <!-- ============ RAILS ============ -->
+<section id="math">
+  <div class="wrap">
+    <span class="eyebrow rv">The math</span>
+    <h2 class="rv">One thousand dollars, in plain numbers.</h2>
+    <div class="mathcard rv">
+      <div class="m-row"><span class="m-n">$1,000</span><p>goes into a $20M royalty raise — $0.30 on every tonne the mine sells. You now own 0.005% of that royalty.</p></div>
+      <div class="m-row"><span class="m-n">5M tonnes</span><p>ship in a year. The royalty collects $1.5M off the top — before costs, banks or shareholders see anything.</p></div>
+      <div class="m-row gold"><span class="m-n">$75</span><p>lands in your account that year. Same again every year the mine ships — for the life of the mine. Sell your fraction whenever a verified buyer wants it.</p></div>
+      <div class="lc-cap">Illustrative mechanics only, using round numbers — not a forecast and not an offer. Production varies and can stop entirely; if the mine doesn't sell, nobody is paid.</div>
+    </div>
+  </div>
+</section>
+
 <section id="rails">
   <div class="wrap">
     <span class="eyebrow rv">The rails</span>
@@ -1676,6 +1711,7 @@
         <option>An operator raising against production</option>
         <option>A royalty holder seeking liquidity</option>
         <option>An adviser or intermediary</option>
+        <option>Not an investor yet — just put me on the waitlist</option>
       </select>
       <button type="submit" class="btn btn-gold">Request access</button>
       <p class="a-note">Not a subscription or an offer. Access requires identity and suitability checks, and we may not be able to onboard your jurisdiction. A person reads every request.</p>
