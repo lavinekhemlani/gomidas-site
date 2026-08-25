@@ -730,6 +730,19 @@
 .vb em{font-style:normal;color:var(--dim);font-size:10px}
 @media(prefers-reduced-motion:reduce){.vcurve{stroke-dashoffset:0}.vdot{opacity:1}.vb i{height:var(--vh)}}
 .whochain{margin:34px 0 6px}.whochain svg{width:100%;height:auto;display:block}
+
+/* ---- hero deal cycle ---- */
+a.dealcard{display:block;color:inherit;text-decoration:none;position:relative;cursor:pointer}
+a.dealcard:hover{border-color:var(--line)}
+.dslide{display:none}
+.dslide.on{display:block;animation:dsin .5s ease}
+@keyframes dsin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ddots{display:flex;align-items:center;gap:6px;margin-top:14px}
+.ddots i{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .3s}
+.ddots i.on{background:var(--gold)}
+.ddots span{margin-left:auto;font-size:11.5px;color:var(--gold)}
+@media(prefers-reduced-motion:reduce){.dslide.on{animation:none}}
+.era{margin-top:52px}.era svg{width:100%;height:auto;display:block}
 </style>
 </head>
 <body>
@@ -788,10 +801,11 @@
       <div class="hero-cta" style="justify-content:flex-start;margin-top:30px">
         <a href="#access" class="btn btn-gold">Request access</a>
       </div>
-      <p class="promise">Qualified investors · No commitment · We reply within 48 hours</p>
+      <p class="promise">Any amount · No commitment · We reply within 48 hours</p>
       <a class="tok-more" href="#seniority" style="margin-top:10px">How the cut works ↓</a>
     </div>
-    <div class="dealcard">
+    <a class="dealcard" href="#/markets" id="dcycle" aria-label="View all markets">
+      <div class="dslide on" data-i="0">
       <div class="dc-top"><span class="dc-id">Deal 001 · MDS-FE-01</span><span class="badge-live"><i></i>In review</span></div>
       <div class="dc-name">Iron ore <span>West Africa · producing</span></div>
       <div class="dc-rows">
@@ -801,7 +815,31 @@
       </div>
       <div class="dc-spot"><span>Iron ore spot</span><b class="odo num" data-odo="95.34">$95.34</b><em class="chg d" data-chg>−0.42%</em></div>
       <div class="dc-foot">Full technical &amp; legal file on access · Not an offer</div>
-    </div>
+      </div>
+      <div class="dslide" data-i="1">
+      <div class="dc-top"><span class="dc-id">Secondary · MDS-AU-04</span><span class="badge-live"><i></i>In review</span></div>
+      <div class="dc-name">Gold <span>North America · producing</span></div>
+      <div class="dc-rows">
+        <div class="dc-r"><span>Royalty</span><b>1.0% of every sale</b></div>
+        <div class="dc-r"><span>On offer</span><b>$18M</b></div>
+        <div class="dc-r"><span>Term</span><b class="gold-t">Life of mine</b></div>
+      </div>
+      <div class="dc-spot"><span>Gold spot</span><b class="odo num" data-odo="4648.40">$4,648.40</b><em class="chg u" data-chg>+1.00%</em></div>
+      <div class="dc-foot">Existing royalty, holder selling · Not an offer</div>
+      </div>
+      <div class="dslide" data-i="2">
+      <div class="dc-top"><span class="dc-id">Deal 006 · MDS-LI-06</span><span class="badge-live"><i></i>In review</span></div>
+      <div class="dc-name">Lithium <span>South America · feasibility</span></div>
+      <div class="dc-rows">
+        <div class="dc-r"><span>Royalty</span><b>2.0% of every sale</b></div>
+        <div class="dc-r"><span>Raise target</span><b>$25M</b></div>
+        <div class="dc-r"><span>Term</span><b class="gold-t">Life of mine</b></div>
+      </div>
+      <div class="dc-spot"><span>Lithium carbonate</span><b class="odo num" data-odo="11896">$11,896</b><em class="chg u" data-chg>+0.34%</em></div>
+      <div class="dc-foot">Full technical &amp; legal file on access · Not an offer</div>
+      </div>
+      <div class="ddots"><i class="on"></i><i></i><i></i><span>10 deals →</span></div>
+    </a>
   </div>
   <div class="statbar">
     <div class="sb"><b class="num">$100B+</b><span>asset class, held privately</span></div>
@@ -842,6 +880,23 @@
     <p class="mf rv">Crypto built the rails. Now that money wants something real.</p>
     <p class="mf rv">The people who dig can't get money fast enough. The people with money were never allowed in.</p>
     <p class="mf rv mf-g">So we built the market.</p>
+    <div class="era rv">
+      <svg viewBox="0 0 940 260" preserveAspectRatio="xMidYMid meet" aria-label="Mining royalty sector grew from 2 billion to over 60 billion dollars privately; the open era starts now">
+        <rect x="660.0" y="20" width="240" height="200" fill="rgba(198,161,91,.05)"/>
+        <line x1="660.0" y1="20" x2="660.0" y2="220" stroke="rgba(198,161,91,.5)" stroke-dasharray="4 5"/>
+        <g font-family="Switzer, sans-serif">
+          <text x="644" y="42" text-anchor="end" fill="#615C52" font-size="11" font-weight="600">THE PRIVATE ERA</text>
+          <text x="676" y="42" fill="#E3C37D" font-size="11" font-weight="700">THE OPEN ERA — STARTS NOW</text>
+          <text x="42" y="205" fill="#615C52" font-size="11.5">$2B · 2010</text>
+          <text x="660" y="48" text-anchor="middle" fill="#F2EFE8" font-size="14" font-weight="700">$60B+ · 2026</text>
+        </g>
+        <polyline points="40.0,205.1 96.4,202.7 152.7,197.9 209.1,190.6 265.5,180.9 321.8,168.7 378.2,151.7 434.5,137.1 490.9,117.7 547.3,100.7 603.6,83.7 660.0,64.3" fill="none" stroke="#C6A15B" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M660.0,64.3 C 740,34 820,-6 905,-41" fill="none" stroke="#E3C37D" stroke-width="2" stroke-dasharray="3 6" opacity=".8"/>
+        <circle cx="660.0" cy="64.3" r="5" fill="#E3C37D"><animate attributeName="opacity" values="1;.4;1" dur="2s" repeatCount="indefinite"/></circle>
+        <line x1="40" y1="220" x2="900" y2="220" stroke="#242832"/>
+      </svg>
+      <p class="b-cap">Royalty-sector scale from public company filings, 2010–2026. The dashed line is not a projection — it's the part you're early to.</p>
+    </div>
   </div>
 </section>
 
@@ -2106,6 +2161,20 @@
       t.classList.add('on');
     });
   });
+
+  /* ---- hero deal cycle ---- */
+  var dcy=document.getElementById('dcycle');
+  if(dcy&&!reduced){
+    var di=0,slides=dcy.querySelectorAll('.dslide'),dots=dcy.querySelectorAll('.ddots i'),hov=false;
+    dcy.addEventListener('mouseenter',function(){hov=true;});
+    dcy.addEventListener('mouseleave',function(){hov=false;});
+    setInterval(function(){
+      if(document.visibilityState!=='visible'||hov)return;
+      di=(di+1)%slides.length;
+      slides.forEach(function(el,k){el.classList.toggle('on',k===di);});
+      dots.forEach(function(el,k){el.classList.toggle('on',k===di);});
+    },6000);
+  }
 
   /* ---- access form ---- */
   var f=document.getElementById('accessForm');
