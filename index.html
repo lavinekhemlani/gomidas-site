@@ -535,6 +535,13 @@
   .caution p b{color:var(--mut)}
   .caution a{color:var(--mut)}
 
+  /* thesis manifesto */
+  #thesis{padding:130px 0}
+  .mf{font-family:var(--big);font-size:clamp(1.5rem,1rem + 2.6vw,2.9rem);font-weight:700;
+    letter-spacing:-.03em;line-height:1.16;max-width:26ch;margin:0 0 36px;color:var(--mut);text-wrap:balance}
+  .mf:last-child{margin-bottom:0}
+  .mf-g{background:linear-gradient(95deg,#F5E0AA,#C6A15B 60%,#9A7638);-webkit-background-clip:text;background-clip:text;color:transparent}
+
   /* ---------- reveal ---------- */
   .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
   .rv.in{opacity:1;transform:none}
@@ -631,7 +638,16 @@
       <div class="stat"><div class="n num">25–30%</div><div class="k">projected copper supply gap by 2035, as AI and defense demand collide (IEA)</div></div>
       <div class="stat"><div class="n num">$800B</div><div class="k">what mining needs by 2040. Juniors raised $10B in 2024. That gap is the trade</div></div>
     </div>
-    <p class="whyline rv">The last decade priced the internet. This decade prices the ground it runs on.</p>
+  </div>
+</section>
+
+<!-- ============ THESIS ============ -->
+<section id="thesis" data-route="home">
+  <div class="wrap">
+    <p class="mf rv">Everything digital sits on something dug out of the ground.</p>
+    <p class="mf rv">The last decade priced the internet. This decade prices the ground it runs on.</p>
+    <p class="mf rv">The people who dig can't get money fast enough. The people with money were never allowed in.</p>
+    <p class="mf rv mf-g">So we built the market.</p>
   </div>
 </section>
 
