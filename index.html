@@ -519,6 +519,22 @@
 
   .whyline{margin-top:44px;font-family:var(--big);font-size:clamp(1.2rem,1rem + 1.2vw,1.7rem);font-weight:600;letter-spacing:-.02em;color:var(--ink);max-width:30ch}
 
+  /* learn comparison */
+  .cmp3{margin-top:52px;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow-x:auto}
+  .cmp3 table{width:100%;border-collapse:collapse;min-width:640px}
+  .cmp3 th{font-size:13px;font-weight:600;color:var(--mut);text-align:left;padding:16px 20px 12px;border-bottom:1px solid var(--line-soft)}
+  .cmp3 th.g{color:var(--gold)}
+  .cmp3 td{padding:14px 20px;font-size:13.5px;border-top:1px solid var(--line-soft);color:var(--mut);vertical-align:top}
+  .cmp3 td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+  .cmp3 td.g{color:var(--ink);background:var(--gold-soft)}
+
+  /* cautionary statement */
+  .caution{padding:56px 0;border-top:1px solid var(--line-soft);background:var(--panel)}
+  .caution h3{margin:0 0 18px;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+  .caution p{margin:0 0 12px;font-size:11.5px;line-height:1.7;color:var(--dim);max-width:100ch}
+  .caution p b{color:var(--mut)}
+  .caution a{color:var(--mut)}
+
   /* ---------- reveal ---------- */
   .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
   .rv.in{opacity:1;transform:none}
@@ -551,6 +567,7 @@
       <a href="#/investors" data-route-link="investors">For investors</a>
       <a href="#/operators" data-route-link="operators">For miners</a>
       <a href="#/institutions" data-route-link="institutions">For institutions</a>
+      <a href="#/learn" data-route-link="learn">What is a royalty?</a>
       <a href="#access" class="btn btn-gold">Request access</a>
     </div>
     <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
@@ -559,6 +576,7 @@
     <a href="#/investors">For investors</a>
     <a href="#/operators">For miners</a>
     <a href="#/institutions">For institutions</a>
+    <a href="#/learn">What is a royalty?</a>
     <a href="#access">Request access</a>
   </div>
 </nav>
@@ -791,6 +809,49 @@
 </section>
 
 </div>
+<div data-route="learn">
+<section id="learnhero">
+  <div class="wrap">
+    <span class="eyebrow rv">Learn</span>
+    <h2 class="rv">What is a royalty?</h2>
+    <p class="lede rv">A royalty is a fixed share of everything a mine sells — every tonne, every ounce — paid to the royalty holder before costs, banks and shareholders. It's written against the mine's licence, so it survives a sale, a refinancing, even a bankruptcy. It isn't a loan. It isn't a share. It's older and simpler than both.</p>
+    <div class="wf rv" style="margin-top:48px">
+      <div class="wf-row"><div class="wf-lab">Mine revenue</div><div class="wf-bar"><div class="wf-fill" style="--w:100%"></div></div></div>
+      <div class="wf-row gold"><div class="wf-lab">Royalty · paid first</div><div class="wf-bar"><div class="wf-fill" style="--w:8%"></div></div></div>
+      <div class="wf-note"><p>The royalty comes off the top of every sale — before a single cost is paid.</p></div>
+      <div class="wf-row"><div class="wf-lab">Operating costs</div><div class="wf-bar"><div class="wf-fill" style="--w:54%"></div></div></div>
+      <div class="wf-row"><div class="wf-lab">Debt service</div><div class="wf-bar"><div class="wf-fill" style="--w:18%"></div></div></div>
+      <div class="wf-row"><div class="wf-lab">Equity — what's left</div><div class="wf-bar"><div class="wf-fill" style="--w:20%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="compare3">
+  <div class="wrap">
+    <span class="eyebrow rv">The comparison</span>
+    <h2 class="rv">Royalty vs equity vs debt.</h2>
+    <p class="lede rv">Three ways to own a piece of a mine's future. They are not the same animal.</p>
+    <div class="cmp3 rv">
+      <table>
+        <tr><th></th><th>Equity (shares)</th><th>Debt (bonds/loans)</th><th class="g">Royalty</th></tr>
+        <tr><td>What you own</td><td>A slice of the company</td><td>A promise to repay</td><td class="g">A share of every sale</td></tr>
+        <tr><td>Paid</td><td>Last — if anything is left</td><td>On schedule — until default</td><td class="g">First — off the top line</td></tr>
+        <tr><td>If costs blow out</td><td>You eat it</td><td>Default risk rises</td><td class="g">Not your problem</td></tr>
+        <tr><td>If the mine is sold</td><td>Depends on the deal</td><td>Usually repaid or assumed</td><td class="g">Follows the licence — outranks even the debt</td></tr>
+        <tr><td>If production grows</td><td>Shared with all costs</td><td>No upside — fixed coupon</td><td class="g">Your cut grows with every tonne</td></tr>
+        <tr><td>If the mine stops</td><td>Shares can go to zero</td><td>Default, maybe recovery</td><td class="g">Payments pause; the claim survives</td></tr>
+        <tr><td>Ends</td><td>When you sell</td><td>At maturity</td><td class="g">Life of the mine — often decades</td></tr>
+      </table>
+    </div>
+    <p class="lede rv" style="margin-top:44px">The catch, stated plainly: a royalty only pays if the mine produces and sells. No production, no payment — sometimes for years. That's the risk you're paid a premium to hold.</p>
+    <div class="hero-cta rv" style="margin-top:36px">
+      <a href="#access" class="btn btn-gold">Request access</a>
+      <a href="#/investors" class="btn btn-ghost">For investors</a>
+    </div>
+  </div>
+</section>
+</div>
+
 <div data-route="investors">
 
 <section id="inv" >
@@ -1105,6 +1166,17 @@
   </div>
 </section>
 
+
+<section class="caution">
+  <div class="wrap">
+    <h3>Cautionary statement</h3>
+    <p><b>Forward-looking statements.</b> This website contains forward-looking statements — including statements about instruments under review, platform features, timelines and market conditions — that reflect current expectations and involve known and unknown risks. Actual outcomes may differ materially, and no assurance is given that any instrument described will proceed to issuance. Statements speak only as of their date, and Midas assumes no obligation to update them.</p>
+    <p><b>No offer.</b> Nothing on this website is an offer to sell, or a solicitation of an offer to buy, any security, token or royalty interest, in any jurisdiction. Any offering, if made, will be made only to eligible persons through formal documentation containing the actual terms and risk factors.</p>
+    <p><b>Risk of total loss.</b> A royalty pays only if the underlying mine produces and sells. Payments can stop entirely, for extended periods, and you can lose your entire investment. Fractions may be difficult or impossible to sell. Figures shown as targets, structures, stages or progress are indicative; commodity prices shown are contextual and indicative, not tradeable quotes. Historical examples are drawn from public filings, are not Midas offerings, and are not indicative of future results.</p>
+    <p><b>Eligibility.</b> Access is restricted to qualified investors in permitted jurisdictions, following identity and suitability verification. See the full <a href="#/disclosures">Disclosures</a>, <a href="#/privacy">Privacy Policy</a> and <a href="#/terms">Terms</a>.</p>
+  </div>
+</section>
+
 </main>
 
 <div id="legalwrap" style="display:none">
@@ -1272,7 +1344,7 @@
   /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
-  var ROUTES=['home','investors','operators','institutions'];
+  var ROUTES=['home','investors','operators','institutions','learn'];
   var LEGAL=['disclosures','privacy','terms'];
   function currentRoute(){
     var h=location.hash;
