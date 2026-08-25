@@ -628,7 +628,7 @@
 .app-px b.u{color:var(--green)}.app-px b.d{color:#E06A6A}
 .app-meta{display:flex;gap:18px;color:var(--dim);font-size:12px;margin-left:auto}
 .app-meta b{color:var(--mut);margin-left:4px}
-.app-main{display:grid;grid-template-columns:1fr 300px}
+.app-main{display:grid;grid-template-columns:1fr 218px 300px}
 .app-chart{padding:22px;border-right:1px solid var(--line-soft)}
 .app-chart svg{width:100%;height:280px;display:block}
 .app-cap{color:var(--dim);font-size:11.5px;margin:12px 0 0}
@@ -651,6 +651,31 @@
 .team.board4{grid-template-columns:repeat(4,1fr)}
 @media(max-width:1000px){.team.board4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.team.board4{grid-template-columns:1fr}}
+
+/* ---- goldstrike lifecard animation ---- */
+.lifecard .lc-row{opacity:0;transform:translateY(12px);transition:opacity .7s ease,transform .7s ease}
+.lifecard.in .lc-row:nth-child(1){opacity:1;transform:none;transition-delay:.1s}
+.lifecard.in .lc-row:nth-child(2){opacity:1;transform:none;transition-delay:.55s}
+.lifecard.in .lc-row:nth-child(3){opacity:1;transform:none;transition-delay:1s}
+.lifecard.in .lc-row.gold{animation:lcglow 3.2s ease-in-out 1.8s infinite}
+@keyframes lcglow{0%,100%{background:rgba(198,161,91,.07)}50%{background:rgba(198,161,91,.15)}}
+@media(prefers-reduced-motion:reduce){.lifecard .lc-row{opacity:1;transform:none;animation:none}}
+/* ---- app order book ---- */
+.app-ob{padding:18px 16px;border-right:1px solid var(--line-soft);font-variant-numeric:tabular-nums}
+.ob-h{font-size:12px;font-weight:700;margin:0 0 12px;color:var(--ink)}
+.ob-h span{color:var(--dim);font-weight:500;border:1px solid var(--line);border-radius:99px;padding:1px 8px;font-size:10px;margin-left:6px}
+.obr{position:relative;display:flex;justify-content:space-between;font-size:12px;padding:4px 6px;border-radius:5px;overflow:hidden}
+.obr i{position:absolute;right:0;top:0;bottom:0;width:var(--d);opacity:.13;border-radius:4px}
+.obr.a span{color:#E06A6A}.obr.a i{background:#E06A6A}
+.obr.b span{color:var(--green)}.obr.b i{background:var(--green)}
+.obr b{color:var(--mut);font-weight:500}
+.ob-mid{display:flex;align-items:baseline;gap:8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:7px 0;padding:7px 6px}
+.ob-mid b{font-size:16px}.ob-mid span{color:var(--dim);font-size:10.5px}
+.ob-f{color:var(--dim);font-size:10.5px;margin:12px 0 0;line-height:1.5}
+.app-px b{margin-right:8px}
+@media(max-width:1080px){.app-main{grid-template-columns:1fr 300px}.app-ob{display:none}}
+@media(max-width:860px){.app-main{grid-template-columns:1fr}}
+.uwrail{margin:34px 0 8px}.uwrail svg{width:100%;height:auto;display:block}
 </style>
 </head>
 <body>
@@ -658,11 +683,11 @@
 <div class="tick" aria-hidden="true">
   <div class="wrap">
     <span class="lab">Metal prices · indicative</span>
-    <span class="q"><i>AU</i> <b data-v="2612" data-d="2">2,612.00</b> <i>/oz</i></span>
-    <span class="q"><i>CU</i> <b data-v="4.31" data-d="2">4.31</b> <i>/lb</i></span>
-    <span class="q"><i>FE</i> <b data-v="104.80" data-d="2">104.80</b> <i>/t</i></span>
-    <span class="q"><i>ZN</i> <b data-v="1.28" data-d="2">1.28</b> <i>/lb</i></span>
-    <span class="q"><i>SN</i> <b data-v="31450" data-d="0">31,450</b> <i>/t</i></span>
+    <span class="q"><i>AU</i> <b data-v="4648.40" data-d="2">4,648.40</b> <i>/oz</i></span>
+    <span class="q"><i>CU</i> <b data-v="6.51" data-d="2">6.51</b> <i>/lb</i></span>
+    <span class="q"><i>FE</i> <b data-v="95.34" data-d="2">95.34</b> <i>/t</i></span>
+    <span class="q"><i>ZN</i> <b data-v="1.81" data-d="2">1.81</b> <i>/lb</i></span>
+    <span class="q"><i>SN</i> <b data-v="55900" data-d="0">55,900</b> <i>/t</i></span>
     
   </div>
 </div>
@@ -721,7 +746,7 @@
         <div class="dc-r"><span>Raise target</span><b>$20M</b></div>
         <div class="dc-r"><span>Term</span><b class="gold-t">Life of mine</b></div>
       </div>
-      <div class="dc-spot"><span>Iron ore spot</span><b class="odo num" data-odo="104.80">$104.80</b><em class="chg d" data-chg>−0.42%</em></div>
+      <div class="dc-spot"><span>Iron ore spot</span><b class="odo num" data-odo="95.34">$95.34</b><em class="chg d" data-chg>−0.42%</em></div>
       <div class="dc-foot">Full technical &amp; legal file on access · Not an offer</div>
     </div>
   </div>
@@ -1029,7 +1054,7 @@
         <span class="mref">MDS-FE-01</span><span class="mstat">In review</span>
         <p class="mc">Iron ore</p>
         <p class="mj">West Africa · producing</p>
-        <p class="mkp"><b class="num" data-v="104.8" data-d="2">104.80</b> <span>/t · metal spot, indicative</span></p>
+        <p class="mkp"><b class="num" data-v="95.34" data-d="2">95.34</b> <span>/t · metal spot, indicative</span></p>
         <div class="mrow"><span>Royalty</span><b>$0.30/t GRR</b></div>
         <div class="mrow"><span>Raise target</span><b>$20M</b></div>
       </div>
@@ -1037,7 +1062,7 @@
         <span class="mref">MDS-CU-02</span><span class="mstat">In review</span>
         <p class="mc">Copper</p>
         <p class="mj">Southern Africa · construction</p>
-        <p class="mkp"><b class="num" data-v="4.31" data-d="2">4.31</b> <span>/lb · metal spot, indicative</span></p>
+        <p class="mkp"><b class="num" data-v="6.51" data-d="2">6.51</b> <span>/lb · metal spot, indicative</span></p>
         <div class="mrow"><span>Royalty</span><b>1.5% NSR</b></div>
         <div class="mrow"><span>Raise target</span><b>$15M</b></div>
       </div>
@@ -1045,7 +1070,7 @@
         <span class="mref">MDS-SN-03</span><span class="mstat">In review</span>
         <p class="mc">Tin &amp; tungsten</p>
         <p class="mj">Central Africa · producing</p>
-        <p class="mkp"><b class="num" data-v="31450" data-d="0">31,450</b> <span>/t · metal spot, indicative</span></p>
+        <p class="mkp"><b class="num" data-v="55900" data-d="0">55,900</b> <span>/t · metal spot, indicative</span></p>
         <div class="mrow"><span>Royalty</span><b>2.0% GRR</b></div>
         <div class="mrow"><span>Raise target</span><b>$12M</b></div>
       </div>
@@ -1053,7 +1078,7 @@
         <span class="mref">MDS-AU-04</span><span class="mstat">In review</span>
         <p class="mc">Gold</p>
         <p class="mj">South America · producing</p>
-        <p class="mkp"><b class="num" data-v="2612.0" data-d="2">2,612.00</b> <span>/oz · metal spot, indicative</span></p>
+        <p class="mkp"><b class="num" data-v="4648.40" data-d="2">4,648.40</b> <span>/oz · metal spot, indicative</span></p>
         <div class="mrow"><span>Royalty</span><b>1.0% NSR</b></div>
         <div class="mrow"><span>Raise target</span><b>$18M</b></div>
       </div>
@@ -1061,7 +1086,7 @@
         <span class="mref">MDS-ZN-05</span><span class="mstat">In review</span>
         <p class="mc">Zinc</p>
         <p class="mj">Australia · feasibility</p>
-        <p class="mkp"><b class="num" data-v="1.28" data-d="2">1.28</b> <span>/lb · metal spot, indicative</span></p>
+        <p class="mkp"><b class="num" data-v="1.81" data-d="2">1.81</b> <span>/lb · metal spot, indicative</span></p>
         <div class="mrow"><span>Royalty</span><b>2.5% GRR</b></div>
         <div class="mrow"><span>Raise target</span><b>$10M</b></div>
       </div>
@@ -1077,7 +1102,7 @@
         <span class="mref">MDS-AU-07</span><span class="mstat">In review</span>
         <p class="mc">Gold</p>
         <p class="mj">East Africa · producing</p>
-        <p class="mkp"><b class="num" data-v="2612.0" data-d="2">2,612.00</b> <span>/oz · metal spot, indicative</span></p>
+        <p class="mkp"><b class="num" data-v="4648.40" data-d="2">4,648.40</b> <span>/oz · metal spot, indicative</span></p>
         <div class="mrow"><span>Royalty</span><b>1.5% NSR</b></div>
         <div class="mrow"><span>Raise target</span><b>$8M</b></div>
       </div>
@@ -1085,7 +1110,7 @@
         <span class="mref">MDS-CU-08</span><span class="mstat">In review</span>
         <p class="mc">Copper &amp; cobalt</p>
         <p class="mj">Central Africa · construction</p>
-        <p class="mkp"><b class="num" data-v="4.31" data-d="2">4.31</b> <span>/lb · metal spot, indicative</span></p>
+        <p class="mkp"><b class="num" data-v="6.51" data-d="2">6.51</b> <span>/lb · metal spot, indicative</span></p>
         <div class="mrow"><span>Royalty</span><b>1.25% NSR</b></div>
         <div class="mrow"><span>Raise target</span><b>$15M</b></div>
       </div>
@@ -1093,7 +1118,7 @@
         <span class="mref">MDS-AG-09</span><span class="mstat">In review</span>
         <p class="mc">Silver</p>
         <p class="mj">South America · producing</p>
-        <p class="mkp"><b class="num" data-v="68.67" data-d="2">68.67</b> <span>/oz · metal spot, indicative</span></p>
+        <p class="mkp"><b class="num" data-v="68.75" data-d="2">68.75</b> <span>/oz · metal spot, indicative</span></p>
         <div class="mrow"><span>Royalty</span><b>2.0% GRR</b></div>
         <div class="mrow"><span>Raise target</span><b>$12M</b></div>
       </div>
@@ -1118,7 +1143,7 @@
     <div class="app-shell rv">
       <div class="app-top">
         <div class="app-inst"><b>MDS-FE-01</b><span>Iron ore royalty · West Africa</span></div>
-        <div class="app-px"><b class="num" data-v="104.80" data-d="2">104.80</b><span>iron ore spot /t · indicative</span></div>
+        <div class="app-px"><b class="num" data-v="95.34" data-d="2">95.34</b><span>iron ore spot /t · indicative</span></div>
         <div class="app-meta"><span>24h volume <b>—</b></span><span>Holders <b>—</b></span><span>Opens with Deal 001</span></div>
         <span class="ob-tag">Preview</span>
       </div>
@@ -1128,11 +1153,26 @@
             <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="rgba(198,161,91,.28)"/><stop offset="1" stop-color="rgba(198,161,91,0)"/>
             </linearGradient></defs>
-            <polygon points="0,300 0.0,270.0 12.9,257.1 25.8,274.3 38.6,244.3 51.5,227.1 64.4,240.0 77.3,214.3 90.2,201.4 103.1,218.6 115.9,192.9 128.8,180.0 141.7,197.1 154.6,167.1 167.5,150.0 180.3,162.9 193.2,141.4 206.1,158.6 219.0,128.6 231.9,111.4 244.7,132.9 257.6,102.9 270.5,120.0 283.4,94.3 296.3,107.1 309.2,81.4 322.0,98.6 334.9,72.9 347.8,60.0 360.7,77.1 373.6,51.4 386.4,68.6 399.3,42.9 412.2,64.3 425.1,81.4 438.0,55.7 450.8,72.9 463.7,47.1 476.6,30.0 489.5,51.4 502.4,25.7 515.3,42.9 528.1,17.1 541.0,34.3 553.9,55.7 566.8,30.0 579.7,47.1 592.5,68.6 605.4,42.9 618.3,60.0 631.2,77.1 644.1,51.4 656.9,68.6 669.8,85.7 682.7,64.3 695.6,81.4 708.5,98.6 721.4,72.9 734.2,90.0 747.1,68.6 760.0,72.9 760,300" fill="url(#cg)"/>
-            <polyline points="0.0,270.0 12.9,257.1 25.8,274.3 38.6,244.3 51.5,227.1 64.4,240.0 77.3,214.3 90.2,201.4 103.1,218.6 115.9,192.9 128.8,180.0 141.7,197.1 154.6,167.1 167.5,150.0 180.3,162.9 193.2,141.4 206.1,158.6 219.0,128.6 231.9,111.4 244.7,132.9 257.6,102.9 270.5,120.0 283.4,94.3 296.3,107.1 309.2,81.4 322.0,98.6 334.9,72.9 347.8,60.0 360.7,77.1 373.6,51.4 386.4,68.6 399.3,42.9 412.2,64.3 425.1,81.4 438.0,55.7 450.8,72.9 463.7,47.1 476.6,30.0 489.5,51.4 502.4,25.7 515.3,42.9 528.1,17.1 541.0,34.3 553.9,55.7 566.8,30.0 579.7,47.1 592.5,68.6 605.4,42.9 618.3,60.0 631.2,77.1 644.1,51.4 656.9,68.6 669.8,85.7 682.7,64.3 695.6,81.4 708.5,98.6 721.4,72.9 734.2,90.0 747.1,68.6 760.0,72.9" fill="none" stroke="#C6A15B" stroke-width="2"/>
-            <circle cx="760.0" cy="72.9" r="4" fill="#C6A15B"><animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite"/></circle>
+            <polygon points="0,300 0.0,277.5 12.9,266.2 25.8,281.2 38.6,255.0 51.5,240.0 64.4,251.3 77.3,228.7 90.2,217.5 103.1,232.5 115.9,210.0 128.8,198.7 141.7,213.8 154.6,187.5 167.5,172.5 180.3,183.8 193.2,165.0 206.1,180.0 219.0,153.7 231.9,138.8 244.7,157.5 257.6,131.2 270.5,146.3 283.4,123.7 296.3,135.0 309.2,112.5 322.0,127.5 334.9,105.0 347.8,93.8 360.7,108.8 373.6,86.2 386.4,101.3 399.3,78.7 412.2,97.5 425.1,112.5 438.0,90.0 450.8,105.0 463.7,82.5 476.6,67.5 489.5,86.2 502.4,63.8 515.3,78.7 528.1,56.2 541.0,71.3 553.9,90.0 566.8,67.5 579.7,82.5 592.5,101.3 605.4,52.5 618.3,30.0 631.2,45.0 644.1,22.5 656.9,37.5 669.8,52.5 682.7,33.8 695.6,48.7 708.5,63.8 721.4,41.2 734.2,18.8 747.1,33.8 760.0,24.7 760,300" fill="url(#cg)"/>
+            <polyline points="0.0,277.5 12.9,266.2 25.8,281.2 38.6,255.0 51.5,240.0 64.4,251.3 77.3,228.7 90.2,217.5 103.1,232.5 115.9,210.0 128.8,198.7 141.7,213.8 154.6,187.5 167.5,172.5 180.3,183.8 193.2,165.0 206.1,180.0 219.0,153.7 231.9,138.8 244.7,157.5 257.6,131.2 270.5,146.3 283.4,123.7 296.3,135.0 309.2,112.5 322.0,127.5 334.9,105.0 347.8,93.8 360.7,108.8 373.6,86.2 386.4,101.3 399.3,78.7 412.2,97.5 425.1,112.5 438.0,90.0 450.8,105.0 463.7,82.5 476.6,67.5 489.5,86.2 502.4,63.8 515.3,78.7 528.1,56.2 541.0,71.3 553.9,90.0 566.8,67.5 579.7,82.5 592.5,101.3 605.4,52.5 618.3,30.0 631.2,45.0 644.1,22.5 656.9,37.5 669.8,52.5 682.7,33.8 695.6,48.7 708.5,63.8 721.4,41.2 734.2,18.8 747.1,33.8 760.0,24.7" fill="none" stroke="#C6A15B" stroke-width="2"/>
+            <circle cx="760.0" cy="24.7" r="4" fill="#C6A15B"><animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite"/></circle>
           </svg>
           <p class="app-cap">Iron ore spot, last 90 days — indicative. The royalty token gets its own price line at first trade.</p>
+        </div>
+        <div class="app-ob">
+          <p class="ob-h">Order book <span>preview</span></p>
+          <div class="obr a"><i style="--d:62%"></i><span>1.06</span><b>14,000</b></div>
+          <div class="obr a"><i style="--d:38%"></i><span>1.04</span><b>8,500</b></div>
+          <div class="obr a"><i style="--d:74%"></i><span>1.03</span><b>16,700</b></div>
+          <div class="obr a"><i style="--d:51%"></i><span>1.02</span><b>11,400</b></div>
+          <div class="obr a"><i style="--d:29%"></i><span>1.01</span><b>6,500</b></div>
+          <div class="ob-mid"><b>1.00</b><span>par · first issue</span></div>
+          <div class="obr b"><i style="--d:66%"></i><span>0.99</span><b>15,000</b></div>
+          <div class="obr b"><i style="--d:44%"></i><span>0.98</span><b>9,900</b></div>
+          <div class="obr b"><i style="--d:80%"></i><span>0.97</span><b>18,100</b></div>
+          <div class="obr b"><i style="--d:35%"></i><span>0.96</span><b>7,800</b></div>
+          <div class="obr b"><i style="--d:57%"></i><span>0.95</span><b>12,600</b></div>
+          <p class="ob-f">Recent trades: none yet. You're looking at day zero.</p>
         </div>
         <div class="app-trade">
           <div class="tt"><button class="ttab on" data-side="buy">Buy</button><button class="ttab" data-side="sell">Sell</button></div>
@@ -1538,6 +1578,32 @@
   <div class="wrap">
     <span class="eyebrow rv">Our values</span>
     <h2 class="rv">What we hold. In writing.</h2>
+    <div class="uwrail rv">
+      <svg viewBox="0 0 940 190" preserveAspectRatio="xMidYMid meet" aria-label="Underwriting filter: assets enter, most are rejected, few reach the market">
+        <g font-family="Switzer, sans-serif" font-size="12" font-weight="500">
+          <g><rect x="10" y="44" width="120" height="44" rx="9" fill="#14161B" stroke="#20242c"/><text x="70" y="70" text-anchor="middle" fill="#9A948A">Assets in</text></g>
+          <path class="fl" d="M130,66 L186,66"/>
+          <g><rect x="190" y="44" width="130" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="255" y="70" text-anchor="middle" fill="#F2EFE8">Technical</text></g>
+          <path class="fl" d="M320,66 L386,66"/>
+          <g><rect x="390" y="44" width="120" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="450" y="70" text-anchor="middle" fill="#F2EFE8">Legal</text></g>
+          <path class="fl" d="M510,66 L576,66"/>
+          <g><rect x="580" y="44" width="130" height="44" rx="9" fill="#171A21" stroke="#242832"/><text x="645" y="70" text-anchor="middle" fill="#F2EFE8">Structure</text></g>
+          <path class="fl" d="M710,66 L776,66"/>
+          <g><rect x="780" y="38" width="150" height="56" rx="11" fill="rgba(198,161,91,.10)" stroke="rgba(198,161,91,.55)" stroke-width="1.4"/><text x="855" y="62" text-anchor="middle" fill="#E3C37D" font-weight="700" font-size="13.5">The board</text><text x="855" y="80" text-anchor="middle" fill="#C6A15B" font-size="10.5">what survives</text></g>
+          <text x="255" y="172" text-anchor="middle" fill="#615C52" font-size="11">most assets stop here</text>
+          <text x="450" y="172" text-anchor="middle" fill="#615C52" font-size="11">or here</text>
+        </g>
+        <g fill="#E3C37D">
+          <circle r="3.5"><animateMotion dur="7s" repeatCount="indefinite" path="M130,66 L186,66 L320,66 L386,66 L510,66 L576,66 L710,66 L776,66"/></circle>
+          <circle r="3.5" opacity=".8"><animateMotion dur="7s" begin="2.3s" repeatCount="indefinite" path="M130,66 L186,66 L320,66 L386,66 L510,66 L576,66 L710,66 L776,66"/></circle>
+        </g>
+        <g fill="#615C52">
+          <circle r="3"><animateMotion dur="3.4s" repeatCount="indefinite" path="M130,66 L255,66 Q262,110 255,152"/><animate attributeName="opacity" values="1;1;0" dur="3.4s" repeatCount="indefinite"/></circle>
+          <circle r="3"><animateMotion dur="3.4s" begin="1.2s" repeatCount="indefinite" path="M130,66 L255,66 Q262,110 255,152"/><animate attributeName="opacity" values="1;1;0" dur="3.4s" begin="1.2s" repeatCount="indefinite"/></circle>
+          <circle r="3"><animateMotion dur="4.6s" begin="0.6s" repeatCount="indefinite" path="M130,66 L255,66 L450,66 Q457,110 450,152"/><animate attributeName="opacity" values="1;1;0" dur="4.6s" begin="0.6s" repeatCount="indefinite"/></circle>
+        </g>
+      </svg>
+    </div>
     <div class="grid4 rv">
       <div class="r4"><b>Clean metal only</b><p>No child labor. No corruption. No conflict money. If a mine can't prove where its metal comes from, it doesn't list — certified provenance where the metal demands it.</p></div>
       <div class="r4"><b>Give back to the ground</b><p>Mining built the modern world and scarred it too. We structure deals so a share goes back to where the metal came from — jobs, schools, trees planted next to the pit.</p></div>
