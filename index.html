@@ -583,6 +583,16 @@
 @keyframes trIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 .tr-r .sb{color:var(--green)}.tr-r .ss{color:#D66A5D}
 @media (prefers-reduced-motion: reduce){.tr-r.fresh{animation:none}}
+
+/* ---- plan (numbered arc) ---- */
+.plan{margin-top:34px;border-top:1px solid var(--line-soft)}
+.pl-row{display:grid;grid-template-columns:64px 130px 1fr auto;gap:18px;align-items:baseline;padding:22px 4px;border-bottom:1px solid var(--line-soft)}
+.pl-row .ix{font-family:var(--big);font-weight:700;font-size:26px;color:var(--gold);font-variant-numeric:tabular-nums}
+.pl-row b{font-size:17px}
+.pl-row p{margin:0;color:var(--mut);font-size:15px;line-height:1.55}
+.pl-tag{font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:3px 10px;white-space:nowrap;justify-self:end}
+.pl-tag.now{color:var(--green);border-color:rgba(63,181,126,.4)}
+@media(max-width:760px){.pl-row{grid-template-columns:44px 1fr auto;row-gap:8px}.pl-row p{grid-column:2/4}}
 </style>
 </head>
 <body>
@@ -895,6 +905,20 @@
   </div>
 </section>
 
+<!-- ============ THE PLAN ============ -->
+<section id="plan" data-route="home">
+  <div class="wrap">
+    <span class="eyebrow rv">Where this goes</span>
+    <h2 class="rv">The plan, in four moves.</h2>
+    <div class="plan rv">
+      <div class="pl-row"><span class="ix">01</span><b>Issue</b><p>Royalties on real mines, papered the way the majors do it, sold in fractions.</p><span class="pl-tag now">Now</span></div>
+      <div class="pl-row"><span class="ix">02</span><b>Trade</b><p>Tokens move between verified holders around the clock. A market, not a queue.</p><span class="pl-tag">Next</span></div>
+      <div class="pl-row"><span class="ix">03</span><b>Baskets</b><p>One position, many mines, many metals. The whole sector in a click.</p><span class="pl-tag">Then</span></div>
+      <div class="pl-row"><span class="ix">04</span><b>The screen</b><p>When anyone asks what a mining royalty is worth, the answer comes from here.</p><span class="pl-tag">The goal</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ HOME FAQ ============ -->
 <section id="hfaq" data-route="home">
   <div class="wrap">
@@ -1110,7 +1134,7 @@
   <div class="wrap">
     <span class="eyebrow rv">Miners</span>
     <h2 class="rv">Raise $10M+ in weeks. Keep every share.</h2>
-    <p class="lede rv">A royalty is the capital that doesn't dilute you, doesn't sit on your board, and doesn't default you in a bad quarter.</p>
+    <p class="lede rv">Bank money works — until you need it fast. A royalty is the capital that doesn't dilute you, doesn't sit on your board, and doesn't default you in a bad quarter.</p>
   </div>
 </section>
 
