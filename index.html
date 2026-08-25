@@ -593,6 +593,16 @@
 .pl-tag{font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:3px 10px;white-space:nowrap;justify-self:end}
 .pl-tag.now{color:var(--green);border-color:rgba(63,181,126,.4)}
 @media(max-width:760px){.pl-row{grid-template-columns:44px 1fr auto;row-gap:8px}.pl-row p{grid-column:2/4}}
+
+/* ---- about team ---- */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.tcard{background:var(--panel);border:1px solid var(--line-soft);border-radius:16px;padding:26px 24px}
+.tav{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:19px;margin-bottom:16px}
+.tav.gold{color:var(--gold);border-color:rgba(198,161,91,.45)}
+.tcard .nm{font-weight:700;font-size:17px;margin:0 0 2px}
+.tcard .rl{color:var(--gold);font-size:13px;margin:0 0 12px}
+.tcard p:last-child{color:var(--mut);font-size:14.5px;line-height:1.6;margin:0}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -617,6 +627,7 @@
       <a href="#/operators" data-route-link="operators">For miners</a>
       <a href="#/institutions" data-route-link="institutions">For institutions</a>
       <a href="#/learn" data-route-link="learn">What is a royalty?</a>
+      <a href="#/about" data-route-link="about">About</a>
       <a href="#access" class="btn btn-gold">Request access</a>
     </div>
     <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
@@ -626,6 +637,7 @@
     <a href="#/operators">For miners</a>
     <a href="#/institutions">For institutions</a>
     <a href="#/learn">What is a royalty?</a>
+    <a href="#/about">About</a>
     <a href="#access">Request access</a>
   </div>
 </nav>
@@ -889,7 +901,7 @@
       <div class="r4"><b>The licence</b><p>Each royalty is registered against the mine's licence in its home country, with local counsel's enforceability opinion.</p></div>
       <div class="r4"><b>The vehicle</b><p>One segregated SPV per royalty. Your fraction maps to one named asset — never a pooled book.</p></div>
       <div class="r4"><b>The register</b><p>The token is the record. It moves only between KYC-verified holders, and settles in minutes.</p></div>
-      <div class="r4"><b>The people</b><p>Independent engineers and geologists sign the technical file. The founder's name is on the company. <a href="#/institutions" style="color:var(--gold)">Meet them →</a></p></div>
+      <div class="r4"><b>The people</b><p>Independent engineers and geologists sign the technical file. The founder's name is on the company. <a href="#/about" style="color:var(--gold)">Meet them →</a></p></div>
     </div>
   </div>
 </section>
@@ -1234,6 +1246,51 @@
 
 </div>
 
+<div data-route="about">
+<section id="founder">
+  <div class="wrap">
+    <span class="eyebrow rv">The people</span>
+    <h2 class="rv">Who is behind this.</h2>
+    <div class="fdr rv">
+      <img src="lavine.jpeg" alt="Lavine Hemlani" />
+      <div>
+        <p class="nm">Lavine Hemlani</p>
+        <p class="rl">Founder · Midas</p>
+        <p>Lavine built his first eight-figure business in his twenties and has been building in finance since. Midas started because five people in mining finance described the same gap to him inside a few months: <b>the best instrument in the industry, and no way to buy it.</b></p>
+        <p>Every instrument is reviewed by qualified engineers, geologists and local counsel. We don't put advisors on this page until mandates are signed. Ask on a call and we'll tell you exactly where things stand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <span class="eyebrow rv">The team</span>
+    <h2 class="rv">Small on purpose.</h2>
+    <div class="team rv">
+      <div class="tcard">
+        <span class="tav">S</span>
+        <p class="nm">Shreyas</p>
+        <p class="rl">Head of Capital Markets</p>
+        <p>Runs the money side: structuring each royalty, onboarding investors, and getting every raise from first call to first distribution.</p>
+      </div>
+      <div class="tcard">
+        <span class="tav">MS</span>
+        <p class="nm">Matthew Singer</p>
+        <p class="rl">Chief Operating Officer</p>
+        <p>Runs the machine: diligence, counsel, registrars — everything that has to be right before a deal is allowed on the board.</p>
+      </div>
+      <div class="tcard">
+        <span class="tav gold">+</span>
+        <p class="nm">Engineers &amp; geologists</p>
+        <p class="rl">Independent, per deal</p>
+        <p>Every mine is reviewed by independent technical people who sign their names to the file. Named in each deal's documents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
 <div data-route="institutions">
 
 <!-- institutions: hero-lite + lanes -->
@@ -1268,21 +1325,7 @@
 
 
 <!-- ============ FOUNDER ============ -->
-<section id="founder">
-  <div class="wrap">
-    <span class="eyebrow rv">The people</span>
-    <h2 class="rv">Who is behind this.</h2>
-    <div class="fdr rv">
-      <img src="lavine.jpeg" alt="Lavine Hemlani" />
-      <div>
-        <p class="nm">Lavine Hemlani</p>
-        <p class="rl">Founder · Midas</p>
-        <p>Lavine built his first eight-figure business in his twenties and has been building in finance since. Midas started because five people in mining finance described the same gap to him inside a few months: <b>the best instrument in the industry, and no way to buy it.</b></p>
-        <p>Every instrument is reviewed by qualified engineers, geologists and local counsel. We don't put advisors on this page until mandates are signed. Ask on a call and we'll tell you exactly where things stand.</p>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 
 </div>
@@ -1498,7 +1541,7 @@
   /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
-  var ROUTES=['home','investors','operators','institutions','learn'];
+  var ROUTES=['home','investors','operators','institutions','learn','about'];
   var LEGAL=['disclosures','privacy','terms'];
   function currentRoute(){
     var h=location.hash;
