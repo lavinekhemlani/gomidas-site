@@ -644,6 +644,13 @@
 .app-note{color:var(--dim);font-size:11.5px;margin:12px 0 0;line-height:1.5}
 .app-pos{border-top:1px solid var(--line-soft);padding:13px 22px;color:var(--dim);font-size:12.5px}
 @media(max-width:860px){.app-main{grid-template-columns:1fr}.app-chart{border-right:0;border-bottom:1px solid var(--line-soft)}}
+
+/* ---- team/board photos ---- */
+.tav{overflow:hidden;padding:0}
+.tav img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
+.team.board4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.team.board4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.team.board4{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1473,22 +1480,55 @@
     <h2 class="rv">Small on purpose.</h2>
     <div class="team rv">
       <div class="tcard">
-        <span class="tav">S</span>
-        <p class="nm">Shreyas</p>
+        <div class="tav"><img src="shreyas.jpg" alt="Shreyas Manchanda" loading="lazy" /></div>
+        <p class="nm">Shreyas Manchanda</p>
         <p class="rl">Head of Capital Markets</p>
-        <p>Runs the money side: structuring each royalty, onboarding investors, and getting every raise from first call to first distribution.</p>
+        <p>Debt placement, private credit and project finance. At Midas he structures each royalty and runs the raise — first call to first distribution.</p>
       </div>
       <div class="tcard">
-        <span class="tav">MS</span>
+        <div class="tav"><img src="matthew.jpg" alt="Matthew Singer" loading="lazy" /></div>
         <p class="nm">Matthew Singer</p>
         <p class="rl">Chief Operating Officer</p>
-        <p>Runs the machine: diligence, counsel, registrars — everything that has to be right before a deal is allowed on the board.</p>
+        <p>Runs operations and delivery — diligence, counsel, registrars. The machinery that makes sure what we promise actually happens every month.</p>
       </div>
       <div class="tcard">
-        <span class="tav gold">+</span>
+        <div class="tav gold">+</div>
         <p class="nm">Engineers &amp; geologists</p>
         <p class="rl">Independent, per deal</p>
         <p>Every mine is reviewed by independent technical people who sign their names to the file. Named in each deal's documents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="board">
+  <div class="wrap">
+    <span class="eyebrow rv">Board</span>
+    <h2 class="rv">Our board.</h2>
+    <div class="team board4 rv">
+      <div class="tcard">
+        <div class="tav"><img src="evan.jpg" alt="Evan Meagher" loading="lazy" /></div>
+        <p class="nm">Evan Meagher</p>
+        <p class="rl">Board Member</p>
+        <p>Seed investor at FOG Ventures. Former chief financial officer of CoreWeave.</p>
+      </div>
+      <div class="tcard">
+        <div class="tav"><img src="jimmy.jpg" alt="Jimmy Ku" loading="lazy" /></div>
+        <p class="nm">Jimmy Ku</p>
+        <p class="rl">Board Member</p>
+        <p>Venture partner at 10X Capital. Previously head of growth at Flutterwave.</p>
+      </div>
+      <div class="tcard">
+        <div class="tav"><img src="nikhil.jpg" alt="Nikhil Arora" loading="lazy" /></div>
+        <p class="nm">Nikhil Arora</p>
+        <p class="rl">Board Member</p>
+        <p>Chief executive of Epignosis. Previously senior roles at GoDaddy, WeWork and Intuit.</p>
+      </div>
+      <div class="tcard">
+        <div class="tav"><img src="richard.jpg" alt="Richard Pattle" loading="lazy" /></div>
+        <p class="nm">Richard Pattle</p>
+        <p class="rl">Board Member</p>
+        <p>Co-founder of Indian asset manager True Beacon. Former vice chairman of Standard Chartered Private Bank.</p>
       </div>
     </div>
   </div>
