@@ -1266,8 +1266,10 @@
   <div class="wrap">
     <span class="eyebrow rv">Request access</span>
     <h2 class="rv">We open to a small first list. Get on it.</h2>
-    <form class="aform rv" id="accessForm" name="access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="access" />
+    <form class="aform rv" id="accessForm" name="access" method="POST" action="https://formsubmit.co/lavine@zenith-grp.co">
+      <input type="hidden" name="_subject" value="gomidas.co — access request" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
       <p class="hp"><label>Leave this empty <input name="bot-field" /></label></p>
       <label for="afName">Name</label>
       <input id="afName" name="name" required autocomplete="name" />
@@ -1557,9 +1559,9 @@
   if(f){
     f.addEventListener('submit',function(e){
       e.preventDefault();
-      var body=new URLSearchParams(new FormData(f)).toString();
+      var fd=new FormData(f),o={};fd.forEach(function(v,k){o[k]=v;});
       var done=function(){f.style.display='none';var d=document.getElementById('accessDone');d.style.display='block';};
-      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(done).catch(done);
+      fetch('https://formsubmit.co/ajax/lavine@zenith-grp.co',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(o)}).then(done).catch(done);
     });
   }
 
