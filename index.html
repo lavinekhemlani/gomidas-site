@@ -729,6 +729,7 @@
 .stats.in .vb i{height:var(--vh)}
 .vb em{font-style:normal;color:var(--dim);font-size:10px}
 @media(prefers-reduced-motion:reduce){.vcurve{stroke-dashoffset:0}.vdot{opacity:1}.vb i{height:var(--vh)}}
+.whochain{margin:34px 0 6px}.whochain svg{width:100%;height:auto;display:block}
 </style>
 </head>
 <body>
@@ -1114,36 +1115,28 @@
   <div class="wrap">
     <span class="eyebrow rv">Who holds what</span>
     <h2 class="rv">Every claim has a name on it.</h2>
+    <div class="whochain rv">
+      <svg viewBox="0 0 940 130" preserveAspectRatio="xMidYMid meet" aria-label="Chain of ownership: mining licence to segregated vehicle to token register to named signatories">
+        <g font-family="Switzer, sans-serif" font-size="12.5" font-weight="500">
+          <g><rect x="20" y="38" width="190" height="54" rx="10" fill="#171A21" stroke="#242832"/><text x="115" y="61" text-anchor="middle" fill="#F2EFE8" font-weight="700">The licence</text><text x="115" y="79" text-anchor="middle" fill="#9A948A" font-size="10.5">registered in the mine's country</text></g>
+          <path class="fl" d="M210,65 L262,65"/>
+          <g><rect x="266" y="38" width="190" height="54" rx="10" fill="#171A21" stroke="#242832"/><text x="361" y="61" text-anchor="middle" fill="#F2EFE8" font-weight="700">The vehicle</text><text x="361" y="79" text-anchor="middle" fill="#9A948A" font-size="10.5">one segregated SPV per royalty</text></g>
+          <path class="fl" d="M456,65 L508,65"/>
+          <g><rect x="512" y="38" width="190" height="54" rx="10" fill="#171A21" stroke="#242832"/><text x="607" y="61" text-anchor="middle" fill="#F2EFE8" font-weight="700">The register</text><text x="607" y="79" text-anchor="middle" fill="#9A948A" font-size="10.5">the token is the record</text></g>
+          <path class="fl" d="M702,65 L754,65"/>
+          <g><rect x="758" y="32" width="162" height="66" rx="12" fill="rgba(198,161,91,.10)" stroke="rgba(198,161,91,.55)" stroke-width="1.4"/><text x="839" y="58" text-anchor="middle" fill="#E3C37D" font-weight="700" font-size="13.5">The people</text><text x="839" y="77" text-anchor="middle" fill="#C6A15B" font-size="10.5">names signed on the file</text></g>
+        </g>
+        <g fill="#E3C37D">
+          <circle r="3.5"><animateMotion dur="5.4s" repeatCount="indefinite" path="M210,65 L262,65 L456,65 L508,65 L702,65 L754,65"/></circle>
+          <circle r="3.5" opacity=".55"><animateMotion dur="5.4s" begin="1.8s" repeatCount="indefinite" path="M210,65 L262,65 L456,65 L508,65 L702,65 L754,65"/></circle>
+        </g>
+      </svg>
+    </div>
     <div class="grid4 rv">
       <div class="r4"><b>The licence</b><p>Each royalty is registered against the mine's licence in its home country, with local counsel's enforceability opinion.</p></div>
       <div class="r4"><b>The vehicle</b><p>One segregated SPV per royalty. Your fraction maps to one named asset — never a pooled book.</p></div>
       <div class="r4"><b>The register</b><p>The token is the record. It moves only between KYC-verified holders, and settles in minutes.</p></div>
       <div class="r4"><b>The people</b><p>Independent engineers and geologists sign the technical file. The founder's name is on the company. <a href="#/about" style="color:var(--gold)">Meet them →</a></p></div>
-    </div>
-  </div>
-</section>
-
-<!-- home: audience doors -->
-<section id="doors" data-route="home">
-  <div class="wrap">
-    <span class="eyebrow rv">Pick your door</span>
-    <h2 class="rv">Built for three kinds of people.</h2>
-    <div class="doors rv">
-      <a class="door" href="#/investors">
-        <b>Investors</b>
-        <p>Own mining cash flow without owning a mining company. In fractions sized to you.</p>
-        <span class="go">For investors →</span>
-      </a>
-      <a class="door gold" href="#/operators">
-        <b>Miners</b>
-        <p>Raise $10M+ in weeks, not 18 months. Keep every share you own.</p>
-        <span class="go">For miners →</span>
-      </a>
-      <a class="door" href="#/institutions">
-        <b>Institutions</b>
-        <p>Size, structure and sell-downs. A pipeline you can actually underwrite.</p>
-        <span class="go">For institutions →</span>
-      </a>
     </div>
   </div>
 </section>
