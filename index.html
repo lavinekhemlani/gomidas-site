@@ -414,6 +414,51 @@
   .lane .lt{margin-top:8px;font-size:12.5px;color:var(--dim)}
   @media(prefers-reduced-motion:reduce){.lane .lfill{transition:none;width:var(--w)}}
 
+
+  /* app-style hero */
+  .heroA{position:relative;max-width:var(--maxw);margin:0 auto;padding:84px 28px 30px;
+    display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+  @media(max-width:940px){.heroA{grid-template-columns:1fr;gap:48px;padding-top:60px}}
+  .heroA h1{margin:26px 0 0;font-size:clamp(2.5rem,1.5rem + 3.9vw,4rem);line-height:1.02;text-align:left}
+  .heroA .hero-sub{margin:20px 0 0;max-width:44ch;text-align:left;font-size:1.1rem}
+  .heroA .hero-note{text-align:left;margin-top:14px}
+  .qjoin{margin-top:30px;display:flex;gap:10px;max-width:460px}
+  .qjoin input{flex:1;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:11px;
+    padding:15px 16px;font-size:15px;color:var(--ink);font-family:var(--disp)}
+  .qjoin input:focus{outline:none;border-color:var(--gold-line)}
+  .qjoin .btn{flex:none;padding:15px 24px;border:0;cursor:pointer;font-size:15px}
+  @media(max-width:520px){.qjoin{flex-direction:column}}
+  .mkpanel{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:520px){.mkpanel{grid-template-columns:1fr}}
+  .mk{background:linear-gradient(170deg,var(--panel-2),var(--panel) 70%);border:1px solid var(--line);
+    border-radius:14px;padding:18px;transition:border-color .2s,transform .2s}
+  .mk:hover{border-color:var(--gold-line);transform:translateY(-2px)}
+  .mk-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .mk-top b{font-size:14.5px;font-weight:600}
+  .jur{font-size:10.5px;color:var(--dim);border:1px solid var(--line-soft);border-radius:999px;padding:3px 8px;white-space:nowrap}
+  .mk-big{margin-top:12px;font-family:var(--big);font-size:1.7rem;font-weight:700;letter-spacing:-.02em;color:var(--gold);font-variant-numeric:tabular-nums}
+  .mk-big small{font-family:var(--disp);font-size:11px;color:var(--mut);font-weight:500;letter-spacing:0;margin-left:4px}
+  .mk-bar{margin-top:12px;height:5px;border-radius:4px;background:var(--panel-2);border:1px solid var(--line-soft);overflow:hidden}
+  .mk-fill{height:100%;width:var(--w);border-radius:4px;background:linear-gradient(90deg,#B08A3E,#E3C37D)}
+  .mk-foot{display:flex;justify-content:space-between;margin-top:10px;font-size:11.5px;color:var(--mut)}
+  .mk-foot .st{color:var(--ink);font-weight:600}
+  .mk-spot{margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft);font-size:11px;color:var(--dim);font-variant-numeric:tabular-nums}
+  .chg{font-style:normal;font-weight:600;margin-left:5px}
+  .chg.u{color:var(--green)}.chg.d{color:#E06A6A}
+  .mk-cap{grid-column:1/-1;font-size:10.5px;color:var(--dim);text-align:center;margin-top:2px}
+  .statbar{position:relative;max-width:var(--maxw);margin:40px auto 0;padding:0 28px 64px;
+    display:flex;gap:64px;flex-wrap:wrap}
+  .sb b{font-family:var(--big);font-size:2rem;font-weight:700;letter-spacing:-.02em}
+  .sb span{display:block;margin-top:4px;font-size:12.5px;color:var(--mut)}
+  /* denser home */
+  [data-route="home"] section{padding:96px 0}
+  /* board tabs */
+  .btabs{display:flex;gap:8px;padding:12px 22px;border-bottom:1px solid var(--line-soft);background:var(--panel)}
+  .btab{background:transparent;border:1px solid var(--line-soft);border-radius:999px;color:var(--mut);
+    font-family:var(--disp);font-size:12.5px;font-weight:600;padding:7px 15px;cursor:pointer;transition:all .15s}
+  .btab:hover{color:var(--ink)}
+  .btab.on{background:var(--gold-soft);border-color:var(--gold-line);color:var(--gold)}
+
   /* ---------- reveal ---------- */
   .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
   .rv.in{opacity:1;transform:none}
@@ -465,15 +510,54 @@
 <section class="hero" id="top">
   <div class="hglow" aria-hidden="true"></div>
   <div class="hgrid" aria-hidden="true"></div>
-  <div class="heroC">
-    <span class="pill rv in"><i></i>Five royalties in underwriting</span>
-    <h1>The market for<br/><span class="g">mining royalties.</span></h1>
-    <p class="hero-sub">A royalty is a share of everything a mine sells, paid before anyone else. For forty years you couldn't buy one. Now you can — from $25,000.</p>
-    <div class="hero-cta">
-      <a href="#access" class="btn btn-gold">Request access</a>
-      <a href="#pipeline" class="btn btn-ghost">See the pipeline</a>
+  <div class="heroA">
+    <div class="ha-copy">
+      <span class="pill rv in"><i></i>Five royalties in underwriting</span>
+      <h1>Own what the mine earns.</h1>
+      <p class="hero-sub">Royalties on producing mines — a share of everything they sell, paid before anyone else. From $25,000. Tradeable 24/7.</p>
+      <form class="qjoin" id="qjoin">
+        <input type="email" placeholder="Your email" aria-label="Email" required />
+        <button class="btn btn-gold" type="submit">Request access</button>
+      </form>
+      <p class="hero-note">Qualified investors only · No fees to join the list</p>
     </div>
-    <p class="hero-note">Qualified investors only</p>
+    <div class="mkpanel">
+      <div class="mk" data-spot="FE">
+        <div class="mk-top"><b>Iron ore</b><span class="jur">West Africa</span></div>
+        <div class="mk-big">$0.30<small>/t of everything sold</small></div>
+        <div class="mk-bar"><div class="mk-fill" style="--w:72%"></div></div>
+        <div class="mk-foot"><span>Target $20M</span><span class="st">In legal</span></div>
+        <div class="mk-spot">Fe spot 104.80 <em class="chg d">−0.42%</em></div>
+      </div>
+      <div class="mk" data-spot="CU">
+        <div class="mk-top"><b>Copper</b><span class="jur">Southern Africa</span></div>
+        <div class="mk-big">1.5%<small> of revenue</small></div>
+        <div class="mk-bar"><div class="mk-fill" style="--w:45%"></div></div>
+        <div class="mk-foot"><span>Target $15M</span><span class="st">Technical</span></div>
+        <div class="mk-spot">Cu spot 4.31 <em class="chg u">+1.18%</em></div>
+      </div>
+      <div class="mk" data-spot="AU">
+        <div class="mk-top"><b>Gold</b><span class="jur">South America</span></div>
+        <div class="mk-big">1.0%<small> net smelter return</small></div>
+        <div class="mk-bar"><div class="mk-fill" style="--w:38%"></div></div>
+        <div class="mk-foot"><span>Target $18M</span><span class="st">Technical</span></div>
+        <div class="mk-spot">Au spot 2,612 <em class="chg u">+0.31%</em></div>
+      </div>
+      <div class="mk" data-spot="SN">
+        <div class="mk-top"><b>Tin &amp; tungsten</b><span class="jur">Central Africa</span></div>
+        <div class="mk-big">2.0%<small> of revenue</small></div>
+        <div class="mk-bar"><div class="mk-fill" style="--w:21%"></div></div>
+        <div class="mk-foot"><span>Target $12M</span><span class="st">Diligence</span></div>
+        <div class="mk-spot">Sn spot 31,450 <em class="chg u">+2.05%</em></div>
+      </div>
+      <div class="mk-cap">Underwriting progress · spot prices indicative · not an offer</div>
+    </div>
+  </div>
+  <div class="statbar">
+    <div class="sb"><b class="num">$75M</b><span>in underwriting</span></div>
+    <div class="sb"><b class="num">5</b><span>instruments</span></div>
+    <div class="sb"><b class="num">4</b><span>continents</span></div>
+    <div class="sb"><b class="num">$25K</b><span>minimum</span></div>
   </div>
   <div class="tape" aria-hidden="true"><div class="tape-t"><span>Iron ore · West Africa <b>$20M</b></span>
     <span>Copper · Southern Africa <b>$15M</b></span>
@@ -499,31 +583,37 @@
         <span class="b-title"><i></i>Underwriting pipeline</span>
         <span class="b-note">Preview — not an offer</span>
       </div>
+      <div class="btabs" id="btabs">
+        <button class="btab on" data-f="all">All</button>
+        <button class="btab" data-f="producing">Producing</button>
+        <button class="btab" data-f="construction">Construction</button>
+        <button class="btab" data-f="feasibility">Feasibility</button>
+      </div>
       <div class="b-head">
         <span>Ref</span><span>Commodity</span><span>Jurisdiction</span><span>Structure</span><span>Target</span><span>Stage</span>
       </div>
-      <div class="b-row">
+      <div class="b-row" data-stage="producing">
         <span class="id">MDS-FE-01</span><span class="c1">Iron ore</span><span class="c2">West Africa</span>
         <span class="st">$0.30/t GRR</span><span class="sz">$20M</span>
         <span class="dots"><i class="on"></i><i class="on"></i><i class="live"></i><i></i><em>Legal</em></span>
       </div>
-      <div class="b-row">
+      <div class="b-row" data-stage="construction">
         <span class="id">MDS-CU-02</span><span class="c1">Copper</span><span class="c2">Southern Africa</span>
         <span class="st">1.5% NSR</span><span class="sz">$15M</span>
         <span class="dots"><i class="on"></i><i class="live"></i><i></i><i></i><em>Technical</em></span>
       </div>
       <div class="b-lock">
-        <div class="b-row">
+        <div class="b-row" data-stage="producing">
           <span class="id">MDS-SN-03</span><span class="c1">Tin &amp; tungsten</span><span class="c2">Central Africa</span>
           <span class="st">2.0% GRR</span><span class="sz">$12M</span>
           <span class="dots"><i class="on"></i><i></i><i></i><i></i><em>Diligence</em></span>
         </div>
-        <div class="b-row">
+        <div class="b-row" data-stage="producing">
           <span class="id">MDS-AU-04</span><span class="c1">Gold</span><span class="c2">South America</span>
           <span class="st">1.0% NSR</span><span class="sz">$18M</span>
           <span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><em>Technical</em></span>
         </div>
-        <div class="b-row">
+        <div class="b-row" data-stage="feasibility">
           <span class="id">MDS-ZN-05</span><span class="c1">Zinc</span><span class="c2">Australia</span>
           <span class="st">2.5% GRR</span><span class="sz">$10M</span>
           <span class="dots"><i class="on"></i><i></i><i></i><i></i><em>Diligence</em></span>
@@ -1154,6 +1244,35 @@
     if(el&&el.offsetParent!==null){go();}
     else{location.hash='#/home';setTimeout(go,140);}
   });
+
+  /* ---- hero quick-join: prefill access form ---- */
+  var qj=document.getElementById('qjoin');
+  if(qj){
+    qj.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=qj.querySelector('input').value;
+      var em=document.getElementById('afEmail');
+      if(em)em.value=v;
+      var t=document.getElementById('access');
+      if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+      var nm=document.getElementById('afName');
+      if(nm)setTimeout(function(){nm.focus();},600);
+    });
+  }
+
+  /* ---- board filter tabs ---- */
+  var bt=document.getElementById('btabs');
+  if(bt){
+    bt.addEventListener('click',function(e){
+      var b=e.target.closest('.btab');if(!b)return;
+      bt.querySelectorAll('.btab').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.getAttribute('data-f');
+      document.querySelectorAll('.b-row[data-stage]').forEach(function(r){
+        r.style.display=(f==='all'||r.getAttribute('data-stage')===f)?'':'none';
+      });
+    });
+  }
 
   /* ---- access form ---- */
   var f=document.getElementById('accessForm');
