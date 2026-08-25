@@ -603,6 +603,21 @@
 .tcard .rl{color:var(--gold);font-size:13px;margin:0 0 12px}
 .tcard p:last-child{color:var(--mut);font-size:14.5px;line-height:1.6;margin:0}
 @media(max-width:820px){.team{grid-template-columns:1fr}}
+
+/* ---- markets grid ---- */
+.mkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:38px}
+.mkt{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:18px 18px 14px;transition:transform .18s,border-color .18s}
+.mkt:hover{transform:translateY(-3px);border-color:var(--line)}
+.mref{font-size:11.5px;color:var(--dim);letter-spacing:.2px}
+.mstat{font-size:10.5px;color:var(--green);border:1px solid rgba(63,181,126,.35);border-radius:99px;padding:2px 8px;float:right}
+.mkt .mc{font-weight:700;font-size:17px;margin:10px 0 2px;color:var(--ink)}
+.mkt .mj{color:var(--mut);font-size:12.5px;margin:0 0 12px}
+.mkp{font-variant-numeric:tabular-nums;font-weight:700;font-size:16px;margin:0 0 12px;color:var(--ink)}
+.mkp b.u{color:var(--green);transition:color .15s}
+.mkp b.d{color:#E06A6A;transition:color .15s}
+.mkp span{color:var(--dim);font-size:11px;font-weight:500}
+.mrow{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mut);border-top:1px solid var(--line-soft);padding-top:8px;margin-top:8px}
+.mrow b{color:var(--ink);font-weight:600}
 </style>
 </head>
 <body>
@@ -623,6 +638,7 @@
   <div class="nav-in">
     <a href="#top" class="brand" style="color:inherit"><span class="coin">M</span> Midas</a>
     <div class="nlinks">
+      <a href="#/markets" data-route-link="markets">Markets</a>
       <a href="#/investors" data-route-link="investors">For investors</a>
       <a href="#/operators" data-route-link="operators">For miners</a>
       <a href="#/institutions" data-route-link="institutions">For institutions</a>
@@ -633,6 +649,7 @@
     <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
   <div class="mmenu">
+    <a href="#/markets">Markets</a>
     <a href="#/investors">For investors</a>
     <a href="#/operators">For miners</a>
     <a href="#/institutions">For institutions</a>
@@ -961,6 +978,105 @@
 </section>
 
 </div>
+<div data-route="markets">
+<section id="mkthero">
+  <div class="wrap">
+    <span class="eyebrow rv">Markets</span>
+    <h2 class="rv">Ten royalties. Priced and papered.</h2>
+    <p class="lede rv">The metals trade all day, everywhere. The royalties on them never traded anywhere — these are the first. Request access and you're on the list they open to.</p>
+    <div class="stats rv">
+      <div class="stat"><div class="n num">10</div><div class="k">instruments in review, across seven metals</div></div>
+      <div class="stat"><div class="n num">$150M</div><div class="k">of royalty raises being papered right now</div></div>
+      <div class="stat"><div class="n num">0</div><div class="k">royalties ever traded openly, anywhere. You're early</div></div>
+    </div>
+    <div class="mkt-grid rv">
+      <div class="mkt">
+        <span class="mref">MDS-FE-01</span><span class="mstat">In review</span>
+        <p class="mc">Iron ore</p>
+        <p class="mj">West Africa · producing</p>
+        <p class="mkp"><b class="num" data-v="104.8" data-d="2">104.80</b> <span>/t · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>$0.30/t GRR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$20M</b></div>
+      </div>
+      <div class="mkt">
+        <span class="mref">MDS-CU-02</span><span class="mstat">In review</span>
+        <p class="mc">Copper</p>
+        <p class="mj">Southern Africa · construction</p>
+        <p class="mkp"><b class="num" data-v="4.31" data-d="2">4.31</b> <span>/lb · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>1.5% NSR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$15M</b></div>
+      </div>
+      <div class="mkt">
+        <span class="mref">MDS-SN-03</span><span class="mstat">In review</span>
+        <p class="mc">Tin &amp; tungsten</p>
+        <p class="mj">Central Africa · producing</p>
+        <p class="mkp"><b class="num" data-v="31450" data-d="0">31,450</b> <span>/t · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>2.0% GRR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$12M</b></div>
+      </div>
+      <div class="mkt">
+        <span class="mref">MDS-AU-04</span><span class="mstat">In review</span>
+        <p class="mc">Gold</p>
+        <p class="mj">South America · producing</p>
+        <p class="mkp"><b class="num" data-v="2612.0" data-d="2">2,612.00</b> <span>/oz · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>1.0% NSR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$18M</b></div>
+      </div>
+      <div class="mkt">
+        <span class="mref">MDS-ZN-05</span><span class="mstat">In review</span>
+        <p class="mc">Zinc</p>
+        <p class="mj">Australia · feasibility</p>
+        <p class="mkp"><b class="num" data-v="1.28" data-d="2">1.28</b> <span>/lb · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>2.5% GRR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$10M</b></div>
+      </div>
+      <div class="mkt">
+        <span class="mref">MDS-LI-06</span><span class="mstat">In review</span>
+        <p class="mc">Lithium</p>
+        <p class="mj">West Africa · feasibility</p>
+        <p class="mkp"><b class="num" data-v="11900" data-d="0">11,900</b> <span>/t · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>2.0% GRR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$25M</b></div>
+      </div>
+      <div class="mkt">
+        <span class="mref">MDS-AU-07</span><span class="mstat">In review</span>
+        <p class="mc">Gold</p>
+        <p class="mj">East Africa · producing</p>
+        <p class="mkp"><b class="num" data-v="2612.0" data-d="2">2,612.00</b> <span>/oz · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>1.5% NSR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$8M</b></div>
+      </div>
+      <div class="mkt">
+        <span class="mref">MDS-CU-08</span><span class="mstat">In review</span>
+        <p class="mc">Copper &amp; cobalt</p>
+        <p class="mj">Central Africa · construction</p>
+        <p class="mkp"><b class="num" data-v="4.31" data-d="2">4.31</b> <span>/lb · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>1.25% NSR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$15M</b></div>
+      </div>
+      <div class="mkt">
+        <span class="mref">MDS-AG-09</span><span class="mstat">In review</span>
+        <p class="mc">Silver</p>
+        <p class="mj">South America · producing</p>
+        <p class="mkp"><b class="num" data-v="68.67" data-d="2">68.67</b> <span>/oz · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>2.0% GRR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$12M</b></div>
+      </div>
+      <div class="mkt">
+        <span class="mref">MDS-MN-10</span><span class="mstat">In review</span>
+        <p class="mc">Manganese</p>
+        <p class="mj">Southern Africa · construction</p>
+        <p class="mkp"><b class="num" data-v="4.4" data-d="2">4.40</b> <span>/dmtu · metal spot, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>1.75% GRR</b></div>
+        <div class="mrow"><span>Raise target</span><b>$15M</b></div>
+      </div>
+    </div>
+    <p class="b-cap" style="margin-top:18px">Prices shown are the underlying metals — indicative, not live quotes. Royalty instruments have not begun trading. Stages and structures may change. Nothing on this page is an offer of securities.</p>
+    <p class="rv" style="margin-top:26px"><a class="btn btn-gold" href="#access">Request access to trade</a></p>
+  </div>
+</section>
+</div>
+
 <div data-route="learn">
 <section id="learnhero">
   <div class="wrap">
@@ -1479,7 +1595,7 @@
   /* ---- ambient ticker: gentle drift around seeded values ---- */
   var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!reduced){
-    var qs=[].slice.call(document.querySelectorAll('.tick b'));
+    var qs=[].slice.call(document.querySelectorAll('.tick b,.mkp b'));
     setInterval(function(){
       if(document.visibilityState!=='visible')return;
       var el=qs[Math.floor(Math.random()*qs.length)];
@@ -1541,7 +1657,7 @@
   /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
-  var ROUTES=['home','investors','operators','institutions','learn','about'];
+  var ROUTES=['home','markets','investors','operators','institutions','learn','about'];
   var LEGAL=['disclosures','privacy','terms'];
   function currentRoute(){
     var h=location.hash;
