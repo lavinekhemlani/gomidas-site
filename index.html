@@ -756,6 +756,26 @@ a.dealcard:hover{border-color:var(--line)}
 .fp span{font-size:11px;color:var(--mut)}
 @media(max-width:1080px){.fp-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:640px){.fp-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- momentum timeline ---- */
+.tl{margin-top:38px;border-top:1px solid var(--line-soft)}
+.tl-row{display:grid;grid-template-columns:110px 1fr;gap:22px;padding:18px 4px;border-bottom:1px solid var(--line-soft);align-items:baseline}
+.tl-y{font-family:var(--big);font-weight:700;font-size:16px;color:var(--dim);font-variant-numeric:tabular-nums}
+.tl-row p{margin:0;color:var(--mut);font-size:15px;line-height:1.6}
+.tl-row p b{color:var(--ink)}
+.tl-row.gold .tl-y{color:var(--gold)}
+.tl-row.gold{background:rgba(198,161,91,.05)}
+.tl-row.gold p{color:var(--ink)}
+/* ---- risk table ---- */
+.rtable{margin-top:38px;border:1px solid var(--line-soft);border-radius:14px;overflow:hidden}
+.rt-row{display:grid;grid-template-columns:120px 1fr 1.4fr;gap:18px;padding:15px 20px;border-bottom:1px solid var(--line-soft);font-size:13.5px}
+.rt-row:last-child{border-bottom:0}
+.rt-row span:first-child{font-weight:700;color:var(--ink)}
+.rt-row span{color:var(--mut);line-height:1.55}
+.rt-row span:last-child{color:var(--ink)}
+.rt-head{background:var(--panel-2);font-size:11.5px}
+.rt-head span{color:var(--dim)!important;font-weight:600!important;letter-spacing:.02em}
+@media(max-width:720px){.rt-row{grid-template-columns:1fr;gap:6px}.tl-row{grid-template-columns:70px 1fr}}
 </style>
 </head>
 <body>
@@ -1891,6 +1911,38 @@ a.dealcard:hover{border-color:var(--line)}
       <div class="std"><span class="ix">05</span><b>Licence-registered security</b><p>Every royalty is registered against the mining licence in the host jurisdiction, with local counsel's enforceability opinion.</p></div>
       <div class="std"><span class="ix">06</span><b>Custody &amp; transfer controls</b><p>Fractions move only between verified holders. The register is the record; the token is its instrument.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="momentum">
+  <div class="wrap">
+    <span class="eyebrow rv">The asset class</span>
+    <h2 class="rv">This went institutional decades ago. Quietly.</h2>
+    <div class="tl rv">
+      <div class="tl-row"><span class="tl-y">1986</span><p>A buyer pays <b>$2M for a 4% royalty</b> on a young Nevada gold mine. It has paid on every ounce sold since.</p></div>
+      <div class="tl-row"><span class="tl-y">2007</span><p>Royalties become a <b>listed business</b> — public companies built on nothing but portfolios of claims like these.</p></div>
+      <div class="tl-row"><span class="tl-y">2010–26</span><p>The sector grows <b>$2B → $60B+</b>, held by three companies and a handful of institutions. No public access at any point.</p></div>
+      <div class="tl-row"><span class="tl-y">2025</span><p>The sector's biggest company pays <b>$1.05B for a single royalty</b> — the largest royalty transaction ever recorded.</p></div>
+      <div class="tl-row"><span class="tl-y">2026</span><p>The largest stablecoin issuer moves into <b>gold and royalties</b>. Crypto's biggest balance sheet, same asset.</p></div>
+      <div class="tl-row gold"><span class="tl-y">Now</span><p><b>Midas opens the first market for the royalties themselves.</b> Same instrument, papered the same way — sized to anyone.</p></div>
+    </div>
+    <p class="b-cap rv">Historical events from public filings and public reporting. Nothing here is a projection or an offer.</p>
+  </div>
+</section>
+
+<section id="risks">
+  <div class="wrap">
+    <span class="eyebrow rv">Risk</span>
+    <h2 class="rv">Named risks. Named answers.</h2>
+    <div class="rtable rv">
+      <div class="rt-row rt-head"><span>Risk</span><span>What can happen</span><span>What stands against it</span></div>
+      <div class="rt-row"><span>Production</span><span>The mine slows or stops; payments pause with it.</span><span>Producing assets first. The claim survives a pause and pays again on restart. Sizing guidance in every file.</span></div>
+      <div class="rt-row"><span>Price</span><span>The metal falls; distributions shrink.</span><span>Royalties track revenue, not margin — paid off the top before costs. No leverage inside any vehicle.</span></div>
+      <div class="rt-row"><span>Jurisdiction</span><span>Rules change where the mine sits.</span><span>Registered against the licence with a local-counsel enforceability opinion, in every country, before listing.</span></div>
+      <div class="rt-row"><span>Operator</span><span>The mine is sold, refinanced, or mismanaged.</span><span>The claim attaches to the licence, not the owner — it survives every change of hands. Monitored monthly.</span></div>
+      <div class="rt-row"><span>Custody</span><span>Who really owns what, and can it be moved?</span><span>One segregated SPV per royalty. The token is the register. Transfers clear only between verified holders.</span></div>
+    </div>
+    <p class="b-cap rv">None of this removes risk — royalty interests are illiquid and you can lose everything you put in. It makes the risks legible.</p>
   </div>
 </section>
 
