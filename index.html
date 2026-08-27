@@ -779,6 +779,13 @@ a.dealcard:hover{border-color:var(--line)}
 .rt-head span{color:var(--dim)!important;font-weight:600!important;letter-spacing:.02em}
 @media(max-width:720px){.rt-row{grid-template-columns:1fr;gap:6px}.tl-row{grid-template-columns:70px 1fr}}
 .xsec{background:var(--panel);border:1px solid var(--line-soft);border-radius:16px;padding:24px 24px 16px}.xsec svg{width:100%;height:auto;display:block}
+
+/* ---- submit form ---- */
+.sform{max-width:760px}
+.sform .f2{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.sform textarea{width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:11px 14px;font-size:15px;font-family:inherit;line-height:1.5}
+.sform textarea:focus,.sform input:focus,.sform select:focus{outline:none;border-color:var(--gold)}
+@media(max-width:640px){.sform .f2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -818,6 +825,7 @@ a.dealcard:hover{border-color:var(--line)}
     <a href="#/learn">What is a royalty?</a>
     <a href="#/about">About</a>
     <a href="#/docs">Docs</a>
+    <a href="#/submit">Submit your asset</a>
     <a href="#/app">Launch app</a>
   </div>
 </nav>
@@ -1769,7 +1777,7 @@ a.dealcard:hover{border-color:var(--line)}
       </div>
     </div>
     <div class="ops-cta rv">
-      <a href="#access" class="btn btn-gold">Submit an asset</a>
+      <a href="#/submit" class="btn btn-gold">Submit your asset</a>
       <p class="ops-note">Producing or near-production. You'll know inside a week whether it's underwritable.</p>
     </div>
   </div>
@@ -1908,6 +1916,120 @@ a.dealcard:hover{border-color:var(--line)}
       <div class="r4"><b>Give back to the ground</b><p>Mining built the modern world and scarred it too. We structure deals so a share goes back to where the metal came from — jobs, schools, trees planted next to the pit.</p></div>
       <div class="r4"><b>Every deal, full file</b><p>Reserve report, licence, legal opinion, deed — signed by named people. If we can't show you the file, we don't show you the deal.</p></div>
       <div class="r4"><b>Compliance before growth</b><p>This is a public market and we treat the rules as existential, not as friction. Tier-1 standards in every jurisdiction — not just where the law makes us.</p></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div data-route="submit">
+<section id="submithero">
+  <div class="wrap">
+    <span class="eyebrow rv">List a royalty</span>
+    <h2 class="rv">Submit your asset.</h2>
+    <p class="lede rv">Producing or near-production mines raising $5M–$30M. A person reads every submission and replies within five business days — including the no's, with the reason.</p>
+  </div>
+</section>
+
+<section id="submitsteps">
+  <div class="wrap">
+    <span class="eyebrow rv">What happens</span>
+    <h2 class="rv">Four steps. No black box.</h2>
+    <div class="steps5 rv" style="grid-template-columns:repeat(4,1fr)">
+      <div class="s5"><span class="ix">01</span><b>You submit</b><p>The form below. Ten minutes, no data room needed yet.</p></div>
+      <div class="s5"><span class="ix">02</span><b>We read the file</b><p>Reserve report, permits, ownership, offtakes, financials. Five business days to a yes, no, or what's missing.</p></div>
+      <div class="s5"><span class="ix">03</span><b>Terms and independent review</b><p>Royalty rate, size, and structure agreed. Independent engineers and local counsel sign off — their names go on the file.</p></div>
+      <div class="s5"><span class="ix">04</span><b>Listed and funded</b><p>Registered against the licence, opened to our investor base, funds clear as it fills.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="submitdocs">
+  <div class="wrap">
+    <span class="eyebrow rv">The file</span>
+    <h2 class="rv">What we'll need. Eventually.</h2>
+    <p class="lede rv">Not required to submit — this is what diligence needs before a royalty can be papered. Drafts and pending permits are fine; tell us what's in progress.</p>
+    <div class="grid4 rv">
+      <div class="r4"><b>Technical report</b><p>NI 43-101, JORC, SAMREC or equivalent. Draft accepted.</p></div>
+      <div class="r4"><b>Licence &amp; permits</b><p>Mining or exploration licence, environmental authorisations, status of anything pending.</p></div>
+      <div class="r4"><b>Ownership</b><p>Corporate registry, beneficial ownership, and proof of mineral rights with any encumbrances disclosed.</p></div>
+      <div class="r4"><b>Financials</b><p>Two years where they exist, plus production history, costs, and any offtake or streaming agreements already in place.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="submitform">
+  <div class="wrap">
+    <span class="eyebrow rv">The form</span>
+    <h2 class="rv">Tell us about the asset.</h2>
+    <form class="aform sform rv" id="mineForm" name="mine" method="POST" action="https://formsubmit.co/lavine@zenith-grp.co">
+      <input type="hidden" name="_subject" value="gomidas.co — MINE SUBMISSION" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+
+      <div class="f2">
+        <div><label for="mfCo">Company</label><input id="mfCo" name="company" required /></div>
+        <div><label for="mfAsset">Asset name</label><input id="mfAsset" name="asset" required /></div>
+      </div>
+      <div class="f2">
+        <div><label for="mfName">Your name</label><input id="mfName" name="name" required autocomplete="name" /></div>
+        <div><label for="mfRole">Your role</label><input id="mfRole" name="role" placeholder="CEO, CFO, adviser…" /></div>
+      </div>
+      <div class="f2">
+        <div><label for="mfEmail">Email</label><input id="mfEmail" name="email" type="email" required autocomplete="email" /></div>
+        <div><label for="mfPhone">Phone or WhatsApp</label><input id="mfPhone" name="phone" /></div>
+      </div>
+      <div class="f2">
+        <div><label for="mfCom">Commodity</label><input id="mfCom" name="commodity" placeholder="Gold, copper, lithium…" required /></div>
+        <div><label for="mfJur">Jurisdiction</label><input id="mfJur" name="jurisdiction" placeholder="Country" required /></div>
+      </div>
+      <div class="f2">
+        <div><label for="mfStage">Stage</label>
+          <select id="mfStage" name="stage" required>
+            <option value="">Select one</option>
+            <option>Producing</option>
+            <option>Construction / development</option>
+            <option>Feasibility</option>
+            <option>Restart of a past producer</option>
+            <option>Exploration</option>
+          </select>
+        </div>
+        <div><label for="mfSize">Capital sought</label>
+          <select id="mfSize" name="size" required>
+            <option value="">Select one</option>
+            <option>Under $5M</option>
+            <option>$5M – $10M</option>
+            <option>$10M – $20M</option>
+            <option>$20M – $30M</option>
+            <option>Over $30M</option>
+          </select>
+        </div>
+      </div>
+      <label for="mfStruct">Structure you have in mind</label>
+      <select id="mfStruct" name="structure">
+        <option value="">Not sure yet — advise me</option>
+        <option>Gross revenue royalty (GRR)</option>
+        <option>Net smelter return (NSR)</option>
+        <option>Per-tonne royalty</option>
+        <option>Selling an existing royalty (secondary)</option>
+      </select>
+
+      <label for="mfNotes">The asset, in your words</label>
+      <textarea id="mfNotes" name="notes" rows="5" placeholder="Production or resource, what the money is for, timing, and anything already agreed with other financiers."></textarea>
+
+      <label for="mfDocs">What's ready today</label>
+      <select id="mfDocs" name="documents">
+        <option value="">Select one</option>
+        <option>Full file ready — technical report, licence, financials</option>
+        <option>Most of it — some documents in draft</option>
+        <option>Early — technical work underway</option>
+      </select>
+
+      <button type="submit" class="btn btn-gold">Submit the asset</button>
+      <p class="a-note">Confidential. We don't share submissions outside our underwriting team and the independent reviewers on your deal, and we don't publish a mine's name without written consent. Submitting is not an offer or a commitment by either side, and most assets don't proceed.</p>
+    </form>
+    <div class="a-done" id="mineDone">
+      <h3>Received.</h3>
+      <p>We'll come back within five business days with one of three answers: what we'd need to proceed, a term sheet conversation, or a plain no with the reason. Nothing is shared outside our underwriting team in the meantime.</p>
     </div>
   </div>
 </section>
@@ -2058,7 +2180,8 @@ a.dealcard:hover{border-color:var(--line)}
         <h3>Regulatory status</h3>
         <p>Midas is building its structure and licensing in the United Arab Emirates. Where the site refers to a licensed framework, that describes the regime under which the structure is being established. Specific licensed entities, permissions and their scope are identified in onboarding documentation. Nothing here should be read as a claim that any regulator has approved, endorsed or reviewed the merits of any royalty.</p>
         <h3>Contact</h3>
-        <p>Questions about anything on this page: <a href="mailto:hello@gomidas.co">hello@gomidas.co</a>.</p>
+        <p>Questions about anything on this page: <a href="#/submit">Submit your asset</a>
+      <a href="mailto:hello@gomidas.co">hello@gomidas.co</a>.</p>
       </div>
     </div>
   </section>
@@ -2102,7 +2225,8 @@ a.dealcard:hover{border-color:var(--line)}
         <h3>Changes and governing law</h3>
         <p>We may update these terms; the current version is always the one posted here. These terms are governed by the laws of the United Arab Emirates, and the courts of the UAE have exclusive jurisdiction, subject to any mandatory rules of your home jurisdiction.</p>
         <h3>Contact</h3>
-        <p><a href="mailto:hello@gomidas.co">hello@gomidas.co</a></p>
+        <p><a href="#/submit">Submit your asset</a>
+      <a href="mailto:hello@gomidas.co">hello@gomidas.co</a></p>
       </div>
     </div>
   </section>
@@ -2117,6 +2241,7 @@ a.dealcard:hover{border-color:var(--line)}
       <a href="#/disclosures">Disclosures</a>
       <a href="#/privacy">Privacy</a>
       <a href="#/terms">Terms</a>
+      <a href="#/submit">Submit your asset</a>
       <a href="mailto:hello@gomidas.co">hello@gomidas.co</a>
     </div>
   </div>
@@ -2196,7 +2321,7 @@ a.dealcard:hover{border-color:var(--line)}
   /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
-  var ROUTES=['home','markets','investors','operators','institutions','learn','about','app','docs'];
+  var ROUTES=['home','markets','investors','operators','institutions','learn','about','app','docs','submit'];
   var LEGAL=['disclosures','privacy','terms'];
   function currentRoute(){
     var h=location.hash;
@@ -2319,6 +2444,17 @@ a.dealcard:hover{border-color:var(--line)}
       e.preventDefault();
       var fd=new FormData(f),o={};fd.forEach(function(v,k){o[k]=v;});
       var done=function(){f.style.display='none';var d=document.getElementById('accessDone');d.style.display='block';};
+      fetch('https://formsubmit.co/ajax/lavine@zenith-grp.co',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(o)}).then(done).catch(done);
+    });
+  }
+
+  /* ---- mine submission form ---- */
+  var mf=document.getElementById('mineForm');
+  if(mf){
+    mf.addEventListener('submit',function(e){
+      e.preventDefault();
+      var fd=new FormData(mf),o={};fd.forEach(function(v,k){o[k]=v;});
+      var done=function(){mf.style.display='none';var d=document.getElementById('mineDone');d.style.display='block';};
       fetch('https://formsubmit.co/ajax/lavine@zenith-grp.co',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(o)}).then(done).catch(done);
     });
   }
