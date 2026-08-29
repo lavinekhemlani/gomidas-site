@@ -531,6 +531,23 @@
   .roi .mult{margin-top:12px;padding-top:11px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--mut)}
   .roi .mult b{color:var(--gold);font-family:var(--big);font-size:14px}
   .roinote{margin-top:20px;font-size:11.5px;color:var(--dim);line-height:1.65;max-width:840px}
+
+  /* mine photo strip */
+  .mines{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+  @media(max-width:860px){.mines{grid-template-columns:1fr}}
+  .mine{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/2.7;background:var(--panel)}
+  .mine img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.04);transition:transform .8s ease}
+  .mine:hover img{transform:scale(1.035)}
+  .mine .cap{position:absolute;left:0;right:0;bottom:0;padding:36px 16px 13px;background:linear-gradient(180deg,transparent,rgba(6,7,9,.88) 70%)}
+  .mine .cap b{display:block;font-size:14px;color:var(--ink)}
+  .mine .cap span{font-size:11.5px;color:var(--mut)}
+  .minecred{margin-top:12px;font-size:10.5px;color:var(--dim)}
+  .minecred a{color:var(--dim)}
+
+  /* rock-to-token pipeline */
+  .r2t{margin-top:46px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px 26px 22px;overflow-x:auto}
+  .r2t svg{display:block;min-width:760px;width:100%}
+
   .roinote a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(198,161,91,.35);white-space:nowrap}
   .roinote a:hover{border-bottom-color:var(--gold)}
 
@@ -1034,6 +1051,88 @@ a.dealcard:hover{border-color:var(--line)}
       <div class="wf-row"><div class="wf-lab">Operating costs</div><div class="wf-bar"><div class="wf-fill" style="--w:54%"></div></div></div>
       <div class="wf-row"><div class="wf-lab">The banks</div><div class="wf-bar"><div class="wf-fill" style="--w:18%"></div></div></div>
       <div class="wf-row"><div class="wf-lab">Shareholders — last</div><div class="wf-bar"><div class="wf-fill" style="--w:20%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROCK TO TOKEN ============ -->
+<section id="rock2token" data-route="home">
+  <div class="wrap">
+    <span class="eyebrow rv">From rock to token</span>
+    <h2 class="rv">This is the asset. Here's how it reaches you.</h2>
+
+    <div class="mines rv">
+      <div class="mine"><img src="img/superpit.jpg" alt="The Super Pit gold mine, Kalgoorlie, Western Australia" loading="lazy"><div class="cap"><b>The Super Pit — Kalgoorlie, WA</b><span>Gold · one of Australia's largest open pits</span></div></div>
+      <div class="mine"><img src="img/bingham.jpg" alt="Bingham Canyon copper mine, Utah" loading="lazy"><div class="cap"><b>Bingham Canyon — Utah, USA</b><span>Copper · the deepest open-pit mine on earth</span></div></div>
+      <div class="mine"><img src="img/sunrisedam.jpg" alt="Sunrise Dam gold mine open pit, Western Australia" loading="lazy"><div class="cap"><b>Sunrise Dam — Western Australia</b><span>Gold · producing since 1997</span></div></div>
+    </div>
+    <p class="minecred rv">Shown for scale — these are not Midas assets. Photos: Wikimedia Commons, CC BY-SA 4.0 / CC BY 4.0 (Calistemon; Aznaturalist; Bahnfrend).</p>
+
+    <div class="r2t rv">
+      <svg viewBox="0 0 980 250" preserveAspectRatio="xMidYMid meet" aria-label="How a mine becomes a token: the mine sells metal, a royalty is written against its licence, the royalty is split into fractions, the fractions trade and pay out">
+        <g font-family="Switzer, sans-serif">
+          <!-- 1 · the mine -->
+          <g>
+            <path d="M20,140 L80,80 L112,112 L150,66 L212,140 Z" fill="#171A21" stroke="#242832"/>
+            <path d="M84,140 L116,108 L150,140 Z" fill="rgba(198,161,91,.28)"/>
+            <rect x="20" y="140" width="192" height="34" rx="8" fill="#12141A" stroke="#242832"/>
+            <text x="116" y="161" text-anchor="middle" fill="#F2EFE8" font-size="13" font-weight="700">1 · The mine</text>
+            <text x="116" y="196" text-anchor="middle" fill="#9A948A" font-size="11">sells metal every month</text>
+          </g>
+          <path class="fl" d="M222,120 L286,120"/>
+          <!-- 2 · the royalty -->
+          <g>
+            <rect x="296" y="62" width="150" height="112" rx="12" fill="#171A21" stroke="#242832"/>
+            <line x1="316" y1="88" x2="426" y2="88" stroke="#242832" stroke-width="2"/>
+            <line x1="316" y1="104" x2="410" y2="104" stroke="#242832" stroke-width="2"/>
+            <line x1="316" y1="120" x2="426" y2="120" stroke="#242832" stroke-width="2"/>
+            <circle cx="410" cy="148" r="14" fill="none" stroke="#C6A15B" stroke-width="1.5"/>
+            <text x="410" y="152" text-anchor="middle" fill="#C6A15B" font-size="9.5" font-weight="700">2%</text>
+            <text x="371" y="196" text-anchor="middle" fill="#F2EFE8" font-size="13" font-weight="700">2 · The royalty</text>
+            <text x="371" y="214" text-anchor="middle" fill="#9A948A" font-size="11">written against the licence</text>
+          </g>
+          <path class="fl" d="M456,120 L520,120"/>
+          <!-- 3 · the split -->
+          <g>
+            <g stroke="#242832" fill="#12141A">
+              <rect x="530" y="66" width="32" height="32" rx="7"/><rect x="568" y="66" width="32" height="32" rx="7"/><rect x="606" y="66" width="32" height="32" rx="7"/>
+              <rect x="530" y="104" width="32" height="32" rx="7"/><rect x="606" y="104" width="32" height="32" rx="7"/>
+              <rect x="530" y="142" width="32" height="32" rx="7"/><rect x="568" y="142" width="32" height="32" rx="7"/><rect x="606" y="142" width="32" height="32" rx="7"/>
+            </g>
+            <rect x="568" y="104" width="32" height="32" rx="7" fill="rgba(198,161,91,.22)" stroke="#C6A15B"/>
+            <text x="584" y="125" text-anchor="middle" fill="#E3C37D" font-size="10" font-weight="700">you</text>
+            <text x="584" y="196" text-anchor="middle" fill="#F2EFE8" font-size="13" font-weight="700">3 · The fractions</text>
+            <text x="584" y="214" text-anchor="middle" fill="#9A948A" font-size="11">registered tokens, from $500</text>
+          </g>
+          <path class="fl" d="M648,120 L712,120"/>
+          <!-- 4 · the market -->
+          <g>
+            <rect x="722" y="62" width="238" height="112" rx="12" fill="#171A21" stroke="#242832"/>
+            <g font-size="10.5">
+              <text x="740" y="88" fill="#3FB57E">bid 0.99</text><text x="940" y="88" fill="#E06D5E" text-anchor="end">ask 1.01</text>
+              <rect x="740" y="98" width="88" height="7" rx="3" fill="rgba(63,181,126,.35)"/>
+              <rect x="852" y="98" width="88" height="7" rx="3" fill="rgba(224,109,94,.35)"/>
+              <rect x="740" y="112" width="64" height="7" rx="3" fill="rgba(63,181,126,.22)"/>
+              <rect x="876" y="112" width="64" height="7" rx="3" fill="rgba(224,109,94,.22)"/>
+              <text x="841" y="146" text-anchor="middle" fill="#C6A15B" font-size="11" font-weight="600">payout every time the mine sells</text>
+            </g>
+            <text x="841" y="196" text-anchor="middle" fill="#F2EFE8" font-size="13" font-weight="700">4 · The market</text>
+            <text x="841" y="214" text-anchor="middle" fill="#9A948A" font-size="11">trade 24/7 · hold and collect</text>
+          </g>
+          <!-- moving particles: value flowing right, cash flowing back -->
+          <g fill="#E3C37D">
+            <circle r="4"><animateMotion dur="2.6s" repeatCount="indefinite" path="M222,120 L286,120"/></circle>
+            <circle r="4"><animateMotion dur="2.6s" begin="0.85s" repeatCount="indefinite" path="M456,120 L520,120"/></circle>
+            <circle r="4"><animateMotion dur="2.6s" begin="1.7s" repeatCount="indefinite" path="M648,120 L712,120"/></circle>
+          </g>
+          <g fill="#3FB57E" opacity=".85">
+            <circle r="3"><animateMotion dur="5.2s" repeatCount="indefinite" path="M841,235 C600,268 320,268 116,235"/></circle>
+            <circle r="3"><animateMotion dur="5.2s" begin="2.6s" repeatCount="indefinite" path="M841,235 C600,268 320,268 116,235"/></circle>
+          </g>
+          <path d="M841,235 C600,268 320,268 116,235" fill="none" stroke="rgba(63,181,126,.18)" stroke-dasharray="3 6"/>
+          <text x="480" y="246" text-anchor="middle" fill="#3FB57E" font-size="10.5">cash flows back to every holder</text>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
