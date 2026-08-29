@@ -314,6 +314,19 @@
   .aform select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--mut) 50%),linear-gradient(135deg,var(--mut) 50%,transparent 50%);
     background-position:calc(100% - 21px) 50%,calc(100% - 16px) 50%;background-size:5px 5px;background-repeat:no-repeat}
   .aform .btn{width:100%;text-align:center;padding:15px}
+  .authwrap{max-width:520px}
+  .authwrap .aform{margin-top:34px}
+  .auth-alt{margin-top:18px;font-size:13px;color:var(--mut)}
+  .auth-alt a{color:var(--gold);text-decoration:none}
+  .auth-err{display:none;margin-top:14px;font-size:13px;color:#E06D5E}
+  .dashbar{background:linear-gradient(170deg,var(--panel-2),var(--panel));border:1px solid var(--gold-line);border-radius:16px;padding:22px 24px;margin:26px 0 8px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+  .dashbar .du b{display:block;font-size:16px;color:var(--ink)}
+  .dashbar .du span{font-size:12px;color:var(--mut)}
+  .dashpills{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .dpill{font-size:11.5px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--mut)}
+  .dpill.amber{color:#E3C37D;border-color:rgba(198,161,91,.4);background:rgba(198,161,91,.07)}
+  .dpill.green{color:var(--green);border-color:rgba(63,181,126,.4);background:rgba(63,181,126,.07)}
+  .dout{background:none;border:0;color:var(--dim);font-size:12px;cursor:pointer;text-decoration:underline;padding:0}
   .a-note{margin-top:16px;font-size:12px;color:var(--dim);line-height:1.6}
   .a-done{margin-top:44px;background:var(--panel);border:1px solid var(--gold-line);border-radius:14px;padding:34px;display:none}
   .a-done h3{margin:0;font-size:1.3rem}
@@ -892,7 +905,8 @@ a.dealcard:hover{border-color:var(--line)}
       <a href="#/learn" data-route-link="learn">Learn</a>
       <a href="#/earn" data-route-link="earn">Earn</a>
       <a href="#/about" data-route-link="about">About</a>
-      <a href="#/app" class="btn btn-gold" data-route-link="app">Launch app</a>
+      <a href="#/login" data-route-link="login" id="navAuth">Log in</a>
+      <a href="#/signup" class="btn btn-gold" data-route-link="signup" id="navSignup">Sign up</a>
     </div>
     <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
@@ -906,7 +920,8 @@ a.dealcard:hover{border-color:var(--line)}
     <a href="#/about">About</a>
     <a href="#/docs">Docs</a>
     <a href="#/submit">Submit your asset</a>
-    <a href="#/app">Launch app</a>
+    <a href="#/login" id="navAuthM">Log in</a>
+    <a href="#/signup" id="navSignupM">Sign up</a>
   </div>
 </nav>
 
@@ -1560,6 +1575,7 @@ a.dealcard:hover{border-color:var(--line)}
 </div>
 
 <div data-route="app">
+<div class="wrap" id="dashmount" style="display:none;padding-top:118px"></div>
 <section id="app">
   <div class="wrap">
     <div class="app-shell rv">
@@ -1614,6 +1630,54 @@ a.dealcard:hover{border-color:var(--line)}
       </div>
     </div>
     <p class="b-cap" style="margin-top:16px">Product preview. Figures shown as “—” do not exist yet and won't until trading opens. Nothing on this page is an offer of securities.</p>
+  </div>
+</section>
+</div>
+
+<div data-route="signup">
+<section id="signup">
+  <div class="wrap authwrap">
+    <span class="eyebrow rv">Create your account</span>
+    <h2 class="rv">Own your first royalty.</h2>
+    <p class="lede rv">One account for everything — browse the book, reserve allocations, and trade when markets open. Verification runs before any money moves.</p>
+    <form class="aform rv" id="signupForm">
+      <label for="suName">Full name</label>
+      <input id="suName" name="name" required autocomplete="name" />
+      <label for="suEmail">Email</label>
+      <input id="suEmail" name="email" type="email" required autocomplete="email" />
+      <label for="suPass">Password</label>
+      <input id="suPass" type="password" required minlength="8" autocomplete="new-password" />
+      <label for="suType">I'm investing as</label>
+      <select id="suType" name="side" required>
+        <option value="">Select one</option>
+        <option>Individual</option>
+        <option>Family office / professional</option>
+        <option>Institution</option>
+        <option>Mine operator / royalty holder</option>
+      </select>
+      <input type="hidden" name="_subject" value="gomidas.co — account signup" />
+      <button type="submit" class="btn btn-gold">Create account</button>
+      <p class="a-note">Creating an account is not a subscription or an offer. Identity and suitability checks apply before any investment, and we may not be able to onboard your jurisdiction.</p>
+    </form>
+    <p class="auth-alt rv">Already have an account? <a href="#/login">Log in</a></p>
+  </div>
+</section>
+</div>
+
+<div data-route="login">
+<section id="login">
+  <div class="wrap authwrap">
+    <span class="eyebrow rv">Welcome back</span>
+    <h2 class="rv">Log in.</h2>
+    <form class="aform rv" id="loginForm" style="margin-top:38px">
+      <label for="liEmail">Email</label>
+      <input id="liEmail" type="email" required autocomplete="email" />
+      <label for="liPass">Password</label>
+      <input id="liPass" type="password" required autocomplete="current-password" />
+      <button type="submit" class="btn btn-gold">Log in</button>
+      <p class="auth-err" id="liErr">We couldn't find that account. <a href="#/signup" style="color:var(--gold)">Create one</a> — it takes a minute.</p>
+    </form>
+    <p class="auth-alt rv">New to Midas? <a href="#/signup">Sign up</a></p>
   </div>
 </section>
 </div>
@@ -2684,7 +2748,7 @@ a.dealcard:hover{border-color:var(--line)}
   /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
-  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit'];
+  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit','signup','login'];
   var LEGAL=['disclosures','privacy','terms'];
   function currentRoute(){
     var h=location.hash;
@@ -2810,6 +2874,52 @@ a.dealcard:hover{border-color:var(--line)}
       fetch('https://formsubmit.co/ajax/lavine@zenith-grp.co',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(o)}).then(done).catch(done);
     });
   }
+
+  /* ---- prototype auth (client-side session; passwords never stored or sent) ---- */
+  (function(){
+    function user(){try{return JSON.parse(localStorage.getItem('midas_user'))}catch(e){return null}}
+    function setNav(){
+      var u=user();
+      var a=document.getElementById('navAuth'),b=document.getElementById('navSignup'),
+          am=document.getElementById('navAuthM'),bm=document.getElementById('navSignupM');
+      if(!a)return;
+      if(u){a.textContent='Dashboard';a.setAttribute('href','#/app');b.textContent='Launch app';b.setAttribute('href','#/app');
+        if(am){am.textContent='Dashboard';am.setAttribute('href','#/app');}if(bm){bm.textContent='Launch app';bm.setAttribute('href','#/app');}}
+      else{a.textContent='Log in';a.setAttribute('href','#/login');b.textContent='Sign up';b.setAttribute('href','#/signup');
+        if(am){am.textContent='Log in';am.setAttribute('href','#/login');}if(bm){bm.textContent='Sign up';bm.setAttribute('href','#/signup');}}
+    }
+    function wl(email){var h=0;for(var i=0;i<email.length;i++){h=(h*31+email.charCodeAt(i))>>>0;}return 1200+(h%700);}
+    function dash(){
+      var m=document.getElementById('dashmount');if(!m)return;
+      var u=user();
+      if(!u){m.style.display='none';m.innerHTML='';return;}
+      m.style.display='';
+      m.innerHTML='<div class="dashbar"><div class="du"><b>'+u.n.replace(/[<>&]/g,'')+'</b><span>'+u.e.replace(/[<>&]/g,'')+' · '+u.t+'</span></div>'+
+        '<div class="dashpills"><span class="dpill green">Account open</span><span class="dpill amber">Identity verification — in review</span><span class="dpill">Waitlist #'+wl(u.e)+'</span></div>'+
+        '<div><a class="btn btn-gold" href="#access" style="padding:10px 18px;font-size:13.5px">Reserve allocation</a> <button class="dout" id="doLogout">Log out</button></div></div>';
+      var lo=document.getElementById('doLogout');
+      if(lo)lo.addEventListener('click',function(){localStorage.removeItem('midas_user');setNav();dash();location.hash='#/home';});
+    }
+    var sf=document.getElementById('signupForm');
+    if(sf)sf.addEventListener('submit',function(e){
+      e.preventDefault();
+      var n=document.getElementById('suName').value.trim(),em=document.getElementById('suEmail').value.trim(),t=document.getElementById('suType').value;
+      if(!n||!em||!t)return;
+      localStorage.setItem('midas_user',JSON.stringify({n:n,e:em,t:t,ts:Date.now()}));
+      fetch('https://formsubmit.co/ajax/lavine@zenith-grp.co',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({name:n,email:em,side:t,_subject:'gomidas.co — account signup'})}).catch(function(){});
+      setNav();location.hash='#/app';
+    });
+    var lf=document.getElementById('loginForm');
+    if(lf)lf.addEventListener('submit',function(e){
+      e.preventDefault();
+      var u=user(),em=document.getElementById('liEmail').value.trim().toLowerCase();
+      if(u&&u.e.toLowerCase()===em){setNav();location.hash='#/app';}
+      else{document.getElementById('liErr').style.display='block';}
+    });
+    window.addEventListener('hashchange',function(){setTimeout(dash,60);});
+    setNav();dash();
+  })();
 
   /* ---- royalty calculator ---- */
   (function(){
