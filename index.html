@@ -40,39 +40,42 @@
     --maxw:1100px;
   }
   :root[data-theme="light"]{
-    --navbg:rgba(250,247,240,.9); --menubg:rgba(250,247,240,.96);
-    --bg:#F6F3EC; --panel:#FDFBF6; --panel-2:#F0EBE0; --line:#E0D9CB; --line-soft:#E9E3D6;
-    --ink:#1C1810; --mut:#6E6555; --dim:#9C927E;
-    --gold:#A87F35; --gold-soft:rgba(168,127,53,.10); --gold-line:rgba(168,127,53,.45);
+    --navbg:rgba(255,255,255,.92); --menubg:rgba(255,255,255,.97);
+    --bg:#FBFBF9; --panel:#FFFFFF; --panel-2:#F4F5F3; --line:#E3E4DF; --line-soft:#ECECE8;
+    --ink:#17243B; --mut:#57616F; --dim:#969DA9;
+    --gold:#8F6B25; --gold-soft:rgba(143,107,37,.07); --gold-line:rgba(143,107,37,.35);
     --gold-btn:#C6A15B;
-    --bar:#D9D2C2;
-    --green:#1E8A5C;
+    --bar:#D9DBD4;
+    --green:#177A52;
   }
   /* light-mode overrides for hard-coded SVG colors */
-  [data-theme="light"] svg [fill="#171A21"]{fill:#EFEAE0}
-  [data-theme="light"] svg [fill="#12141A"]{fill:#F5F1E8}
-  [data-theme="light"] svg [fill="#1B1F28"]{fill:#E9E3D6}
-  [data-theme="light"] svg [fill="#141720"]{fill:#EFEAE0}
-  [data-theme="light"] svg [stroke="#242832"]{stroke:#D8D0C0}
-  [data-theme="light"] svg [stroke="#2A2F3A"]{stroke:#D2C9B7}
-  [data-theme="light"] svg [stroke="#2E3440"]{stroke:#CFC6B3}
-  [data-theme="light"] svg [fill="#F2EFE8"]{fill:#1C1810}
-  [data-theme="light"] svg [fill="#9A948A"]{fill:#6E6555}
-  [data-theme="light"] svg [fill="#E3C37D"]{fill:#A87F35}
-  [data-theme="light"] svg [fill="#C6A15B"]{fill:#A87F35}
-  [data-theme="light"] svg [stroke="#C6A15B"]{stroke:#A87F35}
-  [data-theme="light"] svg text[fill="#3FB57E"]{fill:#1E8A5C}
+  [data-theme="light"] svg [fill="#171A21"]{fill:#F1F3F5}
+  [data-theme="light"] svg [fill="#12141A"]{fill:#F7F8F9}
+  [data-theme="light"] svg [fill="#1B1F28"]{fill:#EAEDF0}
+  [data-theme="light"] svg [fill="#141720"]{fill:#F1F3F5}
+  [data-theme="light"] svg [stroke="#242832"]{stroke:#D8DCE1}
+  [data-theme="light"] svg [stroke="#2A2F3A"]{stroke:#CDD3DA}
+  [data-theme="light"] svg [stroke="#2E3440"]{stroke:#C8CFD7}
+  [data-theme="light"] svg [fill="#F2EFE8"]{fill:#17243B}
+  [data-theme="light"] svg [fill="#9A948A"]{fill:#57616F}
+  [data-theme="light"] svg [fill="#E3C37D"]{fill:#8F6B25}
+  [data-theme="light"] svg [fill="#C6A15B"]{fill:#8F6B25}
+  [data-theme="light"] svg [stroke="#C6A15B"]{stroke:#8F6B25}
+  [data-theme="light"] svg text[fill="#3FB57E"]{fill:#177A52}
   [data-theme="light"] .hgrid{opacity:.35}
   [data-theme="light"] .mine img{filter:saturate(.95) contrast(1.0)}
+  [data-theme="light"] .hero-sub b{color:#17243B}
+  [data-theme="light"] h1 .g{color:#B08A3E}
+  [data-theme="light"] .hglow{opacity:.35}
   /* per-section gradients, both modes */
   [data-route] section:nth-of-type(4n+1){background:linear-gradient(178deg,rgba(198,161,91,.045),transparent 55%)}
   [data-route] section:nth-of-type(4n+2){background:linear-gradient(180deg,transparent,rgba(63,181,126,.035) 85%)}
   [data-route] section:nth-of-type(4n+3){background:linear-gradient(2deg,rgba(198,161,91,.03),transparent 45%),linear-gradient(178deg,rgba(63,181,126,.02),transparent 40%)}
   [data-route] section:nth-of-type(4n){background:radial-gradient(90% 70% at 50% 0%,rgba(198,161,91,.05),transparent 70%)}
-  [data-theme="light"] [data-route] section:nth-of-type(4n+1){background:linear-gradient(178deg,#F2ECDD,#F8F5EE 60%)}
-  [data-theme="light"] [data-route] section:nth-of-type(4n+2){background:linear-gradient(180deg,#F8F5EE,#EDF2EA 90%)}
-  [data-theme="light"] [data-route] section:nth-of-type(4n+3){background:linear-gradient(2deg,#F5EFE2,#FAF7F0 55%)}
-  [data-theme="light"] [data-route] section:nth-of-type(4n){background:radial-gradient(95% 75% at 50% 0%,#F1E9D7,#F7F4EC 75%)}
+  [data-theme="light"] [data-route] section:nth-of-type(4n+1){background:linear-gradient(178deg,#FFFFFF,#F6F7F9 70%)}
+  [data-theme="light"] [data-route] section:nth-of-type(4n+2){background:linear-gradient(180deg,#FBFBF9,#F0F3F7 92%)}
+  [data-theme="light"] [data-route] section:nth-of-type(4n+3){background:linear-gradient(2deg,#F7F8F6,#FFFFFF 60%)}
+  [data-theme="light"] [data-route] section:nth-of-type(4n){background:radial-gradient(95% 75% at 50% 0%,rgba(23,36,59,.045),#FAFBFA 78%)}
   /* theme toggle */
   .tbtn{background:none;border:1px solid var(--line);border-radius:999px;width:34px;height:34px;cursor:pointer;color:var(--mut);font-size:15px;line-height:1;flex:0 0 auto}
   .tbtn:hover{border-color:var(--gold-line);color:var(--gold)}
