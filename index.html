@@ -361,6 +361,33 @@
   .sc u{grid-column:1/-1;text-decoration:none;font-size:11.5px;color:var(--mut);line-height:1.5}
   .sc.gold{border-color:var(--gold-line);background:var(--gold-soft)}
   .sc.gold b{color:var(--gold)}
+  .authsplit{display:grid;grid-template-columns:1fr 1.15fr;gap:0;max-width:1180px;margin:0 auto;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--panel)}
+  @media(max-width:920px){.authsplit{grid-template-columns:1fr}.authimg{display:none}}
+  .authimg{position:relative;min-height:640px}
+  .authimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .authimg .cap{position:absolute;left:0;right:0;bottom:0;padding:44px 26px 20px;background:linear-gradient(180deg,transparent,rgba(6,7,9,.85));font-size:14px;color:#F2EFE8;font-weight:600}
+  .authpane{padding:40px 38px}
+  @media(max-width:560px){.authpane{padding:28px 20px}}
+  .wsteps{display:flex;align-items:center;gap:10px;margin:26px 0 6px}
+  .wstep{flex:1;height:2.5px;background:var(--line);border-radius:2px;position:relative}
+  .wstep.on{background:var(--gold)}
+  .wlabels{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.12em;color:var(--dim);margin-bottom:22px}
+  .wlabels b{color:var(--ink);font-weight:700}
+  .wpage{display:none}.wpage.on{display:block}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:560px){.frow{grid-template-columns:1fr}}
+  .pwmeter{display:flex;gap:6px;margin:-4px 0 4px;align-items:center}
+  .pwmeter i{flex:1;height:3px;border-radius:2px;background:var(--line)}
+  .pwmeter i.on{background:var(--green)}
+  .pwmeter em{font-style:normal;font-size:10px;letter-spacing:.1em;color:var(--dim);margin-left:6px}
+  .wcards{display:grid;grid-template-columns:1fr;gap:10px;margin:8px 0 16px}
+  .wcard{border:1px solid var(--line);border-radius:12px;padding:15px 16px;cursor:pointer;background:var(--panel-2)}
+  .wcard.on{border-color:var(--gold);background:var(--gold-soft)}
+  .wcard b{display:block;font-size:14px;margin-bottom:3px}
+  .wcard span{font-size:12px;color:var(--mut);line-height:1.5}
+  .wnav{display:flex;gap:12px;margin-top:8px}
+  .wnav .btn{flex:1;text-align:center;padding:14px}
+  .wback{background:transparent;border:1px solid var(--line);color:var(--mut);border-radius:12px;padding:14px 20px;cursor:pointer;font-family:var(--disp);font-weight:600}
   .authwrap{max-width:520px}
   .authwrap .aform{margin-top:34px}
   .auth-alt{margin-top:18px;font-size:13px;color:var(--mut)}
@@ -1696,30 +1723,64 @@ a.dealcard:hover{border-color:var(--line)}
 
 <div data-route="signup">
 <section id="signup">
-  <div class="wrap authwrap">
-    <span class="eyebrow rv">Create your account</span>
-    <h2 class="rv">Own your first royalty.</h2>
-    <p class="lede rv">One account for everything — browse the book, reserve allocations, and trade when markets open. Verification runs before any money moves.</p>
-    <form class="aform rv" id="signupForm">
-      <label for="suName">Full name</label>
-      <input id="suName" name="name" required autocomplete="name" />
-      <label for="suEmail">Email</label>
-      <input id="suEmail" name="email" type="email" required autocomplete="email" />
-      <label for="suPass">Password</label>
-      <input id="suPass" type="password" required minlength="8" autocomplete="new-password" />
-      <label for="suType">I'm investing as</label>
-      <select id="suType" name="side" required>
-        <option value="">Select one</option>
-        <option>Individual</option>
-        <option>Family office / professional</option>
-        <option>Institution</option>
-        <option>Mine operator / royalty holder</option>
-      </select>
-      <input type="hidden" name="_subject" value="gomidas.co — account signup" />
-      <button type="submit" class="btn btn-gold">Create account</button>
-      <p class="a-note">Creating an account is not a subscription or an offer. Identity and suitability checks apply before any investment, and we may not be able to onboard your jurisdiction.</p>
-    </form>
-    <p class="auth-alt rv">Already have an account? <a href="#/login">Log in</a></p>
+  <div class="wrap" style="max-width:1220px">
+    <div class="authsplit rv">
+      <div class="authimg"><img src="img/superpit.jpg" alt="Open-pit gold mine" loading="lazy"><div class="cap">Midas — the market for mining royalties</div></div>
+      <div class="authpane">
+        <span class="eyebrow">Open an account</span>
+        <h2 style="margin:10px 0 6px;font-size:clamp(26px,3vw,34px)">Own your first royalty.</h2>
+        <p style="margin:0;font-size:14px;color:var(--mut)">Track the book, reserve allocations, get paid when mines sell. Most people finish in under 2 minutes.</p>
+        <div class="wsteps"><span class="wstep on" data-ws="1"></span><span class="wstep" data-ws="2"></span><span class="wstep" data-ws="3"></span></div>
+        <div class="wlabels"><b id="wl1">01 ACCOUNT</b><span id="wl2">02 PROFILE</span><span id="wl3">03 CONFIRM</span></div>
+        <form class="aform" id="signupForm" style="margin-top:6px">
+
+          <div class="wpage on" data-wp="1">
+            <div class="frow">
+              <div><label for="suFirst">First name</label><input id="suFirst" required autocomplete="given-name" /></div>
+              <div><label for="suLast">Surname</label><input id="suLast" required autocomplete="family-name" /></div>
+            </div>
+            <label for="suPhone">Phone</label>
+            <input id="suPhone" type="tel" placeholder="+971 5x xxx xxxx" autocomplete="tel" />
+            <label for="suEmail">Email</label>
+            <input id="suEmail" type="email" required autocomplete="email" />
+            <label for="suPass">Password</label>
+            <input id="suPass" type="password" required minlength="8" autocomplete="new-password" />
+            <div class="pwmeter"><i></i><i></i><i></i><i></i><em id="pwlbl">EMPTY</em></div>
+            <div class="wnav"><a class="btn btn-gold" id="wNext1" href="javascript:void(0)">Continue →</a></div>
+          </div>
+
+          <div class="wpage" data-wp="2">
+            <label for="suCountry">Country of residence</label>
+            <select id="suCountry" required>
+              <option value="">Select one</option>
+              <option>United Arab Emirates</option><option>United States</option><option>United Kingdom</option>
+              <option>Australia</option><option>Canada</option><option>Hong Kong</option><option>Singapore</option>
+              <option>Saudi Arabia</option><option>Switzerland</option><option>Germany</option><option>France</option>
+              <option>Netherlands</option><option>India</option><option>South Africa</option><option>Somewhere else</option>
+            </select>
+            <label>What best describes you?</label>
+            <div class="wcards" id="wCards">
+              <div class="wcard" data-t="Individual"><b>Individual investor</b><span>I want to own royalty fractions in my own name, from $500.</span></div>
+              <div class="wcard" data-t="Family office / professional"><b>Professional or family office</b><span>I invest professionally, or meet a wealth or income threshold where I live.</span></div>
+              <div class="wcard" data-t="Institution"><b>Institution</b><span>Fund, corporate, or strategic buyer. Anchor tranches and full data-room access.</span></div>
+              <div class="wcard" data-t="Mine operator / royalty holder"><b>Mine operator or royalty holder</b><span>I want to raise against production, or sell down an existing royalty.</span></div>
+            </div>
+            <div class="wnav"><button type="button" class="wback" id="wBack2">← Back</button><a class="btn btn-gold" id="wNext2" href="javascript:void(0)">Continue →</a></div>
+          </div>
+
+          <div class="wpage" data-wp="3">
+            <div class="pmod" style="margin-bottom:16px"><h4 id="cfName">—</h4><div class="sub" id="cfMail">—</div>
+              <div class="prow"><span>Profile</span><b id="cfType">—</b></div>
+              <div class="prow"><span>Country</span><b id="cfCountry">—</b></div>
+              <div class="prow"><span>Identity verification</span><b>Starts now — runs in the background</b></div>
+            </div>
+            <div class="wnav"><button type="button" class="wback" id="wBack3">← Back</button><button type="submit" class="btn btn-gold" style="flex:1">Create account</button></div>
+            <p class="a-note">Creating an account is not a subscription or an offer. Identity and suitability checks apply before any investment, and we may not be able to onboard your jurisdiction.</p>
+          </div>
+        </form>
+        <p class="auth-alt">Already registered? <a href="#/login">Sign in</a></p>
+      </div>
+    </div>
   </div>
 </section>
 </div>
@@ -3039,16 +3100,54 @@ a.dealcard:hover{border-color:var(--line)}
       document.querySelectorAll('[data-dr]').forEach(function(b){b.addEventListener('click',function(){
         var D=drs();D[b.getAttribute('data-dr')]=Date.now();saveDrs(D);render();});});
     }
-    var sf=document.getElementById('signupForm');
-    if(sf)sf.addEventListener('submit',function(e){
-      e.preventDefault();
-      var n=document.getElementById('suName').value.trim(),em=document.getElementById('suEmail').value.trim(),t=document.getElementById('suType').value;
-      if(!n||!em||!t)return;
-      localStorage.setItem('midas_user',JSON.stringify({n:n,e:em,t:t,ts:Date.now()}));
-      fetch('https://formsubmit.co/ajax/lavine@zenith-grp.co',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({name:n,email:em,side:t,_subject:'gomidas.co — account signup'})}).catch(function(){});
-      setNav();location.hash='#/app';
-    });
+    /* signup wizard */
+    (function(){
+      var sf=document.getElementById('signupForm');if(!sf)return;
+      var stype='';
+      function page(n){
+        sf.querySelectorAll('.wpage').forEach(function(x){x.classList.toggle('on',x.getAttribute('data-wp')==String(n));});
+        document.querySelectorAll('.wstep').forEach(function(x,i){x.classList.toggle('on',i<n);});
+        ['wl1','wl2','wl3'].forEach(function(id,i){var el=document.getElementById(id);if(el)el.outerHTML=(i+1<=n?'<b id="'+id+'">':'<span id="'+id+'">')+['01 ACCOUNT','02 PROFILE','03 CONFIRM'][i]+(i+1<=n?'</b>':'</span>');});
+      }
+      var pw=document.getElementById('suPass');
+      if(pw)pw.addEventListener('input',function(){
+        var v=pw.value,sc=0;
+        if(v.length>=8)sc++;if(v.length>=12)sc++;if(/[0-9]/.test(v)&&/[a-zA-Z]/.test(v))sc++;if(/[^a-zA-Z0-9]/.test(v))sc++;
+        document.querySelectorAll('.pwmeter i').forEach(function(x,i){x.classList.toggle('on',i<sc);});
+        document.getElementById('pwlbl').textContent=v?['WEAK','WEAK','OK','GOOD','STRONG'][sc]:'EMPTY';
+      });
+      document.getElementById('wNext1').addEventListener('click',function(){
+        var f=document.getElementById('suFirst').value.trim(),l=document.getElementById('suLast').value.trim(),
+            e=document.getElementById('suEmail').value.trim();
+        if(!f||!l||!e||!pw.value||pw.value.length<8){[['suFirst',f],['suLast',l],['suEmail',e]].forEach(function(x){if(!x[1])document.getElementById(x[0]).style.borderColor='#E06D5E';});if(pw.value.length<8)pw.style.borderColor='#E06D5E';return;}
+        page(2);
+      });
+      document.getElementById('wBack2').addEventListener('click',function(){page(1)});
+      document.getElementById('wBack3').addEventListener('click',function(){page(2)});
+      document.querySelectorAll('#wCards .wcard').forEach(function(c){c.addEventListener('click',function(){
+        stype=c.getAttribute('data-t');
+        document.querySelectorAll('#wCards .wcard').forEach(function(x){x.classList.toggle('on',x===c);});
+      });});
+      document.getElementById('wNext2').addEventListener('click',function(){
+        var co=document.getElementById('suCountry').value;
+        if(!co||!stype){if(!co)document.getElementById('suCountry').style.borderColor='#E06D5E';return;}
+        document.getElementById('cfName').textContent=document.getElementById('suFirst').value+' '+document.getElementById('suLast').value;
+        document.getElementById('cfMail').textContent=document.getElementById('suEmail').value;
+        document.getElementById('cfType').textContent=stype;
+        document.getElementById('cfCountry').textContent=co;
+        page(3);
+      });
+      sf.addEventListener('submit',function(e){
+        e.preventDefault();
+        var n=(document.getElementById('suFirst').value+' '+document.getElementById('suLast').value).trim(),
+            em=document.getElementById('suEmail').value.trim(),co=document.getElementById('suCountry').value;
+        if(!n||!em||!stype)return;
+        localStorage.setItem('midas_user',JSON.stringify({n:n,e:em,t:stype,c:co,ts:Date.now()}));
+        fetch('https://formsubmit.co/ajax/lavine@zenith-grp.co',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify({name:n,email:em,side:stype,country:co,phone:document.getElementById('suPhone').value||'',_subject:'gomidas.co — account signup'})}).catch(function(){});
+        setNav();location.hash='#/app';
+      });
+    })();
     var lf=document.getElementById('loginForm');
     if(lf)lf.addEventListener('submit',function(e){
       e.preventDefault();
