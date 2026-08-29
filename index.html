@@ -374,6 +374,28 @@
   .dpill.amber{color:#E3C37D;border-color:rgba(198,161,91,.4);background:rgba(198,161,91,.07)}
   .dpill.green{color:var(--green);border-color:rgba(63,181,126,.4);background:rgba(63,181,126,.07)}
   .dout{background:none;border:0;color:var(--dim);font-size:12px;cursor:pointer;text-decoration:underline;padding:0}
+  .gatecard{background:linear-gradient(170deg,var(--panel-2),var(--panel));border:1px solid var(--gold-line);border-radius:18px;padding:34px 30px;margin:26px 0 8px;text-align:center}
+  .gatecard h3{margin:0 0 8px;font-family:var(--big);font-size:24px;letter-spacing:-.02em}
+  .gatecard p{margin:0 auto 20px;font-size:14px;color:var(--mut);max-width:480px;line-height:1.6}
+  .pmods{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:14px 0 8px}
+  @media(max-width:860px){.pmods{grid-template-columns:1fr}}
+  .pmod{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+  .pmod h4{margin:0 0 4px;font-size:14.5px}
+  .pmod .sub{font-size:11.5px;color:var(--dim);margin-bottom:14px}
+  .prow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line-soft);font-size:13px}
+  .prow span{color:var(--mut)} .prow b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .prow .up{color:var(--green)}
+  .pbtn{background:var(--gold-btn);color:#0A0B0D;border:0;border-radius:9px;padding:8px 14px;font-weight:700;font-size:12.5px;cursor:pointer;font-family:var(--disp)}
+  .pbtn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+  .pempty{font-size:13px;color:var(--mut);padding:14px 0 4px}
+  .buyform{display:none;border-top:1px solid var(--line-soft);padding-top:14px;margin-top:6px}
+  .buyform.open{display:block}
+  .buyform select,.buyform input{width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:9px;color:var(--ink);padding:10px 12px;font-size:13.5px;margin:0 0 10px;font-family:var(--disp)}
+  .tracker{display:flex;flex-direction:column;gap:0;margin-top:6px}
+  .tk{display:flex;gap:12px;align-items:flex-start;padding:9px 0}
+  .tk i{width:10px;height:10px;border-radius:50%;background:var(--line);margin-top:4px;flex:0 0 auto}
+  .tk.done i{background:var(--green)} .tk.now i{background:var(--gold);animation:pulse 2.2s infinite}
+  .tk b{font-size:13px;display:block} .tk span{font-size:11.5px;color:var(--dim)}
   .a-note{margin-top:16px;font-size:12px;color:var(--dim);line-height:1.6}
   .a-done{margin-top:44px;background:var(--panel);border:1px solid var(--gold-line);border-radius:14px;padding:34px;display:none}
   .a-done h3{margin:0;font-size:1.3rem}
@@ -950,9 +972,7 @@ a.dealcard:hover{border-color:var(--line)}
       <a href="#/operators" data-route-link="operators">Miners</a>
       <a href="#/learn" data-route-link="learn">Learn</a>
       <a href="#/about" data-route-link="about">About</a>
-      <a href="#/login" data-route-link="login" id="navAuth">Log in</a>
-      <a href="#/signup" class="btn btn-gold" data-route-link="signup" id="navSignup">Sign up</a>
-      <a href="#/app" class="btn btn-ghost" data-route-link="app" id="navApp">Launch app</a>
+      <a href="#/app" class="btn btn-gold" data-route-link="app" id="navApp">Launch app</a>
       <button class="tbtn" id="themeBtn" aria-label="Toggle light and dark mode">◐</button>
     </div>
     <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
@@ -968,8 +988,6 @@ a.dealcard:hover{border-color:var(--line)}
     <a href="#/about">About</a>
     <a href="#/docs">Docs</a>
     <a href="#/submit">Submit your asset</a>
-    <a href="#/login" id="navAuthM">Log in</a>
-    <a href="#/signup" id="navSignupM">Sign up</a>
     <a href="#/app" id="navAppM">Launch app</a>
   </div>
 </nav>
@@ -2930,30 +2948,96 @@ a.dealcard:hover{border-color:var(--line)}
     var bm=document.getElementById('themeBtnM');if(bm)bm.addEventListener('click',flip);
   })();
 
-  /* ---- prototype auth (client-side session; passwords never stored or sent) ---- */
+  /* ---- prototype auth + persona workflows (client-side; passwords never stored or sent) ---- */
   (function(){
+    var DEALS=[
+      {id:'MDS-AU-05',n:'Gold · Western Australia',y:6.5},
+      {id:'MDS-AU-04',n:'Gold · Nevada, USA',y:6.2},
+      {id:'MDS-FE-01',n:'Iron ore · West Africa',y:14.0},
+      {id:'MDS-CU-02',n:'Copper · Arizona, USA',y:15.5},
+      {id:'MDS-AU-07',n:'Gold · Ontario, Canada',y:6.8},
+      {id:'MDS-CU-08',n:'Copper · Quebec, Canada',y:16.0},
+      {id:'MDS-SN-03',n:'Tin & tungsten · Central Africa',y:17.0},
+      {id:'MDS-AG-09',n:'Silver · South America',y:8.5},
+      {id:'MDS-LI-06',n:'Lithium · Western Australia',y:19.0},
+      {id:'MDS-MN-10',n:'Manganese · NT, Australia',y:15.0}];
     function user(){try{return JSON.parse(localStorage.getItem('midas_user'))}catch(e){return null}}
-    function setNav(){
-      var u=user();
-      var a=document.getElementById('navAuth'),b=document.getElementById('navSignup'),
-          am=document.getElementById('navAuthM'),bm=document.getElementById('navSignupM');
-      if(!a)return;
-      if(u){a.textContent='Dashboard';a.setAttribute('href','#/app');b.style.display='none';
-        if(am){am.textContent='Dashboard';am.setAttribute('href','#/app');}if(bm){bm.style.display='none';}}
-      else{a.textContent='Log in';a.setAttribute('href','#/login');b.style.display='';b.textContent='Sign up';b.setAttribute('href','#/signup');
-        if(am){am.textContent='Log in';am.setAttribute('href','#/login');}if(bm){bm.style.display='';bm.textContent='Sign up';bm.setAttribute('href','#/signup');}}
-    }
+    function port(){try{return JSON.parse(localStorage.getItem('midas_port'))||[]}catch(e){return []}}
+    function savePort(x){try{localStorage.setItem('midas_port',JSON.stringify(x))}catch(e){}}
+    function drs(){try{return JSON.parse(localStorage.getItem('midas_dr'))||{}}catch(e){return {}}}
+    function saveDrs(x){try{localStorage.setItem('midas_dr',JSON.stringify(x))}catch(e){}}
+    function esc(t){return String(t).replace(/[<>&"]/g,'')}
+    function usd(n){return '$'+(n>=100?Math.round(n).toLocaleString('en-US'):n.toFixed(2))}
+    function setNav(){var a=document.getElementById('navApp'),am=document.getElementById('navAppM'),u=user();
+      if(a)a.textContent=u?'Dashboard':'Launch app';if(am)am.textContent=u?'Dashboard':'Launch app';}
     function wl(email){var h=0;for(var i=0;i<email.length;i++){h=(h*31+email.charCodeAt(i))>>>0;}return 1200+(h%700);}
-    function dash(){
+    function kyc(u){
+      var inst=/office|Institution/i.test(u.t), age=Date.now()-(u.ts||0);
+      if(inst)return age>300000?['Institutional onboarding — complete','green']:['Institutional onboarding — in review','amber'];
+      return age>90000?['Identity verified','green']:['Identity verification — in review','amber'];
+    }
+    function accrued(pos){var d=DEALS.filter(function(x){return x.id===pos.d})[0]||{y:10};
+      return pos.a*(d.y/100)*((Date.now()-pos.ts)/31536000000);}
+    function dealOpts(){return DEALS.map(function(d){return '<option value="'+d.id+'">'+d.id+' — '+d.n+' · ~'+d.y+'%/yr</option>'}).join('')}
+
+    function render(){
       var m=document.getElementById('dashmount');if(!m)return;
       var u=user();
-      if(!u){m.style.display='none';m.innerHTML='';return;}
+      if(!u){m.style.display='';
+        m.innerHTML='<div class="gatecard"><h3>The app is live. Your account takes a minute.</h3>'+
+        '<p>Create an account to enter — browse the book, reserve allocations, and track royalty income. Identity checks run before any money moves.</p>'+
+        '<a class="btn btn-gold" href="#/signup" style="margin-right:10px">Create account</a><a class="btn btn-ghost" href="#/login">Log in</a></div>';return;}
       m.style.display='';
-      m.innerHTML='<div class="dashbar"><div class="du"><b>'+u.n.replace(/[<>&]/g,'')+'</b><span>'+u.e.replace(/[<>&]/g,'')+' · '+u.t+'</span></div>'+
-        '<div class="dashpills"><span class="dpill green">Account open</span><span class="dpill amber">Identity verification — in review</span><span class="dpill">Waitlist #'+wl(u.e)+'</span></div>'+
-        '<div><a class="btn btn-gold" href="#/signup" style="padding:10px 18px;font-size:13.5px">Reserve allocation</a> <button class="dout" id="doLogout">Log out</button></div></div>';
+      var k=kyc(u), P=port(), inst=/office|Institution/i.test(u.t), miner=/operator/i.test(u.t);
+      var h='<div class="dashbar"><div class="du"><b>'+esc(u.n)+'</b><span>'+esc(u.e)+' · '+esc(u.t)+'</span></div>'+
+        '<div class="dashpills"><span class="dpill green">Account open</span><span class="dpill '+k[1]+'">'+k[0]+'</span><span class="dpill">Member #'+wl(u.e)+'</span></div>'+
+        '<div><button class="dout" id="doLogout">Log out</button></div></div>';
+      h+='<div class="pmods">';
+      if(miner){
+        var app=null;try{app=JSON.parse(localStorage.getItem('midas_mineapp'))}catch(e){}
+        h+='<div class="pmod"><h4>Your listing application</h4><div class="sub">Raise against production without giving up equity</div>';
+        if(app){var age=Date.now()-app.ts;
+          h+='<div class="prow"><span>Reference</span><b>'+esc(app.ref)+'</b></div><div class="tracker">'+
+          '<div class="tk done"><i></i><div><b>Application received</b><span>File logged, reference issued</span></div></div>'+
+          '<div class="tk '+(age>120000?'done':'now')+'"><i></i><div><b>Technical screen</b><span>Reserve report and production history</span></div></div>'+
+          '<div class="tk '+(age>120000?'now':'')+'"><i></i><div><b>Legal &amp; licence review</b><span>Registration path and enforceability opinion</span></div></div>'+
+          '<div class="tk"><i></i><div><b>Terms &amp; listing</b><span>Royalty rate, raise size, launch window</span></div></div></div>';
+        } else h+='<div class="pempty">No application on file yet.</div><a class="btn btn-gold" href="#/submit" style="padding:9px 16px;font-size:13px">Start your application</a>';
+        h+='</div>';
+        h+='<div class="pmod"><h4>What good files look like</h4><div class="sub">Faster review, better terms</div><div class="prow"><span>Reserve report (JORC / NI 43-101)</span><b class="up">required</b></div><div class="prow"><span>12+ months production history</span><b class="up">strongest</b></div><div class="prow"><span>Licence &amp; title chain</span><b class="up">required</b></div><div class="prow"><span>Offtake agreements</span><b>helpful</b></div></div>';
+      } else if(inst){
+        var D=drs();
+        h+='<div class="pmod"><h4>Data rooms</h4><div class="sub">Full files — reserve, licence chain, enforceability opinion</div>';
+        DEALS.slice(0,4).forEach(function(d){var st=D[d.id],age=st?Date.now()-st:0;
+          h+='<div class="prow"><span>'+d.id+' · '+esc(d.n)+'</span>'+(st?(age>60000?'<b class="up">Access granted</b>':'<b style="color:#E3C37D">Compliance check…</b>'):'<button class="pbtn ghost" data-dr="'+d.id+'">Request file</button>')+'</div>';});
+        h+='</div>';
+        h+='<div class="pmod"><h4>Allocations</h4><div class="sub">Anchor tranches on primary deals</div><div class="prow"><span>MDS-AU-05 anchor tranche</span><b>$2.0M of $4.0M reserved</b></div><div class="prow"><span>MDS-FE-01 anchor tranche</span><b>$5.5M of $8.0M reserved</b></div><div class="prow"><span>Speak to coverage</span><a class="pbtn" style="text-decoration:none" href="mailto:lavine@zenith-grp.co?subject=Midas%20allocation">Book a call</a></div></div>';
+      } else {
+        var tot=0,acc=0;P.forEach(function(x){tot+=x.a;acc+=accrued(x);});
+        h+='<div class="pmod"><h4>Portfolio</h4><div class="sub">'+(P.length?P.length+' position'+(P.length>1?'s':'')+' · '+usd(tot)+' invested':'Your royalty positions')+'</div>';
+        if(P.length){P.forEach(function(x,i){var d=DEALS.filter(function(q){return q.id===x.d})[0]||{n:x.d,y:10};
+          h+='<div class="prow"><span>'+x.d+' · '+esc(d.n)+'</span><b>'+usd(x.a)+' <em class="up" style="font-style:normal">+'+usd(accrued(x))+' accrued</em></b></div>';});
+          h+='<div class="prow"><span><b>Accruing now</b></span><b class="up" id="accTick">+'+usd(acc)+'</b></div>';
+        } else h+='<div class="pempty">No positions yet. Your first royalty is three clicks away.</div>';
+        h+='<button class="pbtn" id="buyOpen" style="margin-top:12px">'+(P.length?'New order':'Buy your first royalty')+'</button>'+
+        '<div class="buyform" id="buyForm"><select id="buyDeal">'+dealOpts()+'</select><input id="buyAmt" type="number" min="500" step="100" placeholder="Amount in USD — from $500" /><button class="pbtn" id="buyGo">Review &amp; confirm</button> <span style="font-size:11px;color:var(--dim)">Simulated order — funds move only after verification and signed docs.</span></div></div>';
+        h+='<div class="pmod"><h4>Income</h4><div class="sub">Royalty cash lands quarterly</div>'+(P.length?
+          '<div class="prow"><span>Next distribution window</span><b>Oct 15, 2026</b></div><div class="prow"><span>Estimated next payout</span><b class="up">'+usd(P.reduce(function(a,x){var d=DEALS.filter(function(q){return q.id===x.d})[0]||{y:10};return a+x.a*d.y/400},0))+'</b></div><div class="prow"><span>Lifetime received</span><b>$0.00 — first window ahead</b></div>'
+          :'<div class="pempty">Buy a fraction and this fills with real dates and real amounts.</div>')+'</div>';
+      }
+      h+='</div>';
+      m.innerHTML=h;
       var lo=document.getElementById('doLogout');
-      if(lo)lo.addEventListener('click',function(){localStorage.removeItem('midas_user');setNav();dash();location.hash='#/home';});
+      if(lo)lo.addEventListener('click',function(){localStorage.removeItem('midas_user');setNav();render();location.hash='#/home';});
+      var bo=document.getElementById('buyOpen');
+      if(bo)bo.addEventListener('click',function(){document.getElementById('buyForm').classList.toggle('open');});
+      var bg=document.getElementById('buyGo');
+      if(bg)bg.addEventListener('click',function(){
+        var a=+document.getElementById('buyAmt').value,d=document.getElementById('buyDeal').value;
+        if(!a||a<500)return;
+        var P2=port();P2.push({d:d,a:a,ts:Date.now()});savePort(P2);render();});
+      document.querySelectorAll('[data-dr]').forEach(function(b){b.addEventListener('click',function(){
+        var D=drs();D[b.getAttribute('data-dr')]=Date.now();saveDrs(D);render();});});
     }
     var sf=document.getElementById('signupForm');
     if(sf)sf.addEventListener('submit',function(e){
@@ -2972,8 +3056,13 @@ a.dealcard:hover{border-color:var(--line)}
       if(u&&u.e.toLowerCase()===em){setNav();location.hash='#/app';}
       else{document.getElementById('liErr').style.display='block';}
     });
-    window.addEventListener('hashchange',function(){setTimeout(dash,60);});
-    setNav();dash();
+    var mf=document.getElementById('mineForm');
+    if(mf)mf.addEventListener('submit',function(){
+      try{localStorage.setItem('midas_mineapp',JSON.stringify({ref:'MDS-APP-'+String(1000+Math.floor((Date.now()/1000)%9000)),ts:Date.now()}))}catch(e){}
+    });
+    window.addEventListener('hashchange',function(){setTimeout(render,60);});
+    setInterval(function(){var t=document.getElementById('accTick');if(t&&location.hash.indexOf('app')>=0)render();},4000);
+    setNav();render();
   })();
 
   /* ---- royalty calculator ---- */
