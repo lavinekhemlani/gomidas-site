@@ -352,6 +352,15 @@
   .aform select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--mut) 50%),linear-gradient(135deg,var(--mut) 50%,transparent 50%);
     background-position:calc(100% - 21px) 50%,calc(100% - 16px) 50%;background-size:5px 5px;background-repeat:no-repeat}
   .aform .btn{width:100%;text-align:center;padding:15px}
+  .scenhead{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--dim);font-weight:600}
+  .scen{margin-top:12px;display:flex;flex-direction:column;gap:9px}
+  .sc{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:center;background:var(--panel-2);border:1px solid var(--line-soft);border-radius:12px;padding:13px 16px}
+  .sc i{font-style:normal;font-size:13.5px;font-weight:600;color:var(--ink)}
+  .sc b{font-family:var(--big);font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.02em;text-align:right}
+  .sc b em{font-style:normal;font-size:11px;color:var(--mut);font-weight:500}
+  .sc u{grid-column:1/-1;text-decoration:none;font-size:11.5px;color:var(--mut);line-height:1.5}
+  .sc.gold{border-color:var(--gold-line);background:var(--gold-soft)}
+  .sc.gold b{color:var(--gold)}
   .authwrap{max-width:520px}
   .authwrap .aform{margin-top:34px}
   .auth-alt{margin-top:18px;font-size:13px;color:var(--mut)}
@@ -2305,16 +2314,16 @@ a.dealcard:hover{border-color:var(--line)}
         <input id="cRateR" type="range" min="0.5" max="5" step="0.1" value="2.0" />
 
         <label for="cRaise">Size of the royalty raise</label>
-        <div class="cfield"><span>$</span><input id="cRaise" type="number" value="20000000" min="1000000" step="1000000" /></div>
-        <input id="cRaiseR" type="range" min="5000000" max="50000000" step="1000000" value="20000000" />
+        <div class="cfield"><span>$</span><input id="cRaise" type="number" value="10000000" min="1000000" step="1000000" /></div>
+        <input id="cRaiseR" type="range" min="5000000" max="50000000" step="1000000" value="10000000" />
 
         <label for="cProd">Mine sells per year (all metal, at today's prices)</label>
         <div class="cfield"><span>$</span><input id="cProd" type="number" value="65000000" min="10000000" step="10000000" /></div>
         <input id="cProdR" type="range" min="20000000" max="600000000" step="5000000" value="65000000" />
 
         <label for="cLife">Years of production left</label>
-        <div class="cfield"><input id="cLife" type="number" value="15" min="1" max="40" step="1" /><span>yrs</span></div>
-        <input id="cLifeR" type="range" min="3" max="40" step="1" value="15" />
+        <div class="cfield"><input id="cLife" type="number" value="20" min="1" max="40" step="1" /><span>yrs</span></div>
+        <input id="cLifeR" type="range" min="3" max="40" step="1" value="20" />
       </div>
 
       <div class="coutputs">
@@ -2322,10 +2331,14 @@ a.dealcard:hover{border-color:var(--line)}
         <div class="crow"><span>The royalty collects each year</span><b id="oRoyalty">$1,300,000</b></div>
         <div class="crow"><span>Your share, each year</span><b id="oYear" class="gold">$650</b></div>
         <div class="crow"><span>Paid quarterly, roughly</span><b id="oQtr">$163</b></div>
-        <div class="crow big"><span>Cash yield on your money</span><b id="oYield" class="gold">6.5%</b></div>
-        <div class="crow"><span>Total over the mine's remaining life</span><b id="oLife">$9,750</b></div>
-        <div class="crow"><span>Multiple of what you put in</span><b id="oMult">1.0x</b></div>
-        <div class="cnote">Arithmetic only — your share of the raise, applied to the mine's sales. It assumes the mine keeps producing and selling at this rate. It won't: production moves, metal prices move, and mines stop. Change the numbers above and watch what happens.</div>
+        <div class="crow big"><span>Cash yield on your money</span><b id="oYield" class="gold">13.0%</b></div>
+        <div class="crow"><span>Collected over the mine's stated life</span><b id="oLife">$26,000</b></div>
+        <div class="crow"><span>Multiple of what you put in</span><b id="oMult">2.6x</b></div>
+        <div class="scenhead">Then history gets a vote. Three ways the same royalty plays out:</div>
+        <div class="scen"><div class="sc"><i>The mine just does what it says</i><b id="sc1">13%<em>/yr</em></b><u>flat production, flat prices — the floor case</u></div>
+        <div class="sc"><i>Metal price rises 50% over your hold</i><b id="sc2">19.5%<em>/yr</em></b><u>a royalty is revenue — price moves pass straight through</u></div>
+        <div class="sc gold"><i>The deposit keeps growing</i><b id="sc3">39%<em>/yr</em></b><u>at just 3× production. Goldstrike grew 26× — its royalty holder made 750x</u></div></div>
+        <div class="cnote">Arithmetic on your inputs — not a forecast. The three cases show the same mechanics that produced the historical returns above: price flows straight to revenue, and every ounce found later is free to the royalty holder. Mines can also close early. Change the numbers and watch.</div>
       </div>
     </div>
     <p class="b-cap rv">This is a calculator, not an offer, a forecast, or a promise. Real royalties are priced deal by deal against a reserve report, a licence and a legal opinion. Royalty interests are illiquid and you can lose everything you put in.</p>
@@ -2948,6 +2961,10 @@ a.dealcard:hover{border-color:var(--line)}
       document.getElementById('oYear').textContent=usd(yr);
       document.getElementById('oQtr').textContent=usd(yr/4);
       document.getElementById('oYield').textContent=a>0?(yr/a*100).toFixed(1)+'%':'—';
+      var y0=a>0?yr/a*100:0;
+      document.getElementById('sc1').innerHTML=y0.toFixed(1)+'%<em>/yr</em>';
+      document.getElementById('sc2').innerHTML=(y0*1.5).toFixed(1)+'%<em>/yr</em>';
+      document.getElementById('sc3').innerHTML=(y0*3).toFixed(0)+'%<em>/yr</em>';
       document.getElementById('oLife').textContent=usd(yr*L);
       document.getElementById('oMult').textContent=a>0?(yr*L/a).toFixed(1)+'x':'—';
     }
