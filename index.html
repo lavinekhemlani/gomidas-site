@@ -90,7 +90,13 @@
 
   /* ---------- ambient commodity strip ---------- */
   .tick{border-bottom:1px solid var(--line-soft);background:var(--bg)}
-  .tick .wrap{display:flex;align-items:center;gap:26px;padding:9px 28px;overflow:hidden;white-space:nowrap}
+  .tickmq{overflow:hidden;white-space:nowrap;padding:9px 0}
+  .tickrow{display:inline-flex;gap:38px;align-items:baseline;animation:tickmove 52s linear infinite;padding-left:38px}
+  .tick:hover .tickrow{animation-play-state:paused}
+  @keyframes tickmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.tickrow{animation:none}}
+  .tick .q em{font-style:normal;font-size:10.5px;font-weight:600;margin-left:2px}
+  .tick .q em.u{color:var(--green)} .tick .q em.d{color:#E06D5E}
   .tick .lab{font-family:var(--disp);font-size:10px;letter-spacing:.01em;color:var(--dim)}
   .tick .q{font-family:var(--disp);font-size:11px;color:var(--mut);display:flex;gap:8px;align-items:baseline}
   .tick .q b{color:var(--ink);font-weight:500}
@@ -1006,15 +1012,7 @@ a.dealcard:hover{border-color:var(--line)}
 <body>
 
 <div class="tick" aria-hidden="true">
-  <div class="wrap">
-    <span class="lab">Metal prices · indicative</span>
-    <span class="q"><i>AU</i> <b data-v="4648.40" data-d="2">4,648.40</b> <i>/oz</i></span>
-    <span class="q"><i>CU</i> <b data-v="6.51" data-d="2">6.51</b> <i>/lb</i></span>
-    <span class="q"><i>FE</i> <b data-v="95.34" data-d="2">95.34</b> <i>/t</i></span>
-    <span class="q"><i>ZN</i> <b data-v="1.81" data-d="2">1.81</b> <i>/lb</i></span>
-    <span class="q"><i>SN</i> <b data-v="55900" data-d="0">55,900</b> <i>/t</i></span>
-    
-  </div>
+  <div class="tickmq"><div class="tickrow"><span class="q"><i>GOLD</i> <b>4,648.40</b> <i>USD/oz</i> <em class="u">+1.00%</em></span><span class="q"><i>SILVER</i> <b>66.50</b> <i>USD/oz</i> <em class="d">-0.42%</em></span><span class="q"><i>COPPER</i> <b>6.51</b> <i>USD/lb</i> <em class="u">+0.81%</em></span><span class="q"><i>PLATINUM</i> <b>1,829</b> <i>USD/oz</i> <em class="d">-1.24%</em></span><span class="q"><i>PALLADIUM</i> <b>1,445</b> <i>USD/oz</i> <em class="u">+5.24%</em></span><span class="q"><i>IRON ORE</i> <b>95.34</b> <i>USD/t</i> <em class="d">-0.42%</em></span><span class="q"><i>TIN</i> <b>55,900</b> <i>USD/t</i> <em class="u">+0.34%</em></span><span class="q"><i>LITHIUM</i> <b>11,900</b> <i>USD/t</i> <em class="u">+0.34%</em></span><span class="q"><i>ZINC</i> <b>1.81</b> <i>USD/lb</i> <em class="d">-0.15%</em></span><span class="q"><i>GOLD</i> <b>4,648.40</b> <i>USD/oz</i> <em class="u">+1.00%</em></span><span class="q"><i>SILVER</i> <b>66.50</b> <i>USD/oz</i> <em class="d">-0.42%</em></span><span class="q"><i>COPPER</i> <b>6.51</b> <i>USD/lb</i> <em class="u">+0.81%</em></span><span class="q"><i>PLATINUM</i> <b>1,829</b> <i>USD/oz</i> <em class="d">-1.24%</em></span><span class="q"><i>PALLADIUM</i> <b>1,445</b> <i>USD/oz</i> <em class="u">+5.24%</em></span><span class="q"><i>IRON ORE</i> <b>95.34</b> <i>USD/t</i> <em class="d">-0.42%</em></span><span class="q"><i>TIN</i> <b>55,900</b> <i>USD/t</i> <em class="u">+0.34%</em></span><span class="q"><i>LITHIUM</i> <b>11,900</b> <i>USD/t</i> <em class="u">+0.34%</em></span><span class="q"><i>ZINC</i> <b>1.81</b> <i>USD/lb</i> <em class="d">-0.15%</em></span></div></div>
 </div>
 
 <nav class="nav">
