@@ -3133,6 +3133,9 @@ a.dealcard:hover{border-color:var(--line)}
       return pos.a*(d.y/100)*((Date.now()-pos.ts)/31536000000);}
     function dealOpts(){return DEALS.map(function(d){return '<option value="'+d.id+'">'+d.id+' — '+d.n+' · ~'+d.y+'%/yr</option>'}).join('')}
 
+    var TAB='home';
+    try{TAB=sessionStorage.getItem('midas_tab')||'home'}catch(e){}
+    function metals(){try{return JSON.parse(localStorage.getItem('midas_metals'))||[]}catch(e){return []}}
     function render(){
       var m=document.getElementById('dashmount');if(!m)return;
       var u=user();
@@ -3142,44 +3145,84 @@ a.dealcard:hover{border-color:var(--line)}
         '<a class="btn btn-gold" href="#/signup" style="margin-right:10px">Create account</a><a class="btn btn-ghost" href="#/login">Log in</a></div>';return;}
       m.style.display='';
       var k=kyc(u), P=port(), inst=/office|Institution/i.test(u.t), miner=/operator/i.test(u.t);
-      var h='<div class="dashbar"><div class="du"><b>'+esc(u.n)+'</b><span>'+esc(u.e)+' · '+esc(u.t)+'</span></div>'+
-        '<div class="dashpills"><span class="dpill green">Account open</span><span class="dpill '+k[1]+'">'+k[0]+'</span><span class="dpill">Member #'+wl(u.e)+'</span></div>'+
-        '<div><button class="dout" id="doLogout">Log out</button></div></div>';
-      h+='<div class="pmods">';
-      if(miner){
+      var verified=k[1]==='green';
+      var tabs=[['home','Home'],['portfolio','Portfolio'],['orders','Orders']];
+      if(inst)tabs.splice(1,0,['datarooms','Data rooms']);
+      if(miner)tabs=[['home','Home'],['application','My application'],['portfolio','Portfolio']];
+      tabs.push(['profile','Profile'],['verify','Verification']);
+      var sb='<div class="asb"><div class="ttl">Main</div>';
+      tabs.forEach(function(t){
+        sb+='<button class="asbi'+(TAB===t[0]?' on':'')+'" data-tab="'+t[0]+'">'+t[1]+(t[0]==='verify'&&!verified?'<span class="dot"></span>':'')+'</button>';
+        if(t[0]==='orders'||t[0]==='application')sb+='<div class="ttl">Account</div>';
+      });
+      sb+='<a class="asbi" href="#/markets" style="text-decoration:none">All deals →</a></div>';
+
+      var c='';
+      if(TAB==='home'){
+        var sel=metals();
+        c='<div class="pmod" style="margin-bottom:14px"><h4>Welcome, '+esc(u.n.split(' ')[0])+'.</h4><div class="sub">'+k[0]+' · Member #'+wl(u.e)+'</div>'+
+        '<p style="font-size:13.5px;color:var(--mut);line-height:1.6;margin:4px 0 0">The book is open — ten royalties across seven metals. Primary deals fund the mine directly; secondaries are existing royalties whose holders want liquidity. Every file is complete before it lists.</p></div>'+
+        '<div class="pmod" style="margin-bottom:14px"><h4>Which metals do you follow?</h4><div class="sub">Tunes the deals and alerts we surface — change any time</div><div class="metals">'+
+        ['Gold','Copper','Silver','Iron ore','Lithium','Tin','Manganese'].map(function(x){return '<button class="mchip'+(sel.indexOf(x)>=0?' on':'')+'" data-mt="'+x+'">'+x+'</button>'}).join('')+'</div></div>'+
+        '<div class="pmods">'+
+        '<div class="pmod"><h4>Open now</h4><div class="sub">Three of ten</div>'+DEALS.slice(0,3).map(function(d){return '<div class="prow"><span>'+d.id+' · '+esc(d.n)+'</span><b class="up">~'+d.y+'%/yr</b></div>'}).join('')+'<button class="pbtn" data-tab-go="portfolio" style="margin-top:12px">'+(P.length?'Manage positions':'Take your first position')+'</button></div>'+
+        '<div class="pmod"><h4>How you get paid</h4><div class="sub">The short version</div><div class="prow"><span>The mine sells metal</span><b>monthly</b></div><div class="prow"><span>Royalty calculated on revenue</span><b>before costs</b></div><div class="prow"><span>Distribution lands</span><b>quarterly</b></div><div class="prow"><span>Next window</span><b>Oct 15, 2026</b></div></div></div>';
+      } else if(TAB==='portfolio'){
+        var tot=0,acc=0;P.forEach(function(x){tot+=x.a;acc+=accrued(x);});
+        c='<div class="pmods"><div class="pmod"><h4>Portfolio</h4><div class="sub">'+(P.length?P.length+' position'+(P.length>1?'s':'')+' · '+usd(tot)+' invested':'Your royalty positions')+'</div>';
+        if(P.length){P.forEach(function(x){var d=DEALS.filter(function(q){return q.id===x.d})[0]||{n:x.d,y:10};
+          c+='<div class="prow"><span>'+x.d+' · '+esc(d.n)+'</span><b>'+usd(x.a)+' <em class="up" style="font-style:normal">+'+usd(accrued(x))+' accrued</em></b></div>';});
+        } else c+='<div class="pempty">No positions yet. Your first royalty is three clicks away.</div>';
+        c+='<button class="pbtn" id="buyOpen" style="margin-top:12px">'+(P.length?'New order':'Buy your first royalty')+'</button>'+
+        '<div class="buyform" id="buyForm"><select id="buyDeal">'+dealOpts()+'</select><input id="buyAmt" type="number" min="500" step="100" placeholder="Amount in USD — from $500" /><button class="pbtn" id="buyGo">Review &amp; confirm</button> <span style="font-size:11px;color:var(--dim)">Simulated order — funds move only after verification and signed docs.</span></div></div>'+
+        '<div class="pmod"><h4>Income</h4><div class="sub">Royalty cash lands quarterly</div>'+(P.length?
+          '<div class="prow"><span>Next distribution window</span><b>Oct 15, 2026</b></div><div class="prow"><span>Estimated next payout</span><b class="up">'+usd(P.reduce(function(a,x){var d=DEALS.filter(function(q){return q.id===x.d})[0]||{y:10};return a+x.a*d.y/400},0))+'</b></div><div class="prow"><span>Lifetime received</span><b>$0.00 — first window ahead</b></div>'
+          :'<div class="pempty">Buy a fraction and this fills with real dates and real amounts.</div>')+'</div></div>';
+      } else if(TAB==='orders'){
+        c='<div class="pmod"><h4>Orders</h4><div class="sub">Everything you\u2019ve placed</div>';
+        if(P.length){P.forEach(function(x,i){c+='<div class="prow"><span>#'+String(1001+i)+' · Buy · '+x.d+'</span><b>'+usd(x.a)+' <em class="up" style="font-style:normal">Filled</em></b></div>';});}
+        else c+='<div class="pempty">No orders yet.</div>';
+        c+='</div>';
+      } else if(TAB==='datarooms'){
+        var D=drs();
+        c='<div class="pmod"><h4>Data rooms</h4><div class="sub">Full files — reserve, licence chain, enforceability opinion</div>';
+        DEALS.slice(0,5).forEach(function(d){var st=D[d.id],age=st?Date.now()-st:0;
+          c+='<div class="prow"><span>'+d.id+' · '+esc(d.n)+'</span>'+(st?(age>60000?'<b class="up">Access granted</b>':'<b style="color:#E3C37D">Compliance check…</b>'):'<button class="pbtn ghost" data-dr="'+d.id+'">Request file</button>')+'</div>';});
+        c+='</div><div class="pmod" style="margin-top:14px"><h4>Allocations</h4><div class="sub">Anchor tranches on primary deals</div><div class="prow"><span>MDS-AU-05 anchor tranche</span><b>$2.0M of $4.0M reserved</b></div><div class="prow"><span>MDS-FE-01 anchor tranche</span><b>$5.5M of $8.0M reserved</b></div><div class="prow"><span>Speak to coverage</span><a class="pbtn" style="text-decoration:none" href="mailto:lavine@zenith-grp.co?subject=Midas%20allocation">Book a call</a></div></div>';
+      } else if(TAB==='application'){
         var app=null;try{app=JSON.parse(localStorage.getItem('midas_mineapp'))}catch(e){}
-        h+='<div class="pmod"><h4>Your listing application</h4><div class="sub">Raise against production without giving up equity</div>';
+        c='<div class="pmod"><h4>Your listing application</h4><div class="sub">Raise against production without giving up equity</div>';
         if(app){var age=Date.now()-app.ts;
-          h+='<div class="prow"><span>Reference</span><b>'+esc(app.ref)+'</b></div><div class="tracker">'+
+          c+='<div class="prow"><span>Reference</span><b>'+esc(app.ref)+'</b></div><div class="tracker">'+
           '<div class="tk done"><i></i><div><b>Application received</b><span>File logged, reference issued</span></div></div>'+
           '<div class="tk '+(age>120000?'done':'now')+'"><i></i><div><b>Technical screen</b><span>Reserve report and production history</span></div></div>'+
           '<div class="tk '+(age>120000?'now':'')+'"><i></i><div><b>Legal &amp; licence review</b><span>Registration path and enforceability opinion</span></div></div>'+
           '<div class="tk"><i></i><div><b>Terms &amp; listing</b><span>Royalty rate, raise size, launch window</span></div></div></div>';
-        } else h+='<div class="pempty">No application on file yet.</div><a class="btn btn-gold" href="#/submit" style="padding:9px 16px;font-size:13px">Start your application</a>';
-        h+='</div>';
-        h+='<div class="pmod"><h4>What good files look like</h4><div class="sub">Faster review, better terms</div><div class="prow"><span>Reserve report (JORC / NI 43-101)</span><b class="up">required</b></div><div class="prow"><span>12+ months production history</span><b class="up">strongest</b></div><div class="prow"><span>Licence &amp; title chain</span><b class="up">required</b></div><div class="prow"><span>Offtake agreements</span><b>helpful</b></div></div>';
-      } else if(inst){
-        var D=drs();
-        h+='<div class="pmod"><h4>Data rooms</h4><div class="sub">Full files — reserve, licence chain, enforceability opinion</div>';
-        DEALS.slice(0,4).forEach(function(d){var st=D[d.id],age=st?Date.now()-st:0;
-          h+='<div class="prow"><span>'+d.id+' · '+esc(d.n)+'</span>'+(st?(age>60000?'<b class="up">Access granted</b>':'<b style="color:#E3C37D">Compliance check…</b>'):'<button class="pbtn ghost" data-dr="'+d.id+'">Request file</button>')+'</div>';});
-        h+='</div>';
-        h+='<div class="pmod"><h4>Allocations</h4><div class="sub">Anchor tranches on primary deals</div><div class="prow"><span>MDS-AU-05 anchor tranche</span><b>$2.0M of $4.0M reserved</b></div><div class="prow"><span>MDS-FE-01 anchor tranche</span><b>$5.5M of $8.0M reserved</b></div><div class="prow"><span>Speak to coverage</span><a class="pbtn" style="text-decoration:none" href="mailto:lavine@zenith-grp.co?subject=Midas%20allocation">Book a call</a></div></div>';
-      } else {
-        var tot=0,acc=0;P.forEach(function(x){tot+=x.a;acc+=accrued(x);});
-        h+='<div class="pmod"><h4>Portfolio</h4><div class="sub">'+(P.length?P.length+' position'+(P.length>1?'s':'')+' · '+usd(tot)+' invested':'Your royalty positions')+'</div>';
-        if(P.length){P.forEach(function(x,i){var d=DEALS.filter(function(q){return q.id===x.d})[0]||{n:x.d,y:10};
-          h+='<div class="prow"><span>'+x.d+' · '+esc(d.n)+'</span><b>'+usd(x.a)+' <em class="up" style="font-style:normal">+'+usd(accrued(x))+' accrued</em></b></div>';});
-          h+='<div class="prow"><span><b>Accruing now</b></span><b class="up" id="accTick">+'+usd(acc)+'</b></div>';
-        } else h+='<div class="pempty">No positions yet. Your first royalty is three clicks away.</div>';
-        h+='<button class="pbtn" id="buyOpen" style="margin-top:12px">'+(P.length?'New order':'Buy your first royalty')+'</button>'+
-        '<div class="buyform" id="buyForm"><select id="buyDeal">'+dealOpts()+'</select><input id="buyAmt" type="number" min="500" step="100" placeholder="Amount in USD — from $500" /><button class="pbtn" id="buyGo">Review &amp; confirm</button> <span style="font-size:11px;color:var(--dim)">Simulated order — funds move only after verification and signed docs.</span></div></div>';
-        h+='<div class="pmod"><h4>Income</h4><div class="sub">Royalty cash lands quarterly</div>'+(P.length?
-          '<div class="prow"><span>Next distribution window</span><b>Oct 15, 2026</b></div><div class="prow"><span>Estimated next payout</span><b class="up">'+usd(P.reduce(function(a,x){var d=DEALS.filter(function(q){return q.id===x.d})[0]||{y:10};return a+x.a*d.y/400},0))+'</b></div><div class="prow"><span>Lifetime received</span><b>$0.00 — first window ahead</b></div>'
-          :'<div class="pempty">Buy a fraction and this fills with real dates and real amounts.</div>')+'</div>';
+        } else c+='<div class="pempty">No application on file yet.</div><a class="btn btn-gold" href="#/submit" style="padding:9px 16px;font-size:13px">Start your application</a>';
+        c+='</div>';
+      } else if(TAB==='profile'){
+        c='<div class="pmod"><h4>Profile</h4><div class="sub">Your account</div>'+
+        '<div class="prow"><span>Name</span><b>'+esc(u.n)+'</b></div>'+
+        '<div class="prow"><span>Email</span><b>'+esc(u.e)+'</b></div>'+
+        '<div class="prow"><span>Investing as</span><b>'+esc(u.t)+'</b></div>'+
+        (u.c?'<div class="prow"><span>Country</span><b>'+esc(u.c)+'</b></div>':'')+
+        '<div class="prow"><span>Member since</span><b>'+new Date(u.ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+'</b></div>'+
+        '<div class="prow"><span>Session</span><button class="dout" id="doLogout">Log out</button></div></div>';
+      } else if(TAB==='verify'){
+        var doc=false;try{doc=!!localStorage.getItem('midas_kycdoc')}catch(e){}
+        c='<div class="pmod"><h4>Verification</h4><div class="sub">Required once, before any money moves</div>'+
+        '<div class="prow"><span>Status</span><b class="'+(verified?'up':'')+'">'+k[0]+'</b></div>'+
+        '<div class="prow"><span>Identity document</span>'+(doc?'<b class="up">Received — under review</b>':'<button class="pbtn ghost" id="kycUp">Upload a document</button>')+'</div>'+
+        '<div class="prow"><span>Sanctions &amp; PEP screen</span><b class="up">Automated — runs on submission</b></div>'+
+        '<div class="prow"><span>Suitability</span><b>'+esc(u.t)+'</b></div>'+
+        '<p style="font-size:11.5px;color:var(--dim);margin:12px 0 0;line-height:1.6">We may not be able to onboard your jurisdiction. If verification fails, nothing is charged and your data is deleted on request.</p></div>';
       }
-      h+='</div>';
-      m.innerHTML=h;
+      var toast=(Date.now()-(u.ts||0)<20000)?'<div class="toast" id="acctToast" style="display:block"><b>Account open</b>Welcome to Midas, '+esc(u.n.split(' ')[0])+'. Verification runs in the background.</div>':'';
+      m.innerHTML='<div class="appgrid">'+sb+'<div>'+c+'</div></div>'+toast;
+      m.querySelectorAll('[data-tab]').forEach(function(b){b.addEventListener('click',function(){
+        TAB=b.getAttribute('data-tab');try{sessionStorage.setItem('midas_tab',TAB)}catch(e){};render();});});
+      m.querySelectorAll('[data-tab-go]').forEach(function(b){b.addEventListener('click',function(){
+        TAB=b.getAttribute('data-tab-go');try{sessionStorage.setItem('midas_tab',TAB)}catch(e){};render();});});
       var lo=document.getElementById('doLogout');
       if(lo)lo.addEventListener('click',function(){localStorage.removeItem('midas_user');setNav();render();location.hash='#/home';});
       var bo=document.getElementById('buyOpen');
@@ -3189,8 +3232,16 @@ a.dealcard:hover{border-color:var(--line)}
         var a=+document.getElementById('buyAmt').value,d=document.getElementById('buyDeal').value;
         if(!a||a<500)return;
         var P2=port();P2.push({d:d,a:a,ts:Date.now()});savePort(P2);render();});
-      document.querySelectorAll('[data-dr]').forEach(function(b){b.addEventListener('click',function(){
+      m.querySelectorAll('[data-dr]').forEach(function(b){b.addEventListener('click',function(){
         var D=drs();D[b.getAttribute('data-dr')]=Date.now();saveDrs(D);render();});});
+      m.querySelectorAll('[data-mt]').forEach(function(b){b.addEventListener('click',function(){
+        var M=metals(),x=b.getAttribute('data-mt'),i=M.indexOf(x);
+        if(i>=0)M.splice(i,1);else M.push(x);
+        try{localStorage.setItem('midas_metals',JSON.stringify(M))}catch(e){};render();});});
+      var ku=document.getElementById('kycUp');
+      if(ku)ku.addEventListener('click',function(){try{localStorage.setItem('midas_kycdoc','1')}catch(e){};render();});
+      var t=document.getElementById('acctToast');
+      if(t)setTimeout(function(){t.style.display='none'},6000);
     }
     /* signup wizard */
     (function(){
