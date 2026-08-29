@@ -511,6 +511,26 @@
   .lc-cap{padding:13px 24px;border-top:1px solid var(--line-soft);font-size:11px;color:var(--dim);background:var(--panel-2)}
   @media(max-width:560px){.lc-row{grid-template-columns:1fr;gap:6px;padding:16px 18px}}
 
+  /* real-deal ROI grid */
+  .roihead{display:flex;flex-wrap:wrap;gap:34px;margin-top:44px;padding-bottom:30px;border-bottom:1px solid var(--line)}
+  .roihead div{min-width:150px}
+  .roihead span{display:block;font-family:var(--big);font-size:34px;font-weight:700;color:var(--gold);letter-spacing:-.02em}
+  .roihead p{margin:5px 0 0;font-size:12.5px;color:var(--mut);line-height:1.5}
+  .roigrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  @media(max-width:880px){.roigrid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.roigrid{grid-template-columns:1fr}.roihead span{font-size:27px}}
+  .roi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;position:relative;overflow:hidden}
+  .roi:before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);opacity:.5}
+  .roi .as{font-family:var(--big);font-size:16.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+  .roi .jd{font-size:11.5px;color:var(--dim);margin-top:3px;letter-spacing:.04em;text-transform:uppercase}
+  .roi .fig{display:flex;align-items:baseline;gap:9px;margin-top:15px}
+  .roi .fin{font-size:13.5px;color:var(--mut)}
+  .roi .far{font-size:11px;color:var(--dim)}
+  .roi .fout{font-family:var(--big);font-size:22px;font-weight:700;color:var(--green);letter-spacing:-.02em}
+  .roi .mult{margin-top:12px;padding-top:11px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--mut)}
+  .roi .mult b{color:var(--gold);font-family:var(--big);font-size:14px}
+  .roinote{margin-top:20px;font-size:11.5px;color:var(--dim);line-height:1.65;max-width:840px}
+
   /* sticky mobile CTA */
   .mcta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
     background:rgba(10,11,13,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line-soft)}
@@ -657,7 +677,8 @@
 .lifecard.in .lc-row:nth-child(1){opacity:1;transform:none;transition-delay:.1s}
 .lifecard.in .lc-row:nth-child(2){opacity:1;transform:none;transition-delay:.55s}
 .lifecard.in .lc-row:nth-child(3){opacity:1;transform:none;transition-delay:1s}
-.lifecard.in .lc-row.gold{animation:lcglow 3.2s ease-in-out 1.8s infinite}
+.lifecard.in .lc-row:nth-child(4){opacity:1;transform:none;transition-delay:1.45s}
+.lifecard.in .lc-row.gold{animation:lcglow 3.2s ease-in-out 2.3s infinite}
 @keyframes lcglow{0%,100%{background:rgba(198,161,91,.07)}50%{background:rgba(198,161,91,.15)}}
 @media(prefers-reduced-motion:reduce){.lifecard .lc-row{opacity:1;transform:none;animation:none}}
 /* ---- app order book ---- */
@@ -1588,6 +1609,57 @@ a.dealcard:hover{border-color:var(--line)}
       <div class="lc-row"><span class="lc-y">Since</span><p>The royalty has paid on <b>every ounce sold, for nearly four decades</b> — through owner changes, refinancings and gold cycles.</p></div>
       <div class="lc-row gold"><span class="lc-y">Today</span><p>That $2 million claim has paid out <b>more than $1 billion</b>. The company that bought the mine paid <b>31x more</b> than the royalty holder did — and carried every dollar of cost.</p></div>
       <div class="lc-cap">Historical example from public filings. Not a Midas offering. Not a projection — most royalties do not do this.</div>
+    </div>
+  </div>
+</section>
+
+<section id="roi">
+  <div class="wrap">
+    <span class="eyebrow rv">And it wasn't one lucky trade</span>
+    <h2 class="rv">Six royalties. $51 million in. Nearly $4 billion out.</h2>
+    <p class="lede rv">These are not our deals and not our numbers. Every figure below is published by the company that owns them, in its own August 2026 investor presentation. Anyone can check it. We are showing you what this asset class has actually done, because almost nobody outside the industry has ever been shown it.</p>
+
+    <div class="roihead rv">
+      <div><span>$51M</span><p>Total invested across the six royalties</p></div>
+      <div><span>&gt;$3.9B</span><p>Combined return on those six</p></div>
+      <div><span>~77x</span><p>Blended multiple on money in</p></div>
+      <div><span>4 of 6</span><p>In the US, Canada and Australia</p></div>
+    </div>
+
+    <div class="roigrid">
+      <div class="roi rv"><div class="as">Goldstrike</div><div class="jd">Nevada · United States</div>
+        <div class="fig"><span class="fin">$2M in</span><span class="far">→</span><span class="fout">&gt;$1.5B</span></div>
+        <div class="mult">Return on money in: <b>~750x</b></div></div>
+      <div class="roi rv"><div class="as">Detour Lake</div><div class="jd">Ontario · Canada</div>
+        <div class="fig"><span class="fin">$2M in</span><span class="far">→</span><span class="fout">&gt;$950M</span></div>
+        <div class="mult">Return on money in: <b>450x</b></div></div>
+      <div class="roi rv"><div class="as">Stillwater</div><div class="jd">Montana · United States</div>
+        <div class="fig"><span class="fin">$36M in</span><span class="far">→</span><span class="fout">&gt;$700M</span></div>
+        <div class="mult">Return on money in: <b>~19x</b></div></div>
+      <div class="roi rv"><div class="as">Tasiast</div><div class="jd">Mauritania</div>
+        <div class="fig"><span class="fin">$3M in</span><span class="far">→</span><span class="fout">&gt;$350M</span></div>
+        <div class="mult">Return on money in: <b>~117x</b></div></div>
+      <div class="roi rv"><div class="as">Greenstone</div><div class="jd">Ontario · Canada</div>
+        <div class="fig"><span class="fin">$6M in</span><span class="far">→</span><span class="fout">&gt;$300M</span></div>
+        <div class="mult">Return on money in: <b>~50x</b></div></div>
+      <div class="roi rv"><div class="as">Duketon</div><div class="jd">Western Australia</div>
+        <div class="fig"><span class="fin">$2M in</span><span class="far">→</span><span class="fout">&gt;$150M</span></div>
+        <div class="mult">Return on money in: <b>~75x</b></div></div>
+    </div>
+
+    <p class="roinote rv">Source: Franco-Nevada Corporation, Corporate Presentation, August 2026, slide 20. "Return" as defined by the issuer means after-tax cash received plus consensus analyst NAV as at 30 June 2026 — cash already collected plus the market's valuation of what is still to come. Investments were made by predecessor company Franco-Nevada Mining Corporation Limited. Shown as evidence of what the asset class has done historically. Not a Midas offering, not a forecast, and not typical — most royalties never reach this scale.</p>
+  </div>
+</section>
+
+<section id="whyroi">
+  <div class="wrap">
+    <span class="eyebrow rv">Why the numbers get that big</span>
+    <h2 class="rv">You buy a share of the ground. Not a share of the plan.</h2>
+    <p class="lede rv">Those multiples are not luck, and they are not leverage. They come from two things that are built into how a royalty works — and both of them only ever point one way.</p>
+    <div class="big3">
+      <div class="r4 rv"><b>Every ounce found later is free to you</b><p>A royalty is written against the licence area, not against the mine plan. When Goldstrike was bought it was a small heap-leach operation. The buyer paid for what was known. Then roughly 50 million ounces were found underneath it — and the 4% was paid on all of it, without a second cheque. Detour Lake was bought in 1998 and is still being extended today, heading to a million ounces a year into the 2040s.</p></div>
+      <div class="r4 rv"><b>A higher gold price makes the mine bigger, not just richer</b><p>When the price rises, ore that was too poor to touch becomes worth mining. Cut-off grades drop, reserves grow, and the mine's life gets longer. So a royalty holder earns more per ounce, on more ounces, for more years — three effects from one move. That is why a royalty book runs at more than 100% leverage to the metal price while carrying none of the cost.</p></div>
+      <div class="r4 rv"><b>And your cost never moves</b><p>The royalty is a fixed share of revenue, paid before costs. Diesel doubles, labour strikes, the mill needs replacing, the operator raises money at a terrible price — none of it touches the cheque. The company that bought Goldstrike outright paid 31 times more than the royalty holder did, and carried forty years of capital and operating risk to do it. The royalty holder just got paid.</p></div>
     </div>
   </div>
 </section>
