@@ -388,6 +388,33 @@
   .wnav{display:flex;gap:12px;margin-top:8px}
   .wnav .btn{flex:1;text-align:center;padding:14px}
   .wback{background:transparent;border:1px solid var(--line);color:var(--mut);border-radius:12px;padding:14px 20px;cursor:pointer;font-family:var(--disp);font-weight:600}
+  .appgrid{display:grid;grid-template-columns:212px 1fr;gap:22px;margin:26px 0 8px}
+  @media(max-width:860px){.appgrid{grid-template-columns:1fr}}
+  .asb{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 10px;align-self:start;position:sticky;top:86px}
+  @media(max-width:860px){.asb{position:static;display:flex;overflow-x:auto;gap:4px;padding:10px}}
+  .asb .ttl{font-size:9.5px;letter-spacing:.14em;color:var(--dim);padding:8px 12px 4px;text-transform:uppercase}
+  @media(max-width:860px){.asb .ttl{display:none}}
+  .asbi{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:10px 12px;font-size:13.5px;font-weight:600;color:var(--mut);cursor:pointer;font-family:var(--disp);white-space:nowrap}
+  .asbi.on{background:var(--gold-soft);color:var(--gold)}
+  .asbi:hover{color:var(--ink)}
+  .asbi .dot{width:7px;height:7px;border-radius:50%;background:#E3C37D;margin-left:auto;animation:pulse 2.2s infinite}
+  .toast{position:fixed;left:22px;bottom:22px;z-index:90;background:var(--panel);border:1px solid rgba(63,181,126,.5);border-left:3px solid var(--green);border-radius:12px;padding:14px 18px;font-size:13px;color:var(--ink);box-shadow:0 18px 50px -18px rgba(0,0,0,.6);display:none}
+  .toast b{display:block;color:var(--green);margin-bottom:2px}
+  .metals{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .mchip{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:600;color:var(--mut);cursor:pointer;background:none;font-family:var(--disp)}
+  .mchip.on{border-color:var(--gold-line);color:var(--gold);background:var(--gold-soft)}
+  .faqgrid{display:grid;grid-template-columns:220px 1fr;gap:34px;margin-top:40px}
+  @media(max-width:860px){.faqgrid{grid-template-columns:1fr;gap:8px}}
+  .faqcat{font-family:var(--big);font-size:16px;font-weight:700;padding-top:20px}
+  .faqcat span{display:block;font-family:var(--disp);font-size:10.5px;letter-spacing:.14em;color:var(--dim);font-weight:600;margin-bottom:4px}
+  .faqs{border-top:1px solid var(--line)}
+  .faqs details{border-bottom:1px solid var(--line-soft)}
+  .faqs summary{cursor:pointer;list-style:none;display:flex;gap:14px;align-items:baseline;padding:16px 0;font-size:14.5px;font-weight:600;color:var(--ink)}
+  .faqs summary::-webkit-details-marker{display:none}
+  .faqs summary i{font-style:normal;font-size:11px;color:var(--dim);font-variant-numeric:tabular-nums;flex:0 0 38px}
+  .faqs summary:hover{color:var(--gold)}
+  .faqs details[open] summary{color:var(--gold)}
+  .faqs details p{margin:0 0 16px 52px;font-size:13.5px;color:var(--mut);line-height:1.65;max-width:660px}
   .authwrap{max-width:520px}
   .authwrap .aform{margin-top:34px}
   .auth-alt{margin-top:18px;font-size:13px;color:var(--mut)}
@@ -1765,6 +1792,13 @@ a.dealcard:hover{border-color:var(--line)}
               <div class="wcard" data-t="Institution"><b>Institution</b><span>Fund, corporate, or strategic buyer. Anchor tranches and full data-room access.</span></div>
               <div class="wcard" data-t="Mine operator / royalty holder"><b>Mine operator or royalty holder</b><span>I want to raise against production, or sell down an existing royalty.</span></div>
             </div>
+            <label for="suRange">Typical investment range</label>
+            <select id="suRange">
+              <option value="">Select a range</option>
+              <option>$500 – $5,000</option><option>$5,000 – $25,000</option><option>$25,000 – $100,000</option>
+              <option>$100,000 – $1M</option><option>$1M+</option>
+            </select>
+            <p class="a-note" style="margin:-6px 0 14px">Shapes which deals and alerts we surface. Not a commitment.</p>
             <div class="wnav"><button type="button" class="wback" id="wBack2">← Back</button><a class="btn btn-gold" id="wNext2" href="javascript:void(0)">Continue →</a></div>
           </div>
 
@@ -1773,6 +1807,10 @@ a.dealcard:hover{border-color:var(--line)}
               <div class="prow"><span>Profile</span><b id="cfType">—</b></div>
               <div class="prow"><span>Country</span><b id="cfCountry">—</b></div>
               <div class="prow"><span>Identity verification</span><b>Starts now — runs in the background</b></div>
+            </div>
+            <div class="pmod" style="margin-bottom:16px"><h4>Terms &amp; agreements</h4>
+              <label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--mut);text-transform:none;letter-spacing:0;margin:10px 0 0;cursor:pointer"><input type="checkbox" id="suTc" style="width:auto;margin:2px 0 0" required /> <span>I have read and agree to the <a href="#/terms" style="color:var(--gold)">Terms</a> and <a href="#/privacy" style="color:var(--gold)">Privacy Policy</a>.</span></label>
+              <label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--mut);text-transform:none;letter-spacing:0;margin:10px 0 0;cursor:pointer"><input type="checkbox" id="suMk" style="width:auto;margin:2px 0 0" /> <span>Send me new deals and market updates by email.</span></label>
             </div>
             <div class="wnav"><button type="button" class="wback" id="wBack3">← Back</button><button type="submit" class="btn btn-gold" style="flex:1">Create account</button></div>
             <p class="a-note">Creating an account is not a subscription or an offer. Identity and suitability checks apply before any investment, and we may not be able to onboard your jurisdiction.</p>
@@ -1963,6 +2001,60 @@ a.dealcard:hover{border-color:var(--line)}
       <div class="r4 rv"><b>A higher gold price makes the mine bigger, not just richer</b><p>When the price rises, ore that was too poor to touch becomes worth mining. Cut-off grades drop, reserves grow, and the mine's life gets longer. So a royalty holder earns more per ounce, on more ounces, for more years — three effects from one move. That is why a royalty book runs at more than 100% leverage to the metal price while carrying none of the cost.</p></div>
       <div class="r4 rv"><b>And your cost never moves</b><p>The royalty is a fixed share of revenue, paid before costs. Diesel doubles, labour strikes, the mill needs replacing, the operator raises money at a terrible price — none of it touches the cheque. The company that bought Goldstrike outright paid 31 times more than the royalty holder did, and carried forty years of capital and operating risk to do it. The royalty holder just got paid.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="faq2">
+  <div class="wrap">
+    <span class="eyebrow rv">Frequently asked</span>
+    <h2 class="rv">Everything people ask before they commit.</h2>
+
+    <div class="faqgrid rv"><div class="faqcat"><span>01</span>The platform</div><div class="faqs">
+      <details><summary><i>01.01</i>What is Midas?</summary><p>A market for mining royalties. We underwrite royalties on producing and near-producing mines, register them against the mining licence, split them into fractions, and let verified investors buy, hold and trade them — from $500.</p></details>
+      <details><summary><i>01.02</i>What problem does it solve?</summary><p>Mines wait months for capital and give up equity to get it. Investors have never been able to buy a royalty at all — the whole $60B+ sector is held by three companies and a handful of institutions. We connect the two directly.</p></details>
+      <details><summary><i>01.03</i>Who can use it?</summary><p>Investors who pass identity and suitability checks, mine operators raising against production, and existing royalty holders who want liquidity. Some jurisdictions we simply can't onboard yet — we'll tell you at signup, not after.</p></details>
+    </div></div>
+
+    <div class="faqgrid rv"><div class="faqcat"><span>02</span>Royalties &amp; fractions</div><div class="faqs">
+      <details><summary><i>02.01</i>What exactly am I buying?</summary><p>A registered fraction of one named royalty — a fixed share of everything one specific mine sells, for the life of that mine. Each royalty sits in its own segregated vehicle. Your token is the register entry for your fraction. Never a pooled fund, never a basket.</p></details>
+      <details><summary><i>02.02</i>How is this different from buying mining stocks?</summary><p>A share is a claim on profits — after costs, debt, taxes and management. A royalty is a claim on revenue, paid before all of that. Costs can double and your cheque doesn't change. Equity gets diluted; a royalty percentage is written into the licence and can't be.</p></details>
+      <details><summary><i>02.03</i>How do I get paid?</summary><p>The mine reports sales, the royalty is calculated on revenue, and distributions land in your account — typically quarterly. You'll see the production data behind every payment.</p></details>
+      <details><summary><i>02.04</i>What's the minimum?</summary><p>$500 on open deals. Anchor tranches for institutions start in the hundreds of thousands.</p></details>
+    </div></div>
+
+    <div class="faqgrid rv"><div class="faqcat"><span>03</span>For miners</div><div class="faqs">
+      <details><summary><i>03.01</i>How does this raise capital for my mine?</summary><p>You sell a royalty — a small fixed share of future revenue — instead of equity or debt. Cash up front, no board seat, no covenants, no dilution, no repayment schedule. We underwrite, paper and distribute the raise.</p></details>
+      <details><summary><i>03.02</i>Does it dilute my equity?</summary><p>No. A royalty touches your revenue line, not your cap table. Every share of your company is still yours.</p></details>
+      <details><summary><i>03.03</i>Can I buy my royalty back?</summary><p>Buy-back windows can be written into the deal at issue. If you want that option, we structure it up front, in the open, priced in the terms.</p></details>
+      <details><summary><i>03.04</i>What projects are eligible?</summary><p>Producing or clearly-dated near-production assets, licence in good standing, a real reserve report (JORC / NI 43-101), and enforceable registration in your jurisdiction. Exploration-stage projects: not yet — that's a different risk we don't sell.</p></details>
+    </div></div>
+
+    <div class="faqgrid rv"><div class="faqcat"><span>04</span>Buying &amp; trading</div><div class="faqs">
+      <details><summary><i>04.01</i>How do I buy?</summary><p>Create an account, pass verification, fund, and take an allocation on an open deal — or bid on fractions other holders are selling once secondary trading opens for that instrument.</p></details>
+      <details><summary><i>04.02</i>Can I sell?</summary><p>Fractions transfer between verified holders on the platform. Early on, liquidity will be thin — treat a royalty as an income asset you can exit, not a day-trade. We say this everywhere on purpose.</p></details>
+      <details><summary><i>04.03</i>What are the fees?</summary><p>Issuance fees are charged to the raise and disclosed in every deal file. Trading and distribution fees are published on the fee schedule before you commit a dollar. No fee you haven't seen in writing.</p></details>
+    </div></div>
+
+    <div class="faqgrid rv"><div class="faqcat"><span>05</span>Technology &amp; custody</div><div class="faqs">
+      <details><summary><i>05.01</i>Is my money held by Midas?</summary><p>Client funds and instruments are held through segregated structures — one vehicle per royalty — separate from Midas's own balance sheet. The exact custody arrangement is published per deal.</p></details>
+      <details><summary><i>05.02</i>Why tokens at all?</summary><p>Because a register that settles in minutes, splits to any size, and can't lose a certificate is simply better plumbing than a PDF and a spreadsheet. The token is the record of your fraction — the legal claim it represents is what you're buying.</p></details>
+      <details><summary><i>05.03</i>Can Midas move my assets?</summary><p>No. Transfers happen only on your instruction, between verified holders. That restriction is structural, not a policy.</p></details>
+    </div></div>
+
+    <div class="faqgrid rv"><div class="faqcat"><span>06</span>Regulation &amp; eligibility</div><div class="faqs">
+      <details><summary><i>06.01</i>Is Midas regulated?</summary><p>We are structuring under a framework built for tokenised real-world assets, and we won't take a dollar before the licence path is papered. Current status is always stated plainly in the disclosures — read them, they're short.</p></details>
+      <details><summary><i>06.02</i>Are the fractions securities?</summary><p>In most jurisdictions, yes — and we treat them that way from day one: verified investors only, formal documentation, no public solicitation of anything that isn't papered.</p></details>
+      <details><summary><i>06.03</i>Why do I have to verify before investing?</summary><p>Identity, sanctions and suitability checks are the price of a market institutions can also stand in. It takes minutes, once.</p></details>
+    </div></div>
+
+    <div class="faqgrid rv"><div class="faqcat"><span>07</span>The risks</div><div class="faqs">
+      <details><summary><i>07.01</i>Can I lose money?</summary><p>Yes. All of it. The mine can slow, stop, or never restart; metal prices can fall; a licence can be challenged; you may not find a buyer when you want out. Nothing on this platform is guaranteed and past royalties — including the famous ones — say nothing about future ones.</p></details>
+      <details><summary><i>07.02</i>What if the operator doesn't pay?</summary><p>The claim is registered against the licence with an enforceability opinion from local counsel — it survives a sale, a refinancing and most bankruptcies. Enforcement is real but slow: that's a risk, and it's in every file.</p></details>
+      <details><summary><i>07.03</i>Are forecast yields reliable?</summary><p>No forecast is. Our yield figures are arithmetic on stated production and today's prices — both will move. That's why every deal file shows the assumptions, not just the number.</p></details>
+      <details><summary><i>07.04</i>How do commodity prices affect me?</summary><p>Directly, both ways. A royalty is a share of revenue: price up, bigger cheque — and usually a longer mine life. Price down, smaller cheque — and a mine that can pause. You are taking metal-price risk. That's the asset.</p></details>
+    </div></div>
+
+    <p class="b-cap rv" style="margin-top:34px">More questions? <a href="mailto:lavine@zenith-grp.co" style="color:var(--gold)">Ask a person</a> — a human reads every message.</p>
   </div>
 </section>
 </div>
