@@ -27,6 +27,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
+    --navbg:rgba(10,11,13,.85); --menubg:rgba(10,11,13,.92);
     --bg:#0A0B0D; --panel:#12141A; --panel-2:#171A21; --line:#242832; --line-soft:#1A1D24;
     --ink:#F2EFE8; --mut:#9A948A; --dim:#615C52;
     --gold:#C6A15B; --gold-soft:rgba(198,161,91,.10); --gold-line:rgba(198,161,91,.42);
@@ -39,6 +40,7 @@
     --maxw:1100px;
   }
   :root[data-theme="light"]{
+    --navbg:rgba(250,247,240,.9); --menubg:rgba(250,247,240,.96);
     --bg:#F6F3EC; --panel:#FDFBF6; --panel-2:#F0EBE0; --line:#E0D9CB; --line-soft:#E9E3D6;
     --ink:#1C1810; --mut:#6E6555; --dim:#9C927E;
     --gold:#A87F35; --gold-soft:rgba(168,127,53,.10); --gold-line:rgba(168,127,53,.45);
@@ -63,10 +65,14 @@
   [data-theme="light"] .hgrid{opacity:.35}
   [data-theme="light"] .mine img{filter:saturate(.95) contrast(1.0)}
   /* per-section gradients, both modes */
-  [data-route] section:nth-of-type(odd){background:linear-gradient(178deg,rgba(198,161,91,.028),transparent 46%)}
-  [data-route] section:nth-of-type(even){background:linear-gradient(2deg,rgba(63,181,126,.022),transparent 52%)}
-  [data-theme="light"] [data-route] section:nth-of-type(odd){background:linear-gradient(178deg,rgba(168,127,53,.06),transparent 50%)}
-  [data-theme="light"] [data-route] section:nth-of-type(even){background:linear-gradient(2deg,rgba(30,138,92,.045),transparent 55%)}
+  [data-route] section:nth-of-type(4n+1){background:linear-gradient(178deg,rgba(198,161,91,.045),transparent 55%)}
+  [data-route] section:nth-of-type(4n+2){background:linear-gradient(180deg,transparent,rgba(63,181,126,.035) 85%)}
+  [data-route] section:nth-of-type(4n+3){background:linear-gradient(2deg,rgba(198,161,91,.03),transparent 45%),linear-gradient(178deg,rgba(63,181,126,.02),transparent 40%)}
+  [data-route] section:nth-of-type(4n){background:radial-gradient(90% 70% at 50% 0%,rgba(198,161,91,.05),transparent 70%)}
+  [data-theme="light"] [data-route] section:nth-of-type(4n+1){background:linear-gradient(178deg,#F2ECDD,#F8F5EE 60%)}
+  [data-theme="light"] [data-route] section:nth-of-type(4n+2){background:linear-gradient(180deg,#F8F5EE,#EDF2EA 90%)}
+  [data-theme="light"] [data-route] section:nth-of-type(4n+3){background:linear-gradient(2deg,#F5EFE2,#FAF7F0 55%)}
+  [data-theme="light"] [data-route] section:nth-of-type(4n){background:radial-gradient(95% 75% at 50% 0%,#F1E9D7,#F7F4EC 75%)}
   /* theme toggle */
   .tbtn{background:none;border:1px solid var(--line);border-radius:999px;width:34px;height:34px;cursor:pointer;color:var(--mut);font-size:15px;line-height:1;flex:0 0 auto}
   .tbtn:hover{border-color:var(--gold-line);color:var(--gold)}
@@ -92,7 +98,7 @@
   @media(max-width:760px){.tick .q:nth-child(n+5){display:none}}
 
   /* ---------- nav ---------- */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(10,11,13,.85);backdrop-filter:blur(14px);
+  .nav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line-soft)}
   .nav-in{max-width:var(--maxw);margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between}
   .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:22px;letter-spacing:-.015em;text-decoration:none;flex:0 0 auto;margin-right:38px}
@@ -598,7 +604,7 @@
 
   /* sticky mobile CTA */
   .mcta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
-    background:rgba(10,11,13,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line-soft)}
+    background:var(--menubg);backdrop-filter:blur(12px);border-top:1px solid var(--line-soft)}
   .mcta .btn{display:block;text-align:center;width:100%}
   @media(max-width:700px){.mcta.show{display:block}}
 
