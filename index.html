@@ -945,6 +945,7 @@ a.dealcard:hover{border-color:var(--line)}
       <a href="#/about" data-route-link="about">About</a>
       <a href="#/login" data-route-link="login" id="navAuth">Log in</a>
       <a href="#/signup" class="btn btn-gold" data-route-link="signup" id="navSignup">Sign up</a>
+      <a href="#/app" class="btn btn-ghost" data-route-link="app" id="navApp">Launch app</a>
       <button class="tbtn" id="themeBtn" aria-label="Toggle light and dark mode">◐</button>
     </div>
     <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
@@ -962,6 +963,7 @@ a.dealcard:hover{border-color:var(--line)}
     <a href="#/submit">Submit your asset</a>
     <a href="#/login" id="navAuthM">Log in</a>
     <a href="#/signup" id="navSignupM">Sign up</a>
+    <a href="#/app" id="navAppM">Launch app</a>
   </div>
 </nav>
 
@@ -2891,10 +2893,10 @@ a.dealcard:hover{border-color:var(--line)}
       var a=document.getElementById('navAuth'),b=document.getElementById('navSignup'),
           am=document.getElementById('navAuthM'),bm=document.getElementById('navSignupM');
       if(!a)return;
-      if(u){a.textContent='Dashboard';a.setAttribute('href','#/app');b.textContent='Launch app';b.setAttribute('href','#/app');
-        if(am){am.textContent='Dashboard';am.setAttribute('href','#/app');}if(bm){bm.textContent='Launch app';bm.setAttribute('href','#/app');}}
-      else{a.textContent='Log in';a.setAttribute('href','#/login');b.textContent='Sign up';b.setAttribute('href','#/signup');
-        if(am){am.textContent='Log in';am.setAttribute('href','#/login');}if(bm){bm.textContent='Sign up';bm.setAttribute('href','#/signup');}}
+      if(u){a.textContent='Dashboard';a.setAttribute('href','#/app');b.style.display='none';
+        if(am){am.textContent='Dashboard';am.setAttribute('href','#/app');}if(bm){bm.style.display='none';}}
+      else{a.textContent='Log in';a.setAttribute('href','#/login');b.style.display='';b.textContent='Sign up';b.setAttribute('href','#/signup');
+        if(am){am.textContent='Log in';am.setAttribute('href','#/login');}if(bm){bm.style.display='';bm.textContent='Sign up';bm.setAttribute('href','#/signup');}}
     }
     function wl(email){var h=0;for(var i=0;i<email.length;i++){h=(h*31+email.charCodeAt(i))>>>0;}return 1200+(h%700);}
     function dash(){
