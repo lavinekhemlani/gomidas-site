@@ -3191,7 +3191,8 @@ a.dealcard:hover{border-color:var(--line)}
         sb+='<button class="asbi'+(TAB===t[0]?' on':'')+'" data-tab="'+t[0]+'">'+t[1]+(t[0]==='verify'&&!verified?'<span class="dot"></span>':'')+'</button>';
         if(t[0]==='orders'||t[0]==='application')sb+='<div class="ttl">Account</div>';
       });
-      sb+='<a class="asbi" href="#/markets" style="text-decoration:none">All deals →</a></div>';
+      sb+='<a class="asbi" href="#/markets" style="text-decoration:none">All deals →</a>'+
+        '<button class="asbi" id="sbOut" style="color:var(--dim)">Sign out</button></div>';
 
       var c='';
       if(TAB==='home'){
@@ -3259,8 +3260,10 @@ a.dealcard:hover{border-color:var(--line)}
         TAB=b.getAttribute('data-tab');try{sessionStorage.setItem('midas_tab',TAB)}catch(e){};render();});});
       m.querySelectorAll('[data-tab-go]').forEach(function(b){b.addEventListener('click',function(){
         TAB=b.getAttribute('data-tab-go');try{sessionStorage.setItem('midas_tab',TAB)}catch(e){};render();});});
-      var lo=document.getElementById('doLogout');
-      if(lo)lo.addEventListener('click',function(){localStorage.removeItem('midas_user');setNav();render();location.hash='#/home';});
+      var lo=document.getElementById('doLogout'),so=document.getElementById('sbOut');
+      function out(){localStorage.removeItem('midas_user');try{sessionStorage.removeItem('midas_tab')}catch(e){};setNav();render();location.hash='#/home';}
+      if(lo)lo.addEventListener('click',out);
+      if(so)so.addEventListener('click',out);
       var bo=document.getElementById('buyOpen');
       if(bo)bo.addEventListener('click',function(){document.getElementById('buyForm').classList.toggle('open');});
       var bg=document.getElementById('buyGo');
