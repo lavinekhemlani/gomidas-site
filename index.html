@@ -3216,7 +3216,7 @@ a.dealcard:hover{border-color:var(--line)}
           :'<div class="pempty">Buy a fraction and this fills with real dates and real amounts.</div>')+'</div></div>';
       } else if(TAB==='orders'){
         c='<div class="pmod"><h4>Orders</h4><div class="sub">Everything you\u2019ve placed</div>';
-        if(P.length){P.forEach(function(x,i){c+='<div class="prow"><span>#'+String(1001+i)+' · Buy · '+x.d+'</span><b>'+usd(x.a)+' <em class="up" style="font-style:normal">Filled</em></b></div>';});}
+        if(P.length){P.forEach(function(x,i){c+='<div class="prow"><span>#'+String(1001+i)+' · Buy · '+x.d+(x.u?' · '+x.u.toLocaleString('en-US')+' u @ '+x.px:'')+'</span><b>'+usd(x.a)+' <em class="up" style="font-style:normal">Filled</em></b></div>';});}
         else c+='<div class="pempty">No orders yet.</div>';
         c+='</div>';
       } else if(TAB==='datarooms'){
@@ -3431,6 +3431,90 @@ a.dealcard:hover{border-color:var(--line)}
     }
   }
 
+})();
+
+/* ---- app page: live order book + sweep-buy (simulated) ---- */
+(function(){
+  var A=document.getElementById('obAsks'),B=document.getElementById('obBids');
+  if(!A)return;
+  var midEl=document.getElementById('obMidPx'),spEl=document.getElementById('obSpread'),
+      tape=document.getElementById('obTape'),qtyIn=document.getElementById('swQty'),
+      costEl=document.getElementById('swCost'),avgEl=document.getElementById('swAvg'),
+      go=document.getElementById('swGo'),fill=document.getElementById('swFill'),
+      pos=document.getElementById('obPos');
+  var TICK=.005, mid=1.000, sweeping=false;
+  function lvl(base,dir){var out=[],i;for(i=1;i<=5;i++)out.push({px:+(base+dir*TICK*i).toFixed(3),q:4000+Math.floor(Math.random()*14000)});return out;}
+  var asks=lvl(mid,1),bids=lvl(mid,-1);
+  function fmt(v){return v.toFixed(3)}
+  function usd(n){return '$'+Math.round(n).toLocaleString('en-US')}
+  function render(){
+    var max=1;asks.concat(bids).forEach(function(l){if(l.q>max)max=l.q});
+    A.innerHTML=asks.slice().reverse().map(function(l,i){return '<div class="obr a" data-ax="'+(asks.length-1-i)+'"><i style="--d:'+Math.round(l.q/max*100)+'%"></i><span>'+fmt(l.px)+'</span><b>'+l.q.toLocaleString('en-US')+'</b></div>'}).join('');
+    B.innerHTML=bids.map(function(l){return '<div class="obr b"><i style="--d:'+Math.round(l.q/max*100)+'%"></i><span>'+fmt(l.px)+'</span><b>'+l.q.toLocaleString('en-US')+'</b></div>'}).join('');
+    var sp=asks[0].px-bids[0].px;
+    midEl.textContent=fmt(mid);
+    spEl.textContent='spread '+sp.toFixed(3)+' · '+(sp/mid*100).toFixed(1)+'%';
+  }
+  function estimate(){
+    var q=parseInt(String(qtyIn.value).replace(/[^0-9]/g,''),10)||0;
+    if(!q){costEl.textContent='—';avgEl.textContent='—';return null;}
+    var left=q,cost=0,i=0;
+    for(i=0;i<asks.length&&left>0;i++){var take=Math.min(left,asks[i].q);cost+=take*asks[i].px;left-=take;}
+    if(left>0){costEl.textContent=usd(cost)+' (book has '+(q-left).toLocaleString('en-US')+')';avgEl.textContent=fmt(cost/(q-left));return {q:q-left,cost:cost};}
+    costEl.textContent=usd(cost);avgEl.textContent=fmt(cost/q);
+    return {q:q,cost:cost};
+  }
+  qtyIn.addEventListener('input',estimate);
+  function user(){try{return JSON.parse(localStorage.getItem('midas_user'))}catch(e){return null}}
+  go.addEventListener('click',function(){
+    if(sweeping)return;
+    if(!user()){location.hash='#/signup';return;}
+    var est=estimate();if(!est||est.q<1)return;
+    sweeping=true;go.style.opacity=.5;fill.style.display='none';
+    var left=est.q,crossed=0,cost=0,units=0;
+    function markAx(){var rows=A.querySelectorAll('.obr');rows.forEach(function(r,i){r.setAttribute('data-ax',rows.length-1-i)});}
+    function step(){
+      if(left<=0||!asks.length){finish();return;}
+      var row=A.querySelector('[data-ax="0"]');
+      var l=asks[0],take=Math.min(left,l.q);
+      if(row)row.classList.add('eat');
+      setTimeout(function(){
+        cost+=take*l.px;units+=take;left-=take;
+        if(take>=l.q){asks.shift();crossed++;if(row)row.classList.add('gone');}
+        else{l.q-=take;}
+        setTimeout(function(){render();markAx();step();},170);
+      },190);
+    }
+    function finish(){
+      var avg=units?cost/units:0;
+      mid=+(mid+crossed*TICK).toFixed(3);
+      asks=lvl(mid,1);
+      bids.forEach(function(l,i){l.px=+(mid-TICK*(i+1)).toFixed(3)});
+      render();
+      fill.style.display='block';
+      fill.innerHTML='<b style="color:var(--green)">Filled · '+units.toLocaleString('en-US')+' units</b><br>Avg price '+fmt(avg)+' · '+usd(cost)+' total · swept '+crossed+' level'+(crossed===1?'':'s')+'<br>Booked to your portfolio — payouts land quarterly.';
+      tape.textContent='Last: BUY '+units.toLocaleString('en-US')+' @ '+fmt(avg)+' avg · book re-quoted '+(crossed?crossed+' tick'+(crossed===1?'':'s')+' higher':'at par');
+      tape.classList.remove('trade');void tape.offsetWidth;tape.classList.add('trade');
+      if(pos)pos.textContent='Positions · '+units.toLocaleString('en-US')+' units MDS-FE-01 @ '+fmt(avg)+' avg — see Dashboard → Portfolio';
+      try{
+        var P=JSON.parse(localStorage.getItem('midas_port'))||[];
+        P.push({d:'MDS-FE-01',a:Math.round(cost),ts:Date.now(),u:units,px:+avg.toFixed(3)});
+        localStorage.setItem('midas_port',JSON.stringify(P));
+      }catch(e){}
+      sweeping=false;go.style.opacity=1;estimate();
+    }
+    step();
+  });
+  render();
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced)setInterval(function(){
+    if(document.visibilityState!=='visible'||sweeping)return;
+    var j=Math.floor(Math.random()*asks.length);
+    asks[j].q=Math.max(2000,Math.min(20000,asks[j].q+Math.round((Math.random()-.5)*3600)));
+    var k=Math.floor(Math.random()*bids.length);
+    bids[k].q=Math.max(2000,Math.min(20000,bids[k].q+Math.round((Math.random()-.5)*3600)));
+    render();
+  },1900);
 })();
 </script>
 </body>
