@@ -870,6 +870,12 @@
 .obr.a span{color:#E06A6A}.obr.a i{background:#E06A6A}
 .obr.b span{color:var(--green)}.obr.b i{background:var(--green)}
 .obr b{color:var(--mut);font-weight:500}
+.obr{transition:opacity .18s ease,transform .18s ease}
+.obr.eat{background:rgba(198,161,91,.22)}
+.obr.gone{opacity:0;transform:translateX(14px)}
+.ob-mid b.u{color:var(--green)}.ob-mid b.d{color:#E06A6A}
+@keyframes obflash{0%{background:rgba(63,181,126,.25)}100%{background:transparent}}
+.ob-f.trade{animation:obflash 1.2s ease}
 .ob-mid{display:flex;align-items:baseline;gap:8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:7px 0;padding:7px 6px}
 .ob-mid b{font-size:16px}.ob-mid span{color:var(--dim);font-size:10.5px}
 .ob-f{color:var(--dim);font-size:10.5px;margin:12px 0 0;line-height:1.5}
@@ -1745,31 +1751,24 @@ a.dealcard:hover{border-color:var(--line)}
           <p class="app-cap">Iron ore spot, last 90 days — indicative. The royalty token gets its own price line at first trade.</p>
         </div>
         <div class="app-ob">
-          <p class="ob-h">Order book <span>preview</span></p>
-          <div class="obr a"><i style="--d:62%"></i><span>1.06</span><b>14,000</b></div>
-          <div class="obr a"><i style="--d:38%"></i><span>1.04</span><b>8,500</b></div>
-          <div class="obr a"><i style="--d:74%"></i><span>1.03</span><b>16,700</b></div>
-          <div class="obr a"><i style="--d:51%"></i><span>1.02</span><b>11,400</b></div>
-          <div class="obr a"><i style="--d:29%"></i><span>1.01</span><b>6,500</b></div>
-          <div class="ob-mid"><b>1.00</b><span>par · first issue</span></div>
-          <div class="obr b"><i style="--d:66%"></i><span>0.99</span><b>15,000</b></div>
-          <div class="obr b"><i style="--d:44%"></i><span>0.98</span><b>9,900</b></div>
-          <div class="obr b"><i style="--d:80%"></i><span>0.97</span><b>18,100</b></div>
-          <div class="obr b"><i style="--d:35%"></i><span>0.96</span><b>7,800</b></div>
-          <div class="obr b"><i style="--d:57%"></i><span>0.95</span><b>12,600</b></div>
-          <p class="ob-f">Recent trades: none yet. You're looking at day zero.</p>
+          <p class="ob-h">Order book <span id="obTag">simulated</span></p>
+          <div id="obAsks"></div>
+          <div class="ob-mid"><b id="obMidPx">1.000</b><span id="obSpread">spread 0.010 · 1.0%</span></div>
+          <div id="obBids"></div>
+          <p class="ob-f" id="obTape">Recent trades: none yet. You're looking at day zero.</p>
         </div>
         <div class="app-trade">
-          <div class="tt"><button class="ttab on" data-side="buy">Buy</button><button class="ttab" data-side="sell">Sell</button></div>
-          <label class="app-lab">Amount</label>
-          <input class="app-in" placeholder="$1,000" inputmode="decimal" />
-          <div class="app-row"><span>You'd own</span><b>— of MDS-FE-01</b></div>
-          <div class="app-row"><span>Paid</span><b>Every time the mine sells</b></div>
-          <a class="btn btn-gold app-cta" href="#/signup">Sign up to trade</a>
-          <p class="app-note">Trading unlocks for verified holders at first issuance. No wallet needed to get on the list.</p>
+          <div class="tt"><button class="ttab on" data-side="buy">Buy</button><button class="ttab" data-side="sell" disabled title="Secondary selling opens after first issuance">Sell</button></div>
+          <label class="app-lab">Units — market order, sweeps the book</label>
+          <input class="app-in" id="swQty" placeholder="10,000" inputmode="numeric" />
+          <div class="app-row"><span>Est. cost</span><b id="swCost">—</b></div>
+          <div class="app-row"><span>Est. avg price</span><b id="swAvg">—</b></div>
+          <button class="btn btn-gold app-cta" id="swGo" style="border:0;width:100%;cursor:pointer">Buy — sweep the book</button>
+          <div id="swFill" style="display:none;margin-top:14px;border:1px solid rgba(63,181,126,.45);background:rgba(63,181,126,.07);border-radius:12px;padding:13px 15px;font-size:12.5px;line-height:1.7"></div>
+          <p class="app-note">Simulated market. Orders here fill against a demonstration book — funds move only after verification and signed docs.</p>
         </div>
       </div>
-      <div class="app-pos">Positions · none yet — trading opens with Deal 001</div>
+      <div class="app-pos" id="obPos">Positions · none yet — trading opens with Deal 001</div>
       <div class="app-caps">
         <div class="cap"><b>Connect your wallet</b><p>MetaMask and major wallets — or start with just an email. The token settles to a verified wallet either way.</p></div>
         <div class="cap"><b>Pay your way</b><p>Card, stablecoin, crypto or bank transfer. Buy in dollars, hold a claim on metal.</p></div>
