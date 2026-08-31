@@ -424,6 +424,25 @@
   .faqs summary:hover{color:var(--gold)}
   .faqs details[open] summary{color:var(--gold)}
   .faqs details p{margin:0 0 16px 52px;font-size:13.5px;color:var(--mut);line-height:1.65;max-width:660px}
+  .dphero{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;margin-top:14px}
+  @media(max-width:880px){.dphero{grid-template-columns:1fr}}
+  .dpimg{position:relative;border-radius:18px;overflow:hidden;min-height:300px;border:1px solid var(--line)}
+  .dpimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.95)}
+  .dpimg em{position:absolute;right:12px;bottom:10px;font-style:normal;font-size:9px;letter-spacing:.05em;color:rgba(242,239,232,.6);text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+  .dpcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px}
+  .dpcard h1{margin:8px 0 2px;font-family:var(--big);font-size:34px;letter-spacing:-.02em}
+  .dpgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+  @media(max-width:880px){.dpgrid{grid-template-columns:1fr}}
+  .dback{font-size:13px;color:var(--mut);text-decoration:none}
+  .dback:hover{color:var(--gold)}
+  .score{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .score .n{font-family:var(--big);font-size:34px;font-weight:700;color:var(--green);letter-spacing:-.02em}
+  .score .v{font-size:11px;letter-spacing:.1em;color:var(--green);border:1px solid rgba(63,181,126,.4);border-radius:999px;padding:4px 11px;font-weight:700}
+  .sc-row{padding:9px 0;border-top:1px solid var(--line-soft);font-size:12.5px}
+  .sc-row .t{display:flex;justify-content:space-between;color:var(--mut)}
+  .sc-row .t b{color:var(--ink)}
+  .sc-bar{height:4px;border-radius:3px;background:var(--panel-2);margin-top:6px;overflow:hidden}
+  .sc-bar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#B08A3E,#E3C37D);width:var(--w)}
   .authwrap{max-width:520px}
   .authwrap .aform{margin-top:34px}
   .auth-alt{margin-top:18px;font-size:13px;color:var(--mut)}
@@ -1780,6 +1799,10 @@ a.dealcard:hover{border-color:var(--line)}
 </section>
 </div>
 
+<div data-route="deal">
+<section id="dealpage"><div class="wrap" id="dealmount" style="padding-top:20px"></div></section>
+</div>
+
 <div data-route="signup">
 <section id="signup">
   <div class="wrap" style="max-width:1220px">
@@ -2993,12 +3016,13 @@ a.dealcard:hover{border-color:var(--line)}
   /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
-  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit','signup','login'];
+  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit','signup','login','deal'];
   var LEGAL=['disclosures','privacy','terms'];
   function currentRoute(){
     var h=location.hash;
     if(h.indexOf('#/')!==0)return 'home';
     var p=h.slice(2).split('#')[0];
+    if(p.indexOf('deal/')===0)return 'deal';
     if(ROUTES.indexOf(p)>=0||LEGAL.indexOf(p)>=0)return p;
     return 'home';
   }
@@ -3136,16 +3160,56 @@ a.dealcard:hover{border-color:var(--line)}
   /* ---- prototype auth + persona workflows (client-side; passwords never stored or sent) ---- */
   (function(){
     var DEALS=[
-      {id:'MDS-AU-05',n:'Gold · Western Australia',y:6.5},
-      {id:'MDS-AU-04',n:'Gold · Nevada, USA',y:6.2},
-      {id:'MDS-FE-01',n:'Iron ore · West Africa',y:14.0},
-      {id:'MDS-CU-02',n:'Copper · Arizona, USA',y:15.5},
-      {id:'MDS-AU-07',n:'Gold · Ontario, Canada',y:6.8},
-      {id:'MDS-CU-08',n:'Copper · Quebec, Canada',y:16.0},
-      {id:'MDS-SN-03',n:'Tin & tungsten · Central Africa',y:17.0},
-      {id:'MDS-AG-09',n:'Silver · South America',y:8.5},
-      {id:'MDS-LI-06',n:'Lithium · Western Australia',y:19.0},
-      {id:'MDS-MN-10',n:'Manganese · NT, Australia',y:15.0}];
+      {id:'MDS-AU-05',n:'Gold · Western Australia',y:6.5,m:'Gold',loc:'Western Australia',st:'Producing',ty:'Primary',roy:'1.5% NSR',rz:'$10M',life:18,img:'superpit.jpg',sc:{Reserve:88,Licence:95,Operator:84,Jurisdiction:97,'Price sensitivity':72},tot:87},
+      {id:'MDS-AU-04',n:'Gold · Nevada, USA',y:6.2,m:'Gold',loc:'Nevada, USA',st:'Producing',ty:'Secondary',roy:'1.0% NSR',rz:'$18M on offer',life:14,img:'sunrisedam.jpg',sc:{Reserve:91,Licence:96,Operator:88,Jurisdiction:98,'Price sensitivity':70},tot:89},
+      {id:'MDS-FE-01',n:'Iron ore · West Africa',y:14.0,m:'Iron ore',loc:'West Africa',st:'Producing',ty:'Primary',roy:'$0.30/t GRR',rz:'$20M',life:12,img:'bingham.jpg',sc:{Reserve:82,Licence:78,Operator:80,Jurisdiction:64,'Price sensitivity':76},tot:76},
+      {id:'MDS-CU-02',n:'Copper · Arizona, USA',y:15.5,m:'Copper',loc:'Arizona, USA',st:'Construction',ty:'Primary',roy:'1.5% NSR',rz:'$15M',life:22,img:'bingham.jpg',sc:{Reserve:85,Licence:94,Operator:79,Jurisdiction:97,'Price sensitivity':81},tot:84},
+      {id:'MDS-AU-07',n:'Gold · Ontario, Canada',y:6.8,m:'Gold',loc:'Ontario, Canada',st:'Producing',ty:'Primary',roy:'1.5% NSR',rz:'$8M',life:16,img:'sunrisedam.jpg',sc:{Reserve:86,Licence:95,Operator:87,Jurisdiction:97,'Price sensitivity':71},tot:86},
+      {id:'MDS-CU-08',n:'Copper · Quebec, Canada',y:16.0,m:'Copper',loc:'Quebec, Canada',st:'Construction',ty:'Primary',roy:'1.25% NSR',rz:'$15M',life:20,img:'bingham.jpg',sc:{Reserve:83,Licence:93,Operator:77,Jurisdiction:96,'Price sensitivity':82},tot:82},
+      {id:'MDS-SN-03',n:'Tin & tungsten · Central Africa',y:17.0,m:'Tin & tungsten',loc:'Central Africa',st:'Producing',ty:'Primary',roy:'2.0% GRR',rz:'$12M',life:11,img:'tasiast.jpg',sc:{Reserve:74,Licence:70,Operator:76,Jurisdiction:58,'Price sensitivity':84},tot:70},
+      {id:'MDS-AG-09',n:'Silver · South America',y:8.5,m:'Silver',loc:'South America',st:'Producing',ty:'Secondary',roy:'2.0% GRR',rz:'$12M on offer',life:15,img:'tasiast.jpg',sc:{Reserve:84,Licence:81,Operator:85,Jurisdiction:72,'Price sensitivity':77},tot:79},
+      {id:'MDS-LI-06',n:'Lithium · Western Australia',y:19.0,m:'Lithium',loc:'Western Australia',st:'Feasibility',ty:'Primary',roy:'2.0% GRR',rz:'$25M',life:19,img:'superpit.jpg',sc:{Reserve:71,Licence:92,Operator:73,Jurisdiction:96,'Price sensitivity':66},tot:75},
+      {id:'MDS-MN-10',n:'Manganese · NT, Australia',y:15.0,m:'Manganese',loc:'Northern Territory, Australia',st:'Construction',ty:'Primary',roy:'1.75% GRR',rz:'$15M',life:17,img:'superpit.jpg',sc:{Reserve:80,Licence:93,Operator:75,Jurisdiction:95,'Price sensitivity':78},tot:81}];
+    function dealById(id){return DEALS.filter(function(d){return d.id===id})[0]||null}
+    function renderDeal(){
+      var m=document.getElementById('dealmount');if(!m)return;
+      var h=location.hash;
+      if(h.indexOf('#/deal/')!==0){return;}
+      var d=dealById(h.slice(7).split('#')[0].toUpperCase());
+      if(!d){m.innerHTML='<p style="padding-top:80px"><a class="dback" href="#/markets">← All deals</a></p><h2 style="margin-top:20px">Deal not found.</h2>';return;}
+      var u=user();
+      var stages=['Licence verified','Counsel opinion','SPV formed','Royalty registered','Fractions issued'];
+      var doneN=d.st==='Producing'?3:2;
+      var trace=stages.map(function(x,i){
+        var cls=i<doneN?'done':(i===doneN?'now':'');
+        var sub=i<doneN?'Complete':(i===doneN?'In progress':'At issuance');
+        return '<div class="tk '+cls+'"><i></i><div><b>'+x+'</b><span>'+sub+'</span></div></div>';
+      }).join('');
+      var scr='';Object.keys(d.sc).forEach(function(k){var v=d.sc[k];
+        scr+='<div class="sc-row"><div class="t"><span>'+k+'</span><b>'+v+'/100</b></div><div class="sc-bar"><i style="--w:'+v+'%"></i></div></div>';});
+      m.innerHTML='<p style="padding-top:64px"><a class="dback" href="#/markets">← All deals</a></p>'+
+      '<div class="dphero">'+
+        '<div class="dpimg"><img src="img/'+d.img+'" alt=""><em>representative image</em></div>'+
+        '<div class="dpcard"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--gold)">'+d.id+' · '+d.ty.toUpperCase()+'</span><span class="mstat">Open</span></div>'+
+        '<h1>'+d.m+'</h1><p style="margin:0;color:var(--mut);font-size:14px">'+d.loc+' · '+d.st.toLowerCase()+'</p>'+
+        '<div class="prow"><span>Royalty</span><b>'+d.roy+'</b></div>'+
+        '<div class="prow"><span>'+(d.ty==='Secondary'?'On offer':'Raise target')+'</span><b>'+d.rz+'</b></div>'+
+        '<div class="prow"><span>Est. cash yield</span><b class="up">~'+d.y+'%/yr</b></div>'+
+        '<div class="prow"><span>Stated mine life</span><b>'+d.life+' years</b></div>'+
+        '<div class="prow"><span>Minimum</span><b>$500</b></div>'+
+        '<div class="prow"><span>Term</span><b style="color:var(--gold)">Life of mine</b></div>'+
+        '<div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">'+(u?'<a class="btn btn-gold" href="#/app">Trade in the app</a>':'<a class="btn btn-gold" href="#/signup">Create account to invest</a>')+'<a class="btn btn-ghost" href="#/earn">Run the numbers</a></div></div>'+
+      '</div>'+
+      '<div class="dpgrid">'+
+        '<div class="dpcard"><h4 style="margin:0 0 4px">Underwriting scorecard</h4><div class="sub" style="font-size:11.5px;color:var(--dim);margin-bottom:12px">Scored by our committee before listing — read the file and disagree</div>'+
+          '<div class="score"><span class="n">'+d.tot+'</span><span class="v">'+(d.tot>=75?'APPROVED':'CONDITIONAL')+'</span></div>'+scr+'</div>'+
+        '<div class="dpcard"><h4 style="margin:0 0 4px">Registry trace</h4><div class="sub" style="font-size:11.5px;color:var(--dim);margin-bottom:8px">The claim’s paper trail — every step verifiable</div><div class="tracker">'+trace+'</div></div>'+
+        '<div class="dpcard"><h4 style="margin:0 0 4px">Deal file</h4><div class="sub" style="font-size:11.5px;color:var(--dim);margin-bottom:8px">'+(u?'Request access from your dashboard data rooms':'Unlocks with a verified account')+'</div>'+
+          ['Reserve report (JORC / NI 43-101)','Licence & title chain','Enforceability opinion — local counsel','Royalty deed','Production history','SPV structure chart'].map(function(x){return '<div class="prow"><span>'+x+'</span><b style="color:var(--dim)">🔒</b></div>'}).join('')+
+        '</div>'+
+      '</div>'+
+      '<p class="b-cap" style="margin-top:22px">Pipeline instrument. Terms indicative until issuance documents are final. Scores are our internal assessment, not investment advice. Not an offer of securities.</p>';
+    }
     function user(){try{return JSON.parse(localStorage.getItem('midas_user'))}catch(e){return null}}
     function port(){try{return JSON.parse(localStorage.getItem('midas_port'))||[]}catch(e){return []}}
     function savePort(x){try{localStorage.setItem('midas_port',JSON.stringify(x))}catch(e){}}
@@ -3340,8 +3404,18 @@ a.dealcard:hover{border-color:var(--line)}
     if(mf)mf.addEventListener('submit',function(){
       try{localStorage.setItem('midas_mineapp',JSON.stringify({ref:'MDS-APP-'+String(1000+Math.floor((Date.now()/1000)%9000)),ts:Date.now()}))}catch(e){}
     });
-    window.addEventListener('hashchange',function(){setTimeout(render,60);});
+    window.addEventListener('hashchange',function(){setTimeout(render,60);setTimeout(renderDeal,60);});
+    renderDeal();
     setInterval(function(){var t=document.getElementById('accTick');if(t&&location.hash.indexOf('app')>=0)render();},4000);
+    document.addEventListener('click',function(e){
+      var c=e.target.closest&&e.target.closest('.mkt,.sdeal');
+      if(!c)return;
+      var ref=c.querySelector('.mref,.id');
+      if(!ref)return;
+      var id=(ref.textContent.match(/MDS-[A-Z]{2}-\d{2}/)||[])[0];
+      if(id)location.hash='#/deal/'+id;
+    });
+    document.querySelectorAll('.mkt,.sdeal').forEach(function(c){c.style.cursor='pointer'});
     setNav();render();
   })();
 
