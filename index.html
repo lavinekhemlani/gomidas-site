@@ -791,6 +791,21 @@
 
 /* ---- markets grid ---- */
 .mkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:38px}
+.sdeals{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+@media(max-width:880px){.sdeals{grid-template-columns:1fr}}
+.sdeal{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.sdeal .im{position:relative;height:170px}
+.sdeal .im img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) brightness(.95)}
+.sdeal .im em{position:absolute;right:10px;bottom:8px;font-style:normal;font-size:9px;letter-spacing:.05em;color:rgba(242,239,232,.6);text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.sdeal .bd{padding:18px 20px 20px}
+.sdeal .id{font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--gold);display:flex;justify-content:space-between;align-items:center}
+.sdeal h3{margin:8px 0 2px;font-family:var(--big);font-size:21px;letter-spacing:-.01em}
+.sdeal .j{font-size:12.5px;color:var(--mut)}
+.sdeal .row{display:flex;justify-content:space-between;padding:10px 0 0;font-size:13px}
+.sdeal .row span{color:var(--mut)} .sdeal .row b{color:var(--ink)}
+.bookgate{margin-top:26px;background:linear-gradient(170deg,var(--panel-2),var(--panel));border:1px solid var(--gold-line);border-radius:18px;padding:30px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.bookgate b{display:block;font-family:var(--big);font-size:19px;letter-spacing:-.01em}
+.bookgate p{margin:4px 0 0;font-size:13.5px;color:var(--mut)}
 .mkt{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:18px 18px 14px;transition:transform .18s,border-color .18s}
 .mkt:hover{transform:translateY(-3px);border-color:var(--line)}
 .mref{font-size:11.5px;color:var(--dim);letter-spacing:.2px}
@@ -1601,7 +1616,24 @@ a.dealcard:hover{border-color:var(--line)}
         <div class="fp"><b>South America</b><span>1 deal · $12M</span></div>
       </div>
     </div>
-    <div class="mkt-grid rv">
+    <div id="samplebook">
+      <div class="sdeals rv">
+        <div class="sdeal"><div class="im"><img src="img/superpit.jpg" alt="Open-pit gold mine, Western Australia" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-AU-05 · PRIMARY <span class="mstat">Open</span></div><h3>Gold</h3><div class="j">Western Australia · producing</div>
+          <div class="row"><span>Royalty</span><b>1.5% of every sale</b></div><div class="row"><span>Raise target</span><b>$10M</b></div><div class="row"><span>Term</span><b>Life of mine</b></div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/sunrisedam.jpg" alt="Gold mine operations" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-AU-04 · SECONDARY <span class="mstat">Open</span></div><h3>Gold</h3><div class="j">Nevada, USA · producing</div>
+          <div class="row"><span>Royalty</span><b>1.0% of every sale</b></div><div class="row"><span>On offer</span><b>$18M</b></div><div class="row"><span>Term</span><b>Life of mine</b></div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/bingham.jpg" alt="Open-pit mine benches" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-FE-01 · PRIMARY <span class="mstat">Open</span></div><h3>Iron ore</h3><div class="j">West Africa · producing</div>
+          <div class="row"><span>Royalty</span><b>$0.30 per tonne sold</b></div><div class="row"><span>Raise target</span><b>$20M</b></div><div class="row"><span>Term</span><b>Life of mine</b></div></div></div>
+      </div>
+      <div class="bookgate rv">
+        <div><b>Seven more deals sit behind the account wall.</b><p>Copper, tin &amp; tungsten, lithium, silver, manganese — full terms, files on request, from $500. An account takes a minute.</p></div>
+        <div><a class="btn btn-gold" href="#/signup">Create account</a> <a class="btn btn-ghost" href="#/login" style="margin-left:8px">Log in</a></div>
+      </div>
+    </div>
+    <div class="mkt-grid rv" id="fullbook" style="display:none">
       <div class="mkt">
         <span class="mref">MDS-FE-01</span><span class="mtyp">Primary</span><span class="mstat">Open</span>
         <p class="mc">Iron ore</p>
@@ -3140,6 +3172,9 @@ a.dealcard:hover{border-color:var(--line)}
     function render(){
       var m=document.getElementById('dashmount');if(!m)return;
       var u=user();
+      var fb=document.getElementById('fullbook'),sb=document.getElementById('samplebook');
+      if(fb)fb.style.display=u?'':'none';
+      if(sb)sb.style.display=u?'none':'';
       if(!u){m.style.display='';
         m.innerHTML='<div class="gatecard"><h3>The app is live. Your account takes a minute.</h3>'+
         '<p>Create an account to enter — browse the book, reserve allocations, and track royalty income. Identity checks run before any money moves.</p>'+
