@@ -822,6 +822,19 @@
 .sdeal .j{font-size:12.5px;color:var(--mut)}
 .sdeal .row{display:flex;justify-content:space-between;padding:10px 0 0;font-size:13px}
 .sdeal .row span{color:var(--mut)} .sdeal .row b{color:var(--ink)}
+.mandate{margin-top:38px;background:var(--panel);border:1px solid var(--gold-line);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1.15fr 1fr}
+@media(max-width:880px){.mandate{grid-template-columns:1fr}}
+.mandate .im{position:relative;min-height:300px}
+.mandate .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mandate .im em{position:absolute;right:12px;bottom:9px;font-style:normal;font-size:9px;letter-spacing:.05em;color:rgba(242,239,232,.65);text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.mandate .bd{padding:28px 30px}
+.mandate .tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-line);border-radius:999px;padding:5px 13px;background:var(--gold-soft)}
+.mandate h3{margin:16px 0 4px;font-family:var(--big);font-size:27px;letter-spacing:-.015em}
+.mandate .loc{font-size:13.5px;color:var(--mut)}
+.mandate .rows{margin-top:18px;border-top:1px solid var(--line-soft)}
+.mandate .rows .r{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:13.5px}
+.mandate .rows .r span{color:var(--mut)} .mandate .rows .r b{color:var(--ink);text-align:right}
+.mandate .note{margin-top:14px;font-size:11.5px;color:var(--dim);line-height:1.6}
 .bookgate{margin-top:26px;background:linear-gradient(170deg,var(--panel-2),var(--panel));border:1px solid var(--gold-line);border-radius:18px;padding:30px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
 .bookgate b{display:block;font-family:var(--big);font-size:19px;letter-spacing:-.01em}
 .bookgate p{margin:4px 0 0;font-size:13.5px;color:var(--mut)}
@@ -1623,7 +1636,7 @@ a.dealcard:hover{border-color:var(--line)}
 <section id="mkthero">
   <div class="wrap">
     <span class="eyebrow rv">Markets</span>
-    <h2 class="rv">Ten royalties. Priced and papered.</h2>
+    <h2 class="rv">Eleven deals. One mandated. Ten modeled.</h2>
     <p class="lede rv">The metals trade all day, everywhere. The royalties on them never traded anywhere — these are the first. <b>Primary</b> deals fund the mine directly. <b>Secondary</b> deals are existing royalties whose holders want liquidity — same paper, already attached to a producing mine. Weighted to tier-one jurisdictions, where a licence is enforceable and proceeds move freely.</p>
     <div class="stats rv">
       <div class="stat"><div class="n num">10</div><div class="k">on the platform, across seven metals</div></div>
@@ -1639,8 +1652,26 @@ a.dealcard:hover{border-color:var(--line)}
         <div class="fp"><b>West Africa</b><span>1 deal · $20M</span></div>
         <div class="fp"><b>Central Africa</b><span>1 deal · $12M</span></div>
         <div class="fp"><b>South America</b><span>1 deal · $12M</span></div>
+        <div class="fp" style="border-color:var(--gold-line)"><b>North Africa</b><span>1 mandate · $10M</span></div>
       </div>
     </div>
+    <div class="mandate rv">
+      <div class="im"><img src="img/salt_aerial.jpg" alt="Coastal solar evaporation saltworks from the air" loading="lazy"><em>representative image — Atlantic-coast solar saltworks</em></div>
+      <div class="bd">
+        <span class="tag"><i class="fp-dot"></i>First mandated project · In diligence</span>
+        <h3>Salum Salt — solar salt</h3>
+        <div class="loc">Dakhla–Oued Ed Dahab, Morocco · development · 7,724-hectare Atlantic coastal site</div>
+        <div class="rows">
+          <div class="r"><span>Deal ref</span><b>MDS-NA-11</b></div>
+          <div class="r"><span>Design capacity</span><b>1.5 Mt of solar salt per year, built in phases</b></div>
+          <div class="r"><span>Raise target</span><b>$10M — pilot &amp; first 150,000 tpa phase</b></div>
+          <div class="r"><span>Royalty</span><b>Under structuring — $/tonne of every tonne sold</b></div>
+          <div class="r"><span>Why salt</span><b>Feedstock is seawater. Energy is sun and wind. Buyers are industry.</b></div>
+        </div>
+        <p class="note">A real project under a real mandate — the full memorandum, engineering study and terms sit in the data room for verified investors. Terms under negotiation; nothing on this page is an offer.</p>
+      </div>
+    </div>
+
     <div id="samplebook">
       <div class="sdeals rv">
         <div class="sdeal"><div class="im"><img src="img/superpit.jpg" alt="Open-pit gold mine, Western Australia" loading="lazy"><em>representative image</em></div>
@@ -1659,6 +1690,14 @@ a.dealcard:hover{border-color:var(--line)}
       </div>
     </div>
     <div class="mkt-grid rv" id="fullbook" style="display:none">
+      <div class="mkt" style="border-color:var(--gold-line)">
+        <span class="mref">MDS-NA-11</span><span class="mtyp">Primary</span><span class="mstat" style="color:#E3C37D">Diligence</span>
+        <p class="mc">Salt (solar)</p>
+        <p class="mj">Dakhla, Morocco · development</p>
+        <p class="mkp"><b class="num" data-v="56" data-d="0">56</b> <span>/t · washed netback, indicative</span></p>
+        <div class="mrow"><span>Royalty</span><b>$/t — structuring</b></div>
+        <div class="mrow"><span>Raise target</span><b>$10M</b></div>
+      </div>
       <div class="mkt">
         <span class="mref">MDS-FE-01</span><span class="mtyp">Primary</span><span class="mstat">Open</span>
         <p class="mc">Iron ore</p>
@@ -3286,7 +3325,8 @@ a.dealcard:hover{border-color:var(--line)}
       } else if(TAB==='datarooms'){
         var D=drs();
         c='<div class="pmod"><h4>Data rooms</h4><div class="sub">Full files — reserve, licence chain, enforceability opinion</div>';
-        DEALS.slice(0,5).forEach(function(d){var st=D[d.id],age=st?Date.now()-st:0;
+        var SAL={id:'MDS-NA-11',n:'Salt (solar) · Dakhla, Morocco — mandated'};
+        [SAL].concat(DEALS.slice(0,4)).forEach(function(d){var st=D[d.id],age=st?Date.now()-st:0;
           c+='<div class="prow"><span>'+d.id+' · '+esc(d.n)+'</span>'+(st?(age>60000?'<b class="up">Access granted</b>':'<b style="color:#E3C37D">Compliance check…</b>'):'<button class="pbtn ghost" data-dr="'+d.id+'">Request file</button>')+'</div>';});
         c+='</div><div class="pmod" style="margin-top:14px"><h4>Allocations</h4><div class="sub">Anchor tranches on primary deals</div><div class="prow"><span>MDS-AU-05 anchor tranche</span><b>$2.0M of $4.0M reserved</b></div><div class="prow"><span>MDS-FE-01 anchor tranche</span><b>$5.5M of $8.0M reserved</b></div><div class="prow"><span>Speak to coverage</span><a class="pbtn" style="text-decoration:none" href="mailto:lavine@zenith-grp.co?subject=Midas%20allocation">Book a call</a></div></div>';
       } else if(TAB==='application'){
