@@ -843,6 +843,10 @@
 .mandate .rows .r{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:13.5px}
 .mandate .rows .r span{color:var(--mut)} .mandate .rows .r b{color:var(--ink);text-align:right}
 .mandate .note{margin-top:14px;font-size:11.5px;color:var(--dim);line-height:1.6}
+.lockrow{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--dim)}
+.lockrow b{color:var(--gold);font-weight:600}
+.livechip{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--green);border:1px solid rgba(63,181,126,.45);background:rgba(63,181,126,.08);border-radius:999px;padding:3px 10px;text-transform:uppercase}
+.livechip i{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2.2s infinite}
 .bookgate{margin-top:26px;background:linear-gradient(170deg,var(--panel-2),var(--panel));border:1px solid var(--gold-line);border-radius:18px;padding:30px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
 .bookgate b{display:block;font-family:var(--big);font-size:19px;letter-spacing:-.01em}
 .bookgate p{margin:4px 0 0;font-size:13.5px;color:var(--mut)}
@@ -1635,10 +1639,11 @@ a.dealcard:hover{border-color:var(--line)}
         <div class="fp" style="border-color:var(--gold-line)"><b>North Africa</b><span>1 mandate · $10M</span></div>
       </div>
     </div>
-    <div class="mandate rv">
+    <div id="livebook" style="display:none">
+<div class="mandate rv">
       <div class="im"><img src="img/salt_aerial.jpg" alt="Coastal solar evaporation saltworks from the air" loading="lazy"><em>representative image — Atlantic-coast solar saltworks</em></div>
       <div class="bd">
-        <span class="tag"><i class="fp-dot"></i>First mandated project · In diligence</span>
+        <span class="tag"><i class="fp-dot"></i>Live deal 1 of 2 · terms in negotiation</span>
         <h3>Salum Salt — solar salt</h3>
         <div class="loc">Dakhla–Oued Ed Dahab, Morocco · development · 7,724-hectare Atlantic coastal site</div>
         <div class="rows">
@@ -1656,8 +1661,8 @@ a.dealcard:hover{border-color:var(--line)}
 
     <div class="sdeals rv" style="margin-top:18px">
       <div class="sdeal" style="border-color:var(--gold-line)"><div class="im"><img src="img/goldbars.jpg" alt="Gold bullion bars" loading="lazy"><em>representative image</em></div>
-        <div class="bd"><div class="id">MDS-GF-12 · FUND <span class="mstat" style="color:#E3C37D">Structuring</span></div><h3>Gold Trading Fund</h3><div class="j">West Africa origin → UAE refining · physical gold</div>
-        <div class="row"><span>Strategy</span><b>Bought at a discount at origin, sold refined</b></div>
+        <div class="bd"><div class="id">MDS-GF-12 · FUND <span class="livechip"><i></i>Live</span></div><h3>Gold Trading Fund</h3><div class="j">West Africa origin → UAE refining · physical gold</div>
+        <div class="row"><span>Strategy</span><b>Sierra Leone gold at ~5% below spot → refined &amp; sold liquid in the UAE</b></div>
         <div class="row"><span>Cycle</span><b>Days — capital turns many times a year</b></div>
         <div class="row"><span>Access</span><b>Professional &amp; qualified investors only</b></div></div></div>
       <div class="sdeal" style="border-color:var(--gold-line)"><div class="im"><img src="img/bauxite.jpg" alt="Bauxite mine" loading="lazy"><em>representative image</em></div>
@@ -1672,23 +1677,43 @@ a.dealcard:hover{border-color:var(--line)}
         <div class="row"><span>Status</span><b>Producing asset, mandate in negotiation</b></div></div></div>
     </div>
     <p class="b-cap rv" style="margin-top:14px">Four real projects. Counterparties named only with their consent — Salum Salt above; the rest on verification. The gold fund is a separate private vehicle, offered by private placement to professional investors only. Nothing on this page is an offer.</p>
+</div>
 
     <div id="samplebook">
-      <div class="sdeals rv">
-        <div class="sdeal"><div class="im"><img src="img/superpit.jpg" alt="Open-pit gold mine, Western Australia" loading="lazy"><em>representative image</em></div>
-          <div class="bd"><div class="id">MDS-AU-05 · PRIMARY <span class="mstat">Open</span></div><h3>Gold</h3><div class="j">Western Australia · producing</div>
-          <div class="row"><span>Royalty</span><b>1.5% of every sale</b></div><div class="row"><span>Raise target</span><b>$10M</b></div><div class="row"><span>Term</span><b>Life of mine</b></div></div></div>
-        <div class="sdeal"><div class="im"><img src="img/sunrisedam.jpg" alt="Gold mine operations" loading="lazy"><em>representative image</em></div>
-          <div class="bd"><div class="id">MDS-AU-04 · SECONDARY <span class="mstat">Open</span></div><h3>Gold</h3><div class="j">Nevada, USA · producing</div>
-          <div class="row"><span>Royalty</span><b>1.0% of every sale</b></div><div class="row"><span>On offer</span><b>$18M</b></div><div class="row"><span>Term</span><b>Life of mine</b></div></div></div>
-        <div class="sdeal"><div class="im"><img src="img/bingham.jpg" alt="Open-pit mine benches" loading="lazy"><em>representative image</em></div>
-          <div class="bd"><div class="id">MDS-CU-02 · PRIMARY <span class="mstat">Open</span></div><h3>Copper</h3><div class="j">Arizona, USA · construction</div>
-          <div class="row"><span>Royalty</span><b>1.5% NSR</b></div><div class="row"><span>Raise target</span><b>$15M</b></div><div class="row"><span>Term</span><b>Life of mine</b></div></div></div>
+      <div class="bookgate rv" style="margin-top:34px">
+        <div><b>Two live deals are open right now.</b><p>A mandated $10M solar-salt royalty in Morocco, and a physical gold trading fund clearing through the UAE. Full terms, yields and files open with an account — it takes a minute.</p></div>
+        <div><a class="btn btn-gold" href="#/signup">See the live deals</a> <a class="btn btn-ghost" href="#/login" style="margin-left:8px">Log in</a></div>
       </div>
-      <div class="bookgate rv">
-        <div><b>Seven more deals sit behind the account wall.</b><p>Copper, tin &amp; tungsten, lithium, silver, manganese — full terms, files on request, from $500. An account takes a minute.</p></div>
-        <div><a class="btn btn-gold" href="#/signup">Create account</a> <a class="btn btn-ghost" href="#/login" style="margin-left:8px">Log in</a></div>
+      <div class="sdeals rv" style="margin-top:22px">
+        <div class="sdeal" style="border-color:var(--gold-line)"><div class="im"><img src="img/salt_aerial.jpg" alt="" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">LIVE DEAL <span class="livechip"><i></i>Live</span></div><h3>Solar salt</h3><div class="j">Dakhla, Morocco · 1.5 Mt/yr design · mandated</div>
+          <div class="lockrow">🔒 <b>Royalty, yield &amp; project brief</b> — open with an account</div></div></div>
+        <div class="sdeal" style="border-color:var(--gold-line)"><div class="im"><img src="img/goldbars.jpg" alt="" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">LIVE DEAL <span class="livechip"><i></i>Live</span></div><h3>Gold trading fund</h3><div class="j">West Africa origin → UAE · physical · professional only</div>
+          <div class="lockrow">🔒 <b>Strategy, cycle &amp; terms</b> — open with an account</div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/bauxite.jpg" alt="" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-AL-13 <span class="mstat" style="color:#E3C37D">Diligence</span></div><h3>Bauxite</h3><div class="j">West Africa · producing · existing royalty</div>
+          <div class="lockrow">🔒 <b>Size &amp; terms</b> — inside</div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/bingham.jpg" alt="" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-FE-01 <span class="mstat" style="color:#E3C37D">Diligence</span></div><h3>Iron ore</h3><div class="j">West Africa · producing</div>
+          <div class="lockrow">🔒 <b>Rate &amp; raise</b> — inside</div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/superpit.jpg" alt="" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-AU-05 <span class="mstat">Open</span></div><h3>Gold</h3><div class="j">Western Australia · producing · % of every sale</div>
+          <div class="lockrow">🔒 <b>NSR &amp; yield</b> — inside</div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/sunrisedam.jpg" alt="" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-AU-04 <span class="mstat">Open</span></div><h3>Gold</h3><div class="j">Nevada, USA · producing · secondary</div>
+          <div class="lockrow">🔒 <b>On offer</b> — inside</div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/bingham.jpg" alt="" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-CU-02 <span class="mstat">Open</span></div><h3>Copper</h3><div class="j">Arizona, USA · construction</div>
+          <div class="lockrow">🔒 <b>NSR &amp; raise</b> — inside</div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/superpit.jpg" alt="" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-LI-06 <span class="mstat">Open</span></div><h3>Lithium</h3><div class="j">Western Australia · feasibility</div>
+          <div class="lockrow">🔒 <b>GRR &amp; raise</b> — inside</div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/goldbars.jpg" alt="" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">PIPELINE <span class="mstat" style="color:var(--dim)">Sourcing</span></div><h3>Gold refining stream</h3><div class="j">United Arab Emirates · in structuring</div>
+          <div class="lockrow">🔒 <b>Joins the book soon</b> — watch it inside</div></div></div>
       </div>
+      <p class="b-cap rv" style="margin-top:16px">Counterparties named only with their consent. The gold fund is a separate private vehicle for professional investors, by private placement only. Nothing on this page is an offer of securities.</p>
     </div>
     <div class="mkt-grid rv" id="fullbook" style="display:none">
       <div class="mkt" style="border-color:var(--gold-line)">
@@ -3369,6 +3394,8 @@ a.dealcard:hover{border-color:var(--line)}
       var fb=document.getElementById('fullbook'),sb=document.getElementById('samplebook');
       if(fb)fb.style.display=u?'':'none';
       if(sb)sb.style.display=u?'none':'';
+      var lb=document.getElementById('livebook');
+      if(lb)lb.style.display=u?'':'none';
       var sg2=document.getElementById('salumGate'),sbr=document.getElementById('salumBrief');
       if(sg2)sg2.style.display=u?'none':'';
       if(sbr)sbr.style.display=u?'':'none';
@@ -3399,7 +3426,11 @@ a.dealcard:hover{border-color:var(--line)}
         '<div class="pmod" style="margin-bottom:14px"><h4>Which metals do you follow?</h4><div class="sub">Tunes the deals and alerts we surface — change any time</div><div class="metals">'+
         ['Gold','Copper','Silver','Iron ore','Lithium','Tin','Manganese'].map(function(x){return '<button class="mchip'+(sel.indexOf(x)>=0?' on':'')+'" data-mt="'+x+'">'+x+'</button>'}).join('')+'</div></div>'+
         '<div class="pmods">'+
-        '<div class="pmod"><h4>Open now</h4><div class="sub">Three of ten</div>'+DEALS.slice(0,3).map(function(d){return '<div class="prow"><span>'+d.id+' · '+esc(d.n)+'</span><b class="up">~'+d.y+'%/yr</b></div>'}).join('')+'<button class="pbtn" data-tab-go="portfolio" style="margin-top:12px">'+(P.length?'Manage positions':'Take your first position')+'</button></div>'+
+        '<div class="pmod"><h4>Live now</h4><div class="sub">Two real deals · nine more in the book</div>'+
+        '<div class="prow"><span>MDS-NA-11 · Solar salt · Dakhla, Morocco — mandated</span><a class="pbtn" style="text-decoration:none" href="#/salum">Open brief</a></div>'+
+        '<div class="prow"><span>MDS-GF-12 · Gold Trading Fund · Sierra Leone → UAE — professional only</span><a class="pbtn ghost" style="text-decoration:none" href="mailto:lavine@zenith-grp.co?subject=Gold%20Trading%20Fund">Enquire</a></div>'+
+        '<div class="prow"><span>Full book — gold, copper, lithium, bauxite, iron ore</span><a class="pbtn ghost" style="text-decoration:none" href="#/markets">View all</a></div>'+
+        '<button class="pbtn" data-tab-go="portfolio" style="margin-top:12px">'+(P.length?'Manage positions':'Take your first position')+'</button></div>'+
         '<div class="pmod"><h4>How you get paid</h4><div class="sub">The short version</div><div class="prow"><span>The mine sells metal</span><b>monthly</b></div><div class="prow"><span>Royalty calculated on revenue</span><b>before costs</b></div><div class="prow"><span>Distribution lands</span><b>quarterly</b></div><div class="prow"><span>Next window</span><b>Oct 15, 2026</b></div></div></div>';
       } else if(TAB==='portfolio'){
         var tot=0,acc=0;P.forEach(function(x){tot+=x.a;acc+=accrued(x);});
