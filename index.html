@@ -451,6 +451,23 @@
   @media(prefers-reduced-motion:reduce){.phimg img{animation:none}}
   .phimg .cap2{position:absolute;left:0;right:0;bottom:0;padding:36px 18px 12px;background:linear-gradient(180deg,transparent,rgba(6,7,9,.78));font-size:12px;color:#F2EFE8;font-weight:600}
   .phimg .cap2 span{display:block;font-weight:400;font-size:10.5px;color:rgba(242,239,232,.65)}
+  .vhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .vhead .vk{font-size:10.5px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase;font-weight:700}
+  .vhead h4{margin:2px 0 0;font-size:16px}
+  .areq{font-size:10.5px;letter-spacing:.1em;font-weight:700;color:#E3C37D;text-transform:uppercase}
+  .areq i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#E3C37D;margin-right:6px;animation:pulse 2.2s infinite}
+  .vdone{font-size:10.5px;letter-spacing:.1em;font-weight:700;color:var(--green);text-transform:uppercase}
+  .vdrop{border:1.5px dashed var(--line);border-radius:12px;padding:18px;margin-top:16px}
+  .vdrop b{font-size:14px}.vdrop .vmeta{float:right;font-size:10.5px;letter-spacing:.08em;color:var(--dim)}
+  .vdrop p{font-size:12.5px;color:var(--mut);line-height:1.6;margin:8px 0 14px}
+  .idv3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);margin:16px 0}
+  @media(max-width:640px){.idv3{grid-template-columns:1fr}}
+  .idv3>div{padding:14px 16px 16px;border-right:1px solid var(--line-soft)}
+  .idv3>div:last-child{border-right:0}
+  .idv3 .rn{font-size:10.5px;letter-spacing:.12em;color:var(--gold);font-weight:700;text-transform:uppercase}
+  .idv3 b{display:block;font-size:12.5px;margin:5px 0 3px}
+  .idv3 p{margin:0;font-size:11.5px;color:var(--mut);line-height:1.55}
+  .idv3 .st{margin-top:8px;font-size:11px;font-weight:700}
   .authwrap{max-width:520px}
   .authwrap .aform{margin-top:34px}
   .auth-alt{margin-top:18px;font-size:13px;color:var(--mut)}
@@ -3475,15 +3492,32 @@ a.dealcard:hover{border-color:var(--line)}
         '<div class="prow"><span>Member since</span><b>'+new Date(u.ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+'</b></div>'+
         '<div class="prow"><span>Session</span><button class="dout" id="doLogout">Log out</button></div></div>';
       } else if(TAB==='verify'){
-        var doc=false;try{doc=!!localStorage.getItem('midas_kycdoc')}catch(e){}
-        c='<div class="pmod"><h4>Verification</h4><div class="sub">Required once, before any money moves</div>'+
-        '<div class="prow"><span>Status</span><b class="'+(verified?'up':'')+'">'+k[0]+'</b></div>'+
-        '<div class="prow"><span>Identity document</span>'+(doc?'<b class="up">Received — under review</b>':'<button class="pbtn ghost" id="kycUp">Upload a document</button>')+'</div>'+
-        '<div class="prow"><span>Sanctions &amp; PEP screen</span><b class="up">Automated — runs on submission</b></div>'+
-        '<div class="prow"><span>Suitability</span><b>'+esc(u.t)+'</b></div>'+
-        '<p style="font-size:11.5px;color:var(--dim);margin:12px 0 0;line-height:1.6">We may not be able to onboard your jurisdiction. If verification fails, nothing is charged and your data is deleted on request.</p></div>';
+        var cert=null,idv=null;
+        try{cert=JSON.parse(localStorage.getItem('midas_cert'))}catch(e){}
+        try{idv=JSON.parse(localStorage.getItem('midas_idv'))}catch(e){}
+        var certState=cert?((Date.now()-cert.ts>120000)?'ok':'rev'):null;
+        var idvDone=idv&&idv.done;
+        c='<div class="pmod" style="margin-bottom:14px"><div class="vhead"><div><span class="vk">01 · Investor classification</span><h4>Upload your investor certificate</h4></div>'+
+          (certState==='ok'?'<span class="vdone">✓ Approved</span>':certState==='rev'?'<span class="areq" style="color:var(--mut)">Under review</span>':'<span class="areq"><i></i>Action required</span>')+'</div>'+
+          (certState?'<div class="prow" style="margin-top:12px"><span>'+esc(cert.name)+'</span><b class="'+(certState==='ok'?'up':'')+'">'+(certState==='ok'?'Approved for '+esc(u.t):'Compliance review — usually 1–2 business days')+'</b></div>':
+          '<div class="vdrop"><span class="vmeta">PDF · ≤10 MB</span><b>Upload your certificate</b>'+
+          '<p>An accountant\u2019s or bank letter confirming professional / qualified-investor status, or the equivalent for your jurisdiction. Individuals below professional thresholds can skip this — limits apply until classified.</p>'+
+          '<input type="file" id="certFile" accept="application/pdf" style="display:none" />'+
+          '<button class="pbtn ghost" id="certChoose">Choose PDF</button> <button class="pbtn" id="certUp" style="display:none">Upload certificate</button>'+
+          '<span id="certName" style="font-size:12px;color:var(--mut);margin-left:10px"></span>'+
+          '<p style="margin:12px 0 0;font-size:11px;color:var(--dim)">By uploading you authorise Midas compliance staff to view this document for verification purposes. Documents are never stored in this preview.</p></div>')+'</div>';
+        c+='<div class="pmod"><div class="vhead"><div><span class="vk">02 · Identity verification</span><h4>Verify your identity</h4></div>'+
+          (idvDone?'<span class="vdone">✓ Verified</span>':'<span class="areq"><i></i>Action required</span>')+'</div>'+
+          '<p style="font-size:13px;color:var(--mut);margin:12px 0 0">Confirm your identity with a government-issued ID and a liveness check.</p>'+
+          '<div class="idv3">'+
+          '<div><span class="rn">I · Capture</span><b>Photo of your ID</b><p>Passport, driver licence, or national ID.</p><span class="st" id="idvS1">'+(idvDone?'<em class="up" style="font-style:normal;color:var(--green)">✓ Done</em>':'')+'</span></div>'+
+          '<div><span class="rn">II · Liveness</span><b>Short selfie video</b><p>Confirms the document is yours.</p><span class="st" id="idvS2">'+(idvDone?'<em style="font-style:normal;color:var(--green)">✓ Done</em>':'')+'</span></div>'+
+          '<div><span class="rn">III · Decision</span><b>Returned automatically</b><p>Usually within minutes.</p><span class="st" id="idvS3">'+(idvDone?'<em style="font-style:normal;color:var(--green)">✓ Approved</em>':'')+'</span></div></div>'+
+          (idvDone?'<div class="prow"><span>Identity</span><b class="up">Verified · '+new Date(idv.ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+'</b></div>':
+          '<div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap"><p style="font-size:12.5px;color:var(--mut);margin:6px 0">Guided flow: photo of your ID and a short liveness check. About two minutes.</p><button class="pbtn" id="idvGo">Verify your identity</button></div>')+
+          '<p style="margin:12px 0 0;font-size:10.5px;letter-spacing:.08em;color:var(--dim)">ID IMAGES NEVER STORED · SANCTIONS &amp; PEP SCREEN RUNS ON SUBMISSION</p></div>';
       }
-      var toast=(Date.now()-(u.ts||0)<20000)?'<div class="toast" id="acctToast" style="display:block"><b>Account open</b>Welcome to Midas, '+esc(u.n.split(' ')[0])+'. Verification runs in the background.</div>':'';
+            var toast=(Date.now()-(u.ts||0)<20000)?'<div class="toast" id="acctToast" style="display:block"><b>Account open</b>Welcome to Midas, '+esc(u.n.split(' ')[0])+'. Verification runs in the background.</div>':'';
       m.innerHTML='<div class="appgrid">'+sb+'<div>'+c+'</div></div>'+toast;
       m.querySelectorAll('[data-tab]').forEach(function(b){b.addEventListener('click',function(){
         TAB=b.getAttribute('data-tab');try{sessionStorage.setItem('midas_tab',TAB)}catch(e){};render();});});
@@ -3506,6 +3540,23 @@ a.dealcard:hover{border-color:var(--line)}
         var M=metals(),x=b.getAttribute('data-mt'),i=M.indexOf(x);
         if(i>=0)M.splice(i,1);else M.push(x);
         try{localStorage.setItem('midas_metals',JSON.stringify(M))}catch(e){};render();});});
+      var cf=document.getElementById('certFile'),cc=document.getElementById('certChoose'),cu=document.getElementById('certUp'),cn=document.getElementById('certName');
+      if(cc)cc.addEventListener('click',function(){cf.click();});
+      if(cf)cf.addEventListener('change',function(){
+        if(cf.files&&cf.files[0]){cn.textContent=cf.files[0].name;cu.style.display='';}});
+      if(cu)cu.addEventListener('click',function(){
+        var nm=(cf.files&&cf.files[0])?cf.files[0].name:'certificate.pdf';
+        try{localStorage.setItem('midas_cert',JSON.stringify({name:nm,ts:Date.now()}))}catch(e){};render();});
+      var ig=document.getElementById('idvGo');
+      if(ig)ig.addEventListener('click',function(){
+        ig.disabled=true;ig.textContent='Capturing…';
+        var s1=document.getElementById('idvS1'),s2=document.getElementById('idvS2'),s3=document.getElementById('idvS3');
+        setTimeout(function(){if(s1)s1.innerHTML='<em style="font-style:normal;color:var(--green)">✓ Done</em>';ig.textContent='Liveness check…';},1400);
+        setTimeout(function(){if(s2)s2.innerHTML='<em style="font-style:normal;color:var(--green)">✓ Done</em>';ig.textContent='Deciding…';},3200);
+        setTimeout(function(){if(s3)s3.innerHTML='<em style="font-style:normal;color:var(--green)">✓ Approved</em>';
+          try{localStorage.setItem('midas_idv',JSON.stringify({done:true,ts:Date.now()}))}catch(e){};
+          setTimeout(render,900);},5200);
+      });
       var ku=document.getElementById('kycUp');
       if(ku)ku.addEventListener('click',function(){try{localStorage.setItem('midas_kycdoc','1')}catch(e){};render();});
       var t=document.getElementById('acctToast');
