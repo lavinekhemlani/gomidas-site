@@ -860,6 +860,18 @@
 .mandate .rows .r{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:13.5px}
 .mandate .rows .r span{color:var(--mut)} .mandate .rows .r b{color:var(--ink);text-align:right}
 .mandate .note{margin-top:14px;font-size:11.5px;color:var(--dim);line-height:1.6}
+.lpx{background:linear-gradient(170deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:30px;margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:34px}
+@media(max-width:880px){.lpx{grid-template-columns:1fr}}
+.lpx-big{font-family:var(--big);font-size:clamp(40px,5vw,58px);font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.lpx-big.u{color:var(--green)}.lpx-big.d{color:#E06A6A}
+.lpx-chg{font-size:14px;font-weight:700;margin-left:10px}
+.lpx-lab{font-size:11px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;font-weight:700}
+.lpx input[type=range]{width:100%;accent-color:var(--gold-btn);margin:8px 0 2px}
+.lpx-ms{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.lpx-m{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12px;font-weight:600;color:var(--mut);cursor:pointer;background:none;font-family:var(--disp)}
+.lpx-m.on{border-color:var(--gold-line);color:var(--gold);background:var(--gold-soft)}
+.lpx-m.done{border-color:rgba(63,181,126,.4);color:var(--green)}
+.lpx-note{font-size:11.5px;color:var(--dim);line-height:1.6;margin-top:14px}
 .lockrow{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--dim)}
 .lockrow b{color:var(--gold);font-weight:600}
 .livechip{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--green);border:1px solid rgba(63,181,126,.45);background:rgba(63,181,126,.08);border-radius:999px;padding:3px 10px;text-transform:uppercase}
@@ -1726,12 +1738,44 @@ a.dealcard:hover{border-color:var(--line)}
         <div class="sdeal"><div class="im"><img src="img/lithium.jpg" alt="" loading="lazy"><em>representative image</em></div>
           <div class="bd"><div class="id">MDS-LI-06 <span class="mstat">Open</span></div><h3>Lithium</h3><div class="j">Western Australia · feasibility</div>
           <div class="lockrow">🔒 <b>GRR &amp; raise</b> — inside</div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/tungsten.jpg" alt="Tungsten concentrates" loading="lazy"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-SN-03 <span class="mstat">Open</span></div><h3>Tin &amp; tungsten</h3><div class="j">Central Africa · producing · critical minerals</div>
+          <div class="lockrow">🔒 <b>GRR &amp; raise</b> — inside</div></div></div>
+        <div class="sdeal"><div class="im"><img src="img/copper.jpg" alt="" loading="lazy" style="object-position:70% center"><em>representative image</em></div>
+          <div class="bd"><div class="id">MDS-CU-08 <span class="mstat">Open</span></div><h3>Copper</h3><div class="j">Quebec, Canada · construction</div>
+          <div class="lockrow">🔒 <b>NSR &amp; raise</b> — inside</div></div></div>
         <div class="sdeal"><div class="im"><img src="img/goldbars.jpg" alt="" loading="lazy"><em>representative image</em></div>
           <div class="bd"><div class="id">PIPELINE <span class="mstat" style="color:var(--dim)">Sourcing</span></div><h3>Gold refining stream</h3><div class="j">United Arab Emirates · in structuring</div>
           <div class="lockrow">🔒 <b>Joins the book soon</b> — watch it inside</div></div></div>
       </div>
       <p class="b-cap rv" style="margin-top:16px">Counterparties named only with their consent. The gold fund is a separate private vehicle for professional investors, by private placement only. Nothing on this page is an offer of securities.</p>
     </div>
+    <section id="liveprice" style="padding:56px 0 10px">
+      <span class="eyebrow rv">The market we're building</span>
+      <h2 class="rv">No royalty has ever had a live price. Watch one get born.</h2>
+      <p class="lede rv">A royalty's fair value has two moving parts: the commodity price, which ticks all day — and the mine's progress toward production, which steps on milestones. Put them together and a private, illiquid claim becomes a live, tradeable price. Drag the copper price. Advance the mine. Watch the token reprice.</p>
+      <div class="lpx rv">
+        <div>
+          <span class="lpx-lab">MDS-CU-02 · Copper royalty token · issued at $1.00</span>
+          <div><span class="lpx-big" id="lpxNav">$0.78</span><span class="lpx-chg" id="lpxChg"></span></div>
+          <div style="font-size:12.5px;color:var(--mut);margin-top:6px" id="lpxWhy">construction stage · 1.5% NSR · fair value = completion probability × royalty stream at today's copper</div>
+        </div>
+        <div>
+          <span class="lpx-lab">Copper price — drag it</span>
+          <input type="range" id="lpxCu" min="4.5" max="9.5" step="0.01" value="6.51" />
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mut)"><span>$4.50/lb</span><b id="lpxCuV" style="color:var(--ink)">$6.51/lb</b><span>$9.50/lb</span></div>
+          <span class="lpx-lab" style="display:block;margin-top:18px">Mine milestones — advance them</span>
+          <div class="lpx-ms" id="lpxMs">
+            <button class="lpx-m on" data-p="0.55">Feasibility done</button>
+            <button class="lpx-m" data-p="0.70">Financing closed</button>
+            <button class="lpx-m" data-p="0.82">In construction</button>
+            <button class="lpx-m" data-p="0.97">First production</button>
+          </div>
+          <p class="lpx-note">Demonstration with illustrative numbers, not a quote. This is the mechanism: published NAV = completion probability × (production × price × royalty%), re-marked live off the commodity tape and stepped on verified milestones. It's how a royalty six months from first pour trades like a call option on the metal — and why this becomes a market, not a filing cabinet.</p>
+        </div>
+      </div>
+    </section>
+
     <div class="mkt-grid rv" id="fullbook" style="display:none">
       <div class="mkt" style="border-color:var(--gold-line)">
         <span class="mref">MDS-GF-12</span><span class="mtyp">Fund</span><span class="mstat" style="color:#E3C37D">Structuring</span>
@@ -3806,6 +3850,47 @@ a.dealcard:hover{border-color:var(--line)}
     bids[k].q=Math.max(2000,Math.min(20000,bids[k].q+Math.round((Math.random()-.5)*3600)));
     render();
   },1900);
+})();
+
+/* ---- live royalty pricing demo (markets) ---- */
+(function(){
+  var nav=document.getElementById('lpxNav');if(!nav)return;
+  var cu=document.getElementById('lpxCu'),cuv=document.getElementById('lpxCuV'),chg=document.getElementById('lpxChg'),
+      why=document.getElementById('lpxWhy'),msWrap=document.getElementById('lpxMs');
+  var P=0.55, BASE_CU=6.51, prev=0;
+  // illustrative: at $6.51 Cu and P=1, stream PV supports $1.43/token; issue at $1.00 assumed P~0.70 pricing
+  function fair(){ return 1.43 * (parseFloat(cu.value)/BASE_CU) * P; }
+  function paint(first){
+    var v=fair();
+    nav.textContent='$'+v.toFixed(2);
+    nav.classList.remove('u','d');
+    if(!first){nav.classList.add(v>=prev?'u':'d');
+      var d=(v-1)*100;
+      chg.textContent=(d>=0?'+':'')+d.toFixed(0)+'% vs issue';
+      chg.style.color=d>=0?'var(--green)':'#E06A6A';}
+    prev=v;
+    cuv.textContent='$'+parseFloat(cu.value).toFixed(2)+'/lb';
+  }
+  cu.addEventListener('input',function(){paint(false)});
+  msWrap.querySelectorAll('.lpx-m').forEach(function(b,i,all){
+    b.addEventListener('click',function(){
+      P=parseFloat(b.getAttribute('data-p'));
+      var bs=msWrap.querySelectorAll('.lpx-m');
+      bs.forEach(function(x,k){x.classList.remove('on');x.classList.toggle('done',k<Array.prototype.indexOf.call(bs,b));});
+      b.classList.add('on');
+      var names=['feasibility','financing closed','construction','first production'];
+      why.textContent=(P>=0.97?'producing':'development')+' stage · 1.5% NSR · completion probability now '+Math.round(P*100)+'% — '+names[Array.prototype.indexOf.call(bs,b)];
+      paint(false);
+    });
+  });
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced)setInterval(function(){
+    if(document.visibilityState!=='visible')return;
+    var v=parseFloat(cu.value)+(Math.random()-.5)*0.03;
+    cu.value=Math.max(4.5,Math.min(9.5,v));
+    paint(false);
+  },2200);
+  paint(true);
 })();
 </script>
 </body>
