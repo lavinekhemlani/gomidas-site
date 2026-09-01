@@ -443,6 +443,14 @@
   .sc-row .t b{color:var(--ink)}
   .sc-bar{height:4px;border-radius:3px;background:var(--panel-2);margin-top:6px;overflow:hidden}
   .sc-bar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#B08A3E,#E3C37D);width:var(--w)}
+  .phero{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  @media(max-width:880px){.phero{grid-template-columns:1fr;gap:26px}}
+  .phimg{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/10}
+  .phimg img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) brightness(.95);animation:kenb 22s ease-in-out infinite alternate}
+  @keyframes kenb{from{transform:scale(1)}to{transform:scale(1.09)}}
+  @media(prefers-reduced-motion:reduce){.phimg img{animation:none}}
+  .phimg .cap2{position:absolute;left:0;right:0;bottom:0;padding:36px 18px 12px;background:linear-gradient(180deg,transparent,rgba(6,7,9,.78));font-size:12px;color:#F2EFE8;font-weight:600}
+  .phimg .cap2 span{display:block;font-weight:400;font-size:10.5px;color:rgba(242,239,232,.65)}
   .authwrap{max-width:520px}
   .authwrap .aform{margin-top:34px}
   .auth-alt{margin-top:18px;font-size:13px;color:var(--mut)}
@@ -1931,9 +1939,14 @@ a.dealcard:hover{border-color:var(--line)}
 <div data-route="learn">
 <section id="learnhero">
   <div class="wrap">
+<div class="phero">
+      <div>
     <span class="eyebrow rv">Learn</span>
     <h2 class="rv">What is a royalty?</h2>
     <p class="lede rv">A royalty is a fixed share of everything a mine sells — every tonne, every ounce — paid to the royalty holder before costs, banks and shareholders. It's written against the mine's licence, so it survives a sale, a refinancing, even a bankruptcy. It isn't a loan. It isn't a share. It's older and simpler than both.</p>
+      </div>
+      <div class="phimg rv"><img src="img/sunrisedam.jpg" alt="" loading="lazy"><div class="cap2">A producing gold mine<span>every tonne it sells pays its royalty holders first — representative image</span></div></div>
+    </div>
     <div class="wf rv" style="margin-top:48px">
       <div class="wf-row"><div class="wf-lab">Mine revenue</div><div class="wf-bar"><div class="wf-fill" style="--w:100%"></div></div></div>
       <div class="wf-row gold"><div class="wf-lab">Royalty · paid first</div><div class="wf-bar"><div class="wf-fill" style="--w:8%"></div></div></div>
@@ -2134,9 +2147,14 @@ a.dealcard:hover{border-color:var(--line)}
 
 <section id="inv" >
   <div class="wrap">
+<div class="phero">
+      <div>
     <span class="eyebrow rv">Investors</span>
     <h2 class="rv">Own mining cash flow. Not a mining company.</h2>
     <p class="lede rv">Buy a royalty company's shares and you get its whole book and its management's next decision. Here you back one asset, with one file, at your size.</p>
+      </div>
+      <div class="phimg rv"><img src="img/goldstrike.jpg" alt="" loading="lazy"><div class="cap2">Goldstrike, Nevada<span>the $2M royalty that returned >$1.5B — representative of the asset class, not an offer</span></div></div>
+    </div>
   </div>
 </section>
 <section id="invproof">
@@ -2311,9 +2329,14 @@ a.dealcard:hover{border-color:var(--line)}
 
 <section id="opshero">
   <div class="wrap">
+<div class="phero">
+      <div>
     <span class="eyebrow rv">Miners</span>
     <h2 class="rv">Raise $10M+ in weeks. Keep every share.</h2>
     <p class="lede rv">Bank money works — until you need it fast. A royalty is the capital that doesn't dilute you, doesn't sit on your board, and doesn't default you in a bad quarter.</p>
+      </div>
+      <div class="phimg rv"><img src="img/tasiast.jpg" alt="" loading="lazy"><div class="cap2">Your mine keeps 100% of its equity<span>royalty capital funds the build — representative image</span></div></div>
+    </div>
   </div>
 </section>
 
@@ -2748,9 +2771,14 @@ a.dealcard:hover{border-color:var(--line)}
 <!-- institutions: hero-lite + lanes -->
 <section id="inst" data-route="institutions">
   <div class="wrap">
+<div class="phero">
+      <div>
     <span class="eyebrow rv">Institutions</span>
     <h2 class="rv">Mining's most senior cash flow. Bought one asset at a time.</h2>
     <p class="lede rv">A royalty is a contractual share of a mine's revenue — paid before costs, banks and shareholders, registered against the licence itself. For forty years the only way in was buying the royalty companies' stock. This is the first venue where the instrument itself trades: one named asset, one segregated vehicle, one full file — reserve report, licence chain, enforceability opinion, production history. Read it, model it, disagree with us.</p>
+      </div>
+      <div class="phimg rv"><img src="img/bingham.jpg" alt="" loading="lazy"><div class="cap2">Hard-rock open pit<span>representative image — instruments are registered against licences like this one</span></div></div>
+    </div>
     <div class="grid4 grid3 rv">
       <div class="r4"><b>Family offices</b><p>Direct fractions or pre-tokenisation SPVs on single instruments. Long-duration income against a hard asset.</p></div>
       <div class="r4"><b>Funds &amp; royalty holders</b><p>Sell down part of an existing royalty without releasing the position. Get a mark on an asset that has never had one.</p></div>
@@ -2829,15 +2857,14 @@ a.dealcard:hover{border-color:var(--line)}
   <div class="wrap">
     <span class="eyebrow rv">Risk</span>
     <h2 class="rv">Named risks. Named answers.</h2>
-    <div class="rtable rv">
-      <div class="rt-row rt-head"><span>Risk</span><span>What can happen</span><span>What stands against it</span></div>
-      <div class="rt-row"><span>Production</span><span>The mine slows or stops; payments pause with it.</span><span>Producing assets first. The claim survives a pause and pays again on restart. Sizing guidance in every file.</span></div>
-      <div class="rt-row"><span>Price</span><span>The metal falls; distributions shrink.</span><span>Royalties track revenue, not margin — paid off the top before costs. No leverage inside any vehicle.</span></div>
-      <div class="rt-row"><span>Jurisdiction</span><span>Rules change where the mine sits.</span><span>Registered against the licence with a local-counsel enforceability opinion, in every country, before listing.</span></div>
-      <div class="rt-row"><span>Operator</span><span>The mine is sold, refinanced, or mismanaged.</span><span>The claim attaches to the licence, not the owner — it survives every change of hands. Monitored monthly.</span></div>
-      <div class="rt-row"><span>Custody</span><span>Who really owns what, and can it be moved?</span><span>One segregated SPV per royalty. The token is the register. Transfers clear only between verified holders.</span></div>
+    <div class="faqs rv" style="margin-top:34px;max-width:860px">
+      <details><summary><i>R.01</i>What if the mine slows or stops?</summary><p>Payments pause with production — that's the deal. We list producing assets first, the claim survives a pause and pays again on restart, and every file carries sizing guidance so no one bets the house on one pit.</p></details>
+      <details><summary><i>R.02</i>What if the metal price falls?</summary><p>Distributions shrink — a royalty tracks revenue. But it's paid off the top, before costs, so it keeps paying through downturns that kill the operator's profit. There is no leverage inside any vehicle to turn a bad year into a wipeout.</p></details>
+      <details><summary><i>R.03</i>What if the rules change where the mine sits?</summary><p>Every royalty is registered against the mining licence in the host jurisdiction, with a local counsel enforceability opinion before it lists. Jurisdiction risk is priced, not ignored — it's why tier-one assets yield less.</p></details>
+      <details><summary><i>R.04</i>What if the mine is sold, refinanced, or mismanaged?</summary><p>The claim attaches to the licence, not the owner. It survives every change of hands — sale, refinancing, most bankruptcies. Goldstrike's royalty has outlived three ownership regimes. We monitor operators monthly.</p></details>
+      <details><summary><i>R.05</i>Who actually holds my asset — can it be moved?</summary><p>One segregated SPV per royalty; the token is the register entry. Transfers clear only between verified holders, and only on your instruction. Midas cannot move your position.</p></details>
+      <details><summary><i>R.06</i>Can I lose everything?</summary><p>Yes. Royalty interests are illiquid and a mine can fail before paying back your capital. Nothing on this platform removes that — our job is to make every risk legible before you commit, not to pretend it away.</p></details>
     </div>
-    <p class="b-cap rv">None of this removes risk — royalty interests are illiquid and you can lose everything you put in. It makes the risks legible.</p>
   </div>
 </section>
 
