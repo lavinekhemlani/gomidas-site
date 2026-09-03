@@ -1154,11 +1154,11 @@ a.dealcard:hover{border-color:var(--line)}
   <div class="heroA">
     <div class="ha-copy">
       <h1>Mining royalties. <span class="g">Unlocked.</span></h1>
-      <p class="hero-sub">The most famous royalty in mining turned <b>$2 million into $1.5 billion</b> — and it's still paying. That's what a royalty can do: a cut of everything a mine sells, before costs, banks and shareholders. We underwrite deals targeting <b>12&ndash;35% a year</b> — private placements for qualified, professional and institutional investors.</p>
+      <p class="hero-sub">The most famous royalty in mining turned <b>$2 million into $1.5 billion</b> — and it's still paying. That's what a royalty can do: a cut of everything a mine sells, before costs, banks and shareholders. We underwrite deals targeting <b>12&ndash;35% a year</b> — private placements — accredited investors only.</p>
       <div class="hero-cta" style="justify-content:flex-start;margin-top:30px">
         <a href="#/signup" class="btn btn-gold">Sign up</a>
       </div>
-      <p class="promise">Minimum allocation $100,000 · Distributions payable in vaulted gold · Access by introduction</p>
+      <p class="promise">Accredited investors only · Distributions payable in vaulted gold · Access by introduction</p>
       <a class="tok-more" href="#seniority" style="margin-top:10px">How the cut works ↓</a>
     </div>
     <a class="dealcard" href="#/markets" id="dcycle" aria-label="View all markets">
@@ -2302,7 +2302,7 @@ a.dealcard:hover{border-color:var(--line)}
       <details><summary><i>02.01</i>What exactly am I buying?</summary><p>A registered fraction of one named royalty — a fixed share of everything one specific mine sells, for the life of that mine. Each royalty sits in its own segregated vehicle. Your token is the register entry for your fraction. Never a pooled fund, never a basket.</p></details>
       <details><summary><i>02.02</i>How is this different from buying mining stocks?</summary><p>A share is a claim on profits — after costs, debt, taxes and management. A royalty is a claim on revenue, paid before all of that. Costs can double and your cheque doesn't change. Equity gets diluted; a royalty percentage is written into the licence and can't be.</p></details>
       <details><summary><i>02.03</i>How do I get paid?</summary><p>The mine reports sales, the royalty is calculated on revenue, and distributions land in your account — typically quarterly, with the production data behind every payment. You choose the currency: fiat, or <b>digital gold</b> — vaulted gold grams, so mining income becomes more gold without ever touching a bank rail.</p></details>
-      <details><summary><i>02.04</i>What's the minimum?</summary><p>$100,000 for qualified investors. Anchor tranches from $1M. A smaller-ticket tranche is planned once licensing completes — join the list and we'll tell you when, honestly.</p></details>
+      <details><summary><i>02.04</i>What's the minimum?</summary><p>Allocations are sized deal by deal for accredited investors — discussed once you're verified, not posted on a website. A smaller-ticket tranche is planned once licensing completes.</p></details>
     </div></div>
 
     <div class="faqgrid rv"><div class="faqcat"><span>03</span>For miners</div><div class="faqs">
@@ -3526,7 +3526,7 @@ a.dealcard:hover{border-color:var(--line)}
           c+='<div class="prow"><span>'+x.d+' · '+esc(d.n)+'</span><b>'+usd(x.a)+' <em class="up" style="font-style:normal">+'+usd(accrued(x))+' accrued</em></b></div>';});
         } else c+='<div class="pempty">No positions yet. Your first royalty is three clicks away.</div>';
         c+='<button class="pbtn" id="buyOpen" style="margin-top:12px">'+(P.length?'New order':'Buy your first royalty')+'</button>'+
-        '<div class="buyform" id="buyForm"><select id="buyDeal">'+dealOpts()+'</select><input id="buyAmt" type="number" min="100000" step="25000" placeholder="Amount in USD — from $100,000" /><button class="pbtn" id="buyGo">Review &amp; confirm</button> <span style="font-size:11px;color:var(--dim)">Simulated order — funds move only after verification and signed docs.</span></div></div>'+
+        '<div class="buyform" id="buyForm"><select id="buyDeal">'+dealOpts()+'</select><input id="buyAmt" type="number" min="100000" step="25000" placeholder="Amount in USD — accredited investors" /><button class="pbtn" id="buyGo">Review &amp; confirm</button> <span style="font-size:11px;color:var(--dim)">Simulated order — funds move only after verification and signed docs.</span></div></div>'+
         '<div class="pmod"><h4>Income</h4><div class="sub">Lands quarterly — in digital gold or fiat, your choice</div>'+(P.length?
           '<div class="prow"><span>Next distribution window</span><b>Oct 15, 2026</b></div><div class="prow"><span>Estimated next payout</span><b class="up">'+usd(P.reduce(function(a,x){var d=DEALS.filter(function(q){return q.id===x.d})[0]||{y:10};return a+x.a*d.y/400},0))+'</b></div><div class="prow"><span>Lifetime received</span><b>$0.00 — first window ahead</b></div>'
           :'<div class="pempty">Buy a fraction and this fills with real dates and real amounts.</div>')+'</div></div>';
