@@ -3531,11 +3531,11 @@ a.dealcard:hover{border-color:var(--line)}
   /* ---- ambient ticker: gentle drift around seeded values ---- */
   var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!reduced){
-    var qs=[].slice.call(document.querySelectorAll('.tick b,.mkp b'));
+    var qs=[].slice.call(document.querySelectorAll('.mkp b[data-v]'));
     setInterval(function(){
       if(document.visibilityState!=='visible')return;
       var el=qs[Math.floor(Math.random()*qs.length)];
-      var base=parseFloat(el.getAttribute('data-v')),d=+el.getAttribute('data-d');
+      var base=parseFloat(el.getAttribute('data-v'));if(isNaN(base))return;var d=+el.getAttribute('data-d')||0;
       var v=base*(1+(Math.random()-.5)*.003);
       var prev=parseFloat(el.textContent.replace(/,/g,''))||base;
       el.textContent=v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
