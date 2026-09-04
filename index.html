@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<script>(function(){try{var t=localStorage.getItem('midas_theme');if(t!=='dark')document.documentElement.setAttribute('data-theme','light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="Midas is building the first market for mining royalties — a claim on a mine's revenue, registered against the licence, underwritten one asset at a time and opened to qualified investors in fractions." />
 <meta property="og:title" content="Mining royalties. Unlocked." />
@@ -3825,7 +3826,8 @@ a.dealcard:hover{border-color:var(--line)}
   /* ---- theme ---- */
   (function(){
     var saved=null;try{saved=localStorage.getItem('midas_theme')}catch(e){}
-    if(saved==='light')document.documentElement.setAttribute('data-theme','light');
+    if(saved!=='dark')document.documentElement.setAttribute('data-theme','light');
+    else document.documentElement.removeAttribute('data-theme');
     function flip(){
       var l=document.documentElement.getAttribute('data-theme')==='light';
       if(l){document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('midas_theme','dark')}catch(e){}}
