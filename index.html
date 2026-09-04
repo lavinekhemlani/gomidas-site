@@ -468,6 +468,31 @@
   .idv3 b{display:block;font-size:12.5px;margin:5px 0 3px}
   .idv3 p{margin:0;font-size:11.5px;color:var(--mut);line-height:1.55}
   .idv3 .st{margin-top:8px;font-size:11px;font-weight:700}
+  /* ---- vault shelf ---- */
+  .shelfbar{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 20px}
+  .shelfbar .sf{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--mut);cursor:pointer;background:none;font-family:var(--disp)}
+  .shelfbar .sf.on{background:var(--panel-2);color:var(--ink);border-color:var(--gold-line)}
+  .shelf{border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .shelf-h{display:grid;grid-template-columns:2.6fr 1.4fr 1fr 1fr 0.8fr;gap:12px;padding:14px 22px;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line)}
+  .shelf-r{display:grid;grid-template-columns:2.6fr 1.4fr 1fr 1fr 0.8fr;gap:12px;padding:18px 22px;align-items:center;border-bottom:1px solid var(--line-soft);cursor:pointer;text-decoration:none;color:inherit;transition:background .15s}
+  .shelf-r:hover{background:var(--panel-2)}
+  .shelf-r:last-child{border-bottom:0}
+  .sr-name{display:flex;align-items:center;gap:13px}
+  .sr-ic{width:40px;height:40px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:var(--big);font-weight:800;font-size:14px;color:#0A0B0D}
+  .sr-name b{font-size:15.5px;display:block}
+  .sr-name .cat{font-size:12px;color:var(--mut)}
+  .sr-apy{font-family:var(--big);font-size:18px;font-weight:700;color:var(--green)}
+  .sr-apy small{display:block;font-family:var(--disp);font-size:10.5px;color:var(--dim);font-weight:500;letter-spacing:.03em}
+  .sr-tvl{font-variant-numeric:tabular-nums;font-size:14.5px}
+  .sr-st{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:4px 10px;border-radius:999px;display:inline-block}
+  .sr-st.live{color:var(--green);border:1px solid rgba(63,181,126,.4);background:rgba(63,181,126,.08)}
+  .sr-st.dili{color:#E3C37D;border:1px solid rgba(198,161,91,.4);background:rgba(198,161,91,.08)}
+  .sr-st.src{color:var(--dim);border:1px solid var(--line)}
+  .sr-net{display:flex;gap:-4px}
+  .sr-net i{width:18px;height:18px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);margin-left:-4px}
+  @media(max-width:760px){.shelf-h{display:none}.shelf-r{grid-template-columns:1fr auto;gap:6px}.shelf-r .sr-tvl,.shelf-r .sr-net{display:none}}
+  .previewbanner{background:rgba(198,161,91,.08);border:1px solid var(--gold-line);border-radius:12px;padding:13px 18px;font-size:13px;color:var(--mut);margin-bottom:20px}
+  .previewbanner b{color:var(--gold)}
   /* ---- vault (Plume-style) ---- */
   .vhero{display:grid;grid-template-columns:1.55fr 1fr;gap:30px;margin-top:14px;align-items:start}
   @media(max-width:900px){.vhero{grid-template-columns:1fr}}
@@ -1161,6 +1186,7 @@ a.dealcard:hover{border-color:var(--line)}
       <a href="#/investors" data-route-link="investors">Investors</a>
       <a href="#/institutions" data-route-link="institutions">Institutions</a>
       <a href="#/operators" data-route-link="operators">Miners</a>
+      <a href="#/vaults" data-route-link="vaults">Earn</a>
       <a href="#/learn" data-route-link="learn">Learn</a>
       <a href="#/about" data-route-link="about">About</a>
       <a href="#/app" class="btn btn-gold" data-route-link="app" id="navApp">Launch app</a>
@@ -2018,6 +2044,63 @@ a.dealcard:hover{border-color:var(--line)}
     <p class="rv" style="margin-top:40px"><a class="btn btn-gold" href="mailto:lavine@zenith-grp.co?subject=Salum%20Salt%20—%20allocation%20interest">Speak to us about this deal</a> <a class="btn btn-ghost" href="#/app" style="margin-left:10px">Back to dashboard</a></p>
     <p class="b-cap rv" style="margin-top:26px">Full memorandum and engineering study available to verified investors under NDA. Nothing on this page is an offer of securities; royalty interests are illiquid and you can lose what you invest.</p>
     </div>
+  </div>
+</section>
+</div>
+
+<div data-route="vaults">
+<section id="vaultshelf">
+  <div class="wrap" style="max-width:1180px">
+    <span class="eyebrow rv">Earn</span>
+    <h2 class="rv">Strategies. Pick your metal, pick your yield.</h2>
+    <p class="lede rv">Each strategy is a vault: deposit, and your position earns a share of real royalty cash flow, paid into the token price. You choose the exposure — gold for stability, base and development metals for yield — the way you'd weight any portfolio.</p>
+    <div class="previewbanner rv"><b>Demonstration.</b> These strategies are in build — statuses are real (live mandate · in diligence · sourcing), yields are <b>target ranges, not live rates</b>, and no vault is open for deposits yet. Nothing here is an offer of securities.</div>
+
+    <div class="shelfbar rv">
+      <button class="sf on" data-sf="all">All</button>
+      <button class="sf" data-sf="gold">Gold</button>
+      <button class="sf" data-sf="base">Base &amp; bulk</button>
+      <button class="sf" data-sf="dev">Development</button>
+    </div>
+
+    <div class="shelf rv">
+      <div class="shelf-h"><span>Strategy</span><span>Target yield</span><span>Size</span><span>Status</span><span>Network</span></div>
+
+      <a class="shelf-r" href="#/vault" data-cat="gold">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#E3C37D,#8A6B2F)">mR</span><div><b>mROYAL — Royalty Income I</b><span class="cat">Diversified · producing-first · gold-weighted</span></div></div>
+        <div class="sr-apy">7–12%<small>trailing, target</small></div><div class="sr-tvl">$18.4M</div><div><span class="sr-st live">Live mandate</span></div><div class="sr-net"><i></i><i></i><i></i></div>
+      </a>
+      <a class="shelf-r" href="#/salum" data-cat="base">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#7FB8D8,#3A6E8A)">mS</span><div><b>mSALT — Solar Salt Royalty</b><span class="cat">Salt · Dakhla, Morocco · $/tonne</span></div></div>
+        <div class="sr-apy">10–15%<small>target</small></div><div class="sr-tvl">$10M</div><div><span class="sr-st dili">In diligence</span></div><div class="sr-net"><i></i><i></i></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="gold">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#E3C37D,#B08A3E)">mG</span><div><b>mGOLD — Gold Royalty</b><span class="cat">Gold NSR · producing · paid in gold</span></div></div>
+        <div class="sr-apy">5–7%<small>target</small></div><div class="sr-tvl">—</div><div><span class="sr-st dili">In diligence</span></div><div class="sr-net"><i></i><i></i><i></i></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="base">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#C77B4A,#7A4626)">mC</span><div><b>mCOPPER — Copper Royalty</b><span class="cat">Copper NSR · Arizona / Quebec · construction</span></div></div>
+        <div class="sr-apy">12–17%<small>target</small></div><div class="sr-tvl">—</div><div><span class="sr-st dili">In diligence</span></div><div class="sr-net"><i></i><i></i></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="base">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#9AA0A6,#5C6066)">mI</span><div><b>mIRON — Iron Ore Royalty</b><span class="cat">Iron ore · West Africa · $/tonne · producing</span></div></div>
+        <div class="sr-apy">10–14%<small>target</small></div><div class="sr-tvl">$20M</div><div><span class="sr-st dili">In diligence</span></div><div class="sr-net"><i></i><i></i></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="base">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#C0C0C8,#7E7E88)">mA</span><div><b>mALUM — Bauxite Royalty</b><span class="cat">Bauxite · West Africa · existing royalty (secondary)</span></div></div>
+        <div class="sr-apy">11–15%<small>target</small></div><div class="sr-tvl">$5M</div><div><span class="sr-st dili">In diligence</span></div><div class="sr-net"><i></i><i></i></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="dev">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#B7D0E0,#5F7C8C)">mL</span><div><b>mLITH — Lithium Royalty</b><span class="cat">Lithium · Western Australia · development</span></div></div>
+        <div class="sr-apy">15–25%<small>target</small></div><div class="sr-tvl">—</div><div><span class="sr-st src">Sourcing</span></div><div class="sr-net"><i></i></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="dev">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#C6A15B,#3FB57E)">mD</span><div><b>mDEV — Development Convexity</b><span class="cat">Pre-production royalties · live-NAV · qualified only</span></div></div>
+        <div class="sr-apy">15–35%<small>target</small></div><div class="sr-tvl">—</div><div><span class="sr-st src">Sourcing</span></div><div class="sr-net"><i></i><i></i></div>
+      </a>
+    </div>
+
+    <p class="b-cap rv" style="margin-top:22px">Statuses reflect real mandate progress. Target ranges are indicative bands by stage and commodity (see the <a href="#/earn" style="color:var(--gold)">yield explainer</a> and <a href="#/learn" style="color:var(--gold)">honest odds</a>) — not guaranteed, not live rates. Accredited investors only; verification precedes any allocation.</p>
   </div>
 </section>
 </div>
@@ -3420,7 +3503,7 @@ a.dealcard:hover{border-color:var(--line)}
   /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
-  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit','signup','login','deal','salum','vault'];
+  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit','signup','login','deal','salum','vault','vaults'];
   var LEGAL=['disclosures','privacy','terms'];
   function currentRoute(){
     var h=location.hash;
@@ -4081,6 +4164,15 @@ a.dealcard:hover{border-color:var(--line)}
 
 /* ---- vault page tabs + mint/redeem/bridge ---- */
 (function(){
+  var sfb=document.querySelectorAll('.shelfbar .sf');
+  if(sfb.length){
+    sfb.forEach(function(b){b.addEventListener('click',function(){
+      sfb.forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+      var f=b.getAttribute('data-sf');
+      document.querySelectorAll('.shelf-r').forEach(function(r){
+        r.style.display=(f==='all'||r.getAttribute('data-cat')===f)?'':'none';});
+    });});
+  }
   var tabs=document.querySelectorAll('.vtab');if(!tabs.length)return;
   tabs.forEach(function(t){t.addEventListener('click',function(){
     tabs.forEach(function(x){x.classList.remove('on')});t.classList.add('on');
