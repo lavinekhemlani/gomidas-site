@@ -468,6 +468,25 @@
   .idv3 b{display:block;font-size:12.5px;margin:5px 0 3px}
   .idv3 p{margin:0;font-size:11.5px;color:var(--mut);line-height:1.55}
   .idv3 .st{margin-top:8px;font-size:11px;font-weight:700}
+  /* ---- institutional bands ---- */
+  .valstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:8px}
+  @media(max-width:760px){.valstrip{grid-template-columns:1fr 1fr}}
+  .valstrip .vc{padding:26px 22px;border-right:1px solid var(--line-soft)}
+  .valstrip .vc:last-child{border-right:0}
+  .valstrip .vc b{display:block;font-family:var(--big);font-size:30px;font-weight:700;letter-spacing:-.02em;color:var(--gold)}
+  .valstrip .vc span{font-size:12.5px;color:var(--mut);line-height:1.5;display:block;margin-top:6px}
+  .how3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  @media(max-width:760px){.how3{grid-template-columns:1fr}}
+  .how3 .hc{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 24px}
+  .how3 .hc .n{width:34px;height:34px;border-radius:10px;background:var(--gold-soft);border:1px solid var(--gold-line);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--big);font-weight:700;font-size:15px}
+  .how3 .hc h3{font-size:17px;margin:14px 0 6px}
+  .how3 .hc p{margin:0;font-size:13.5px;color:var(--mut);line-height:1.6}
+  .trust3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+  @media(max-width:760px){.trust3{grid-template-columns:1fr}}
+  .trust3 .tc{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--panel)}
+  .trust3 .tc .ic{font-size:20px}
+  .trust3 .tc h3{font-size:16px;margin:10px 0 6px}
+  .trust3 .tc p{margin:0;font-size:13px;color:var(--mut);line-height:1.6}
   /* ---- liquidity ---- */
   .liqhero{text-align:center;max-width:760px;margin:10px auto 0}
   .liq4{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
@@ -1315,6 +1334,46 @@ a.dealcard:hover{border-color:var(--line)}
       <a class="r4" href="#/vaults" style="text-decoration:none;color:inherit;display:block"><b style="color:var(--gold)">mDEV · Development Convexity</b><p>Pre-production royalties · qualified only · target 15&ndash;35%</p></a>
     </div>
     <p class="rv" style="margin-top:24px"><a class="btn btn-gold" href="#/vaults">See all strategies →</a></p>
+  </div>
+</section>
+
+<section id="howonchain" data-route="home">
+  <div class="wrap">
+    <span class="eyebrow rv">How it works</span>
+    <h2 class="rv">On-chain royalty yield, in three steps.</h2>
+    <div class="how3 rv">
+      <div class="hc"><span class="n">1</span><h3>Deposit</h3><p>Fund a strategy with stablecoins or gold. Verification runs once; your capital is allocated into a diversified book of mining royalties.</p></div>
+      <div class="hc"><span class="n">2</span><h3>Earn</h3><p>Royalty cash flow from producing mines accrues into your position — paid in vaulted gold, compounding, with the receipts published, not projected.</p></div>
+      <div class="hc"><span class="n">3</span><h3>Access</h3><p>Redeem at scheduled windows, or borrow against your position on connected markets — liquidity without selling your yield.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="validation" data-route="home">
+  <div class="wrap">
+    <span class="eyebrow rv">Why now</span>
+    <h2 class="rv">The most credible buyer on earth is already doing this trade.</h2>
+    <p class="lede rv">Tether — the largest balance sheet in crypto — has deployed hundreds of millions into mining-royalty equities in a single quarter, using clunky junior-mining stocks because nobody built the direct product. We are building it.</p>
+    <div class="valstrip rv">
+      <div class="vc"><b>$300M+</b><span>Tether into royalty equities since June 2026</span></div>
+      <div class="vc"><b>2&times;</b><span>the book value the market pays for Franco-Nevada's royalties</span></div>
+      <div class="vc"><b>$60B+</b><span>the private royalty asset class — closed to the public for 40 years</span></div>
+      <div class="vc"><b>$0</b><span>tokenized royalty yield exists anywhere else. This is first.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="transparency" data-route="home">
+  <div class="wrap">
+    <span class="eyebrow rv">Transparency by default</span>
+    <h2 class="rv">Don't trust us. Verify it.</h2>
+    <p class="lede rv">Every royalty in every strategy is independently documented before it enters the book — and the numbers are marked on cost basis, not imagination.</p>
+    <div class="trust3 rv">
+      <div class="tc"><div class="ic">📑</div><h3>Independent technical review</h3><p>Every asset carries a reserve report (NI 43-101 / JORC) reviewed by qualified engineers and geologists — not a summary we wrote.</p></div>
+      <div class="tc"><div class="ic">⚖️</div><h3>Registered &amp; opined</h3><p>Each royalty is registered against the mining licence with a local-counsel enforceability opinion, in every jurisdiction, before it lists.</p></div>
+      <div class="tc"><div class="ic">🔎</div><h3>Coverage attestation</h3><p>NAV struck on cost basis, re-marked only on verified production milestones, with a monthly third-party coverage attestation.</p></div>
+    </div>
+    <p class="rv" style="margin-top:26px"><a class="btn btn-ghost" href="#/learn">See the honest base rates →</a></p>
   </div>
 </section>
 
