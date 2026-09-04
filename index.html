@@ -468,6 +468,18 @@
   .idv3 b{display:block;font-size:12.5px;margin:5px 0 3px}
   .idv3 p{margin:0;font-size:11.5px;color:var(--mut);line-height:1.55}
   .idv3 .st{margin-top:8px;font-size:11px;font-weight:700}
+  /* ---- liquidity ---- */
+  .liqhero{text-align:center;max-width:760px;margin:10px auto 0}
+  .liq4{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+  @media(max-width:760px){.liq4{grid-template-columns:1fr}}
+  .liqc{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 24px;position:relative}
+  .liqc .n{font-family:var(--big);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.05em}
+  .liqc h3{font-size:18px;margin:10px 0 6px}
+  .liqc p{margin:0;font-size:13.5px;color:var(--mut);line-height:1.6}
+  .liqflow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:38px}
+  .liqflow .node{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:13.5px;font-weight:600}
+  .liqflow .node b{color:var(--gold)}
+  .liqflow .ar{color:var(--dim);font-size:18px}
   /* ---- issuance ladder ---- */
   .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:36px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
   @media(max-width:760px){.ladder{grid-template-columns:1fr 1fr}}
@@ -1202,6 +1214,7 @@ a.dealcard:hover{border-color:var(--line)}
       <a href="#/institutions" data-route-link="institutions">Institutions</a>
       <a href="#/operators" data-route-link="operators">Miners</a>
       <a href="#/vaults" data-route-link="vaults">Earn</a>
+      <a href="#/liquidity" data-route-link="liquidity">Liquidity</a>
       <a href="#/learn" data-route-link="learn">Learn</a>
       <a href="#/about" data-route-link="about">About</a>
       <a href="#/app" class="btn btn-gold" data-route-link="app" id="navApp">Launch app</a>
@@ -2074,6 +2087,35 @@ a.dealcard:hover{border-color:var(--line)}
     <p class="rv" style="margin-top:40px"><a class="btn btn-gold" href="mailto:lavine@zenith-grp.co?subject=Salum%20Salt%20—%20allocation%20interest">Speak to us about this deal</a> <a class="btn btn-ghost" href="#/app" style="margin-left:10px">Back to dashboard</a></p>
     <p class="b-cap rv" style="margin-top:26px">Full memorandum and engineering study available to verified investors under NDA. Nothing on this page is an offer of securities; royalty interests are illiquid and you can lose what you invest.</p>
     </div>
+  </div>
+</section>
+</div>
+
+<div data-route="liquidity">
+<section id="liqpg">
+  <div class="wrap" style="max-width:1080px">
+    <div class="liqhero">
+      <span class="eyebrow rv">Instant liquidity</span>
+      <h2 class="rv">Your position, liquid — without an order book.</h2>
+      <p class="lede rv">Private royalties were always a locked box: capital in, no way out until sale. We don't fix that by building a thin exchange nobody trades on. We give every holder four honest ways to liquidity, layered — so you're never waiting for a buyer to appear.</p>
+    </div>
+
+    <div class="liq4 rv">
+      <div class="liqc"><span class="n">01</span><h3>Liquid reserve</h3><p>Every vault holds a buffer in instantly-redeemable assets. Small redemptions clear the same day, without touching the underlying royalties.</p></div>
+      <div class="liqc"><span class="n">02</span><h3>Redemption windows</h3><p>Larger redemptions clear at scheduled windows, funded as royalty receipts land. A bond's liquidity — stated plainly, never over-promised.</p></div>
+      <div class="liqc"><span class="n">03</span><h3>Borrow, don't sell</h3><p>Post your vault token as collateral on connected lending markets and draw stablecoins instantly — keep earning royalty yield while you access capital. Liquidity without an exit.</p></div>
+      <div class="liqc"><span class="n">04</span><h3>Secondary pools</h3><p>As instruments season, they trade in on-chain liquidity pools and on the RWA platforms institutions already use — so a holder can swap out at market, any time.</p></div>
+    </div>
+
+    <div class="liqflow rv">
+      <span class="node">Royalty receipts</span><span class="ar">→</span>
+      <span class="node">Liquid reserve</span><span class="ar">→</span>
+      <span class="node"><b>Redeem, borrow, or swap</b></span><span class="ar">→</span>
+      <span class="node">You, liquid</span>
+    </div>
+
+    <p class="b-cap rv" style="margin-top:34px;text-align:center;max-width:720px;margin-left:auto;margin-right:auto">We don't run an exchange or promise trading volume. Liquidity is <b>inherited</b> — from gold's own market at the base, funded redemptions in the middle, and collateral utility on top — through partners like curated RWA vaults and lending markets. Not investment advice; royalty interests remain illiquid and you can lose what you invest.</p>
+    <p class="rv" style="text-align:center;margin-top:26px"><a class="btn btn-gold" href="#/vaults">View strategies →</a></p>
   </div>
 </section>
 </div>
@@ -3593,7 +3635,7 @@ a.dealcard:hover{border-color:var(--line)}
   /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
-  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit','signup','login','deal','salum','vault','vaults'];
+  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit','signup','login','deal','salum','vault','vaults','liquidity'];
   var LEGAL=['disclosures','privacy','terms'];
   function currentRoute(){
     var h=location.hash;
