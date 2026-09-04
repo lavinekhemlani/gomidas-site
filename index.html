@@ -468,6 +468,16 @@
   .idv3 b{display:block;font-size:12.5px;margin:5px 0 3px}
   .idv3 p{margin:0;font-size:11.5px;color:var(--mut);line-height:1.55}
   .idv3 .st{margin-top:8px;font-size:11px;font-weight:700}
+  /* ---- issuance ladder ---- */
+  .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:36px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  @media(max-width:760px){.ladder{grid-template-columns:1fr 1fr}}
+  .ladder .step{padding:22px 20px;border-right:1px solid var(--line-soft);position:relative}
+  .ladder .step:last-child{border-right:0}
+  .ladder .step .n{font-family:var(--big);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.05em}
+  .ladder .step b{display:block;font-size:15.5px;margin:8px 0 4px}
+  .ladder .step p{margin:0;font-size:12.5px;color:var(--mut);line-height:1.55}
+  .ladder .step .ar{position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:14px;z-index:1;background:var(--panel);width:16px;text-align:center}
+  @media(max-width:760px){.ladder .step .ar{display:none}}
   /* ---- vault shelf ---- */
   .shelfbar{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 20px}
   .shelfbar .sf{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--mut);cursor:pointer;background:none;font-family:var(--disp)}
@@ -2801,6 +2811,21 @@ a.dealcard:hover{border-color:var(--line)}
   </div>
 </section>
 
+<section id="bringonchain">
+  <div class="wrap">
+    <span class="eyebrow rv">For mine operators &amp; royalty holders</span>
+    <h2 class="rv">Bring your royalty to market. Keep everything else.</h2>
+    <p class="lede rv">You keep the mine, the equity, the board and the economics. We handle the legal wrapper, the investor compliance, the structuring and the distribution — so your raise is investable from day one, in weeks, not quarters.</p>
+    <div class="ladder rv">
+      <div class="step"><span class="n">01</span><b>Underwrite</b><p>We read the reserve report, licence chain and production history — the same file a bank wants, in days not months.<span class="ar">→</span></p></div>
+      <div class="step"><span class="n">02</span><b>Structure</b><p>We design the royalty and its legal wrapper — rate, caps, buy-back, milestone tranches — registered against your licence.<span class="ar">→</span></p></div>
+      <div class="step"><span class="n">03</span><b>List</b><p>Your royalty becomes an investable instrument, with KYC/AML and suitability enforced before any investor touches it.<span class="ar">→</span></p></div>
+      <div class="step"><span class="n">04</span><b>Get paid</b><p>Capital lands. You draw against production, on your milestones, with no equity given up and no board seat sold.</p></div>
+    </div>
+    <p class="b-cap rv" style="margin-top:22px">Investors onboard against our structure and licences, not yours. You run the mine; we run the raise.</p>
+  </div>
+</section>
+
 <section id="structuring">
   <div class="wrap">
     <span class="eyebrow rv">The objection every good miner raises</span>
@@ -3278,6 +3303,20 @@ a.dealcard:hover{border-color:var(--line)}
       <div class="std"><span class="ix">05</span><b>Licence-registered security</b><p>Every royalty is registered against the mining licence in the host jurisdiction, with local counsel's enforceability opinion.</p></div>
       <div class="std"><span class="ix">06</span><b>Custody &amp; transfer controls</b><p>Fractions move only between verified holders. The register is the record; the token is its instrument.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="distribution">
+  <div class="wrap">
+    <span class="eyebrow rv">For investors &amp; institutions</span>
+    <h2 class="rv">One instrument. Every way in.</h2>
+    <p class="lede rv">A Midas royalty isn't a private deal you can never exit. It's issued as an investable instrument — held directly, allocated through our vault strategies, or (as the market opens) accessed on the platforms you already use.</p>
+    <div class="grid4 grid3 rv" style="margin-top:36px">
+      <div class="r4"><b>Direct SPV</b><p>Own a named royalty in its own segregated vehicle — one asset, one full file, at institutional size. The purest form of the exposure.</p></div>
+      <div class="r4"><b>Vault strategies</b><p>Allocate to a diversified royalty vault the way you'd pick any yield strategy — gold-weighted for stability, base and development metals for yield. Manager's discretion, your risk budget.</p></div>
+      <div class="r4"><b>Distribution rails</b><p>As instruments season, they gain utility on the venues institutions already use — lending markets, curated RWA shelves, wealth platforms. Liquidity you inherit, not liquidity we promise.</p></div>
+    </div>
+    <p class="b-cap rv" style="margin-top:22px">Every instrument carries reserve reports, licence chain, enforceability opinion and monthly coverage attestation — verify it yourself before you allocate.</p>
   </div>
 </section>
 
