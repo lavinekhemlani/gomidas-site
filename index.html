@@ -468,6 +468,46 @@
   .idv3 b{display:block;font-size:12.5px;margin:5px 0 3px}
   .idv3 p{margin:0;font-size:11.5px;color:var(--mut);line-height:1.55}
   .idv3 .st{margin-top:8px;font-size:11px;font-weight:700}
+  /* ---- vault (Plume-style) ---- */
+  .vhero{display:grid;grid-template-columns:1.55fr 1fr;gap:30px;margin-top:14px;align-items:start}
+  @media(max-width:900px){.vhero{grid-template-columns:1fr}}
+  .vtabs{display:flex;gap:26px;border-bottom:1px solid var(--line);margin-bottom:30px}
+  .vtab{padding:12px 0;font-size:14.5px;font-weight:600;color:var(--mut);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;border-top:0;border-left:0;border-right:0;font-family:var(--disp)}
+  .vtab.on{color:var(--ink);border-bottom-color:var(--gold)}
+  .vname{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .vname .vic{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--gold-btn),#8A6B2F);display:flex;align-items:center;justify-content:center;font-family:var(--big);font-weight:800;font-size:20px;color:#0A0B0D}
+  .vname h2{margin:0;font-size:30px}
+  .vpills{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 22px}
+  .vpill{font-size:11px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--mut)}
+  .vstats{display:flex;gap:40px;margin-bottom:26px}
+  .vstat .k{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+  .vstat .v{font-family:var(--big);font-size:30px;font-weight:700;letter-spacing:-.02em}
+  .vstat .v.grn{color:var(--green)}
+  .vcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;position:sticky;top:86px}
+  .vcard .tt{display:flex;gap:22px;margin-bottom:16px;font-size:14px}
+  .vcard .tt button{background:none;border:0;color:var(--mut);font-weight:600;cursor:pointer;font-family:var(--disp);padding:0}
+  .vcard .tt button.on{color:var(--ink)}
+  .vfield{border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:12px}
+  .vfield .top{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mut);margin-bottom:6px}
+  .vfield .chips{display:flex;gap:6px}
+  .vfield .chips span{font-size:11px;border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--mut);cursor:pointer}
+  .vfield .row2{display:flex;justify-content:space-between;align-items:center}
+  .vfield input{border:0;background:none;font-size:26px;font-family:var(--big);color:var(--ink);width:60%;outline:none}
+  .vfield .tok{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:700;font-size:13.5px}
+  .vfield .tok i{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--gold-btn),#8A6B2F);display:inline-block}
+  .vrate{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mut);padding:9px 2px;border-top:1px solid var(--line-soft)}
+  .vrate b{color:var(--ink)}
+  .vsource{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;margin-top:14px}
+  @media(max-width:760px){.vsource{grid-template-columns:1fr}}
+  .valloc .ar{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line-soft)}
+  .valloc .ar .dot{width:26px;height:26px;border-radius:8px;flex:0 0 auto}
+  .valloc .ar b{font-size:14.5px;display:block}
+  .valloc .ar span{font-size:12px;color:var(--mut)}
+  .valloc .ar .pc{margin-left:auto;font-family:var(--big);font-weight:700;font-size:15px}
+  .vdonut{width:210px;height:210px;margin:0 auto;border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .vdonut .hole{width:120px;height:120px;border-radius:50%;background:var(--bg)}
+  .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+  @media(max-width:760px){.vgrid{grid-template-columns:repeat(2,1fr)}}
   .authwrap{max-width:520px}
   .authwrap .aform{margin-top:34px}
   .auth-alt{margin-top:18px;font-size:13px;color:var(--mut)}
@@ -1982,6 +2022,105 @@ a.dealcard:hover{border-color:var(--line)}
 </section>
 </div>
 
+<div data-route="vault">
+<section id="vaultpg">
+  <div class="wrap" style="max-width:1180px">
+    <div class="vname"><div class="vic">aR</div><div><h2 class="rv">aROYAL — Royalty Income I</h2></div></div>
+    <div class="vpills rv"><span class="vpill">Highest yield · producing-first</span><span class="vpill">Royalty financing</span><span class="vpill">Milestone-tranched</span><span class="vpill">Accredited only</span></div>
+
+    <div class="vtabs rv"><button class="vtab on" data-vt="overview">Overview</button><button class="vtab" data-vt="transparency">Transparency</button><button class="vtab" data-vt="performance">Performance</button><button class="vtab" data-vt="risk">Risk</button></div>
+
+    <div class="vhero">
+      <div>
+        <div class="vstats rv">
+          <div class="vstat"><div class="k">Vault APY (trailing)</div><div class="v grn" id="vApy">7.4%</div></div>
+          <div class="vstat"><div class="k">TVL</div><div class="v">$18.4M</div></div>
+          <div class="vstat"><div class="k">Exchange rate</div><div class="v" style="font-size:22px">1 aROYAL → <span id="vRate">1.0186</span> USDC</div></div>
+        </div>
+
+        <div class="vt-panel" data-vp="overview">
+          <h3 class="rv" style="font-size:22px;margin:8px 0 4px">Where does the yield come from</h3>
+          <p class="rv" style="font-size:14px;color:var(--mut);line-height:1.6;max-width:640px">A diversified book of mining royalties on producing and near-production assets — a fixed share of each mine's revenue, paid before costs, banks and shareholders. Cash flows accrue directly into the aROYAL token price rather than being distributed, so your position compounds. Trailing APY reflects royalties actually received, not a projection.</p>
+          <p class="rv" style="font-size:12px;color:var(--dim);letter-spacing:.05em;text-transform:uppercase;margin:24px 0 4px">Yield by asset</p>
+          <div class="vsource rv">
+            <div class="valloc">
+              <div class="ar"><span class="dot" style="background:#C6A15B"></span><div><b>Bauxite royalty · West Africa</b><span>Producing · existing NSR, paying now</span></div><span class="pc">38%</span></div>
+              <div class="ar"><span class="dot" style="background:#E3C37D"></span><div><b>Gold NSR · Nevada (secondary)</b><span>Producing · 1.0% of every sale</span></div><span class="pc">27%</span></div>
+              <div class="ar"><span class="dot" style="background:#3FB57E"></span><div><b>Salum salt · Morocco</b><span>Development · milestone-tranched, min. royalty live</span></div><span class="pc">22%</span></div>
+              <div class="ar"><span class="dot" style="background:#615C52"></span><div><b>Liquid reserve</b><span>Undeployed capital in T-bills</span></div><span class="pc">13%</span></div>
+            </div>
+            <div class="vdonut" style="background:conic-gradient(#C6A15B 0 38%,#E3C37D 38% 65%,#3FB57E 65% 87%,#615C52 87% 100%)"><div class="hole"></div></div>
+          </div>
+          <div class="vgrid rv">
+            <div class="r4"><b>Payout</b><p>Accrues to token price · quarterly cycle</p></div>
+            <div class="r4"><b>Yield type</b><p>Royalty receipts · variable, trailing</p></div>
+            <div class="r4"><b>Redemption</b><p>Quarterly windows · 5–20 days</p></div>
+            <div class="r4"><b>Reviews</b><p>Reserve reports · counsel opinions per asset</p></div>
+          </div>
+        </div>
+
+        <div class="vt-panel" data-vp="transparency" style="display:none">
+          <h3 class="rv" style="font-size:22px">Transparency</h3>
+          <p class="rv" style="font-size:14px;color:var(--mut);line-height:1.6;max-width:640px">Every asset in the vault carries its full file — NI 43-101 / JORC report, licence chain, and a local-counsel enforceability opinion — available to verified holders in the data room. NAV is struck on cost basis and re-marked only on verified production milestones. A monthly attestation confirms the coverage ratio.</p>
+          <div class="rtable rv" style="margin-top:18px">
+            <div class="rt-row rt-head"><span>Asset</span><span>Basis</span><span>Documentation</span></div>
+            <div class="rt-row"><span>Bauxite · West Africa</span><span>$/t on production</span><span>Reserve report · counsel opinion · in data room</span></div>
+            <div class="rt-row"><span>Gold NSR · Nevada</span><span>1.0% NSR</span><span>43-101 · payment history · in data room</span></div>
+            <div class="rt-row"><span>Salum salt · Morocco</span><span>$2.50/t + min. royalty</span><span>Memorandum · engineering study · consent-named</span></div>
+          </div>
+        </div>
+
+        <div class="vt-panel" data-vp="performance" style="display:none">
+          <h3 class="rv" style="font-size:22px">Performance</h3>
+          <p class="rv" style="font-size:14px;color:var(--mut);max-width:640px">Trailing token price since inception — receipts only, no projection. The line steps up as royalties land and re-rates as Salum advances toward Phase 2.</p>
+          <svg viewBox="0 0 700 220" style="width:100%;height:auto;margin-top:16px" preserveAspectRatio="xMidYMid meet">
+            <defs><linearGradient id="vpg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(63,181,126,.22)"/><stop offset="1" stop-color="rgba(63,181,126,0)"/></linearGradient></defs>
+            <polyline points="0,190 90,186 180,178 270,172 360,160 450,150 540,138 630,120 700,104" fill="none" stroke="#3FB57E" stroke-width="2.5"/>
+            <polygon points="0,190 90,186 180,178 270,172 360,160 450,150 540,138 630,120 700,104 700,220 0,220" fill="url(#vpg)"/>
+            <text x="6" y="205" fill="#615C52" font-size="11" font-family="Switzer">1.0000</text>
+            <text x="640" y="98" fill="#3FB57E" font-size="12" font-weight="700" font-family="Switzer">1.0186</text>
+          </svg>
+          <p class="b-cap rv">Illustrative — the vault has not launched. Figures shown as a demonstration of the mechanism, not a track record. Past performance never indicates future returns.</p>
+        </div>
+
+        <div class="vt-panel" data-vp="risk" style="display:none">
+          <h3 class="rv" style="font-size:22px">Risk</h3>
+          <div class="faqs rv" style="max-width:660px;margin-top:8px">
+            <details><summary><i>V.1</i>What can stop the yield?</summary><p>A mine slowing or pausing — royalty income falls with production. Producing-first selection, diversification across assets, and minimum-royalty floors on development deals limit any single asset's drag.</p></details>
+            <details><summary><i>V.2</i>Can I lose principal?</summary><p>Yes. Royalty interests are illiquid, a mine can fail, and the token price can fall. The honest base rates for this asset class are published on the <a href="#/learn" style="color:var(--gold)">Learn page</a>.</p></details>
+            <details><summary><i>V.3</i>How liquid is redemption?</summary><p>Quarterly windows funded by royalty receipts and the liquid reserve — a bond's liquidity, not a demand deposit's. Stated plainly, never over-promised.</p></details>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="vcard rv">
+          <div class="tt"><button class="on" data-vc="mint">Mint</button><button data-vc="redeem">Redeem</button><button data-vc="bridge">Bridge</button></div>
+          <div class="vfield"><div class="top"><span id="vcFromL">Deposit</span><div class="chips"><span>50%</span><span>Max</span></div></div><div class="row2"><input value="0.00" /><span class="tok"><i></i> USDC</span></div><div style="font-size:12px;color:var(--dim);margin-top:4px">$0.00</div></div>
+          <div style="text-align:center;color:var(--dim);font-size:16px;margin:-4px 0 8px">↓</div>
+          <div class="vfield"><div class="top"><span id="vcToL">Receive</span></div><div class="row2"><input value="0.00" /><span class="tok"><i></i> aROYAL</span></div><div style="font-size:12px;color:var(--dim);margin-top:4px">0.00 aROYAL</div></div>
+          <div class="vrate"><span>Exchange rate</span><b>1 aROYAL → 1.0186 USDC</b></div>
+          <div class="vrate"><span>Redemption time</span><b>Quarterly window</b></div>
+          <div class="vrate"><span>Eligibility</span><b>Accredited · verify to mint</b></div>
+          <a class="btn btn-gold" href="#/signup" style="display:block;text-align:center;margin-top:16px">Connect &amp; verify to mint</a>
+          <p style="font-size:10.5px;color:var(--dim);text-align:center;margin:10px 0 0;line-height:1.5">Demonstration interface. No funds move. Not an offer of securities.</p>
+        </div>
+      </aside>
+    </div>
+
+    <h3 class="rv" style="font-size:22px;margin:44px 0 6px">Audits &amp; Security</h3>
+    <p class="rv" style="font-size:14px;color:var(--mut)">Every royalty is independently reviewed before it enters the vault.</p>
+    <div class="rtable rv" style="margin-top:16px">
+      <div class="rt-row rt-head"><span>Scope</span><span>Reviewer</span><span>Status</span></div>
+      <div class="rt-row"><span>Reserve &amp; production (per asset)</span><span>Independent engineers / geologists</span><span>Required before listing</span></div>
+      <div class="rt-row"><span>Licence &amp; enforceability</span><span>Local counsel, per jurisdiction</span><span>Opinion on file</span></div>
+      <div class="rt-row"><span>Coverage &amp; NAV</span><span>Third-party attestation</span><span>Monthly</span></div>
+    </div>
+    <p class="b-cap rv" style="margin-top:20px">aROYAL is a demonstration of the Midas vault model. The vault has not launched; nothing on this page is an offer of securities or investment advice.</p>
+  </div>
+</section>
+</div>
+
 <div data-route="signup">
 <section id="signup">
   <div class="wrap" style="max-width:1220px">
@@ -3281,7 +3420,7 @@ a.dealcard:hover{border-color:var(--line)}
   /* ---- router: stakeholder pages + legal ---- */
   var main=document.getElementById('main'),lw=document.getElementById('legalwrap');
   var tickbar=document.querySelector('.tick');
-  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit','signup','login','deal','salum'];
+  var ROUTES=['home','markets','investors','operators','institutions','learn','earn','about','app','docs','submit','signup','login','deal','salum','vault'];
   var LEGAL=['disclosures','privacy','terms'];
   function currentRoute(){
     var h=location.hash;
@@ -3938,6 +4077,23 @@ a.dealcard:hover{border-color:var(--line)}
     paint(false);
   },2200);
   paint(true);
+})();
+
+/* ---- vault page tabs + mint/redeem/bridge ---- */
+(function(){
+  var tabs=document.querySelectorAll('.vtab');if(!tabs.length)return;
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.classList.remove('on')});t.classList.add('on');
+    var v=t.getAttribute('data-vt');
+    document.querySelectorAll('.vt-panel').forEach(function(p){p.style.display=p.getAttribute('data-vp')===v?'':'none';});
+  });});
+  var cbtn=document.querySelectorAll('.vcard .tt button'),fromL=document.getElementById('vcFromL'),toL=document.getElementById('vcToL');
+  cbtn.forEach(function(b){b.addEventListener('click',function(){
+    cbtn.forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+    var m=b.getAttribute('data-vc');
+    if(fromL)fromL.textContent=m==='redeem'?'Redeem':m==='bridge'?'From · Plume':'Deposit';
+    if(toL)toL.textContent=m==='redeem'?'Receive':m==='bridge'?'To · Ethereum':'Receive';
+  });});
 })();
 </script>
 </body>
