@@ -2025,7 +2025,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div class="vstats rv">
           <div class="vstat"><div class="k">Vault APY (trailing)</div><div class="v grn" id="vApy">7.4%</div></div>
           <div class="vstat"><div class="k">TVL</div><div class="v">$18.4M</div></div>
-          <div class="vstat"><div class="k">Exchange rate</div><div class="v" style="font-size:22px">1 mROYAL → <span id="vRate">1.0186</span> mUSD</div></div>
+          <div class="vstat"><div class="k">Exchange rate</div><div class="v" style="font-size:22px">1 mROYAL → <span id="vRate">1.0186</span> USDC</div></div>
         </div>
 
         <div class="vt-panel" data-vp="overview">
@@ -2086,10 +2086,10 @@ a.dealcard:hover{border-color:var(--line)}
       <aside>
         <div class="vcard rv">
           <div class="tt"><button class="on" data-vc="mint">Mint</button><button data-vc="redeem">Redeem</button><button data-vc="bridge">Bridge</button></div>
-          <div class="vfield"><div class="top"><span id="vcFromL">Deposit</span><div class="chips"><span>50%</span><span>Max</span></div></div><div class="row2"><input value="0.00" /><span class="tok"><i></i> mUSD</span></div><div style="font-size:12px;color:var(--dim);margin-top:4px">$0.00</div></div>
+          <div class="vfield"><div class="top"><span id="vcFromL">Deposit</span><div class="chips"><span>50%</span><span>Max</span></div></div><div class="row2"><input value="0.00" /><span class="tok"><i></i> USDC</span></div><div style="font-size:12px;color:var(--dim);margin-top:4px">$0.00</div></div>
           <div style="text-align:center;color:var(--dim);font-size:16px;margin:-4px 0 8px">↓</div>
           <div class="vfield"><div class="top"><span id="vcToL">Receive</span></div><div class="row2"><input value="0.00" /><span class="tok"><i></i> mROYAL</span></div><div style="font-size:12px;color:var(--dim);margin-top:4px">0.00 mROYAL</div></div>
-          <div class="vrate"><span>Exchange rate</span><b>1 mROYAL → 1.0186 mUSD</b></div>
+          <div class="vrate"><span>Exchange rate</span><b>1 mROYAL → 1.0186 USDC</b></div>
           <div class="vrate"><span>Redemption time</span><b>Quarterly window</b></div>
           <div class="vrate"><span>Eligibility</span><b>Accredited · verify to mint</b></div>
           <a class="btn btn-gold" href="#/signup" style="display:block;text-align:center;margin-top:16px">Connect &amp; verify to mint</a>
@@ -3744,7 +3744,7 @@ a.dealcard:hover{border-color:var(--line)}
           c+='<div class="prow"><span>'+x.d+' · '+esc(d.n)+'</span><b>'+usd(x.a)+' <em class="up" style="font-style:normal">+'+usd(accrued(x))+' accrued</em></b></div>';});
         } else c+='<div class="pempty">No positions yet. Your first royalty is three clicks away.</div>';
         c+='<button class="pbtn" id="buyOpen" style="margin-top:12px">'+(P.length?'New order':'Buy your first royalty')+'</button>'+
-        '<div class="buyform" id="buyForm"><select id="buyDeal">'+dealOpts()+'</select><input id="buyAmt" type="number" min="100000" step="25000" placeholder="Amount in mUSD — accredited investors" /><button class="pbtn" id="buyGo">Review &amp; confirm</button> <span style="font-size:11px;color:var(--dim)">Simulated order — funds move only after verification and signed docs.</span></div></div>'+
+        '<div class="buyform" id="buyForm"><select id="buyDeal">'+dealOpts()+'</select><input id="buyAmt" type="number" min="100000" step="25000" placeholder="Amount in USD — accredited investors" /><button class="pbtn" id="buyGo">Review &amp; confirm</button> <span style="font-size:11px;color:var(--dim)">Simulated order — funds move only after verification and signed docs.</span></div></div>'+
         '<div class="pmod"><h4>Income</h4><div class="sub">Lands quarterly — in digital gold or fiat, your choice</div>'+(P.length?
           '<div class="prow"><span>Next distribution window</span><b>Oct 15, 2026</b></div><div class="prow"><span>Estimated next payout</span><b class="up">'+usd(P.reduce(function(a,x){var d=DEALS.filter(function(q){return q.id===x.d})[0]||{y:10};return a+x.a*d.y/400},0))+'</b></div><div class="prow"><span>Lifetime received</span><b>$0.00 — first window ahead</b></div>'
           :'<div class="pempty">Buy a fraction and this fills with real dates and real amounts.</div>')+'</div></div>';
