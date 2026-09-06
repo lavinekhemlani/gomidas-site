@@ -469,6 +469,25 @@
   .idv3 b{display:block;font-size:12.5px;margin:5px 0 3px}
   .idv3 p{margin:0;font-size:11.5px;color:var(--mut);line-height:1.55}
   .idv3 .st{margin-top:8px;font-size:11px;font-weight:700}
+  /* ---- wallet ---- */
+  .btn-wallet{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:9px 16px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:var(--disp)}
+  .btn-wallet.conn{color:var(--green);border-color:rgba(63,181,126,.4)}
+  .wmodal{position:fixed;inset:0;background:rgba(10,11,13,.55);display:none;align-items:center;justify-content:center;z-index:300;backdrop-filter:blur(3px)}
+  .wmodal.on{display:flex}
+  .wbox{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px;width:min(400px,92vw)}
+  .wbox h3{margin:0 0 4px;font-size:19px}
+  .wbox p{margin:0 0 18px;font-size:12.5px;color:var(--mut)}
+  .wopt{display:flex;align-items:center;gap:14px;width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;cursor:pointer;font-family:var(--disp);font-size:15px;font-weight:600;color:var(--ink)}
+  .wopt:hover{border-color:var(--gold-line)}
+  .wopt i{width:28px;height:28px;border-radius:8px;display:inline-block}
+  .wclose{background:none;border:0;color:var(--dim);font-size:13px;cursor:pointer;margin-top:6px;font-family:var(--disp)}
+  .vnetsel{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13.5px;font-weight:600;margin-bottom:14px;cursor:pointer;justify-content:space-between}
+  .vnetsel .nd{width:18px;height:18px;border-radius:50%;background:#627EEA;display:inline-block}
+  .vcard details{border-top:1px solid var(--line-soft);padding:9px 2px}
+  .vcard details summary{font-size:12.5px;color:var(--mut);cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+  .vcard details summary::after{content:'⌄';color:var(--dim)}
+  .vcard details[open] summary::after{content:'⌃'}
+  .vcard details p{font-size:12px;color:var(--mut);margin:8px 0 2px;line-height:1.55}
   /* ---- institutional bands ---- */
   .valstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:8px}
   @media(max-width:760px){.valstrip{grid-template-columns:1fr 1fr}}
@@ -1237,6 +1256,7 @@ a.dealcard:hover{border-color:var(--line)}
       <a href="#/liquidity" data-route-link="liquidity">Liquidity</a>
       <a href="#/learn" data-route-link="learn">Learn</a>
       <a href="#/about" data-route-link="about">About</a>
+      <button class="btn-wallet" id="walletBtn">Connect wallet</button>
       <a href="#/app" class="btn btn-gold" data-route-link="app" id="navApp">Launch app</a>
       <button class="tbtn" id="themeBtn" aria-label="Toggle light and dark mode">◐</button>
     </div>
@@ -1254,6 +1274,7 @@ a.dealcard:hover{border-color:var(--line)}
     <a href="#/docs">Docs</a>
     <a href="#/submit">Submit your asset</a>
     <a href="#/app" id="navAppM">Launch app</a>
+    <button class="btn-wallet" id="walletBtnM" style="margin:10px 0 0">Connect wallet</button>
   </div>
 </nav>
 
@@ -2085,6 +2106,7 @@ a.dealcard:hover{border-color:var(--line)}
 
       <aside>
         <div class="vcard rv">
+          <div class="vnetsel" id="vNet" title="Network"><span style="display:flex;align-items:center;gap:8px"><span class="nd"></span><b id="vNetName">Ethereum</b></span><span style="color:var(--dim)">⌄</span></div>
           <div class="tt"><button class="on" data-vc="mint">Mint</button><button data-vc="redeem">Redeem</button><button data-vc="bridge">Bridge</button></div>
           <div class="vfield"><div class="top"><span id="vcFromL">Deposit</span><div class="chips"><span>50%</span><span>Max</span></div></div><div class="row2"><input value="0.00" /><span class="tok"><i></i> USDC</span></div><div style="font-size:12px;color:var(--dim);margin-top:4px">$0.00</div></div>
           <div style="text-align:center;color:var(--dim);font-size:16px;margin:-4px 0 8px">↓</div>
@@ -2092,7 +2114,10 @@ a.dealcard:hover{border-color:var(--line)}
           <div class="vrate"><span>Exchange rate</span><b>1 mROYAL → 1.0186 USDC</b></div>
           <div class="vrate"><span>Redemption time</span><b>Quarterly window</b></div>
           <div class="vrate"><span>Eligibility</span><b>Accredited · verify to mint</b></div>
-          <a class="btn btn-gold" href="#/signup" style="display:block;text-align:center;margin-top:16px">Connect &amp; verify to mint</a>
+          <div class="vrate"><span>Instant liquidity capacity</span><b id="vLiqCap">$— · funds at launch</b></div>
+          <details><summary>Redemption timeline</summary><p>Small redemptions clear from the liquid reserve. Larger redemptions clear at the quarterly window, funded as royalty receipts land. Stated honestly — a bond's liquidity, not a demand deposit's.</p></details>
+          <details><summary>Transaction fees</summary><p>Mint: none. Redemption: 0.05&ndash;0.15% to the vault (anti-churn). Network gas at cost. No performance fee on the index; management fee accrues inside the rate.</p></details>
+          <button class="btn btn-gold" id="vMintBtn" style="display:block;width:100%;text-align:center;margin-top:16px;border:0;cursor:pointer">Connect wallet</button>
           <p style="font-size:10.5px;color:var(--dim);text-align:center;margin:10px 0 0;line-height:1.5">Demonstration interface. No funds move. Not an offer of securities.</p>
         </div>
       </aside>
@@ -4137,6 +4162,41 @@ a.dealcard:hover{border-color:var(--line)}
   paint(true);
 })();
 
+/* ---- wallet (demo) ---- */
+(function(){
+  var W=null;try{W=localStorage.getItem('midas_wallet')}catch(e){}
+  function short(a){return a.slice(0,6)+'…'+a.slice(-4)}
+  function paint(){
+    ['walletBtn','walletBtnM'].forEach(function(id){var x=document.getElementById(id);if(!x)return;
+      if(W){x.textContent='● '+short(W);x.classList.add('conn');}else{x.textContent='Connect wallet';x.classList.remove('conn');}});
+    var mb=document.getElementById('vMintBtn');
+    if(mb){var u=null;try{u=localStorage.getItem('midas_user')}catch(e){}
+      mb.textContent=!W?'Connect wallet':(!u?'Verify to mint':'Mint — demo');}
+  }
+  function open(){var m=document.getElementById('wModal');if(m)m.classList.add('on');}
+  function close(){var m=document.getElementById('wModal');if(m)m.classList.remove('on');}
+  function toggle(){ if(W){ if(confirm('Disconnect wallet?')){W=null;try{localStorage.removeItem('midas_wallet')}catch(e){};paint();} } else open(); }
+  ['walletBtn','walletBtnM'].forEach(function(id){var x=document.getElementById(id);if(x)x.addEventListener('click',toggle);});
+  var wc=document.getElementById('wClose');if(wc)wc.addEventListener('click',close);
+  var wm=document.getElementById('wModal');if(wm)wm.addEventListener('click',function(e){if(e.target===wm)close();});
+  document.querySelectorAll('.wopt').forEach(function(b){b.addEventListener('click',function(){
+    var hex='0123456789abcdef',a='0x';for(var i=0;i<40;i++)a+=hex[Math.floor(Math.random()*16)];
+    W=a;try{localStorage.setItem('midas_wallet',a)}catch(e){};close();paint();
+  });});
+  var mb=document.getElementById('vMintBtn');
+  if(mb)mb.addEventListener('click',function(){
+    var u=null;try{u=localStorage.getItem('midas_user')}catch(e){}
+    if(!W){open();return;}
+    if(!u){location.hash='#/signup';return;}
+    mb.textContent='✓ Demo only — no funds move';setTimeout(paint,2200);
+  });
+  var vn=document.getElementById('vNet');
+  if(vn){var nets=[['Ethereum','#627EEA'],['Plume','#141618'],['Solana','#9945FF'],['Base','#0052FF']],ni=0;
+    vn.addEventListener('click',function(){ni=(ni+1)%nets.length;
+      document.getElementById('vNetName').textContent=nets[ni][0];vn.querySelector('.nd').style.background=nets[ni][1];});}
+  paint();
+})();
+
 /* ---- vault page tabs + mint/redeem/bridge ---- */
 (function(){
   var sfb=document.querySelectorAll('.shelfbar .sf');
@@ -4163,5 +4223,16 @@ a.dealcard:hover{border-color:var(--line)}
   });});
 })();
 </script>
+<div class="wmodal" id="wModal" role="dialog" aria-label="Connect a wallet">
+  <div class="wbox">
+    <h3>Connect a wallet</h3>
+    <p>Demonstration — no transaction is possible and no wallet permissions are requested.</p>
+    <button class="wopt" data-w="MetaMask"><i style="background:linear-gradient(135deg,#F6851B,#E2761B)"></i> MetaMask</button>
+    <button class="wopt" data-w="WalletConnect"><i style="background:linear-gradient(135deg,#3B99FC,#1C7DF0)"></i> WalletConnect</button>
+    <button class="wopt" data-w="Coinbase Wallet"><i style="background:linear-gradient(135deg,#1652F0,#0A46E4)"></i> Coinbase Wallet</button>
+    <button class="wopt" data-w="Ledger"><i style="background:linear-gradient(135deg,#41474D,#141618)"></i> Ledger</button>
+    <div style="text-align:center"><button class="wclose" id="wClose">Cancel</button></div>
+  </div>
+</div>
 </body>
 </html>
