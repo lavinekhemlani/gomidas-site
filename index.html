@@ -1350,12 +1350,74 @@ a.dealcard:hover{border-color:var(--line)}
     <span class="eyebrow rv">The products</span>
     <h2 class="rv">Pick your metal. Pick your yield.</h2>
     <p class="lede rv">Each product is a vault of mining royalties — deposit, and your position earns a share of real royalty cash flow, paid into the token price. Gold for stability, base and development metals for yield.</p>
-    <div class="mines rv" style="grid-template-columns:repeat(3,1fr);margin-top:32px">
-      <a class="r4" href="#/vaults" style="text-decoration:none;color:inherit;display:block"><b style="color:var(--gold)">mGOLD · Gold Royalty</b><p>Producing gold streams · paid in gold · target 5&ndash;7%</p></a>
-      <a class="r4" href="#/vaults" style="text-decoration:none;color:inherit;display:block"><b style="color:var(--gold)">mROYAL · The Royalty Index</b><p>Every royalty we underwrite, one token · target 7&ndash;12%</p></a>
-      <a class="r4" href="#/vaults" style="text-decoration:none;color:inherit;display:block"><b style="color:var(--gold)">mDEV · Development Convexity</b><p>Pre-production royalties · qualified only · target 15&ndash;35%</p></a>
+    <div class="shelf rv" id="homeshelf" style="margin-top:32px">
+      <div class="shelf-h"><span>Vault</span><span>Token</span><span>Target yield</span><span>Size</span><span>Assets</span><span>Status</span></div>
+      <a class="shelf-r" href="#/vault" data-cat="gold">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#E3C37D,#8A6B2F)">mR</span><div><b>mROYAL</b><span class="cat">The royalty index · every asset on the platform</span></div></div>
+        <div><span class="sr-tok">mROYAL</span></div>
+        <div class="sr-apy">7–12%<small>trailing, target</small></div>
+        <div class="sr-tvl">$18.4M</div>
+        <div class="sr-assets"><i style="background:#C6A15B"></i><i style="background:#B7BEC8"></i><i style="background:#3FB57E"></i><i style="background:#615C52"></i></div>
+        <div><span class="sr-st live">Live mandate</span></div>
+      </a>
+      <a class="shelf-r" href="#/salum" data-cat="base">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#7FB8D8,#3A6E8A)">mS</span><div><b>mSALT</b><span class="cat">Salt royalty · Morocco</span></div></div>
+        <div><span class="sr-tok">mSALT</span></div>
+        <div class="sr-apy">10–15% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
+        <div class="sr-tvl">$10M</div>
+        <div class="sr-assets"><i style="background:#7FB8D8"></i></div>
+        <div><span class="sr-st dili">In diligence</span></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="gold">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#E3C37D,#B08A3E)">mG</span><div><b>mGOLD</b><span class="cat">Gold royalty · paid in gold</span></div></div>
+        <div><span class="sr-tok">mGOLD</span></div>
+        <div class="sr-apy">5–7% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
+        <div class="sr-tvl">—</div>
+        <div class="sr-assets"><i style="background:#C6A15B"></i></div>
+        <div><span class="sr-st dili">In diligence</span></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="base">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#C77B4A,#7A4626)">mC</span><div><b>mCOPPER</b><span class="cat">Copper royalty · USA / Canada</span></div></div>
+        <div><span class="sr-tok">mCOPPER</span></div>
+        <div class="sr-apy">12–17% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
+        <div class="sr-tvl">—</div>
+        <div class="sr-assets"><i style="background:#C77B4A"></i></div>
+        <div><span class="sr-st dili">In diligence</span></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="base">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#9AA0A6,#5C6066)">mI</span><div><b>mIRON</b><span class="cat">Iron ore royalty · West Africa</span></div></div>
+        <div><span class="sr-tok">mIRON</span></div>
+        <div class="sr-apy">10–14% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
+        <div class="sr-tvl">$20M</div>
+        <div class="sr-assets"><i style="background:#8A8F98"></i></div>
+        <div><span class="sr-st dili">In diligence</span></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="base">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#C0C0C8,#7E7E88)">mA</span><div><b>mALUM</b><span class="cat">Bauxite royalty · secondary</span></div></div>
+        <div><span class="sr-tok">mALUM</span></div>
+        <div class="sr-apy">11–15% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
+        <div class="sr-tvl">$5M</div>
+        <div class="sr-assets"><i style="background:#B7BEC8"></i></div>
+        <div><span class="sr-st dili">In diligence</span></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="dev">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#B7D0E0,#5F7C8C)">mL</span><div><b>mLITH</b><span class="cat">Lithium royalty · development</span></div></div>
+        <div><span class="sr-tok">mLITH</span></div>
+        <div class="sr-apy">15–25% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
+        <div class="sr-tvl">—</div>
+        <div class="sr-assets"><i style="background:#B7D0E0"></i></div>
+        <div><span class="sr-st src">Sourcing</span></div>
+      </a>
+      <a class="shelf-r" href="#/vault" data-cat="dev">
+        <div class="sr-name"><span class="sr-ic" style="background:linear-gradient(135deg,#C6A15B,#3FB57E)">mD</span><div><b>mDEV</b><span class="cat">Development convexity · qualified</span></div></div>
+        <div><span class="sr-tok">mDEV</span></div>
+        <div class="sr-apy">15–35% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
+        <div class="sr-tvl">—</div>
+        <div class="sr-assets"><i style="background:#C6A15B"></i><i style="background:#3FB57E"></i></div>
+        <div><span class="sr-st src">Sourcing</span></div>
+      </a>
     </div>
-    <p class="rv" style="margin-top:24px"><a class="btn btn-gold" href="#/vaults">See all products →</a></p>
+    <p class="b-cap rv" style="margin-top:16px">Target ranges by stage and commodity — not live rates, not guarantees. Statuses are real. <a href="#/vaults" style="color:var(--gold)">Product details →</a></p>
   </div>
 </section>
 
@@ -4277,7 +4339,7 @@ a.dealcard:hover{border-color:var(--line)}
     sfb.forEach(function(b){b.addEventListener('click',function(){
       sfb.forEach(function(x){x.classList.remove('on')});b.classList.add('on');
       var f=b.getAttribute('data-sf');
-      document.querySelectorAll('.shelf-r').forEach(function(r){
+      document.querySelectorAll('#vaultshelf .shelf-r').forEach(function(r){
         r.style.display=(f==='all'||r.getAttribute('data-cat')===f)?'':'none';});
     });});
   }
