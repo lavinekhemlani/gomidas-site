@@ -551,8 +551,7 @@
   .shelf-r{display:grid;grid-template-columns:2.2fr 0.9fr 1.1fr 0.9fr 1fr 0.9fr;gap:12px;padding:16px 22px;align-items:center;border-bottom:1px solid var(--line-soft);cursor:pointer;text-decoration:none;color:inherit;transition:background .15s}
   .sr-tok{font-family:var(--disp);font-size:12.5px;font-weight:600;border:1px solid var(--line);border-radius:8px;padding:5px 11px;color:var(--mut);display:inline-block}
   .sr-assets{display:flex;align-items:center}
-  .sr-assets i{width:22px;height:22px;border-radius:50%;border:2px solid var(--panel);margin-left:-7px;background:var(--panel-2);display:inline-block}
-  .sr-assets i:first-child{margin-left:0}
+  .sr-assets span{font-size:12px;color:var(--mut);font-weight:600;letter-spacing:.02em;border:1px solid var(--line);border-radius:8px;padding:4px 10px;white-space:nowrap}
   .sr-info{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;border:1px solid var(--line);color:var(--dim);font-size:10px;margin-left:6px;cursor:help;font-style:normal}
   .shelf-r:hover{background:var(--panel-2)}
   .shelf-r:last-child{border-bottom:0}
@@ -1383,7 +1382,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mROYAL</span></div>
         <div class="sr-apy">7–12%<small>trailing, target</small></div>
         <div class="sr-tvl">$18.4M</div>
-        <div class="sr-assets"><i style="background:#C6A15B"></i><i style="background:#B7BEC8"></i><i style="background:#3FB57E"></i><i style="background:#615C52"></i></div>
+        <div class="sr-assets"><span>4 assets · Al Au salt</span></div>
         <div><span class="sr-st live">Live mandate</span></div>
       </a>
       <a class="shelf-r" href="#/salum" data-cat="base">
@@ -1391,7 +1390,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mSALT</span></div>
         <div class="sr-apy">10–15% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">$10M</div>
-        <div class="sr-assets"><i style="background:#7FB8D8"></i></div>
+        <div class="sr-assets"><span>Salt</span></div>
         <div><span class="sr-st dili">In diligence</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="gold">
@@ -1399,7 +1398,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mGOLD</span></div>
         <div class="sr-apy">5–7% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">—</div>
-        <div class="sr-assets"><i style="background:#C6A15B"></i></div>
+        <div class="sr-assets"><span>Au</span></div>
         <div><span class="sr-st dili">In diligence</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="base">
@@ -1407,7 +1406,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mCOPPER</span></div>
         <div class="sr-apy">12–17% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">—</div>
-        <div class="sr-assets"><i style="background:#C77B4A"></i></div>
+        <div class="sr-assets"><span>Cu</span></div>
         <div><span class="sr-st dili">In diligence</span></div>
       </a>
       <a class="shelf-r" href="#/mtlucky" data-cat="base">
@@ -1415,7 +1414,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mIRON-AU</span></div>
         <div class="sr-apy">19.8% <em class="sr-info" title="Base case: $1.75/t on the company schedule = 1.75x over ~4 years. Target, not a live rate.">i</em><small>target IRR · 1.75×</small></div>
         <div class="sr-tvl">$3.5M</div>
-        <div class="sr-assets"><i style="background:#B0522D"></i></div>
+        <div class="sr-assets"><span>Fe · Mn</span></div>
         <div><span class="sr-st live">Live mandate</span></div>
       </a>
       <a class="shelf-r" href="#/mofe" data-cat="base">
@@ -1423,7 +1422,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mIRON-LR</span></div>
         <div class="sr-apy">21.4% <em class="sr-info" title="Base case: $3.00/t on 1Mtpa = $3.0M/yr on $14M. 32.1% at full 1.5Mtpa ramp. Rate steps to $2.00/t after 5Mt. Target, not a live rate.">i</em><small>target APY · 32.1% at ramp</small></div>
         <div class="sr-tvl">$14M</div>
-        <div class="sr-assets"><i style="background:#8A8F98"></i></div>
+        <div class="sr-assets"><span>Fe</span></div>
         <div><span class="sr-st live">Live mandate</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="base">
@@ -1431,7 +1430,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mALUM</span></div>
         <div class="sr-apy">11–15% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">$5M</div>
-        <div class="sr-assets"><i style="background:#B7BEC8"></i></div>
+        <div class="sr-assets"><span>Al</span></div>
         <div><span class="sr-st dili">In diligence</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="dev">
@@ -1439,7 +1438,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mLITH</span></div>
         <div class="sr-apy">15–25% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">—</div>
-        <div class="sr-assets"><i style="background:#B7D0E0"></i></div>
+        <div class="sr-assets"><span>Li</span></div>
         <div><span class="sr-st src">Sourcing</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="dev">
@@ -1447,7 +1446,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mDEV</span></div>
         <div class="sr-apy">15–35% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">—</div>
-        <div class="sr-assets"><i style="background:#C6A15B"></i><i style="background:#3FB57E"></i></div>
+        <div class="sr-assets"><span>Multi</span></div>
         <div><span class="sr-st src">Sourcing</span></div>
       </a>
     </div>
@@ -2140,7 +2139,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mROYAL</span></div>
         <div class="sr-apy">7–12%<small>trailing, target</small></div>
         <div class="sr-tvl">$18.4M</div>
-        <div class="sr-assets"><i style="background:#C6A15B"></i><i style="background:#B7BEC8"></i><i style="background:#3FB57E"></i><i style="background:#615C52"></i></div>
+        <div class="sr-assets"><span>4 assets · Al Au salt</span></div>
         <div><span class="sr-st live">Live mandate</span></div>
       </a>
       <a class="shelf-r" href="#/salum" data-cat="base">
@@ -2148,7 +2147,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mSALT</span></div>
         <div class="sr-apy">10–15% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">$10M</div>
-        <div class="sr-assets"><i style="background:#7FB8D8"></i></div>
+        <div class="sr-assets"><span>Salt</span></div>
         <div><span class="sr-st dili">In diligence</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="gold">
@@ -2156,7 +2155,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mGOLD</span></div>
         <div class="sr-apy">5–7% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">—</div>
-        <div class="sr-assets"><i style="background:#C6A15B"></i></div>
+        <div class="sr-assets"><span>Au</span></div>
         <div><span class="sr-st dili">In diligence</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="base">
@@ -2164,7 +2163,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mCOPPER</span></div>
         <div class="sr-apy">12–17% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">—</div>
-        <div class="sr-assets"><i style="background:#C77B4A"></i></div>
+        <div class="sr-assets"><span>Cu</span></div>
         <div><span class="sr-st dili">In diligence</span></div>
       </a>
       <a class="shelf-r" href="#/mtlucky" data-cat="base">
@@ -2172,7 +2171,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mIRON-AU</span></div>
         <div class="sr-apy">19.8% <em class="sr-info" title="Base case: $1.75/t on the company schedule = 1.75x over ~4 years. Target, not a live rate.">i</em><small>target IRR · 1.75×</small></div>
         <div class="sr-tvl">$3.5M</div>
-        <div class="sr-assets"><i style="background:#B0522D"></i></div>
+        <div class="sr-assets"><span>Fe · Mn</span></div>
         <div><span class="sr-st live">Live mandate</span></div>
       </a>
       <a class="shelf-r" href="#/mofe" data-cat="base">
@@ -2180,7 +2179,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mIRON-LR</span></div>
         <div class="sr-apy">21.4% <em class="sr-info" title="Base case: $3.00/t on 1Mtpa = $3.0M/yr on $14M. 32.1% at full 1.5Mtpa ramp. Rate steps to $2.00/t after 5Mt. Target, not a live rate.">i</em><small>target APY · 32.1% at ramp</small></div>
         <div class="sr-tvl">$14M</div>
-        <div class="sr-assets"><i style="background:#8A8F98"></i></div>
+        <div class="sr-assets"><span>Fe</span></div>
         <div><span class="sr-st live">Live mandate</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="base">
@@ -2188,7 +2187,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mALUM</span></div>
         <div class="sr-apy">11–15% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">$5M</div>
-        <div class="sr-assets"><i style="background:#B7BEC8"></i></div>
+        <div class="sr-assets"><span>Al</span></div>
         <div><span class="sr-st dili">In diligence</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="dev">
@@ -2196,7 +2195,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mLITH</span></div>
         <div class="sr-apy">15–25% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">—</div>
-        <div class="sr-assets"><i style="background:#B7D0E0"></i></div>
+        <div class="sr-assets"><span>Li</span></div>
         <div><span class="sr-st src">Sourcing</span></div>
       </a>
       <a class="shelf-r" href="#/vault" data-cat="dev">
@@ -2204,7 +2203,7 @@ a.dealcard:hover{border-color:var(--line)}
         <div><span class="sr-tok">mDEV</span></div>
         <div class="sr-apy">15–35% <em class="sr-info" title="Target band by stage and commodity — not a live rate">i</em><small>target</small></div>
         <div class="sr-tvl">—</div>
-        <div class="sr-assets"><i style="background:#C6A15B"></i><i style="background:#3FB57E"></i></div>
+        <div class="sr-assets"><span>Multi</span></div>
         <div><span class="sr-st src">Sourcing</span></div>
       </a>
     </div>
