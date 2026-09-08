@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
 <style>
   :root{
     --navbg:rgba(10,11,13,.85); --menubg:rgba(10,11,13,.92);
@@ -42,7 +42,7 @@
   }
   :root[data-theme="light"]{
     --navbg:rgba(255,255,255,.92); --menubg:rgba(255,255,255,.97);
-    --bg:#FBFBF9; --panel:#FFFFFF; --panel-2:#F4F5F3; --line:#E3E4DF; --line-soft:#ECECE8;
+    --bg:#FCFCFA; --panel:#FFFFFF; --panel-2:#F6F6F4; --line:#ECECE8; --line-soft:#F2F2EE;
     --ink:#17243B; --mut:#57616F; --dim:#969DA9;
     --gold:#8F6B25; --gold-soft:rgba(143,107,37,.07); --gold-line:rgba(143,107,37,.35);
     --gold-btn:#C6A15B;
@@ -134,9 +134,11 @@
   @media(max-width:1080px){.nlinks{display:none}.burger{display:block}.mmenu.open{display:flex}}
 
   /* ---------- section frame ---------- */
-  section{padding:140px 0;border-top:1px solid var(--line-soft);position:relative}
+  section{padding:clamp(110px,12vw,170px) 0;border-top:1px solid var(--line-soft);position:relative}
   section:first-of-type{border-top:0}
-  .eyebrow{font-size:13.5px;font-weight:600;letter-spacing:.01em;color:var(--gold)}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  [data-theme="light"] h1,[data-theme="light"] h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;letter-spacing:-.015em}
+  [data-theme="light"] .vname h2,[data-theme="light"] .wbox h3{font-family:'Source Serif 4',Georgia,serif}
   h2{font-family:var(--big);font-size:clamp(1.9rem,1.3rem + 2.4vw,3.1rem);line-height:1.06;letter-spacing:-.03em;
     font-weight:700;margin:18px 0 0;max-width:22ch;text-wrap:balance}
   .lede{margin:20px 0 0;color:var(--mut);font-size:1.08rem;max-width:52ch;line-height:1.55}
