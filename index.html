@@ -471,6 +471,17 @@
   .idv3 b{display:block;font-size:12.5px;margin:5px 0 3px}
   .idv3 p{margin:0;font-size:11.5px;color:var(--mut);line-height:1.55}
   .idv3 .st{margin-top:8px;font-size:11px;font-weight:700}
+  /* ---- nav dropdowns ---- */
+  .navdd{position:relative;display:inline-block}
+  .navdd>a::after{content:' ⌄';font-size:11px;color:var(--dim)}
+  .ndmenu{position:absolute;top:calc(100% + 10px);left:-12px;background:var(--menubg);border:1px solid var(--line);border-radius:16px;padding:10px;min-width:250px;display:none;box-shadow:0 18px 50px rgba(10,11,13,.10);z-index:60}
+  .navdd:hover .ndmenu,.navdd:focus-within .ndmenu{display:block}
+  .ndmenu::before{content:'';position:absolute;top:-12px;left:0;right:0;height:14px}
+  .ndmenu a{display:block;padding:10px 12px;border-radius:10px;line-height:1.35}
+  .ndmenu a:hover{background:var(--panel-2)}
+  .ndmenu a b{display:block;font-size:14px;color:var(--ink)}
+  .ndmenu a span{font-size:12px;color:var(--mut);font-weight:400}
+  .ndsec{font-size:10px;letter-spacing:.12em;color:var(--dim);padding:10px 12px 2px;text-transform:uppercase;font-weight:600}
   /* ---- wallet ---- */
   .btn-wallet{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:9px 16px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:var(--disp)}
   .btn-wallet.conn{color:var(--green);border-color:rgba(63,181,126,.4)}
@@ -1254,10 +1265,23 @@ a.dealcard:hover{border-color:var(--line)}
       <a href="#/investors" data-route-link="investors">Investors</a>
       <a href="#/institutions" data-route-link="institutions">Institutions</a>
       <a href="#/operators" data-route-link="operators">Miners</a>
-      <a href="#/vaults" data-route-link="vaults">Earn</a>
-      <a href="#/liquidity" data-route-link="liquidity">Liquidity</a>
-      <a href="#/learn" data-route-link="learn">Learn</a>
-      <a href="#/about" data-route-link="about">About</a>
+      <span class="navdd"><a href="#/vaults" data-route-link="vaults">Products</a>
+        <div class="ndmenu">
+          <a href="#/vaults"><b>All products</b><span>The vault shelf — every strategy.</span></a>
+          <div class="ndsec">Infrastructure</div>
+          <a href="#/docs"><b>Transparency</b><span>How every number is produced and checked.</span></a>
+          <a href="#/liquidity"><b>Liquidity</b><span>Reserve, windows, borrowing, pools.</span></a>
+        </div>
+      </span>
+      <span class="navdd"><a href="#/about" data-route-link="about">Resources</a>
+        <div class="ndmenu">
+          <a href="#/about"><b>About</b><span>What Midas is, and who runs it.</span></a>
+          <a href="#/docs"><b>Docs</b><span>The attestation engine and methodology.</span></a>
+          <a href="#/learn"><b>Learn</b><span>How royalties work — including the odds.</span></a>
+          <a href="#/blog"><b>Blog</b><span>Notes from the build.</span></a>
+          <a href="#/careers"><b>Careers</b><span>We hire slowly.</span></a>
+        </div>
+      </span>
       <button class="btn-wallet" id="walletBtn">Connect wallet</button>
       <a href="#/app" class="btn btn-gold" data-route-link="app" id="navApp">Launch app</a>
       <button class="tbtn" id="themeBtn" aria-label="Toggle light and dark mode">◐</button>
