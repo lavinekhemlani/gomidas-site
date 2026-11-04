@@ -2713,8 +2713,7 @@ function qualRender(){
         <button class="btn btn-g qs-go" onclick="QS.i=0;qualRender()">Change my answers</button></div>`; } }
   else if(step==='lead') body=`<h3>Nice! What’s your name?</h3><p class="qs-sub">As it appears on your ID.</p>
     <div class="qs-fields"><input id="qsName" placeholder="First and last name" autocomplete="name" value="${((QS.first||'')+' '+(QS.last||'')).trim()}"></div>
-    <p class="qs-sub" style="margin-top:16px">Your phone number &mdash; WhatsApp preferred. The bank’s offer arrives here.</p>
-    <div class="qs-fields"><input id="qsPhone" type="tel" inputmode="tel" placeholder="${QS_PHONE[curCountry]||'0803 000 0000'}" autocomplete="tel" value="${QS.phone||''}"></div>
+    <div class="qs-fields" style="margin-top:16px"><input id="qsPhone" type="tel" inputmode="tel" placeholder="Phone number &mdash; WhatsApp preferred" autocomplete="tel" value="${QS.phone||''}"></div>
     ${err}<button class="btn btn-a btn-lg qs-go" onclick="qsSave('lead')">Next</button>`;
   else if(step==='work') body=`<h3>Where do you work?</h3><p class="qs-sub">Or the name of your business.</p>
     <div class="qs-fields"><input id="qsEmployer" placeholder="Employer or business" autocomplete="organization" value="${QS.employer||''}"></div>
