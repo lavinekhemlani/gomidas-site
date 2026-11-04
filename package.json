@@ -1,0 +1,9 @@
+{
+  "name": "midas-site",
+  "private": true,
+  "type": "module",
+  "description": "Static site plus the Ask Midas function (netlify/functions/ask.mjs).",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.4.0"
+  }
+}

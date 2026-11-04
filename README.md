@@ -1,40 +1,10 @@
-# Midas — gomidas.co
+# Midas — creator financial services (landing site)
 
-The market for mining royalties. Single static `index.html`, no build step.
+Single-page marketing site for Midas (Compass + Copilot offers for creators).
+Static site — `index.html` is the whole thing (self-contained, no build step).
 
-## Pages (hash-routed)
-`#/home` (simple, mass-market) · `#/investors` (instrument + rails + process + FAQ)
-· `#/operators` (miners: what you get / speed race / term sheet / underwriting)
-· `#/institutions` (lanes + structure + founder) · legal: `#/disclosures` `#/privacy` `#/terms`
-Access form + footer render on every page. In-page # anchors scroll without breaking the route.
+## Deploy
+Connected to Netlify. Every push to `main` auto-deploys.
 
-## Design direction (v2 — rebuilt from zero)
-"Engineered document, gold restraint," per deep research on Kalshi/Polymarket/Ondo/
-Hyperliquid/Percent/octamem + the royalty incumbents:
-- Light institutional page (near-white, targeting wealthy global investors) with TWO dark
-  terminal objects: the instrument certificate (hero) and the underwriting pipeline board.
-- Type: Switzer (Fontshare) display/body + JetBrains Mono for all data. NOT Space Grotesk/
-  Inter/cream — those are the AI-design cluster.
-- octamem-style § section numbering; Percent-style old-route-vs-Midas table + 5-step walkthrough.
-- One accent (#96762F text gold / #C6A15B button gold). No gradients on text, no stock photos.
-
-## Copy rules (standing)
-- Category creation: no incumbent names anywhere. Name the void.
-- No UAE/Dubai in the marketing layer — global investors. Jurisdiction lives in #/disclosures only.
-- No return projections / target IRRs. Structures and sizes only.
-- No fake liquidity: the board is an underwriting pipeline, labelled PREVIEW / NOT AN OFFER,
-  rows 3-5 blurred behind Request Access.
-- Voice: blunt, human, Sam Parr rules. No "Until now." / tidy triples / em-dash flourishes.
-
-## Verified
-375px real-device emulation: zero overflow. Desktop 1440. No console errors. Values render
-without JS. NOTE: headless Chrome clamps layout to 500px min width — never trust a
---window-size=390 screenshot for mobile QA; use the browser pane's mobile preset.
-
-## Before investors
-- [ ] UAE counsel review of #/disclosures (written defensively, not vetted)
-- [ ] Confirm the licensed entity referenced in disclosures
-- [ ] Netlify deploy activates the access form (currently records nothing)
-
-## Local
-node "/Users/lavinehemlani/Desktop/2nd Brain/.claude/serve_midas_royalty.js"  # :4455
+## Edit
+Everything lives in `index.html`. Push to `main` to ship.

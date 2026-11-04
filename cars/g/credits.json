@@ -1,0 +1,1616 @@
+{
+ "creta": [
+  {
+   "f": "creta-1.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta",
+   "view": "front34"
+  },
+  {
+   "f": "creta-2.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta",
+   "view": "side"
+  },
+  {
+   "f": "creta-3.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta",
+   "view": "rear"
+  },
+  {
+   "f": "creta-4.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta",
+   "view": "interior"
+  },
+  {
+   "f": "creta-5.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta",
+   "view": "dash"
+  },
+  {
+   "f": "creta-6.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta",
+   "view": "lifestyle"
+  }
+ ],
+ "rx5": [
+  {
+   "f": "rx5-1.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/newmgrx5/",
+   "view": "front34"
+  },
+  {
+   "f": "rx5-2.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/newmgrx5/",
+   "view": "front34"
+  },
+  {
+   "f": "rx5-3.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/newmgrx5/",
+   "view": "side"
+  },
+  {
+   "f": "rx5-4.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/newmgrx5/",
+   "view": "rear"
+  },
+  {
+   "f": "rx5-5.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/newmgrx5/",
+   "view": "interior"
+  },
+  {
+   "f": "rx5-6.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/newmgrx5/",
+   "view": "wheel"
+  }
+ ],
+ "grandi10": [
+  {
+   "f": "grandi10-1.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/grandi10",
+   "view": "front34"
+  },
+  {
+   "f": "grandi10-2.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/grandi10",
+   "view": "side"
+  },
+  {
+   "f": "grandi10-3.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/grandi10",
+   "view": "rear"
+  },
+  {
+   "f": "grandi10-4.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/grandi10",
+   "view": "interior"
+  },
+  {
+   "f": "grandi10-5.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/grandi10",
+   "view": "steering"
+  },
+  {
+   "f": "grandi10-6.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/grandi10",
+   "view": "rear"
+  }
+ ],
+ "grandcreta": [
+  {
+   "f": "grandcreta-1.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta-grand",
+   "view": "front34"
+  },
+  {
+   "f": "grandcreta-2.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta-grand",
+   "view": "side"
+  },
+  {
+   "f": "grandcreta-3.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta-grand",
+   "view": "rear"
+  },
+  {
+   "f": "grandcreta-4.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta-grand",
+   "view": "interior"
+  },
+  {
+   "f": "grandcreta-5.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta-grand",
+   "view": "steering"
+  },
+  {
+   "f": "grandcreta-6.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/creta-grand",
+   "view": "wheel"
+  }
+ ],
+ "santafe": [
+  {
+   "f": "santafe-1.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/santa-fe",
+   "view": "front34"
+  },
+  {
+   "f": "santafe-2.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/santa-fe",
+   "view": "side"
+  },
+  {
+   "f": "santafe-3.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/santa-fe",
+   "view": "lifestyle"
+  },
+  {
+   "f": "santafe-4.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/santa-fe",
+   "view": "interior"
+  },
+  {
+   "f": "santafe-5.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/santa-fe",
+   "view": "steering"
+  },
+  {
+   "f": "santafe-6.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/santa-fe",
+   "view": "boot"
+  }
+ ],
+ "navara": [
+  {
+   "f": "navara-1.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan.ng/vehicles/navara",
+   "view": "front34"
+  },
+  {
+   "f": "navara-2.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan.ng/vehicles/navara",
+   "view": "front34"
+  },
+  {
+   "f": "navara-3.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan.ng/vehicles/navara",
+   "view": "lifestyle"
+  },
+  {
+   "f": "navara-4.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan.co.za/vehicles/new/navara/accessories.html",
+   "view": "side"
+  },
+  {
+   "f": "navara-5.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan.ng/vehicles/navara",
+   "view": "dash"
+  },
+  {
+   "f": "navara-6.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan.ng/vehicles/navara",
+   "view": "front34"
+  }
+ ],
+ "urvan": [
+  {
+   "f": "urvan-1.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan.ng/vehicles/nv350-urvan",
+   "view": "front34"
+  },
+  {
+   "f": "urvan-2.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan-me.com/vehicles/new/urvan.html",
+   "view": "front34"
+  },
+  {
+   "f": "urvan-3.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan.ng/vehicles/nv350-urvan",
+   "view": "rear"
+  },
+  {
+   "f": "urvan-4.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan-me.com/vehicles/new/urvan.html",
+   "view": "dash"
+  },
+  {
+   "f": "urvan-5.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan.ng/vehicles/nv350-urvan",
+   "view": "lifestyle"
+  },
+  {
+   "f": "urvan-6.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan-me.com/vehicles/new/urvan.html",
+   "view": "rear"
+  }
+ ],
+ "hrv": [
+  {
+   "f": "hrv-1.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/Hrv-new",
+   "view": "front34"
+  },
+  {
+   "f": "hrv-2.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/Hrv-new",
+   "view": "side"
+  },
+  {
+   "f": "hrv-3.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/Hrv-new",
+   "view": "rear"
+  },
+  {
+   "f": "hrv-4.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/Hrv-new",
+   "view": "dash"
+  },
+  {
+   "f": "hrv-5.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/Hrv-new",
+   "view": "steering"
+  },
+  {
+   "f": "hrv-6.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/Hrv-new",
+   "view": "seats"
+  }
+ ],
+ "mg5": [
+  {
+   "f": "mg5-1.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-5/",
+   "view": "front34"
+  },
+  {
+   "f": "mg5-2.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-5/",
+   "view": "side"
+  },
+  {
+   "f": "mg5-3.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-5/",
+   "view": "rear"
+  },
+  {
+   "f": "mg5-4.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-5/",
+   "view": "interior"
+  },
+  {
+   "f": "mg5-5.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-5/",
+   "view": "wheel"
+  },
+  {
+   "f": "mg5-6.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-5/",
+   "view": "boot"
+  }
+ ],
+ "pilot": [
+  {
+   "f": "pilot-1.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/New-Pilot",
+   "view": "front34"
+  },
+  {
+   "f": "pilot-2.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/New-Pilot",
+   "view": "front34"
+  },
+  {
+   "f": "pilot-3.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/New-Pilot",
+   "view": "side"
+  },
+  {
+   "f": "pilot-4.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/New-Pilot",
+   "view": "rear"
+  },
+  {
+   "f": "pilot-5.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/New-Pilot",
+   "view": "dash"
+  },
+  {
+   "f": "pilot-6.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/New-Pilot",
+   "view": "lifestyle"
+  }
+ ],
+ "accent": [
+  {
+   "f": "accent-1.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/kw/en/find-a-car/accent-2024/highlights",
+   "view": "front34"
+  },
+  {
+   "f": "accent-2.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/kw/en/find-a-car/accent-2024/highlights",
+   "view": "front34"
+  },
+  {
+   "f": "accent-3.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/kw/en/find-a-car/accent-2024/highlights",
+   "view": "side"
+  },
+  {
+   "f": "accent-4.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/kw/en/find-a-car/accent-2024/highlights",
+   "view": "interior"
+  },
+  {
+   "f": "accent-5.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/kw/en/find-a-car/accent-2024/highlights",
+   "view": "boot"
+  },
+  {
+   "f": "accent-6.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/kw/en/find-a-car/accent-2024/highlights",
+   "view": "lifestyle"
+  }
+ ],
+ "crv": [
+  {
+   "f": "crv-1.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://honda-mideast.com/en/automobiles/crossover-suv/CR-V",
+   "view": "front34"
+  },
+  {
+   "f": "crv-2.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://hondanews.eu/eu/en/cars/media/photos/436211",
+   "view": "front34"
+  },
+  {
+   "f": "crv-3.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://hondanews.eu/eu/en/cars/media/photos/436213",
+   "view": "side"
+  },
+  {
+   "f": "crv-4.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://hondanews.eu/eu/en/cars/media/photos/436204",
+   "view": "dash"
+  },
+  {
+   "f": "crv-5.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://hondanews.eu/eu/en/cars/media/photos/436193",
+   "view": "steering"
+  },
+  {
+   "f": "crv-6.jpg",
+   "t": "Official Honda imagery",
+   "lic": "© Honda",
+   "by": "Honda",
+   "src": "https://hondanews.eu/eu/en/cars/media/photos/436207",
+   "view": "wheel"
+  }
+ ],
+ "staria": [
+  {
+   "f": "staria-1.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/ph/en/find-a-car/staria-hybrid/convenience",
+   "view": "front34"
+  },
+  {
+   "f": "staria-2.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/ph/en/find-a-car/staria-hybrid/design",
+   "view": "front34"
+  },
+  {
+   "f": "staria-3.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/ph/en/find-a-car/staria-hybrid/space",
+   "view": "interior"
+  },
+  {
+   "f": "staria-4.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/ph/en/find-a-car/staria-hybrid/highlights",
+   "view": "dash"
+  },
+  {
+   "f": "staria-5.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://www.hyundai.com/ph/en/find-a-car/staria-hybrid/highlights",
+   "view": "seats"
+  }
+ ],
+ "palisade": [
+  {
+   "f": "palisade-1.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/palisade",
+   "view": "front34"
+  },
+  {
+   "f": "palisade-2.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/palisade",
+   "view": "side"
+  },
+  {
+   "f": "palisade-3.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/palisade",
+   "view": "rear"
+  },
+  {
+   "f": "palisade-4.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/palisade",
+   "view": "interior"
+  },
+  {
+   "f": "palisade-5.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/palisade",
+   "view": "dash"
+  },
+  {
+   "f": "palisade-6.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/palisade",
+   "view": "seats"
+  }
+ ],
+ "tucson": [
+  {
+   "f": "tucson-1.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/tucson",
+   "view": "front34"
+  },
+  {
+   "f": "tucson-2.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/tucson",
+   "view": "side"
+  },
+  {
+   "f": "tucson-3.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/tucson",
+   "view": "rear"
+  },
+  {
+   "f": "tucson-4.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/tucson",
+   "view": "interior"
+  },
+  {
+   "f": "tucson-5.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/tucson",
+   "view": "dash"
+  },
+  {
+   "f": "tucson-6.jpg",
+   "t": "Official Hyundai imagery",
+   "lic": "© Hyundai",
+   "by": "Hyundai",
+   "src": "https://hyundai.africa/en/models/tucson",
+   "view": "lifestyle"
+  }
+ ],
+ "rx9": [
+  {
+   "f": "rx9-1.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-rx9/",
+   "view": "front34"
+  },
+  {
+   "f": "rx9-2.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg-rx9/",
+   "view": "side"
+  },
+  {
+   "f": "rx9-3.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg-rx9/",
+   "view": "rear"
+  },
+  {
+   "f": "rx9-4.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg-rx9/",
+   "view": "interior"
+  },
+  {
+   "f": "rx9-5.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-rx9/",
+   "view": "steering"
+  },
+  {
+   "f": "rx9-6.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-rx9/",
+   "view": "wheel"
+  }
+ ],
+ "mg7": [
+  {
+   "f": "mg7-1.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-7/",
+   "view": "front34"
+  },
+  {
+   "f": "mg7-2.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg7/",
+   "view": "side"
+  },
+  {
+   "f": "mg7-3.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg7/",
+   "view": "rear"
+  },
+  {
+   "f": "mg7-4.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg7/",
+   "view": "interior"
+  },
+  {
+   "f": "mg7-5.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg7/",
+   "view": "steering"
+  },
+  {
+   "f": "mg7-6.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg7/",
+   "view": "wheel"
+  }
+ ],
+ "alpartner": [
+  {
+   "f": "alpartner-1.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/in/lightvehicles/smallcommercialvechicles/partner",
+   "view": "front34"
+  },
+  {
+   "f": "alpartner-2.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/in/lightvehicles/smallcommercialvechicles/partner",
+   "view": "front34"
+  },
+  {
+   "f": "alpartner-3.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/in/lightvehicles/smallcommercialvechicles/partner/gallery?&productId=1645",
+   "view": "front34"
+  }
+ ],
+ "s6ev": [
+  {
+   "f": "s6ev-1.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg-s6/",
+   "view": "front34"
+  },
+  {
+   "f": "s6ev-2.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg-s6/",
+   "view": "side"
+  },
+  {
+   "f": "s6ev-3.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.eu/model/mgs6",
+   "view": "lifestyle"
+  },
+  {
+   "f": "s6ev-4.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg-s6/",
+   "view": "interior"
+  },
+  {
+   "f": "s6ev-5.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg-s6/",
+   "view": "steering"
+  },
+  {
+   "f": "s6ev-6.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.eu/model/mgs6",
+   "view": "wheel"
+  }
+ ],
+ "cyberster": [
+  {
+   "f": "cyberster-1.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.eu/model/cyberster",
+   "view": "front34"
+  },
+  {
+   "f": "cyberster-2.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/mg-cyberster/",
+   "view": "side"
+  },
+  {
+   "f": "cyberster-3.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.eu/model/cyberster",
+   "view": "lifestyle"
+  },
+  {
+   "f": "cyberster-4.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.eu/model/cyberster",
+   "view": "rear"
+  },
+  {
+   "f": "cyberster-5.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-cyberster/",
+   "view": "steering"
+  },
+  {
+   "f": "cyberster-6.jpg",
+   "t": "Official MG Motor imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://www.mgmotor.me/models/mg-cyberster/",
+   "view": "interior"
+  }
+ ],
+ "rx8": [
+  {
+   "f": "rx8-1.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/brochure/MG_RX8.pdf",
+   "view": "front34"
+  },
+  {
+   "f": "rx8-2.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/wp-json/wp/v2/media?search=rx8",
+   "view": "interior"
+  },
+  {
+   "f": "rx8-3.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/wp-json/wp/v2/media?search=rx8",
+   "view": "steering"
+  },
+  {
+   "f": "rx8-4.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/wp-json/wp/v2/media?search=rx8",
+   "view": "dash"
+  },
+  {
+   "f": "rx8-5.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/wp-json/wp/v2/media?search=rx8",
+   "view": "seats"
+  },
+  {
+   "f": "rx8-6.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/wp-json/wp/v2/media?search=rx8",
+   "view": "boot"
+  }
+ ],
+ "e311": [
+  {
+   "f": "e311-1.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://benteng.faw.cn/carDetail?id=57&name=%E6%82%A6%E6%84%8F03",
+   "view": "front34"
+  },
+  {
+   "f": "e311-2.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://benteng.faw.cn/carDetail?id=57&name=%E6%82%A6%E6%84%8F03",
+   "view": "rear"
+  },
+  {
+   "f": "e311-3.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://benteng.faw.cn/carDetail?id=57&name=%E6%82%A6%E6%84%8F03",
+   "view": "front34"
+  },
+  {
+   "f": "e311-4.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://benteng.faw.cn/carDetail?id=57&name=%E6%82%A6%E6%84%8F03",
+   "view": "dash"
+  },
+  {
+   "f": "e311-5.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://benteng.faw.cn/carDetail?id=57&name=%E6%82%A6%E6%84%8F03",
+   "view": "front34"
+  }
+ ],
+ "t90": [
+  {
+   "f": "t90-1.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/new-bestune-t90/",
+   "view": "front34"
+  },
+  {
+   "f": "t90-2.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/new-bestune-t90/",
+   "view": "rear"
+  },
+  {
+   "f": "t90-3.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/new-bestune-t90/",
+   "view": "dash"
+  },
+  {
+   "f": "t90-4.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/new-bestune-t90/",
+   "view": "boot"
+  }
+ ],
+ "t77": [
+  {
+   "f": "t77-1.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/bestune-t77/",
+   "view": "front34"
+  },
+  {
+   "f": "t77-2.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/bestune-t77/",
+   "view": "front34"
+  },
+  {
+   "f": "t77-3.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/bestune-t77/",
+   "view": "front34"
+  },
+  {
+   "f": "t77-4.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/bestune-t77/",
+   "view": "rear"
+  },
+  {
+   "f": "t77-5.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/bestune-t77/",
+   "view": "interior"
+  },
+  {
+   "f": "t77-6.jpg",
+   "t": "Official FAW Bestune imagery",
+   "lic": "© FAW Bestune",
+   "by": "FAW Bestune",
+   "src": "https://bestune.ru/models/bestune-t77/",
+   "view": "steering"
+  }
+ ],
+ "xtrail": [
+  {
+   "f": "xtrail-1.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan-me.com/vehicles/new/x-trail.html",
+   "view": "front34"
+  },
+  {
+   "f": "xtrail-2.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan-me.com/vehicles/new/x-trail.html",
+   "view": "side"
+  },
+  {
+   "f": "xtrail-3.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan-me.com/vehicles/new/x-trail.html",
+   "view": "rear"
+  },
+  {
+   "f": "xtrail-4.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan-me.com/vehicles/new/x-trail.html",
+   "view": "dash"
+  },
+  {
+   "f": "xtrail-5.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan-me.com/vehicles/new/x-trail.html",
+   "view": "seats"
+  },
+  {
+   "f": "xtrail-6.jpg",
+   "t": "Official Nissan imagery",
+   "lic": "© Nissan",
+   "by": "Nissan",
+   "src": "https://www.nissan-me.com/vehicles/new/x-trail/n-trek.html",
+   "view": "wheel"
+  }
+ ],
+ "al1718": [
+  {
+   "f": "al1718-1.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/ke/trucks/haulage/cargo-1618-e4-haulage-rhd/gallery?variant=trucks/haulage/cargo-1618-e4-haulage-rhd",
+   "view": "front34"
+  },
+  {
+   "f": "al1718-2.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/ke/trucks/haulage/cargo-1618-e4-haulage-rhd/gallery?variant=trucks/haulage/cargo-1618-e4-haulage-rhd",
+   "view": "front34"
+  },
+  {
+   "f": "al1718-3.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/ke/trucks/haulage/cargo-1618-e4-haulage-rhd",
+   "view": "front34"
+  },
+  {
+   "f": "al1718-4.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/ke/trucks/tippers/cargo-1618-e4-tipper-rhd",
+   "view": "lifestyle"
+  },
+  {
+   "f": "al1718-5.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/ke/trucks/haulage/cargo-1618-e4-haulage-rhd/gallery?variant=trucks/haulage/cargo-1618-e4-haulage-rhd",
+   "view": "front34"
+  }
+ ],
+ "alphoenix": [
+  {
+   "f": "alphoenix-1.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/in/lightvehicles/smallcommercialvechicles/bada-dost-i5",
+   "view": "front34"
+  },
+  {
+   "f": "alphoenix-2.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/in/lightvehicles/smallcommercialvechicles/bada-dost-i5/gallery?&productId=7110",
+   "view": "front34"
+  },
+  {
+   "f": "alphoenix-3.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/in/lightvehicles/smallcommercialvechicles/bada-dost-i5/gallery?&productId=7110",
+   "view": "front34"
+  },
+  {
+   "f": "alphoenix-4.jpg",
+   "t": "Official Ashok Leyland imagery",
+   "lic": "© Ashok Leyland",
+   "by": "Ashok Leyland",
+   "src": "https://www.ashokleyland.com/in/lightvehicles/smallcommercialvechicles/bada-dost-i5",
+   "view": "front34"
+  }
+ ],
+ "t60": [
+  {
+   "f": "t60-1.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/t60/",
+   "view": "front34"
+  },
+  {
+   "f": "t60-2.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/t60/",
+   "view": "side"
+  },
+  {
+   "f": "t60-3.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/t60/",
+   "view": "front34"
+  },
+  {
+   "f": "t60-4.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/t60/",
+   "view": "lifestyle"
+  },
+  {
+   "f": "t60-5.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/t60/",
+   "view": "dash"
+  },
+  {
+   "f": "t60-6.jpg",
+   "t": "Official MG Motor Nigeria imagery",
+   "lic": "© MG Motor / SAIC",
+   "by": "MG Motor",
+   "src": "https://mgmotor.com.ng/t60/",
+   "view": "wheel"
+  }
+ ],
+ "xpeng-g6": [
+  {
+   "f": "xpeng-g6-1.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-03/cc362365922d4ff182d1d1cb81696298.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g6-2.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/xpwebsite/prod/2024-09-23/469e6d0f7ecf41de830c8b85745af6f0.png",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g6-3.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-03/abd4d830705541ba99992f08e6d9590c.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g6-4.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-03/801413fb04624ca6a1f4432e8d6687f0.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g6-5.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-08/23fa362849db4e7f931a4e228c327900.jpg",
+   "view": ""
+  }
+ ],
+ "xpeng-g7": [
+  {
+   "f": "xpeng-g7-1.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2025/12-30/pic_20251230113331_56965.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g7-2.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2025/12-30/pic_20251230091852_17752.png",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g7-3.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2025/12-30/pic_20251230113331_67369.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g7-4.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2025/12-30/pic_20251230113531_47362.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g7-5.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2025/12-30/pic_20251230113331_27857.jpg",
+   "view": ""
+  }
+ ],
+ "xpeng-p7plus": [
+  {
+   "f": "xpeng-p7plus-1.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xpeng-uae.com/images/P7LongRange.png",
+   "view": ""
+  },
+  {
+   "f": "xpeng-p7plus-2.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/xpwebsite/prod/2025-12-30/7ccc70b3c164441a806694cd017df113.png",
+   "view": ""
+  },
+  {
+   "f": "xpeng-p7plus-3.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2026/01-05/pic_20260105134130_86833.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-p7plus-4.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-12-29/28f8d52a1a7848b28059e823cb0a1df2.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-p7plus-5.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xpeng-uae.com/images/P7PlusWeb.jpg",
+   "view": ""
+  }
+ ],
+ "xpeng-g9-625-max": [
+  {
+   "f": "xpeng-g9-625-max-1.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-04/21e6b014d9c749978f0751c77fff0d57.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g9-625-max-2.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-04/0642c2ea6ef0418b827865c9372f9b53.png",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g9-625-max-3.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-04/55ceea6d94114ece978a5359f6ecdca3.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g9-625-max-4.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-07/67e3401dabd24201b5b191838e9466fd.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g9-625-max-5.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-07/c526e49eccfd4aa0a56870b85c77f648.jpg",
+   "view": ""
+  }
+ ],
+ "xpeng-g9-680-max-awd": [
+  {
+   "f": "xpeng-g9-680-max-awd-1.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-04/21e6b014d9c749978f0751c77fff0d57.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g9-680-max-awd-2.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-04/0642c2ea6ef0418b827865c9372f9b53.png",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g9-680-max-awd-3.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-04/55ceea6d94114ece978a5359f6ecdca3.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g9-680-max-awd-4.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-07/67e3401dabd24201b5b191838e9466fd.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-g9-680-max-awd-5.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-07/c526e49eccfd4aa0a56870b85c77f648.jpg",
+   "view": ""
+  }
+ ],
+ "xpeng-x9": [
+  {
+   "f": "xpeng-x9-1.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-x9-2.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://s-cdn.xpeng.com/commoncms/prod/2026-03-23/4a318d30623c42a2935e8ef960fb8654.png",
+   "view": ""
+  },
+  {
+   "f": "xpeng-x9-3.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2025/11-05/pic_20251105152715_78729.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-x9-4.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2025/11-03/pic_20251103134857_14887.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-x9-5.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2025/11-01/pic_20251101112813_86380.jpg",
+   "view": ""
+  }
+ ],
+ "xpeng-gx-ultra-se": [
+  {
+   "f": "xpeng-gx-ultra-se-1.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2026/04-12/pic_20260412171627_62926.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-gx-ultra-se-2.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2026/04-12/pic_20260412171627_13076.png",
+   "view": ""
+  },
+  {
+   "f": "xpeng-gx-ultra-se-3.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2026/05-15/pic_20260515111618_18971.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-gx-ultra-se-4.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2026/05-20/pic_20260520101451_91533.jpg",
+   "view": ""
+  },
+  {
+   "f": "xpeng-gx-ultra-se-5.jpg",
+   "t": "Official XPeng imagery",
+   "lic": "© XPeng",
+   "by": "XPeng",
+   "src": "https://xps01.xiaopeng.com/cms/material/pic/2026/05-15/pic_20260515111618_69652.jpg",
+   "view": ""
+  }
+ ]
+}
