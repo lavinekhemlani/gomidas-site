@@ -4009,14 +4009,14 @@ function renderBank(){
 function renderDealer(){
   const listed=VEHICLES.length*140, apps=Math.round(listed*.31), bids=Math.round(apps*.88), acc=Math.round(bids*.52), fund=Math.round(acc*.91);
   const avgTicket=17400000, avgLoan=avgTicket*.65;
-  const vol=fund*avgLoan, comm=vol*.022;
+  const vol=fund*avgLoan, comm=vol*.025;
   const f=[['Certified units listed',listed,''],['Finance applications',apps,'31% of viewers start an application once a monthly number is on the card'],
     ['Received ≥1 offer',bids,'88% — there are enough banks that almost everyone gets priced'],
     ['Accepted an offer',acc,'52% — choice converts; a single-bank offer converts far lower'],
     ['Funded & delivered',fund,'91% of acceptances complete']];
   $('#dealerBody').innerHTML=`
     <div class="grid g4" style="grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px">
-      ${[['Financed volume',NGNs(vol),'12 months, illustrative'],['Midas commission',NGNs(comm),'2.2% of funded principal'],
+      ${[['Financed volume',NGNs(vol),'12 months, illustrative'],['Midas commission',NGNs(comm),'2.5% of funded principal'],
          ['Avg decision','31 hrs','vs 40–45 days unassisted'],['Attach rate',pct(fund/listed*100,0),'of listed units sold on finance']]
         .map(([k,v2,s])=>`<div class="card pad"><div class="tiny faint">${k}</div><div style="font-family:var(--display);font-size:1.75rem;font-weight:600;letter-spacing:-.02em;margin:5px 0 3px">${v2}</div><div class="tiny muted">${s}</div></div>`).join('')}
     </div>
